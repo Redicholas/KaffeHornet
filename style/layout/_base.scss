@@ -1,3 +1,9 @@
+body {
+    font-family: 'Urbanist', sans-serif;
+    letter-spacing: 0.1rem;
+    
+}
+
 .landing-page {
     background: url("../../img/kaffekopp-bg.jpg");
     background-size: cover;
@@ -8,17 +14,53 @@
         text-align: center;
         padding-top: 5rem;
         font-size: 3rem;
+        font-weight: lighter;
     }
     a {
-        padding: 1.5rem 3rem;
-        background: orangered;
+        padding: 1rem 2rem;
+        background: #E05E00;
         border-radius: 2.5rem;
         position: absolute;
         bottom: 5rem;
         right: 3rem;
-        color: black;
+        color: #fff;
         text-decoration: none;
         font-size: 1.3rem;
-        font-weight: bold;
+    }
+}
+
+.products {
+    background: #D9C09A;
+    padding: 2rem;
+    h2 {
+        text-align: center;
+    }
+    .item {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        background: #ae9774;
+        border-radius: 0.8rem;
+        padding: 0.5rem;
+        margin: 1rem auto;
+        img {
+            margin-right: 1rem;
+            border-radius: 0.8rem;;
+        }
+        .item-content {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            .item-info {
+                display: flex;
+                flex-direction: column;
+            }
+            .item-selection {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                right: 0;
+            }
+        }
     }
 }
