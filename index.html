@@ -8,18 +8,57 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/style.css">
-    <title>Kaffe Hörnan</title>
+    <title>Kaffe Hörnet</title>
 </head>
 <body>
-    <section class="landing-page">
-        <h1>Välkommen till <br> Kaffe Hörnan</h1>
+    <div class="landing-page">
+        <h1>Välkommen till <br> Kaffe Hörnet</h1>
         <a href="#products">Våra Produkter</a>
-    </section>
+    </div>
 
     <section class="products" id="products">
         <h2>Våra Produkter</h2>
-        <button>Sortera</button>
+        <label for="sort">Sortera efter:</label>
+        <select name="sort">
+            <option value="rising">Pris: Stigande</option>
+            <option value="falling">Pris: Fallande</option>
+            <option value="name">Namn</option>
+        </select>
 
+        <div class="product-grid">
+
+        <!-- Mall för produkter -->
+        <div class="product-card product-card-1">
+            <div class="image">
+                <img src="img/beans.jpg" height="100" width="100" alt="">
+            </div>
+            <div class="product-info">
+                <h3>Titel</h3>
+                <p>Info</p>
+                <div class="product-selection">
+                    <p>Pris</p>
+                    <button>Köp</button>
+                    <select name="amount" id="amount">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    </section>
+    <section class="basket">
+        <h2>Varukorgen</h2>
         <div class="item">
             <img src="img/beans.jpg" height="100" width="100" alt="">
             <div class="item-content">
@@ -35,13 +74,6 @@
                 </div>
             </div>
         </div>
-
-        
-
-    </section>
-    <section class="basket">
-        <h2>Varukorgen</h2>
-
     </section>
     <script src="app.js"></script>
 </body>
