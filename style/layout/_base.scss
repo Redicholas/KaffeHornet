@@ -1,7 +1,21 @@
+$col-white: #fff;
+$col-light: #F0E4D4;
+$col-beige: #DCBFA1;
+$col-gray-brown: #7E6E5F;
+$col-dark-brown: #3F2D21;
+$col-accent-dark: #435046;
+$col-accent-light: #8DB4A2;
+
+
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Urbanist', sans-serif;
     letter-spacing: 0.1rem;
-    
+    background: $col-beige;
 }
 
 .landing-page {
@@ -9,7 +23,7 @@ body {
     background-size: cover;
     background-position: center;
     height: 100vh;
-    color: white;
+    color: $col-light;
     h1 {
         text-align: center;
         padding-top: 5rem;
@@ -18,20 +32,21 @@ body {
     }
     a {
         padding: 1rem 2rem;
-        background: #E05E00;
+        background: $col-accent-light;
         border-radius: 2.5rem;
         position: absolute;
         bottom: 5rem;
         right: 3rem;
-        color: #fff;
+        color: $col-dark-brown;
         text-decoration: none;
         font-size: 1.3rem;
     }
 }
 
 .products {
-    background: #D9C09A;
     padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
     h2 {
         text-align: center;
     }
@@ -39,7 +54,7 @@ body {
         display: flex;
         align-items: center;
         width: 100%;
-        background: #ae9774;
+        background: $col-gray-brown;
         border-radius: 0.8rem;
         padding: 0.5rem;
         margin: 1rem auto;
@@ -54,13 +69,34 @@ body {
             .item-info {
                 display: flex;
                 flex-direction: column;
+                justify-content: space-between;
             }
             .item-selection {
                 display: flex;
                 flex-direction: column;
+                align-items: center;
                 position: relative;
                 right: 0;
+                button {
+                    height: 2rem;
+                    width: 1.5rem;
+                    border-radius: 0.5rem;
+                    border: none;
+                }
+                p {
+                    background: $col-white;
+                    width: 1.5rem;
+                    margin: 0.2rem;
+                    text-align: center;
+                    border-radius: 3px;
+                }
             }
         }
+    }
+}
+
+.basket {
+    h2 {
+        text-align: center;;
     }
 }
