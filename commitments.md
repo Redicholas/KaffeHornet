@@ -1,5 +1,7 @@
 # Gruppkontrakt
-- lista på överenskommelser
+
+
+
 
 ## Underskrivet av
 @anvandare1
