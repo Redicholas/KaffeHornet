@@ -13,4 +13,4 @@ Code reviews/merges görs två gånger per vecka enligt följande:
 ## Underskrivet av
 Liza Grapensparr
 Tittie Thomasson 
-
+Nicholas Peters
