@@ -64,7 +64,7 @@ section {
       }
     .product-card {
         height: 20rem;
-        width: 100%;
+        width: 13rem;
         background: $col-light;
         border-radius: 1rem;
         overflow: hidden;
@@ -88,6 +88,7 @@ section {
         .image {
             height: 50%;
             width: 100%;
+            
             img {
                 height: 100%;
                 width: 100%;
