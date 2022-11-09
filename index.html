@@ -78,6 +78,140 @@
         </div>
 
     </section>
+
+    <!-- Beställningsuppgifter -->
+    <section class="customer-info">
+        <h3>Dina uppgifter</h3>
+        <p>Adressen ska vara i Sverige</p>
+        <div class="contact-form">
+            <form id="form" name="form" method="post" action="">
+                <div class="first-name">
+                    <label for="fname">Förnamn:</label><br>
+                    <input type="text" name="fname" required>
+                </div>
+                <div class="last-name">
+                    <label for="lname">
+                        Efternamn:</label><br>
+                    <input type="text" name="lname" required><br>
+                    </div>
+                
+                <div class="customer-adress">
+                    <label for="adress">
+                        Adress:</label><br>
+                    <input type="text" name="adress" required>
+                </div>
+                
+                <div class="zip">
+                    <label for="zip">
+                        Postnummer:</label><br>
+                    <input type="number" name="zip" required>
+                </div>
+
+                <div class="city">
+                    <label for="city">
+                        Postort:</label><br>
+                    <input type="number" name="city" required>
+                </div>
+
+                <div class="portcode">
+                    <label for="portcode">
+                        Portkod:</label><br>
+                    <input type="number" name="portcode">
+                </div>
+
+                <div class="phone">
+                    <label for="phone">
+                        Mobilnr:</label><br>
+                    <input type="number" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
+                </div>
+
+                <div class="customer-email">
+                    <label for="email">
+                        Email:</label><br>
+                    <input type="email" name="email" required>
+                </div>
+            </form>
+            <button>Fortsätt</button>
+            <button>Avbryt</button>
+        </div>
+
+        <div class="payment-section">
+            <h3>Betalsätt</h3>
+            <div class="payment-type">
+                <div class="invoice">
+                    <label for="paymentType_invoice">
+                        <input type="radio" id="paymentType_invoice" value="invoiceLetter"/>
+                        Faktura
+                    </label>
+                </div>
+
+                <!-- ****** Kort-formulär ****** -->
+                <div class="card">
+                    <label for="paymentType_card">
+                        <input type="radio" id="paymentType_card" value="card"/>
+                        Kort
+                    </label>
+                
+                    <form class="credit-card">
+                        <div class="form-header">
+                          <h4 class="title">Betalkortsinformation</h4>
+                        </div>
+                      
+                        <div class="form-body">
+                          <!-- Card Number -->
+                          <input type="text" class="card-number" placeholder="Betalkortsnummer" required>
+                      
+                          <!-- Date Field -->
+                          <div class="date-field">
+                            <div class="month">
+                              <select name="Month">
+                                <option value="january">January</option>
+                                <option value="february">February</option>
+                                <option value="march">March</option>
+                                <option value="april">April</option>
+                                <option value="may">May</option>
+                                <option value="june">June</option>
+                                <option value="july">July</option>
+                                <option value="august">August</option>
+                                <option value="september">September</option>
+                                <option value="october">October</option>
+                                <option value="november">November</option>
+                                <option value="december">December</option>
+                              </select>
+                            </div>
+                            <div class="year">
+                              <select name="Year">
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                              </select>
+                            </div>
+                          </div>
+                      
+                          <!-- Card Verification Field -->
+                          <div class="card-verification">
+                            <div class="cvv-input">
+                              <input type="number" placeholder="CVV" required>
+                            </div>
+                            <div class="cvv-details">
+                              <p>3 sista siffrorna<br>bak på kortet</p>
+                            </div>
+                          </div>
+                      
+                          <!-- Buttons -->
+                          <button type="submit" class="proceed-btn"><a href="#">Använd kort</a></button>
+                        </div>
+                      </form>
+                </div>
+            </div>
+        </div>
+    </section>
     <script src="app.js"></script>
 </body>
 </html>

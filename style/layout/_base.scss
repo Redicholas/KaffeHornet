@@ -144,3 +144,204 @@ section {
         }
     }
 }
+
+
+.customer-info {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100vw; 
+}
+
+.customer-info h3 {
+    margin: 20px 0;
+}
+
+.contact-form {
+    text-align: left;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid black;
+    max-width: 800px;
+}
+
+.contact-form input {
+    min-height: 30px;
+}
+
+.first-name, .last-name, .zip, .city, .portcode, .phone {
+    display: inline-block;
+    width: 45%;
+}
+
+.last-name, .city, .phone{
+    float: right;
+    
+}
+
+.customer-info input {
+    width: 100%;
+    padding: 5px;
+    
+}
+
+.contact-form div {
+    margin-top: 10px;
+}
+
+/* Betalsätt */
+
+.payment-type{
+    border: 3px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  
+}
+
+.payment-section {
+    border: 1px solid black;
+    min-height: 50vh;
+    margin-top: 20px;
+}
+
+
+/* Kort-formulär */ 
+
+.credit-card {
+    width: 360px;
+    height: 400px;
+    margin: 60px auto 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 1px 2px 3px 0 rgba(0,0,0,.10);
+}
+
+.form-header {
+    height: 60px;
+    padding: 20px 30px 0;
+    border-bottom: 1px solid #e1e8ee;
+}
+ 
+.form-body {
+    height: 340px;
+    padding: 30px 30px 20px;
+}
+
+/* Title */
+.title {
+    font-size: 20px;
+    margin: 0;
+    color: #5e6977;
+}
+
+/* Common */
+.card-number,
+.cvv-input input,
+.month select,
+.year select {
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 14px;
+}
+ 
+.card-number,
+.month select,
+.year select {
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 14px;
+}
+ 
+.card-number,
+.cvv-details,
+.cvv-input input,
+.month select,
+.year select {
+    opacity: .7;
+    color: #86939e;
+}
+
+/* Card Number */
+.card-number {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 45px;
+    border: 2px solid #e1e8ee;
+    border-radius: 6px;
+}
+
+/* Date Field */
+.month select,
+.year select {
+    width: 145px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 2px solid #e1e8ee;
+    border-radius: 6px;
+
+}
+ 
+.month select {
+    float: left;
+}
+ 
+.year select {
+    float: right;
+}
+
+/* Card Verification Field */
+.cvv-input input {
+    float: left;
+    width: 145px;
+    padding: 10px;
+    border: 2px solid #e1e8ee;
+    border-radius: 6px;
+    background: #fff;
+}
+ 
+.cvv-details {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 16px;
+    float: right;
+    margin-bottom: 45px;
+}
+ 
+.cvv-details p {
+    margin-top: 6px;
+}
+
+/* Buttons Section */
+.proceed-btn {
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    padding: 10px;
+    border-color: transparent;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    background: $col-dark-brown;
+}
+
+.proceed-btn a {
+    text-decoration: none;
+    color: #fff;
+}
+
+
+
+/* Tar bort scroll-funktionen i nummerrutorna */
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
