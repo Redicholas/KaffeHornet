@@ -8,6 +8,7 @@ $col-accent-light: #8DB4A2;
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -155,15 +156,16 @@ section {
 }
 
 .customer-info h3 {
-    margin: 20px 0;
+    margin: 1.25rem 0;
 }
 
 .contact-form {
     text-align: left;
     margin: auto;
-    padding: 10px;
+    padding: 0.625rem;
     border: 1px solid black;
-    max-width: 800px;
+    max-width: 50rem;
+    min-height: 25vh;
 }
 
 .contact-form input {
@@ -182,29 +184,73 @@ section {
 
 .customer-info input {
     width: 100%;
-    padding: 5px;
+    padding: 0.313rem;
     
 }
 
 .contact-form div {
-    margin-top: 10px;
+    margin-top: 0.625;
 }
 
-/* Betalsätt */
+/* Knapparna fortsätt och avbryt */ 
 
+.btn-continue, .btn-cancel {
+    background-color: $col-dark-brown;
+    color: #fff;
+    position: relative;
+    top: 20px;
+    left: 120px;
+    padding: 5px 10px;
+}
+
+.btn-continue {
+    margin-right: 40px;
+}
+
+/* Välja Betalsätt */
+
+.invoice {
+    margin-bottom: 50px;
+}
 .payment-type{
-    border: 3px solid red;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  
+    text-align: left;  
+}
+
+.payment{
+    position: relative;
+    left: 30px;
+    font-size: 1.2rem; 
+}
+
+#paymentType_invoice {
+    position: relative;
+    left: -60px;
+    top: 30px;
+    height: 20px;
+}
+
+#paymentType_card{
+    position: relative;
+    left: -60px;
+    top: 30px;
+    height: 20px;   
 }
 
 .payment-section {
     border: 1px solid black;
-    min-height: 50vh;
-    margin-top: 20px;
+    min-height: 30vh;
+    margin-top: 1.25rem;
 }
+
+
+/* Formulär personnr faktura */ 
+
+.invoice-details {
+    width: 80%;
+    margin: auto;
+}
+
+
 
 
 /* Kort-formulär */ 
@@ -212,7 +258,7 @@ section {
 .credit-card {
     width: 360px;
     height: 400px;
-    margin: 60px auto 0;
+    margin: 80px auto 0;
     border: 1px solid #ddd;
     border-radius: 6px;
     background-color: #fff;
@@ -232,7 +278,7 @@ section {
 
 /* Title */
 .title {
-    font-size: 20px;
+    font-size: 1.25rem;
     margin: 0;
     color: #5e6977;
 }
@@ -242,25 +288,17 @@ section {
 .cvv-input input,
 .month select,
 .year select {
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: 100;
     line-height: 14px;
 }
  
-.card-number,
-.month select,
-.year select {
-    font-size: 14px;
-    font-weight: 100;
-    line-height: 14px;
-}
  
 .card-number,
 .cvv-details,
 .cvv-input input,
 .month select,
 .year select {
-    opacity: .7;
     color: #86939e;
 }
 
@@ -303,7 +341,7 @@ section {
 }
  
 .cvv-details {
-    font-size: 12px;
+    font-size: 0.8rem;
     font-weight: 300;
     line-height: 16px;
     float: right;
@@ -317,7 +355,7 @@ section {
 /* Buttons Section */
 .proceed-btn {
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1.1rem;
     width: 100%;
     padding: 10px;
     border-color: transparent;
@@ -331,6 +369,13 @@ section {
     color: #fff;
 }
 
+.buy-button {
+    position: relative;
+    top: 30px;
+    padding: 10px 130px;
+    background-color: $col-dark-brown;
+    color: #fff;
+}
 
 
 /* Tar bort scroll-funktionen i nummerrutorna */
