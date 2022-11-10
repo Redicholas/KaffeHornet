@@ -21,6 +21,7 @@ section {
     padding: 2rem;
     max-width: 600px;
     margin: 0 auto;
+
     h2 {
         text-align: center;
         margin-bottom: 5rem;
@@ -34,12 +35,14 @@ section {
     height: 100vh;
     width: 100vw;
     color: $col-light;
+
     h1 {
         text-align: center;
         padding-top: 5rem;
         font-size: 3rem;
         font-weight: lighter;
     }
+
     a {
         padding: 1rem 2rem;
         background: $col-dark-brown;
@@ -57,26 +60,32 @@ section {
 .products {
     .product-grid {
         margin-top: 1rem;
-        display: grid; 
-        grid-template-columns: 1fr 1fr; 
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
-        gap: 10px 10px; 
-      }
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        gap: 10px 10px;
+        place-items: center;
+
+    }
+
     .product-card {
         height: 20rem;
         width: 13rem;
         background: $col-light;
         border-radius: 1rem;
         overflow: hidden;
+
         .product-info {
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
             height: 50%;
             padding: 0.5rem;
+
             .product-selection {
                 display: flex;
                 justify-content: space-between;
+
                 button {
                     background: $col-dark-brown;
                     border: 1px solid $col-beige;
@@ -85,10 +94,11 @@ section {
                 }
             }
         }
+
         .image {
             height: 50%;
             width: 100%;
-            
+
             img {
                 height: 100%;
                 width: 100%;
@@ -101,6 +111,7 @@ section {
     h2 {
         text-align: center;
     }
+
     .item {
         display: flex;
         align-items: center;
@@ -109,31 +120,37 @@ section {
         border-radius: 0.8rem;
         padding: 0.5rem;
         margin: 1rem auto;
+
         img {
             margin-right: 1rem;
-            border-radius: 0.8rem;;
+            border-radius: 0.8rem;
         }
+
         .item-content {
             display: flex;
             justify-content: space-between;
             width: 100%;
+
             .item-info {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
             }
+
             .item-selection {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 position: relative;
                 right: 0;
+
                 button {
                     height: 2rem;
                     width: 1.5rem;
                     border-radius: 0.5rem;
                     border: none;
                 }
+
                 p {
                     background: $col-white;
                     width: 1.5rem;
@@ -151,11 +168,16 @@ section {
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: 100vw; 
-}
+    width: 100vw;
 
-.customer-info h3 {
-    margin: 20px 0;
+    h3 {
+        margin: 20px 0;
+    }
+
+    input {
+        width: 100%;
+        padding: 5px;
+    }
 }
 
 .contact-form {
@@ -164,50 +186,58 @@ section {
     padding: 10px;
     border: 1px solid black;
     max-width: 800px;
-}
 
-.contact-form input {
-    min-height: 30px;
-}
+    input {
+        min-height: 30px;
+    }
 
-.first-name, .last-name, .zip, .city, .portcode, .phone {
-    display: inline-block;
-    width: 45%;
-}
+    div {
+        margin-top: 10px;
+    }
 
-.last-name, .city, .phone{
-    float: right;
-    
-}
+    .first-name {
+        display: inline-block;
+        width: 45%;
+    }
 
-.customer-info input {
-    width: 100%;
-    padding: 5px;
-    
-}
+    .last-name {
+        width: 45%;
+        float: right;
+    }
 
-.contact-form div {
-    margin-top: 10px;
-}
+    .zip {
+        display: inline-block;
+        width: 45%;
+    }
 
-/* Betalsätt */
+    .city {
+        width: 45%;
+        float: right;
+    }
 
-.payment-type{
-    border: 3px solid red;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  
+    .portcode {
+        display: inline-block;
+        width: 45%;
+    }
+
+    .phone {
+        width: 45%;
+        float: right;
+    }
 }
 
 .payment-section {
     border: 1px solid black;
     min-height: 50vh;
     margin-top: 20px;
+    padding: 2rem;
 }
 
-
-/* Kort-formulär */ 
+.payment-type {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 .credit-card {
     width: 360px;
@@ -216,7 +246,7 @@ section {
     border: 1px solid #ddd;
     border-radius: 6px;
     background-color: #fff;
-    box-shadow: 1px 2px 3px 0 rgba(0,0,0,.10);
+    box-shadow: 1px 2px 3px 0 rgba(0, 0, 0, .10);
 }
 
 .form-header {
@@ -224,48 +254,26 @@ section {
     padding: 20px 30px 0;
     border-bottom: 1px solid #e1e8ee;
 }
- 
+
 .form-body {
     height: 340px;
     padding: 30px 30px 20px;
 }
 
-/* Title */
 .title {
-    font-size: 20px;
+    font-size: 1.25rem;
     margin: 0;
     color: #5e6977;
 }
 
-/* Common */
-.card-number,
-.cvv-input input,
-.month select,
-.year select {
-    font-size: 14px;
+.card-number {
+    font-size: 0.875px;
     font-weight: 100;
     line-height: 14px;
-}
- 
-.card-number,
-.month select,
-.year select {
-    font-size: 14px;
     font-weight: 100;
     line-height: 14px;
-}
- 
-.card-number,
-.cvv-details,
-.cvv-input input,
-.month select,
-.year select {
     opacity: .7;
     color: #86939e;
-}
-
-/* Card Number */
-.card-number {
     width: 100%;
     margin-bottom: 20px;
     padding: 45px;
@@ -273,76 +281,100 @@ section {
     border-radius: 6px;
 }
 
-/* Date Field */
-.month select,
-.year select {
-    width: 145px;
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 2px solid #e1e8ee;
-    border-radius: 6px;
-
-}
- 
-.month select {
-    float: left;
-}
- 
-.year select {
-    float: right;
+.cvv-input {
+    input {
+        font-size: 0.875rem;
+        font-weight: 100;
+        line-height: 14px;
+        opacity: .7;
+        color: #86939e;
+        float: left;
+        width: 145px;
+        padding: 10px;
+        border: 2px solid #e1e8ee;
+        border-radius: 6px;
+        background: #fff;
+    }
 }
 
-/* Card Verification Field */
-.cvv-input input {
-    float: left;
-    width: 145px;
-    padding: 10px;
-    border: 2px solid #e1e8ee;
-    border-radius: 6px;
-    background: #fff;
+.month {
+    select {
+        font-size: 0.875rem;
+        font-weight: 100;
+        line-height: 14px;
+        font-weight: 100;
+        line-height: 14px;
+        opacity: .7;
+        color: #86939e;
+        width: 145px;
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 2px solid #e1e8ee;
+        border-radius: 6px;
+        float: left;
+    }
 }
- 
+
+.year {
+    select {
+        font-size: 0.875;
+        font-weight: 100;
+        line-height: 14px;
+        font-weight: 100;
+        line-height: 14px;
+        opacity: .7;
+        color: #86939e;
+        width: 145px;
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 2px solid #e1e8ee;
+        border-radius: 6px;
+        float: right;
+    }
+}
+
 .cvv-details {
-    font-size: 12px;
+    opacity: .7;
+    color: #86939e;
+    font-size: 0.75rem;
     font-weight: 300;
     line-height: 16px;
     float: right;
     margin-bottom: 45px;
-}
- 
-.cvv-details p {
-    margin-top: 6px;
+
+    p {
+        margin-top: 6px;
+    }
 }
 
-/* Buttons Section */
 .proceed-btn {
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1rem;
     width: 100%;
     padding: 10px;
     border-color: transparent;
     border-radius: 6px;
     margin-bottom: 10px;
     background: $col-dark-brown;
+
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
 }
 
-.proceed-btn a {
-    text-decoration: none;
-    color: #fff;
+input {
+    &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
 }
 
-
-
-/* Tar bort scroll-funktionen i nummerrutorna */
-
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
 input[type=number] {
-  -moz-appearance: textfield;
+    -moz-appearance: textfield;
 }
