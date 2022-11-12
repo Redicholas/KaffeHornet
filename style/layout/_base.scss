@@ -8,6 +8,7 @@ $col-accent-light: #8DB4A2;
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -174,18 +175,21 @@ section {
         margin: 20px 0;
     }
 
-    input {
-        width: 100%;
-        padding: 5px;
-    }
+
+.customer-info h3 {
+    margin: 1.25rem 0;
 }
 
 .contact-form {
     text-align: left;
     margin: auto;
-    padding: 10px;
+    padding: 0.625rem;
     border: 1px solid black;
-    max-width: 800px;
+
+    max-width: 50rem;
+    min-height: 25vh;
+}
+
 
     input {
         min-height: 30px;
@@ -200,49 +204,87 @@ section {
         width: 45%;
     }
 
-    .last-name {
-        width: 45%;
-        float: right;
-    }
 
-    .zip {
-        display: inline-block;
-        width: 45%;
-    }
+.customer-info input {
+    width: 100%;
+    padding: 0.313rem;
+    
+}
 
-    .city {
-        width: 45%;
-        float: right;
-    }
+.contact-form div {
+    margin-top: 0.625;
+}
 
-    .portcode {
-        display: inline-block;
-        width: 45%;
-    }
+/* Knapparna fortsätt och avbryt */ 
 
-    .phone {
-        width: 45%;
-        float: right;
-    }
+.btn-continue, .btn-cancel {
+    background-color: $col-dark-brown;
+    color: #fff;
+    position: relative;
+    top: 20px;
+    left: 120px;
+    padding: 5px 10px;
+}
+
+.btn-continue {
+    margin-right: 40px;
+}
+
+/* Välja Betalsätt */
+
+.invoice {
+    margin-bottom: 50px;
+}
+.payment-type{
+    text-align: left;  
+}
+
+.payment{
+    position: relative;
+    left: 30px;
+    font-size: 1.2rem; 
+}
+
+#paymentType_invoice {
+    position: relative;
+    left: -60px;
+    top: 30px;
+    height: 20px;
+}
+
+#paymentType_card{
+    position: relative;
+    left: -60px;
+    top: 30px;
+    height: 20px;   
+
 }
 
 .payment-section {
     border: 1px solid black;
-    min-height: 50vh;
-    margin-top: 20px;
-    padding: 2rem;
+
+    min-height: 30vh;
+    margin-top: 1.25rem;
 }
 
-.payment-type {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+
+/* Formulär personnr faktura */ 
+
+.invoice-details {
+    width: 80%;
+    margin: auto;
 }
+
+
+
+
+/* Kort-formulär */ 
+
 
 .credit-card {
     width: 360px;
     height: 400px;
-    margin: 60px auto 0;
+    margin: 80px auto 0;
     border: 1px solid #ddd;
     border-radius: 6px;
     background-color: #fff;
@@ -266,13 +308,24 @@ section {
     color: #5e6977;
 }
 
-.card-number {
-    font-size: 0.875px;
+
+/* Common */
+.card-number,
+.cvv-input input,
+.month select,
+.year select {
+    font-size: 1rem;
     font-weight: 100;
     line-height: 14px;
-    font-weight: 100;
-    line-height: 14px;
-    opacity: .7;
+}
+ 
+ 
+.card-number,
+.cvv-details,
+.cvv-input input,
+.month select,
+.year select {
+
     color: #86939e;
     width: 100%;
     margin-bottom: 20px;
@@ -334,9 +387,9 @@ section {
 }
 
 .cvv-details {
-    opacity: .7;
-    color: #86939e;
-    font-size: 0.75rem;
+
+    font-size: 0.8rem;
+
     font-weight: 300;
     line-height: 16px;
     float: right;
@@ -349,7 +402,9 @@ section {
 
 .proceed-btn {
     cursor: pointer;
-    font-size: 1rem;
+
+    font-size: 1.1rem;
+
     width: 100%;
     padding: 10px;
     border-color: transparent;
@@ -363,11 +418,15 @@ section {
     }
 }
 
-input {
-    &::-webkit-outer-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
+
+.buy-button {
+    position: relative;
+    top: 30px;
+    padding: 10px 130px;
+    background-color: $col-dark-brown;
+    color: #fff;
+}
+
 
     &::-webkit-inner-spin-button {
         -webkit-appearance: none;

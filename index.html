@@ -23,6 +23,27 @@
     </div>
 
     <section class="products" id="products">
+
+    </section>
+    <section class="basket">
+        <h2>Varukorgen</h2>
+
+        <!-- Mall för varukorgprodukter -->
+        <div class="item">
+            <img src="img/beans.jpg" height="100" width="100" alt="">
+            <div class="item-content">
+                <div class="item-info">
+                    <h3>Titel</h3>
+                    <p>Info</p>
+                    <p>Pris</p>
+                </div>
+                <div class="item-selection">
+                    <button>+</button>
+                    <p>0</p>
+                    <button>-</button>
+                </div>
+            </div>
+
       <h2>Våra Produkter</h2>
       <label for="sort">Sortera efter:</label>
       <select name="sort">
@@ -52,12 +73,14 @@
             <p>0</p>
             <button>-</button>
           </div>
+
         </div>
       </div>
     </section>
 
     <!-- Beställningsuppgifter -->
     <section class="customer-info">
+
       <h3>Dina uppgifter</h3>
       <p>Adressen ska vara i Sverige</p>
       <div class="contact-form">
@@ -145,55 +168,56 @@
                   required
                 />
 
-                <!-- Date Field -->
-                <div class="date-field">
-                  <div class="month">
-                    <select name="Month">
-                      <option value="january">January</option>
-                      <option value="february">February</option>
-                      <option value="march">March</option>
-                      <option value="april">April</option>
-                      <option value="may">May</option>
-                      <option value="june">June</option>
-                      <option value="july">July</option>
-                      <option value="august">August</option>
-                      <option value="september">September</option>
-                      <option value="october">October</option>
-                      <option value="november">November</option>
-                      <option value="december">December</option>
-                    </select>
-                  </div>
-                  <div class="year">
-                    <select name="Year">
-                      <option value="2016">2016</option>
-                      <option value="2017">2017</option>
-                      <option value="2018">2018</option>
-                      <option value="2019">2019</option>
-                      <option value="2020">2020</option>
-                      <option value="2021">2021</option>
-                      <option value="2022">2022</option>
-                      <option value="2023">2023</option>
-                      <option value="2024">2024</option>
-                    </select>
-                  </div>
-                </div>
+                        <!-- Utgångsdatum för kortet -->
+                        <div class="date-field">
+                            <div class="month">
+                                <select name="Month">
+                                    <option value="january">January</option>
+                                    <option value="february">February</option>
+                                    <option value="march">March</option>
+                                    <option value="april">April</option>
+                                    <option value="may">May</option>
+                                    <option value="june">June</option>
+                                    <option value="july">July</option>
+                                    <option value="august">August</option>
+                                    <option value="september">September</option>
+                                    <option value="october">October</option>
+                                    <option value="november">November</option>
+                                    <option value="december">December</option>
+                                </select>
+                            </div>
+                            <div class="year">
+                                <select name="Year">
+                                    <option value="2016">2019</option>
+                                    <option value="2017">2020</option>
+                                    <option value="2018">2021</option>
+                                    <option value="2019">2022</option>
+                                    <option value="2020">2023</option>
+                                    <option value="2021">2024</option>
+                                    <option value="2022">2025</option>
+                                    <option value="2023">2026</option>
+                                    <option value="2024">2027</option>
+                                </select>
+                            </div>
+                        </div>
 
-                <!-- Card Verification Field -->
-                <div class="card-verification">
-                  <div class="cvv-input">
-                    <input type="number" placeholder="CVV" required />
-                  </div>
-                  <div class="cvv-details">
-                    <p>3 sista siffrorna<br />bak på kortet</p>
-                  </div>
-                </div>
+                        <!-- Cvv  -->
+                        <div class="card-verification">
+                            <div class="cvv-input">
+                                <input type="number" placeholder="CVV" required>
+                            </div>
+                            <div class="cvv-details">
+                                <p>3 sista siffrorna<br>på kortets baksida</p>
+                            </div>
+                        </div>
 
-                <!-- Buttons -->
-                <button type="submit" class="proceed-btn">
-                  <a href="#">Använd kort</a>
-                </button>
-              </div>
-            </form>
+                        <!-- Knappen Använd kort -->
+                        <button type="submit" class="proceed-btn"><a href="#">Använd kort</a></button>
+                    </div>
+                </form>
+                <button class="buy-button">Beställ</button>
+            </div>
+
           </div>
         </div>
       </div>
@@ -201,3 +225,4 @@
     <script src="app.js"></script>
   </body>
 </html>
+
