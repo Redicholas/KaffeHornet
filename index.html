@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;300;500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f27d901c01.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style/style.css">
     <title>Kaffe Hörnet</title>
 </head>
@@ -17,6 +18,10 @@
     </div>
 
     <section class="products" id="products">
+        <header>
+            <a href="#basket"><i class="fa-solid fa-cart-shopping fa-2xl"></i></a>
+            <p id="sum">0</p>
+        </header>
         <h2>Våra Produkter</h2>
         <label for="sort">Sortera efter:</label>
         <select name="sort">
@@ -37,19 +42,12 @@
                 <p>Bönor från Guatemala och Colombia</p>
                 <div class="product-selection">
                     <p>129kr</p>
-                    <button>Köp</button>
-                    <select name="amount" id="amount">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
+                    <div class="buttons">
+                        <button onclick="click1(-1)"><i class="fa-solid fa-minus"></i></button>
+                        <span id="quantity1">0</span>
+                        <button onclick="click1(+1)"><i class="fa-solid fa-plus"></i></button>
+                        <button onclick="click1(0)"><i class="fa-regular fa-trash-can"></i></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -63,19 +61,12 @@
                 <p>Espressobönor</p>
                 <div class="product-selection">
                     <p>119kr</p>
-                    <button>Köp</button>
-                    <select name="amount" id="amount">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
+                    <div class="buttons">
+                        <button onclick="click2(-1)"><i class="fa-solid fa-minus"></i></button>
+                        <span id="quantity2">0</span>
+                        <button onclick="click2(+1)"><i class="fa-solid fa-plus"></i></button>
+                        <button onclick="click2(0)"><i class="fa-regular fa-trash-can"></i></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -89,19 +80,12 @@
                 <p>"Speciella" bönor från Ethiopien</p>
                 <div class="product-selection">
                     <p>129kr</p>
-                    <button>Köp</button>
-                    <select name="amount" id="amount">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
+                    <div class="buttons">
+                        <button onclick="click3(-1)"><i class="fa-solid fa-minus"></i></button>
+                        <span id="quantity3">0</span>
+                        <button onclick="click3(+1)"><i class="fa-solid fa-plus"></i></button>
+                        <button onclick="click3(0)"><i class="fa-regular fa-trash-can"></i></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -115,19 +99,12 @@
                 <p>Svart kopp i keramik</p>
                 <div class="product-selection">
                     <p>49kr</p>
-                    <button>Köp</button>
-                    <select name="amount" id="amount">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
+                    <div class="buttons">
+                        <button onclick="click4(-1)"><i class="fa-solid fa-minus"></i></button>
+                        <span id="quantity4">0</span>
+                        <button onclick="click4(+1)"><i class="fa-solid fa-plus"></i></button>
+                        <button onclick="click4(0)"><i class="fa-regular fa-trash-can"></i></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -141,19 +118,12 @@
                 <p>Kopp i poppande grön färg</p>
                 <div class="product-selection">
                     <p>39kr</p>
-                    <button>Köp</button>
-                    <select name="amount" id="amount">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
+                    <div class="buttons">
+                        <button onclick="click5(-1)"><i class="fa-solid fa-minus"></i></button>
+                        <span id="quantity5">0</span>
+                        <button onclick="click5(+1)"><i class="fa-solid fa-plus"></i></button>
+                        <button onclick="click5(0)"><i class="fa-regular fa-trash-can"></i></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -167,19 +137,12 @@
                 <p>V60 bryggaren som tilltalar din inre hipster</p>
                 <div class="product-selection">
                     <p>599kr</p>
-                    <button>Köp</button>
-                    <select name="amount" id="amount">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
+                    <div class="buttons">
+                        <button onclick="click6(-1)"><i class="fa-solid fa-minus"></i></button>
+                        <span id="quantity6">0</span>
+                        <button onclick="click6(+1)"><i class="fa-solid fa-plus"></i></button>
+                        <button onclick="click6(0)"><i class="fa-regular fa-trash-can"></i></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -193,19 +156,12 @@
                 <p>För dig som vill kunna göra kaffe var som helst!</p>
                 <div class="product-selection">
                     <p>499kr</p>
-                    <button>Köp</button>
-                    <select name="amount" id="amount">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
+                    <div class="buttons">
+                        <button onclick="click7(-1)"><i class="fa-solid fa-minus"></i></button>
+                        <span id="quantity7">0</span>
+                        <button onclick="click7(+1)"><i class="fa-solid fa-plus"></i></button>
+                        <button onclick="click7(0)"><i class="fa-regular fa-trash-can"></i></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -219,19 +175,12 @@
                 <p>För ditt finbesök</p>
                 <div class="product-selection">
                     <p>49kr</p>
-                    <button>Köp</button>
-                    <select name="amount" id="amount">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
+                    <div class="buttons">
+                        <button onclick="click8(-1)"><i class="fa-solid fa-minus"></i></button>
+                        <span id="quantity8">0</span>
+                        <button onclick="click8(+1)"><i class="fa-solid fa-plus"></i></button>
+                        <button onclick="click8(0)"><i class="fa-regular fa-trash-can"></i></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -245,19 +194,12 @@
                 <p>Den klassiska Franskpressen går alltid hem</p>
                 <div class="product-selection">
                     <p>199kr</p>
-                    <button>Köp</button>
-                    <select name="amount" id="amount">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
+                    <div class="buttons">
+                        <button onclick="click9(-1)"><i class="fa-solid fa-minus"></i></button>
+                        <span id="quantity9">0</span>
+                        <button onclick="click9(+1)"><i class="fa-solid fa-plus"></i></button>
+                        <button onclick="click9(0)"><i class="fa-regular fa-trash-can"></i></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -271,19 +213,12 @@
                 <p>En större kopp för dig med ett större beroende</p>
                 <div class="product-selection">
                     <p>39kr</p>
-                    <button>Köp</button>
-                    <select name="amount" id="amount">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
+                    <div class="buttons">
+                        <button onclick="click10(-1)"><i class="fa-solid fa-minus"></i></button>
+                        <span id="quantity10">0</span>
+                        <button onclick="click10(+1)"><i class="fa-solid fa-plus"></i></button>
+                        <button onclick="click10(0)"><i class="fa-regular fa-trash-can"></i></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -293,7 +228,7 @@
     </div>
 
     </section>
-    <section class="basket">
+    <section class="basket" id="basket">
         <h2>Varukorgen</h2>
         
         <!-- Mall för varukorgprodukter -->
@@ -449,5 +384,6 @@
         </div>
     </section>
     <script src="app.js"></script>
+    <script src="quantity.js"></script>
 </body>
 </html>
