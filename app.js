@@ -133,3 +133,14 @@ function renderProducts() {
 }
 
 renderProducts()
+
+// Fomulärsdelen 
+
+// Kunden väljer betalsätt 
+// Om kunden väljer faktura
+// Visas ett formulär med personnummer.
+// Kortforumuläret döljs 
+// Om kunden väljer kort 
+// Visas ett formulär med kortuppgifter 
+// fakturaformuläret döljs
+
