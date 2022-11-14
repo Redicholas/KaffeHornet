@@ -306,7 +306,7 @@ section {
 }
 
 /* Common */
-.card-number,
+.card-number input,
 .cvv-input input,
 .month select,
 .year select {
@@ -318,17 +318,17 @@ section {
  
 .card-number,
 .cvv-details,
-.cvv-input input,
+.cvv-input,
 .month select,
 .year select {
     color: #86939e;
 }
 
 /* Card Number */
-.card-number {
+.card-number input {
     width: 100%;
     margin-bottom: 20px;
-    padding: 45px;
+    padding: 10px;
     border: 2px solid #e1e8ee;
     border-radius: 6px;
 }
