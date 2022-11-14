@@ -1,296 +1,32 @@
 <!DOCTYPE html>
 <html lang="sv">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;300;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;300;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style/style.css" />
     <title>Kaffe Hörnet</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="landing-page">
-        <h1>Välkommen till <br> Kaffe Hörnet</h1>
-        <a href="#products">Kaffesugen?</a>
+      <h1>
+        Välkommen till <br />
+        Kaffe Hörnet
+      </h1>
+      <a href="#products">Kaffesugen?</a>
     </div>
 
     <section class="products" id="products">
-        <h2>Våra Produkter</h2>
-        <label for="sort">Sortera efter:</label>
-        <select name="sort">
-            <option value="rising">Pris: Stigande</option>
-            <option value="falling">Pris: Fallande</option>
-            <option value="name">Namn</option>
-        </select>
 
-        <div class="product-grid">
-
-            <!-- Mall för produkter -->
-            <div class="product-card product-card-1">
-                <div class="image">
-                    <img src="img/produkt-1-kaffepasar.jpg" height="100" width="100" alt="">
-                </div>
-                <div class="product-info">
-                    <h3>Sibaristica</h3>
-                    <p>Bönor från Guatemala och Colombia</p>
-                    <div class="product-selection">
-                        <p>129kr</p>
-                        <button>Köp</button>
-                        <select name="amount" id="amount">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card product-card-2">
-                <div class="image">
-                    <img src="img/produkt-2-andrakaffapasar.jpg" height="100" width="100" alt="">
-                </div>
-                <div class="product-info">
-                    <h3>Blue Magic</h3>
-                    <p>Espressobönor</p>
-                    <div class="product-selection">
-                        <p>119kr</p>
-                        <button>Köp</button>
-                        <select name="amount" id="amount">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card product-card-3">
-                <div class="image">
-                    <img src="img/produkt-3-merkaffe.jpg" height="100" width="100" alt="">
-                </div>
-                <div class="product-info">
-                    <h3>Specialty Beans</h3>
-                    <p>"Speciella" bönor från Ethiopien</p>
-                    <div class="product-selection">
-                        <p>129kr</p>
-                        <button>Köp</button>
-                        <select name="amount" id="amount">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card product-card-4">
-                <div class="image">
-                    <img src="img/produkt-4-kopp.jpg" height="100" width="100" alt="">
-                </div>
-                <div class="product-info">
-                    <h3>Rustik</h3>
-                    <p>Svart kopp i keramik</p>
-                    <div class="product-selection">
-                        <p>49kr</p>
-                        <button>Köp</button>
-                        <select name="amount" id="amount">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card product-card-5">
-                <div class="image">
-                    <img src="img/produkt-5-kopp2.jpg" height="100" width="100" alt="">
-                </div>
-                <div class="product-info">
-                    <h3>Grön</h3>
-                    <p>Kopp i poppande grön färg</p>
-                    <div class="product-selection">
-                        <p>39kr</p>
-                        <button>Köp</button>
-                        <select name="amount" id="amount">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card product-card-6">
-                <div class="image">
-                    <img src="img/produkt-6-v60.jpg" height="100" width="100" alt="">
-                </div>
-                <div class="product-info">
-                    <h3>V60</h3>
-                    <p>V60 bryggaren som tilltalar din inre hipster</p>
-                    <div class="product-selection">
-                        <p>599kr</p>
-                        <button>Köp</button>
-                        <select name="amount" id="amount">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card product-card-7">
-                <div class="image">
-                    <img src="img/produkt-7-aeropress.jpg" height="100" width="100" alt="">
-                </div>
-                <div class="product-info">
-                    <h3>Aeropress</h3>
-                    <p>För dig som vill kunna göra kaffe var som helst!</p>
-                    <div class="product-selection">
-                        <p>499kr</p>
-                        <button>Köp</button>
-                        <select name="amount" id="amount">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card product-card-8">
-                <div class="image">
-                    <img src="img/produkt-8-kopp3.jpg" height="100" width="100" alt="">
-                </div>
-                <div class="product-info">
-                    <h3>Fancy</h3>
-                    <p>För ditt finbesök</p>
-                    <div class="product-selection">
-                        <p>49kr</p>
-                        <button>Köp</button>
-                        <select name="amount" id="amount">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card product-card-9">
-                <div class="image">
-                    <img src="img/produkt-9-franskpress.jpg" height="100" width="100" alt="">
-                </div>
-                <div class="product-info">
-                    <h3>Franskpress</h3>
-                    <p>Den klassiska Franskpressen går alltid hem</p>
-                    <div class="product-selection">
-                        <p>199kr</p>
-                        <button>Köp</button>
-                        <select name="amount" id="amount">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card product-card-10">
-                <div class="image">
-                    <img src="img/produkt-10-kopp4.jpg" height="100" width="100" alt="">
-                </div>
-                <div class="product-info">
-                    <h3>Orange</h3>
-                    <p>En större kopp för dig med ett större beroende</p>
-                    <div class="product-selection">
-                        <p>39kr</p>
-                        <button>Köp</button>
-                        <select name="amount" id="amount">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-
-
-        </div>
+      <div class="product-grid" id="product-grid">
+        <!-- Producter renderas från JavaScripten -->
+      </div>
 
     </section>
     <section class="basket">
@@ -311,124 +47,140 @@
                     <button>-</button>
                 </div>
             </div>
-        </div>
 
+      <h2>Våra Produkter</h2>
+      <label for="sort">Sortera efter:</label>
+      <select name="sort">
+        <option value="rising">Pris: Stigande</option>
+        <option value="falling">Pris: Fallande</option>
+        <option value="name">Namn</option>
+      </select>
+
+    </section>
+
+    <section class="basket">
+      <h2>Varukorgen</h2>
+      <!-- Mall för varukorgprodukter -->
+      <div class="item">
+        <img src="img/beans.jpg" height="100" width="100" alt="" />
+        <div class="item-content">
+          <div class="item-info">
+            <h3>Titel</h3>
+            <p>Info</p>
+            <p>Pris</p>
+          </div>
+          <div class="item-selection">
+            <button>+</button>
+            <p>0</p>
+            <button>-</button>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Beställningsuppgifter -->
     <section class="customer-info">
-        <h3>Dina uppgifter</h3>
-        <div class="contact-form">
-            <form id="form" name="form" method="post" action="">
-                <div class="first-name">
-                    <label for="fname">Förnamn:</label><br>
-                    <input type="text" name="fname" required>
-                </div>
-                <div class="last-name">
-                    <label for="lname">
-                        Efternamn:</label><br>
-                    <input type="text" name="lname" required><br>
-                </div>
+      <h3>Dina uppgifter</h3>
+      <p>Adressen ska vara i Sverige</p>
+      <div class="contact-form">
+        <form id="form" name="form" method="post" action="">
+          <div class="first-name">
+            <label for="fname">Förnamn:</label><br />
+            <input type="text" name="fname" required />
+          </div>
+          <div class="last-name">
+            <label for="lname"> Efternamn:</label><br />
+            <input type="text" name="lname" required /><br />
+          </div>
 
-                <div class="customer-adress">
-                    <label for="adress">
-                        Adress:</label><br>
-                    <input type="text" name="adress" required>
-                </div>
+          <div class="customer-adress">
+            <label for="adress"> Adress:</label><br />
+            <input type="text" name="adress" required />
+          </div>
 
-                <div class="zip">
-                    <label for="zip">
-                        Postnummer:</label><br>
-                    <input type="number" name="zip" required>
-                </div>
+          <div class="zip">
+            <label for="zip"> Postnummer:</label><br />
+            <input type="number" name="zip" required />
+          </div>
 
-                <div class="city">
-                    <label for="city">
-                        Postort:</label><br>
-                    <input type="text" name="city" required>
-                </div>
+          <div class="city">
+            <label for="city"> Postort:</label><br />
+            <input type="number" name="city" required />
+          </div>
 
-                <div class="portcode">
-                    <label for="portcode">
-                        Portkod:</label><br>
-                    <input type="number" name="portcode">
-                </div>
+          <div class="portcode">
+            <label for="portcode"> Portkod:</label><br />
+            <input type="number" name="portcode" />
+          </div>
 
-                <div class="phone">
-                    <label for="phone">
-                        Mobilnr:</label><br>
-                    <input type="number" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
-                </div>
+          <div class="phone">
+            <label for="phone"> Mobilnr:</label><br />
+            <input
+              type="number"
+              name="phone"
+              pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+              required
+            />
+          </div>
 
-                <div class="customer-email">
-                    <label for="email">
-                        Email:</label><br>
-                    <input type="email" name="email" required>
-                </div>
-            </form>
-            <button class="btn-continue">Fortsätt</button>
-            <button class="btn-cancel">Avbryt</button>
-        </div>
+          <div class="customer-email">
+            <label for="email"> Email:</label><br />
+            <input type="email" name="email" required />
+          </div>
+        </form>
+        <button>Fortsätt</button>
+        <button>Avbryt</button>
+      </div>
 
-        <div class="payment-section">
-            <h3>Betalsätt</h3>
-            <hr>
-            <div class="payment-type">
-                <div class="payment-choice">
-                    <form class="invoice">
-                        <input type="radio" id="paymentType_invoice" name="payment-option" value="invoiceLetter">
-                        <label for="paymentType_invoice" class="payment">Faktura</label>
-                        <br>
-                        <br>
-                        <hr>
-                        <input type="radio" id="paymentType_card" name="payment-option" value="card">
-                        <label for="paymentType_card" class="payment">Kort</label>
-                    </form>
+      <div class="payment-section">
+        <h3>Betalsätt</h3>
+        <div class="payment-type">
+          <div class="invoice">
+            <label for="paymentType_invoice">
+              <input
+                type="radio"
+                id="paymentType_invoice"
+                value="invoiceLetter"
+              />
+              Faktura
+            </label>
+          </div>
 
-                    <!-- ****** Kort-formulär ****** -->
+          <!-- ****** Kort-formulär ****** -->
+          <div class="card">
+            <label for="paymentType_card">
+              <input type="radio" id="paymentType_card" value="card" />
+              Kort
+            </label>
 
-                </div>
+            <form class="credit-card">
+              <div class="form-header">
+                <h4 class="title">Betalkortsinformation</h4>
+              </div>
 
-                <!--Formulär med personnr för faktura-->
-                <form class="invoice-details">
-                    <div class="form-body">
-                        <div class="form-header">
-                            <h4 class="title">Verifiera din identitet</h4>
-                        </div>
-                        <div class="invoice-info">
-                            <p>Ange dina uppgifter för att verifiera din identitet
-                                och slutföra ditt köp</p>
-                        </div>
-                        <label for="">Personnummer:</label><br>
-                        <input type="number" pattern="[0-9]{6}-[0-9]{4}" placeholder="YYMMDD-XXXX">
-                        <button type="submit" class="confirm-btn"><a href="#">Bekräfta</a></button>
-                    </div>
-                </form>
+              <div class="form-body">
+                <!-- Card Number -->
+                <input
+                  type="text"
+                  class="card-number"
+                  placeholder="Betalkortsnummer"
+                  required
+                />
 
-                <form class="credit-card">
-                    <div class="form-header">
-                        <h4 class="title">Betalkortsinformation</h4>
-                    </div>
-
-                    <div class="form-body">
-                        <!-- Betalkortsnummer -->
-                        <div class="card-number">
-                            <input type="number" placeholder="Betalkortsnummer" required>
-                        </div>
                         <!-- Utgångsdatum för kortet -->
                         <div class="date-field">
                             <div class="month">
                                 <select name="Month">
-                                    <option value="january">Januari</option>
-                                    <option value="february">Februari</option>
-                                    <option value="march">Mars</option>
+                                    <option value="january">January</option>
+                                    <option value="february">February</option>
+                                    <option value="march">March</option>
                                     <option value="april">April</option>
-                                    <option value="may">Maj</option>
-                                    <option value="june">Juni</option>
-                                    <option value="july">Juli</option>
-                                    <option value="august">Augusti</option>
+                                    <option value="may">May</option>
+                                    <option value="june">June</option>
+                                    <option value="july">July</option>
+                                    <option value="august">August</option>
                                     <option value="september">September</option>
-                                    <option value="october">Oktober</option>
+                                    <option value="october">October</option>
                                     <option value="november">November</option>
                                     <option value="december">December</option>
                                 </select>
@@ -464,9 +216,11 @@
                 </form>
                 <button class="buy-button">Beställ</button>
             </div>
+
+          </div>
         </div>
+      </div>
     </section>
     <script src="app.js"></script>
-</body>
-
+  </body>
 </html>
