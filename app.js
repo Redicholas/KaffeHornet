@@ -84,7 +84,6 @@ const products = [
 const productGrid = document.querySelector('#product-grid');
 
 function renderProducts() {
-  // Reset/empty the HTML before re-rendering the products
   productGrid.innerHTML = '';
 
   for (let i = 0; i < products.length; i += 1) {
@@ -103,7 +102,7 @@ function renderProducts() {
                 <p>${products[i].desc}</p>
                     <div class="product-selection">
                         <p>${products[i].price}kr</p>
-                        <button onclick="remove()" data-id="${i}">-</button>
+                        <button class="button-remove" data-id="${i}">-</button>
                         <p>${products[i].amount}</p>
                         <button class="button-add" data-id="${i}">+</button>
                     </div>
@@ -111,11 +110,14 @@ function renderProducts() {
         </div>
         `;
   }
-  const addbtn = document.querySelectorAll('.button-add');
-  addbtn.forEach(btn => {
+  const addBtn = document.querySelectorAll('.button-add');
+  addBtn.forEach(btn => {
     btn.addEventListener('click', add);
   });
-  // TODO: Replicate for "decrease" button
+  const removeBtn = document.querySelectorAll('.button-remove');
+  removeBtn.forEach(btn => {
+    btn.addEventListener('click', remove);
+  });
 }
 
 function add() {
@@ -124,25 +126,10 @@ function add() {
 }
 
 function remove() {
-  products[this.dataset.id].amount -= 1;
-  renderProducts();
+  if (products[this.dataset.id].amount > 0) {
+    products[this.dataset.id].amount -= 1;
+    renderProducts();
+  }
 }
 
 renderProducts();
-
-/* <form>
-  <input type="submit">Köp</input>
-  <select name="amount">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-  </select>
-  </form> 
-*/
