@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 const products = [
   {
     img: ['img/produkt-1-kaffepasar.jpg', 'img/produkt-1-kaffepasar-mirror.jpg'],
@@ -82,11 +83,57 @@ const products = [
 ];
 
 const productGrid = document.querySelector('#product-grid');
+const basketGrid = document.querySelector('#basket-grid');
+
+function renderBasket() {
+  basketGrid.innerHTML = '';
+  for (let i = 0; i < products.length; i += 1) {
+    if (products[i].amount > 0) {
+      basketGrid.innerHTML += `
+	    <div class="item">
+        <img src="${products[i].img[0]}" height="100" width="100" alt="${products[i].imgAlt}" />
+        <div class="item-content">
+          <div class="item-info">
+            <h3>${products[i].name}</h3>
+            <p>${products[i].desc}</p>
+            <p>${products[i].price * products[i].amount}kr</p>
+          </div>
+          <div class="item-selection">
+            <button class="button-add" data-id="${i}">+</button>
+            <p>${products[i].amount}</p>
+            <button class="button-remove" data-id="${i}">-</button>
+          </div>
+        </div>
+      </div>
+	  `;
+    }
+  }
+  const addBtn = document.querySelectorAll('.button-add');
+  addBtn.forEach(btn => {
+    btn.addEventListener('click', add);
+  });
+  const removeBtn = document.querySelectorAll('.button-remove');
+  removeBtn.forEach(btn => {
+    btn.addEventListener('click', remove);
+  });
+}
+
+// eslint-disable-next-line no-unused-vars
+function clearBasket() {
+  basketGrid.innerHTML = '';
+
+  for (let i = 0; i < products.length; i += 1) {
+    products[i].amount = 0;
+  }
+  renderProducts();
+}
 
 function renderProducts() {
+  productGrid.innerHTML = '';
+
   for (let i = 0; i < products.length; i += 1) {
     productGrid.innerHTML += `
-        <div class="product-card" id="${i}">
+        <div class="product-card" data-id="${i}">
             <div class="image">
                 <img
                     src="${products[i].img[0]}"
@@ -100,25 +147,34 @@ function renderProducts() {
                 <p>${products[i].desc}</p>
                     <div class="product-selection">
                         <p>${products[i].price}kr</p>
-                        <form>
-                            <input type="submit">Köp</input>
-                            <select name="amount">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                            </select>
-                        </form>
+                        <button class="button-remove" data-id="${i}">-</button>
+                        <p>${products[i].amount}</p>
+                        <button class="button-add" data-id="${i}">+</button>
                     </div>
             </div>
         </div>
         `;
+  }
+  const addBtn = document.querySelectorAll('.button-add');
+  addBtn.forEach(btn => {
+    btn.addEventListener('click', add);
+  });
+  const removeBtn = document.querySelectorAll('.button-remove');
+  removeBtn.forEach(btn => {
+    btn.addEventListener('click', remove);
+  });
+  renderBasket();
+}
+
+function add() {
+  products[this.dataset.id].amount += 1;
+  renderProducts();
+}
+
+function remove() {
+  if (products[this.dataset.id].amount > 0) {
+    products[this.dataset.id].amount -= 1;
+    renderProducts();
   }
 }
 

@@ -29,28 +29,16 @@
         <option value="name">Namn</option>
       </select>
       <div class="product-grid" id="product-grid">
-        <!-- Producter renderas från JavaScripten -->
+        <!-- Produkter renderas från JavaScripten -->
       </div>
     </section>
 
     <section class="basket">
       <h2>Varukorgen</h2>
-      <!-- Mall för varukorgprodukter -->
-      <div class="item">
-        <img src="img/beans.jpg" height="100" width="100" alt="" />
-        <div class="item-content">
-          <div class="item-info">
-            <h3>Titel</h3>
-            <p>Info</p>
-            <p>Pris</p>
-          </div>
-          <div class="item-selection">
-            <button>+</button>
-            <p>0</p>
-            <button>-</button>
-          </div>
-        </div>
+      <div id="basket-grid">
+        <!-- Produkter renderas från JavaScripten -->
       </div>
+      <button onclick="clearBasket()">Rensa varukorgen</button>
     </section>
 
     <!-- Beställningsuppgifter -->
