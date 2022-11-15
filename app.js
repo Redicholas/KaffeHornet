@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 const products = [
   {
     img: ['img/produkt-1-kaffepasar.jpg', 'img/produkt-1-kaffepasar-mirror.jpg'],
@@ -85,28 +86,46 @@ const productGrid = document.querySelector('#product-grid');
 const basketGrid = document.querySelector('#basket-grid');
 
 function renderBasket() {
-  basketGrid.innerHTML = 'Din varukorg är tom, fyll på!';
+  basketGrid.innerHTML = '';
   for (let i = 0; i < products.length; i += 1) {
     if (products[i].amount > 0) {
       basketGrid.innerHTML += `
 	    <div class="item">
-	    <img src="${products[i].img[0]}" height="100" width="100" alt="${products[i].imgAlt}" />
-	    <div class="item-content">
-	      <div class="item-info">
-	        <h3>${products[i].name}</h3>
-	        <p>${products[i].desc}</p>
-	        <p>${products[i].price * products[i].amount}kr</p>
-	      </div>
-	      <div class="item-selection">
-	        <button>+</button>
-	        <p>${products[i].amount}</p>
-	        <button>-</button>
-	      </div>
-	    </div>
-	    </div>
+        <img src="${products[i].img[0]}" height="100" width="100" alt="${products[i].imgAlt}" />
+        <div class="item-content">
+          <div class="item-info">
+            <h3>${products[i].name}</h3>
+            <p>${products[i].desc}</p>
+            <p>${products[i].price * products[i].amount}kr</p>
+          </div>
+          <div class="item-selection">
+            <button class="button-add" data-id="${i}">+</button>
+            <p>${products[i].amount}</p>
+            <button class="button-remove" data-id="${i}">-</button>
+          </div>
+        </div>
+      </div>
 	  `;
     }
   }
+  const addBtn = document.querySelectorAll('.button-add');
+  addBtn.forEach(btn => {
+    btn.addEventListener('click', add);
+  });
+  const removeBtn = document.querySelectorAll('.button-remove');
+  removeBtn.forEach(btn => {
+    btn.addEventListener('click', remove);
+  });
+}
+
+// eslint-disable-next-line no-unused-vars
+function clearBasket() {
+  basketGrid.innerHTML = '';
+
+  for (let i = 0; i < products.length; i += 1) {
+    products[i].amount = 0;
+  }
+  renderProducts();
 }
 
 function renderProducts() {
