@@ -84,7 +84,7 @@ const products = [
 const productGrid = document.querySelector('#product-grid');
 
 function renderProducts() {
-  for (let i = 0; i < products.length; i++) {
+  for (let i = 0; i < products.length; i += 1) {
     productGrid.innerHTML += `
         <div class="product-card" id="${i}">
             <div class="image">
@@ -99,7 +99,7 @@ function renderProducts() {
                 <h3>${products[i].name}</h3>
                 <p>${products[i].desc}</p>
                     <div class="product-selection">
-                        <p>${products[i].price}</p>
+                        <p>${products[i].price}kr</p>
                         <form>
                             <input type="submit">Köp</input>
                             <select name="amount">
