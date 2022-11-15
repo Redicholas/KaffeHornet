@@ -84,6 +84,9 @@ const products = [
 const productGrid = document.querySelector('#product-grid');
 
 function renderProducts() {
+  // Reset/empty the HTML before re-rendering the products
+  productGrid.innerHTML = '';
+
   for (let i = 0; i < products.length; i += 1) {
     productGrid.innerHTML += `
         <div class="product-card" data-id="${i}">
@@ -101,23 +104,22 @@ function renderProducts() {
                     <div class="product-selection">
                         <p>${products[i].price}kr</p>
                         <button onclick="remove()" data-id="${i}">-</button>
-                        <p id="test">${products[i].amount}</p>
+                        <p>${products[i].amount}</p>
                         <button class="button-add" data-id="${i}">+</button>
                     </div>
             </div>
         </div>
         `;
-    console.log(products[i].amount);
   }
   const addbtn = document.querySelectorAll('.button-add');
   addbtn.forEach(btn => {
     btn.addEventListener('click', add);
   });
+  // TODO: Replicate for "decrease" button
 }
 
 function add() {
   products[this.dataset.id].amount += 1;
-  console.log(document.querySelector('#test'));
   renderProducts();
 }
 
