@@ -134,13 +134,39 @@ function renderProducts() {
 
 renderProducts()
 
-// Fomulärsdelen 
+/* Fomulärsdelen  
 
-// Kunden väljer betalsätt 
-// Om kunden väljer faktura
-// Visas ett formulär med personnummer.
-// Kortforumuläret döljs 
-// Om kunden väljer kort 
-// Visas ett formulär med kortuppgifter 
-// fakturaformuläret döljs
+[] Beställningsknappen ska inte vara klickbar 
+[] Kunden väljer betalsätt 
+[] Om kunden väljer faktura
+[] Visas ett formulär med personnummer.
+[] Kortforumuläret döljs 
+[] Om kunden väljer kort 
+[] Visas ett formulär med kortuppgifter 
+[] fakturaformuläret döljs
+[] kontrollera att alla fält är korrekt ifyllda 
+[] aktivera beställnings-knappen */
+
+
+const buyButton = document.querySelector('.buy-button');
+const firstName =  document.querySelector('#fname');
+const lastName = document.querySelector('#lname');
+const adress = document.querySelector('#adress');
+const zipCode = document.querySelector('#zip');
+const city = document.querySelector('#city');
+const portcode = document.querySelector('#portcode');
+const phone = document.querySelector('#adress');
+const email = document.querySelector('#email');
+
+const nameIsOk = false;
+
+firstName.addEventListener('change', checkName);
+
+function checkName() {
+    if (firstName.value.indexOf(' ') > -1) {
+        nameIsOk = true;
+    }   else {
+        nameIsOk = false;
+    }
+}
 
