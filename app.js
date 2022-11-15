@@ -86,7 +86,7 @@ const productGrid = document.querySelector('#product-grid');
 function renderProducts() {
   for (let i = 0; i < products.length; i += 1) {
     productGrid.innerHTML += `
-        <div class="product-card" id="${i}">
+        <div class="product-card" data-id="${i}">
             <div class="image">
                 <img
                     src="${products[i].img[0]}"
@@ -100,26 +100,47 @@ function renderProducts() {
                 <p>${products[i].desc}</p>
                     <div class="product-selection">
                         <p>${products[i].price}kr</p>
-                        <form>
-                            <input type="submit">Köp</input>
-                            <select name="amount">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                            </select>
-                        </form>
+                        <button onclick="remove()" data-id="${i}">-</button>
+                        <p id="test">${products[i].amount}</p>
+                        <button class="button-add" data-id="${i}">+</button>
                     </div>
             </div>
         </div>
         `;
+    console.log(products[i].amount);
   }
+  const addbtn = document.querySelectorAll('.button-add');
+  addbtn.forEach(btn => {
+    btn.addEventListener('click', add);
+  });
+}
+
+function add() {
+  products[this.dataset.id].amount += 1;
+  console.log(document.querySelector('#test'));
+  renderProducts();
+}
+
+function remove() {
+  products[this.dataset.id].amount -= 1;
+  renderProducts();
 }
 
 renderProducts();
+
+/* <form>
+  <input type="submit">Köp</input>
+  <select name="amount">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+  </select>
+  </form> 
+*/
