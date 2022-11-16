@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;300;500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6e63925041.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style/style.css">
     <title>Kaffe Hörnet</title>
 </head>
@@ -319,59 +320,56 @@
     <section class="customer-info">
         <h3>Dina uppgifter</h3>
         <div class="contact-form">
-            <form id="form" name="form" method="post" action="">
+            <form id="form">
+
                 <div class="first-name">
-                    <label>Förnamn:
-                        <input type="text" id="fname" required>
-                    </label><br>
+                    <label>Förnamn</label>
+                    <span id="name-error"></span>
+                    <input type="text" id="fname" onkeypress="validateName()">
                 </div>
+
                 <div class="last-name">
-                    <label>
-                        Efternamn:
-                        <input type="text" id="lname" required><br>
-                    </label><br>
+                    <label>Efternamn</label>
+                    <span id="lastname-error"></span>
+                    <input type="text" id="lname" onkeypress="validateLastName()"><br>
                 </div>
+
                 <div class="customer-adress">
-                    <label>
-                        Adress:
-                        <input type="text" id="adress" required>
-                    </label><br>
+                    <label>Adress</label>
+                    <span id="adress-error"></span>
+                    <input type="text" id="adress" onkeypress="validateAdress()">
                 </div>
 
                 <div class="zip">
-                    <label>
-                        Postnummer:
-                        <input type="number" id="zip" required>
-                    </label><br>
+                    <label>Postnummer</label>
+                    <span id="zip-error"></span>
+                    <input type="number" id="zip" onkeypress="validateZip()">
                 </div>
 
                 <div class="city">
-                    <label>
-                        Postort:
-                        <input type="text" id="city" required>
-                    </label><br>
+                    <label>Postort</label>
+                    <span id="city-error"></span>
+                    <input type="text" id="city" onkeypress="validateCity()">
                 </div>
 
                 <div class="portcode">
-                    <label>
-                        Portkod:
-                        <input type="number" id="portcode">
-                    </label><br>
+                    <label>Portkod</label>
+                    <input type="number" id="portcode">
                 </div>
 
                 <div class="phone">
-                    <label>
-                        Mobilnr:
-                        <input type="number" id="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
-                    </label><br>
+                    <label>Mobilnr</label>
+                    <span id="phone-error"></span>
+                    <input type="number" id="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" onkeypress="validatePhone()">
                 </div>
 
                 <div class="customer-email">
-                    <label>
-                        Email:
-                        <input type="email" id="email" required>
-                    </label><br>
+                    <label>Email </label>
+                    <span id="email-error"></span>
+                    <input type="email" id="email" onkeypress="validateEmail()">
                 </div>
+
+                <button type="submit" id="btn">Submit</button>
             </form>
             
             <button class="btn-continue">Fortsätt</button>
@@ -384,13 +382,14 @@
             <div class="payment-type">
                 <div class="payment-choice">
                     <form class="invoice">
-                        <input type="radio" id="paymentType_invoice" name="payment-option" value="invoiceLetter">
-                        <label for="paymentType_invoice" class="payment">Faktura</label>
-                        <br>
+                        <label for="paymentType_invoice" class="payment">Faktura:
+                            <input type="radio" id="paymentType_invoice" name="payment-option" value="invoiceLetter">
+                        </label>
                         <br>
                         <hr>
-                        <input type="radio" id="paymentType_card" name="payment-option" value="card">
-                        <label for="paymentType_card" class="payment">Kort</label>
+                        <label for="paymentType_card" class="payment">Kort:
+                            <input type="radio" id="paymentType_card" name="payment-option" value="card">
+                        </label>
                     </form>
 
                     <!-- ****** Kort-formulär ****** -->
@@ -470,7 +469,7 @@
                         <button type="submit" class="proceed-btn"><a href="#">Använd kort</a></button>
                     </div>
                 </form>
-                <button class="buy-button" disabled>Beställ</button>
+                <button class="buy-button" type="submit" disabled>Beställ</button>
             </div>
         </div>
     </section>
