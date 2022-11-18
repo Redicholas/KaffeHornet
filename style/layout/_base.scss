@@ -171,6 +171,15 @@ section {
   }
 }
 
+#form span {
+    color: red;
+    font-size: 1.5rem;
+}
+
+.fa-solid {
+    color: seagreen;
+}
+
 .customer-info {
   display: flex;
   flex-direction: column;
@@ -179,7 +188,8 @@ section {
 }
 
 .customer-info h3 {
-  margin: 1.25rem 0;
+    margin: 1.25rem 0;
+    padding: 1rem;
 }
 
 .contact-form {
@@ -212,8 +222,9 @@ section {
 }
 
 .customer-info input {
-  width: 100%;
-  padding: 0.313rem;
+    width: 100%;
+    padding: 0.313rem;
+    margin-top: 0.5rem;  
 }
 
 .contact-form div {
@@ -242,29 +253,32 @@ section {
   margin-bottom: 50px;
 }
 
-.payment-type {
-  text-align: left;
+.payment-type{
+    text-align: left;  
 }
 
-.payment {
-  position: relative;
-  left: 30px;
-  font-size: 1.2rem;
+.payment{
+    position: relative;
+    left: 30px;
+    top: 20px;
+    bottom: 30px;
+    font-size: 1.2rem; 
 }
 
 #paymentType_invoice {
-  position: relative;
-  left: -60px;
-  top: 30px;
-  height: 20px;
+    position: relative;
+    left: -60px;
+    height: 20px;
+    top: -25px;
 }
 
-#paymentType_card {
-  position: relative;
-  left: -60px;
-  top: 30px;
-  height: 20px;
+#paymentType_card{
+    position: relative;
+    left: -60px;
+    height: 20px; 
+    top: -25px;  
 }
+
 
 .payment-section {
   border: 1px solid black;
@@ -289,15 +303,15 @@ section {
 
 /* Kort-formulär */
 
-.credit-card,
-.invoice-details {
-  width: 360px;
-  height: 400px;
-  margin: 80px auto 0;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  background-color: #fff;
-  box-shadow: 1px 2px 3px 0 rgba(0, 0, 0, 0.1);
+.credit-card, .invoice-details {
+    width: 360px;
+    height: 400px;
+    margin: 80px auto 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 1px 2px 3px 0 rgba(0,0,0,.10);
+    display: none;
 }
 
 .form-header {
