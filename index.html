@@ -382,13 +382,13 @@
             <div class="payment-type">
                 <div class="payment-choice">
                     <form class="invoice">
-                        <label for="paymentType_invoice" class="payment">Faktura:
-                            <input type="radio" id="paymentType_invoice" name="payment-option" value="invoiceLetter">
+                        <label for="paymentType_invoice" class="payment">
+                            Faktura: <input type="radio" id="paymentType_invoice" name="payment-option">
                         </label>
                         <br>
                         <hr>
-                        <label for="paymentType_card" class="payment">Kort:
-                            <input type="radio" id="paymentType_card" name="payment-option" value="card">
+                        <label for="paymentType_card" class="payment">
+                            Kort: <input type="radio" id="paymentType_card" name="payment-option">
                         </label>
                     </form>
 
@@ -397,7 +397,7 @@
                 </div>
 
                 <!--Formulär med personnr för faktura-->
-                <form class="invoice-details">
+                <form class="invoice-details" id="id-ett">
                     <div class="form-body">
                         <div class="form-header">
                             <h4 class="title">Verifiera din identitet</h4>
@@ -412,7 +412,7 @@
                     </div>
                 </form>
 
-                <form class="credit-card">
+                <form class="credit-card" id="id-tva">
                     <div class="form-header">
                         <h4 class="title">Betalkortsinformation</h4>
                     </div>

@@ -292,6 +292,7 @@ section {
 
 /* Kort-formulär */ 
 
+
 .credit-card, .invoice-details {
     width: 360px;
     height: 400px;
@@ -300,6 +301,7 @@ section {
     border-radius: 6px;
     background-color: #fff;
     box-shadow: 1px 2px 3px 0 rgba(0,0,0,.10);
+    display: none;
 }
 
 .form-header {
