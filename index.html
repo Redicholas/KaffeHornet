@@ -87,7 +87,7 @@
                 <div class="phone">
                     <label>Mobilnr</label>
                     <span id="phone-error"></span>
-                    <input type="tel" id="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" onkeypress="validatePhone()">
+                    <input type="number" id="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" onkeypress="validatePhone()">
                 </div>
 
                 <div class="customer-email">
@@ -95,7 +95,12 @@
                     <span id="email-error"></span>
                     <input type="email" id="email" onkeypress="validateEmail()">
                 </div>
+
+                <button type="submit" id="btn">Submit</button>
             </form>
+            
+            <button class="btn-continue">Fortsätt</button>
+            <button class="btn-cancel">Avbryt</button>
         </div>
 
         <div class="payment-section">
@@ -128,9 +133,9 @@
                             <p>Ange dina uppgifter för att verifiera din identitet
                                 och slutföra ditt köp</p>
                         </div>
-                        <label>Personnummer:</label><br>
-                        <input type="number" placeholder="YYMMDD-XXXX">
-                        <button type="submit" class="confirm-btn">Bekräfta</button>
+                        <label for="">Personnummer:</label><br>
+                        <input type="number" pattern="[0-9]{6}-[0-9]{4}" placeholder="YYMMDD-XXXX">
+                        <button type="submit" class="confirm-btn"><a href="#">Bekräfta</a></button>
                     </div>
                 </form>
           <form class="credit-card" id="id-tva">
@@ -141,7 +146,7 @@
             <div class="form-body">
               <!-- Betalkortsnummer -->
               <div class="card-number">
-                <input type="number" placeholder="Betalkortsnummer" required>
+                <input type="number" placeholder="Betalkortsnummer" required />
               </div>
               <!-- Utgångsdatum för kortet -->
               <div class="date-field">
@@ -179,7 +184,7 @@
               <!-- Cvv  -->
               <div class="card-verification">
                 <div class="cvv-input">
-                  <input type="number" placeholder="CVV" required>
+                  <input type="number" placeholder="CVV" required />
                 </div>
                 <div class="cvv-details">
                   <p>3 sista siffrorna<br />på kortets baksida</p>
@@ -188,12 +193,11 @@
 
               <!-- Knappen Använd kort -->
               <button type="submit" class="proceed-btn">
-                Använd kort
+                <a href="#">Använd kort</a>
               </button>
             </div>
           </form>
-          <button id="buy-button">Beställ</button>
-          <button id="eraseBtn">Rensa formulär</button>
+          <button class="buy-button">Beställ</button>
         </div>
       </div>
     </section>

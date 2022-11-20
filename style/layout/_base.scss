@@ -233,7 +233,7 @@ section {
 
 /* Knapparna fortsätt och avbryt */
 
-/*.btn-continue,
+.btn-continue,
 .btn-cancel {
   background-color: $col-dark-brown;
   color: #fff;
@@ -245,7 +245,7 @@ section {
 
 .btn-continue {
   margin-right: 40px;
-}*/
+}
 
 /* Välja Betalsätt */
 
@@ -422,10 +422,10 @@ section {
   margin-top: 50px;
 }
 
-#buy-button, #eraseBtn {
+.buy-button {
   position: relative;
   top: 30px;
-  padding: 10px 40px;
+  padding: 10px 130px;
   background-color: $col-dark-brown;
   color: #fff;
 }
