@@ -7,6 +7,8 @@ const products = [
     desc: 'Bönor från Guatemala och Colombia',
     price: 129,
     amount: 0,
+    category: 'Bönor',
+    rating: rating4stars.innerHTML,
   },
   {
     name: 'Blue Magic',
@@ -15,6 +17,8 @@ const products = [
     desc: 'Espressobönor',
     price: 119,
     amount: 0,
+    category: 'Bönor',
+    rating: rating4stars.innerHTML,
   },
   {
     name: 'Specialty Beans',
@@ -23,6 +27,8 @@ const products = [
     desc: '"Speciella" bönor från Ethiopien',
     price: 129,
     amount: 0,
+    category: 'Bönor',
+    rating: rating4stars.innerHTML,
   },
   {
     name: 'Rustik',
@@ -31,6 +37,8 @@ const products = [
     desc: 'Svart kopp i keramik',
     price: 49,
     amount: 0,
+    category: 'Koppar',
+    rating: rating3stars.innerHTML,
   },
   {
     name: 'Grön',
@@ -39,6 +47,8 @@ const products = [
     desc: 'Kopp i poppande grön färg',
     price: 39,
     amount: 0,
+    category: 'Koppar',
+    rating: rating5stars.innerHTML,
   },
   {
     name: 'V60',
@@ -47,6 +57,8 @@ const products = [
     desc: 'V60 bryggaren som tilltalar din inre hipster',
     price: 599,
     amount: 0,
+    category: 'Bryggare',
+    rating: rating4stars.innerHTML,
   },
   {
     name: 'Aeropress',
@@ -55,6 +67,8 @@ const products = [
     desc: 'För dig som vill kunna göra kaffe var som helst!',
     price: 499,
     amount: 0,
+    category: 'Bryggare',
+    rating: rating3stars.innerHTML,
   },
   {
     name: 'Fancy',
@@ -63,6 +77,8 @@ const products = [
     desc: 'För ditt finbesök',
     price: 49,
     amount: 0,
+    category: 'Koppar',
+    rating: rating4stars.innerHTML,
   },
   {
     name: 'Franskpress',
@@ -71,6 +87,8 @@ const products = [
     desc: 'Den klassiska Franskpressen går alltid hem',
     price: 199,
     amount: 0,
+    category: 'Bryggare',
+    rating: rating5stars.innerHTML,
   },
   {
     name: 'Orange',
@@ -79,11 +97,14 @@ const products = [
     desc: 'En större kopp för dig med ett större beroende',
     price: 39,
     amount: 0,
+    category: 'Koppar',
+    rating: rating3stars.innerHTML,
   },
 ];
 
 const productGrid = document.querySelector('#product-grid');
 const basketGrid = document.querySelector('#basket-grid');
+const sortSelector = document.querySelector('#sort-options');
 
 function renderBasket() {
   basketGrid.innerHTML = '';
@@ -129,26 +150,55 @@ function clearBasket() {
 }
 
 function renderProducts() {
+  const sortOptions = sortSelector.value;
+
+  let sortedProducts = [...products]; 
+
+  if (sortOptions === 'priceHigh') {
+    sortedProducts = sortedProducts.sort(byPriceRev)
+  }  
+
+  if (sortOptions === 'priceLow') {
+    sortedProducts = sortedProducts.sort(byPrice)
+  }
+
+  if (sortOptions === 'nameAtoZ') {
+    sortedProducts = sortedProducts.sort(byName)
+  }
+
+  if (sortOptions === 'nameZtoA') {
+    sortedProducts = sortedProducts.sort(byNameRev)
+  }
+
+  if (sortOptions === 'category') {
+    sortedProducts = sortedProducts.sort(byCategory)
+  }  
+
+  if (sortOptions === 'rating') {
+    sortedProducts = sortedProducts.sort(byRating)
+  }  
+  
   productGrid.innerHTML = '';
 
-  for (let i = 0; i < products.length; i += 1) {
+  for (let i = 0; i < sortedProducts.length; i++) {
     productGrid.innerHTML += `
         <div class="product-card" data-id="${i}">
             <div class="image">
                 <img
-                    src="${products[i].img[0]}"
+                    src="${sortedProducts[i].img[0]}"
                     height="100"
                     width="100"
-                    alt="${products[i].imgAlt}"
+                    alt="${sortedProducts[i].imgAlt}"
                 />
             </div>
             <div class="product-info">
-                <h3>${products[i].name}</h3>
-                <p>${products[i].desc}</p>
+                <h3>${sortedProducts[i].name}</h3>
+                <p>${sortedProducts[i].rating}</p>
+                <p>${sortedProducts[i].desc}</p>
                     <div class="product-selection">
-                        <p>${products[i].price}kr</p>
+                        <p>${sortedProducts[i].price}kr</p>
                         <button class="button-remove" data-id="${i}">-</button>
-                        <p>${products[i].amount}</p>
+                        <p>${sortedProducts[i].amount}</p>
                         <button class="button-add" data-id="${i}">+</button>
                     </div>
             </div>
@@ -179,6 +229,78 @@ function remove() {
 }
 
 renderProducts();
+
+function byPriceRev(a, b) {
+  if (a.price > b.price) {
+    return -1;
+  }
+  else if (b.price > a.price) {
+    return 1;
+  }
+  else {
+    return 0;
+  }
+}
+
+function byPrice(a, b) {
+  if (a.price > b.price) {
+    return 1;
+  }
+  else if (b.price > a.price) {
+    return -1;
+  }
+  else {
+    return 0;
+  }
+}
+
+function byName(a, b) {
+  if (a.name > b.name) {
+    return 1;
+  }
+  else if (b.name > a.name) {
+    return -1;
+  }
+  else {
+    return 0;
+  }
+}
+
+function byNameRev(a, b) {
+  if (a.name > b.name) {
+    return -1;
+  }
+  else if (b.name > a.name) {
+    return 1;
+  }
+  else {
+    return 0;
+  }
+}
+
+function byCategory(a, b) {
+  if (a.category > b.category) {
+    return 1;
+  }
+  else if (b.category > a.category) {
+    return -1;
+  }
+  else {
+    return 0;
+  }
+}
+
+function byRating(a, b) {
+  if (a.rating > b.rating) {
+    return 1;
+  }
+  else if (b.rating > a.rating) {
+    return -1;
+  }
+  else {
+    return 0;
+  }
+}
 
 /* Fomulärsdelen  
 

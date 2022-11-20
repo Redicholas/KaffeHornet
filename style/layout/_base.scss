@@ -107,6 +107,14 @@ section {
   }
 }
 
+#rating3stars, #rating4stars, #rating5stars {
+  display: none;
+}
+
+.checked {
+  color: orange;
+}
+
 .basket {
   max-width: 600px;
 
