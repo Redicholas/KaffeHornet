@@ -5,6 +5,7 @@ $col-gray-brown: #7e6e5f;
 $col-dark-brown: #3f2d21;
 $col-accent-dark: #435046;
 $col-accent-light: #8db4a2;
+$col-black: #212427;
 
 html {
   scroll-behavior: smooth;
@@ -185,24 +186,35 @@ section {
   flex-direction: column;
   text-align: center;
   width: 100vw;
+  color: $col-black;
 }
 
-.customer-info h3 {
+.customer-email {
+  margin-bottom: 30px;
+}
+
+.first-name, .last-name {
+  margin-top: 20px;
+}
+
+.customer-info h2 {
     margin: 1.25rem 0;
     padding: 1rem;
 }
 
 .contact-form {
   text-align: left;
-  margin: auto;
   padding: 0.625rem;
   border: 1px solid black;
+  border-radius: 6px;
   max-width: 50rem;
   min-height: 25vh;
 }
 
 .contact-form input {
-  min-height: 30px;
+  min-height: 50px;
+  border-radius: 6px;
+  border: 1px solid black;
 }
 
 .first-name,
@@ -223,28 +235,8 @@ section {
 
 .customer-info input {
     width: 100%;
-    padding: 0.313rem;
-    margin-top: 0.5rem;  
-}
-
-.contact-form div {
-  margin-top: 0.625;
-}
-
-/* Knapparna fortsätt och avbryt */
-
-.btn-continue,
-.btn-cancel {
-  background-color: $col-dark-brown;
-  color: #fff;
-  position: relative;
-  top: 20px;
-  left: 120px;
-  padding: 5px 10px;
-}
-
-.btn-continue {
-  margin-right: 40px;
+    padding: 0.613rem;
+    margin-top: 0.6rem;  
 }
 
 /* Välja Betalsätt */
@@ -279,19 +271,14 @@ section {
     top: -25px;  
 }
 
-
 .payment-section {
   border: 1px solid black;
+  border-radius: 6px;
   min-height: 30vh;
   margin-top: 1.25rem;
 }
 
 /* Formulär personnr faktura */
-
-.invoice-details {
-  width: 80%;
-  margin: auto;
-}
 
 .invoice-info {
   margin-top: 30px;
@@ -304,9 +291,9 @@ section {
 /* Kort-formulär */
 
 .credit-card, .invoice-details {
-    width: 360px;
-    height: 400px;
-    margin: 80px auto 0;
+    width: 380px;
+    min-height: 400px;
+    margin: 80px auto 30px;
     border: 1px solid #ddd;
     border-radius: 6px;
     background-color: #fff;
@@ -315,61 +302,39 @@ section {
 }
 
 .form-header {
-  height: 60px;
-  padding: 20px 30px 0;
   border-bottom: 1px solid #e1e8ee;
+  padding: 20px 0;
+  text-align: center;
 }
 
-.form-body {
-  height: 340px;
-  padding: 30px 30px 20px;
+.payment-body {
+  padding: 0 30px;
+  
 }
 
 /* Title */
 .title {
   font-size: 1.25rem;
-  margin: 0;
-  color: #5e6977;
-}
-
-/* Common */
-.card-number input,
-.cvv-input input,
-.month select,
-.year select {
-  font-size: 1rem;
-  font-weight: 100;
-  line-height: 14px;
-}
-
-.card-number,
-.cvv-details,
-.cvv-input,
-.month select,
-.year select {
-  color: #86939e;
 }
 
 /* Card Number */
 .card-number input {
   width: 100%;
-  margin-bottom: 20px;
+  margin: 40px 0 30px 0;
   padding: 10px;
-  border: 2px solid #e1e8ee;
-  border-radius: 6px;
 }
 
 /* Date Field */
 .month select,
-.year select {
+.year select, 
+.cvv-input input{
   width: 145px;
   margin-bottom: 20px;
   padding: 10px;
-  border: 2px solid #e1e8ee;
-  border-radius: 6px;
+  font-weight: 300;
 }
 
-.month select {
+.month select, .cvv-input input {
   float: left;
 }
 
@@ -378,54 +343,54 @@ section {
 }
 
 /* Card Verification Field */
-.cvv-input input {
-  float: left;
-  width: 145px;
-  padding: 10px;
-  border: 2px solid #e1e8ee;
-  border-radius: 6px;
-  background: #fff;
-}
 
 .cvv-details {
+  margin-top: 15px;
   font-size: 0.8rem;
-  font-weight: 300;
   line-height: 16px;
   float: right;
-  margin-bottom: 45px;
 }
 
-.cvv-details p {
-  margin-top: 6px;
-}
+
 
 /* Buttons Section */
-.proceed-btn,
-.confirm-btn {
+.card-btn,
+.invoice-btn {
   cursor: pointer;
   font-size: 1.1rem;
   width: 100%;
   padding: 10px;
+  margin: 40px 0;
   border-color: transparent;
   border-radius: 6px;
-  margin-bottom: 10px;
   background: $col-dark-brown;
+  color: white;
 }
 
-.proceed-btn a,
-.confirm-btn a {
-  text-decoration: none;
-  color: #fff;
+.card-btn {
+  margin-top: 20px;
 }
 
-.confirm-btn {
-  margin-top: 50px;
-}
 
-.buy-button {
-  position: relative;
-  top: 30px;
-  padding: 10px 130px;
+#buy-button, #eraseBtn{
+  margin: 60px 40px 10px 40px;
+  padding: 10px 100px;
   background-color: $col-dark-brown;
   color: #fff;
+  border-radius: 10px;
+  font-size: 1.4rem;
 }
+
+#eraseBtn {
+  position: relative;
+  right: -130px;
+  padding: 10px;
+  margin: 70px 170px;
+}
+
+.btn-section {
+  display: flex;
+  flex-direction: column;
+}
+
+

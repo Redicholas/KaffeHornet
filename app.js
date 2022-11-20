@@ -294,8 +294,8 @@ document.querySelector('#paymentType_invoice').addEventListener('click', handleI
 document.querySelector('#paymentType_card').addEventListener('click',handleCardClick); 
 
 
-const card = document.getElementById('id-tva');
-const invoice = document.getElementById('id-ett');
+const card = document.getElementById('creditCard');
+const invoice = document.getElementById('invoice');
 
 function handleCardClick() {
   if (document.getElementById('paymentType_card').checked) {
