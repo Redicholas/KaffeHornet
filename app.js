@@ -198,7 +198,7 @@ function renderProducts() {
                     <div class="product-selection">
                         <p>${sortedProducts[i].price}kr</p>
                         <button class="button-remove" data-id="${i}">-</button>
-                        <p>${sortedProducts[i].amount}</p>
+                        <p>${products[i].amount}</p>
                         <button class="button-add" data-id="${i}">+</button>
                     </div>
             </div>
