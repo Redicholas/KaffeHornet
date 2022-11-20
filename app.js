@@ -1,81 +1,81 @@
 /* eslint-disable no-use-before-define */
 const products = [
   {
+    name: 'Sibaristica',
     img: ['img/produkt-1-kaffepasar.jpg', 'img/produkt-1-kaffepasar-mirror.jpg'],
     imgAlt: '',
-    name: 'Sibaristica',
     desc: 'Bönor från Guatemala och Colombia',
     price: 129,
     amount: 0,
   },
   {
+    name: 'Blue Magic',
     img: ['img/produkt-2-andrakaffapasar.jpg', 'img/produkt-2-andrakaffapasar-mirror.jpg'],
     imgAlt: '',
-    name: 'Blue Magic',
     desc: 'Espressobönor',
     price: 119,
     amount: 0,
   },
   {
+    name: 'Specialty Beans',
     img: ['img/produkt-3-merkaffe.jpg', 'img/produkt-3-merkaffe-mirror.jpg'],
     imgAlt: '',
-    name: 'Specialty Beans',
     desc: '"Speciella" bönor från Ethiopien',
     price: 129,
     amount: 0,
   },
   {
+    name: 'Rustik',
     img: ['img/produkt-4-kopp.jpg', 'img/produkt-4-kopp-mirror.jpg'],
     imgAlt: '',
-    name: 'Rustik',
     desc: 'Svart kopp i keramik',
     price: 49,
     amount: 0,
   },
   {
+    name: 'Grön',
     img: ['img/produkt-5-kopp2.jpg', 'img/produkt-5-kopp2-mirror.jpg'],
     imgAlt: '',
-    name: 'Grön',
     desc: 'Kopp i poppande grön färg',
     price: 39,
     amount: 0,
   },
   {
+    name: 'V60',
     img: ['img/produkt-6-v60.jpg', 'img/produkt-6-v60-mirror.jpg'],
     imgAlt: '',
-    name: 'V60',
     desc: 'V60 bryggaren som tilltalar din inre hipster',
     price: 599,
     amount: 0,
   },
   {
+    name: 'Aeropress',
     img: ['img/produkt-7-aeropress.jpg', 'img/produkt-7-aeropress-mirror.jpg'],
     imgAlt: '',
-    name: 'Aeropress',
     desc: 'För dig som vill kunna göra kaffe var som helst!',
     price: 499,
     amount: 0,
   },
   {
+    name: 'Fancy',
     img: ['img/produkt-8-kopp3.jpg', 'img/produkt-8-kopp3-mirror.jpg'],
     imgAlt: '',
-    name: 'Fancy',
     desc: 'För ditt finbesök',
     price: 49,
     amount: 0,
   },
   {
+    name: 'Franskpress',
     img: ['img/produkt-9-franskpress.jpg', 'img/produkt-9-franskpress-mirror.jpg'],
     imgAlt: '',
-    name: 'Franskpress',
     desc: 'Den klassiska Franskpressen går alltid hem',
     price: 199,
     amount: 0,
   },
   {
+    name: 'Orange',
     img: ['img/produkt-10-kopp4.jpg', 'img/produkt-10-kopp4-mirror.jpg'],
     imgAlt: '',
-    name: 'Orange',
     desc: 'En större kopp för dig med ett större beroende',
     price: 39,
     amount: 0,
@@ -90,21 +90,21 @@ function renderBasket() {
   for (let i = 0; i < products.length; i += 1) {
     if (products[i].amount > 0) {
       basketGrid.innerHTML += `
-	    <div class="item">
-        <img src="${products[i].img[0]}" height="100" width="100" alt="${products[i].imgAlt}" />
-        <div class="item-content">
-          <div class="item-info">
-            <h3>${products[i].name}</h3>
-            <p>${products[i].desc}</p>
-            <p>${products[i].price * products[i].amount}kr</p>
-          </div>
-          <div class="item-selection">
-            <button class="button-add" data-id="${i}">+</button>
-            <p>${products[i].amount}</p>
-            <button class="button-remove" data-id="${i}">-</button>
+        <div class="item">
+          <img src="${products[i].img[0]}" height="100" width="100" alt="${products[i].imgAlt}" />
+          <div class="item-content">
+            <div class="item-info">
+              <h3>${products[i].name}</h3>
+              <p>${products[i].desc}</p>
+              <p>${products[i].price * products[i].amount}kr</p>
+            </div>
+            <div class="item-selection">
+              <button class="button-add" data-id="${i}">+</button>
+              <p>${products[i].amount}</p>
+              <button class="button-remove" data-id="${i}">-</button>
+            </div>
           </div>
         </div>
-      </div>
 	  `;
     }
   }
@@ -178,7 +178,7 @@ function remove() {
   }
 }
 
-renderProducts()
+renderProducts();
 
 /* Fomulärsdelen  
 
@@ -193,19 +193,19 @@ renderProducts()
 [] kontrollera att alla fält är korrekt ifyllda 
 [] aktivera beställnings-knappen */
 
-let nameError = document.getElementById("name-error");
-let lastNameError = document.getElementById("lastname-error");
-let adressError = document.getElementById("adress-error");
-let zipError = document.getElementById("zip-error");
-let cityError = document.getElementById("city-error");
-let phoneError = document.getElementById("phone-error");
-let emailError = document.getElementById("email-error");
+let nameError = document.getElementById('name-error');
+let lastNameError = document.getElementById('lastname-error');
+let adressError = document.getElementById('adress-error');
+let zipError = document.getElementById('zip-error');
+let cityError = document.getElementById('city-error');
+let phoneError = document.getElementById('phone-error');
+let emailError = document.getElementById('email-error');
 
 function validateName() {
-  let name = document.getElementById("fname").value;
+  let name = document.getElementById('fname').value;
 
   if (name.length == -1) {
-    nameError.innerHTML = "*";
+    nameError.innerHTML = '*';
     return false;
   }
   nameError.innerHTML = '<i class="fa-solid fa-check"></i>';
@@ -213,10 +213,10 @@ function validateName() {
 }
 
 function validateLastName() {
-  let lastName = document.getElementById("lname").value;
+  let lastName = document.getElementById('lname').value;
 
   if (lastName.length == -1) {
-    lastNameError.innerHTML = "*";
+    lastNameError.innerHTML = '*';
     return false;
   }
   lastNameError.innerHTML = '<i class="fa-solid fa-check"></i>';
@@ -224,10 +224,10 @@ function validateLastName() {
 }
 
 function validateAdress() {
-  let adress = document.getElementById("adress").value;
+  let adress = document.getElementById('adress').value;
 
   if (adress.length == -1) {
-    adressError.innerHTML = "*";
+    adressError.innerHTML = '*';
     return false;
   }
   adressError.innerHTML = '<i class="fa-solid fa-check"></i>';
@@ -235,10 +235,10 @@ function validateAdress() {
 }
 
 function validateZip() {
-  let zipCode = document.getElementById("zip").value;
+  let zipCode = document.getElementById('zip').value;
 
   if (zipCode.length == -1) {
-    zipError.innerHTML = "*";
+    zipError.innerHTML = '*';
     return false;
   }
   zipError.innerHTML = '<i class="fa-solid fa-check"></i>';
@@ -246,10 +246,10 @@ function validateZip() {
 }
 
 function validateCity() {
-  let city = document.getElementById("city").value;
+  let city = document.getElementById('city').value;
 
   if (city.length == -1) {
-    cityError.innerHTML = "*";
+    cityError.innerHTML = '*';
     return false;
   }
   cityError.innerHTML = '<i class="fa-solid fa-check"></i>';
@@ -257,15 +257,15 @@ function validateCity() {
 }
 
 function validatePhone() {
-  let phone = document.getElementById("phone").value;
+  let phone = document.getElementById('phone').value;
 
   if (phone.length == -1) {
-    phoneError.innerHTML = "*";
+    phoneError.innerHTML = '*';
     return false;
   }
 
   if (!phone.match(/^[0-9]{10}$/)) {
-    phoneError.innerHTML = "Endast siffror";
+    phoneError.innerHTML = 'Endast siffror';
     return false;
   }
 
@@ -274,25 +274,23 @@ function validatePhone() {
 }
 
 function validateEmail() {
-  let email = document.getElementById("email").value;
+  let email = document.getElementById('email').value;
 
   if (email.length == -1) {
-    emailError.innerHTML = "*";
+    emailError.innerHTML = '*';
     return false;
   }
 
   if (!email.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
-    emailError.innerHTML = "Ogiltlig mejl";
+    emailError.innerHTML = 'Ogiltlig mejl';
     return false;
   }
   emailError.innerHTML = '<i class="fa-solid fa-check"></i>';
   return true;
 }
 
-
-document.querySelector('#paymentType_invoice').addEventListener('click', handleInvoiceClick); 
-document.querySelector('#paymentType_card').addEventListener('click',handleCardClick); 
-
+document.querySelector('#paymentType_invoice').addEventListener('click', handleInvoiceClick);
+document.querySelector('#paymentType_card').addEventListener('click', handleCardClick);
 
 const card = document.getElementById('id-tva');
 const invoice = document.getElementById('id-ett');
@@ -314,4 +312,3 @@ function handleInvoiceClick() {
     invoice.style.display = 'none';
   }
 }
-
