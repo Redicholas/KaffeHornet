@@ -107,7 +107,9 @@ section {
   }
 }
 
-#rating3stars, #rating4stars, #rating5stars {
+#rating3stars,
+#rating4stars,
+#rating5stars {
   display: none;
 }
 
@@ -129,6 +131,11 @@ section {
     border-radius: 0.5rem;
   }
 
+  .basket-bottom {
+    display: flex;
+    justify-content: space-between;
+  }
+
   .item {
     display: flex;
     align-items: center;
@@ -136,6 +143,7 @@ section {
     background: $col-light;
     border-radius: 0.8rem;
     padding: 0.5rem;
+    margin-bottom: 1rem;
 
     img {
       margin-right: 1rem;
@@ -180,12 +188,12 @@ section {
 }
 
 #form span {
-    color: red;
-    font-size: 1.5rem;
+  color: red;
+  font-size: 1.5rem;
 }
 
 .fa-solid {
-    color: seagreen;
+  color: seagreen;
 }
 
 .customer-info {
@@ -196,8 +204,8 @@ section {
 }
 
 .customer-info h3 {
-    margin: 1.25rem 0;
-    padding: 1rem;
+  margin: 1.25rem 0;
+  padding: 1rem;
 }
 
 .contact-form {
@@ -230,9 +238,9 @@ section {
 }
 
 .customer-info input {
-    width: 100%;
-    padding: 0.313rem;
-    margin-top: 0.5rem;  
+  width: 100%;
+  padding: 0.313rem;
+  margin-top: 0.5rem;
 }
 
 .contact-form div {
@@ -261,30 +269,30 @@ section {
   margin-bottom: 50px;
 }
 
-.payment-type{
-    text-align: left;  
+.payment-type {
+  text-align: left;
 }
 
-.payment{
-    position: relative;
-    left: 30px;
-    top: 20px;
-    bottom: 30px;
-    font-size: 1.2rem; 
+.payment {
+  position: relative;
+  left: 30px;
+  top: 20px;
+  bottom: 30px;
+  font-size: 1.2rem;
 }
 
 #paymentType_invoice {
-    position: relative;
-    left: -60px;
-    height: 20px;
-    top: -25px;
+  position: relative;
+  left: -60px;
+  height: 20px;
+  top: -25px;
 }
 
-#paymentType_card{
-    position: relative;
-    left: -60px;
-    height: 20px; 
-    top: -25px;  
+#paymentType_card {
+  position: relative;
+  left: -60px;
+  height: 20px;
+  top: -25px;
 }
 
 
@@ -311,15 +319,16 @@ section {
 
 /* Kort-formulär */
 
-.credit-card, .invoice-details {
-    width: 360px;
-    height: 400px;
-    margin: 80px auto 0;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    background-color: #fff;
-    box-shadow: 1px 2px 3px 0 rgba(0,0,0,.10);
-    display: none;
+.credit-card,
+.invoice-details {
+  width: 360px;
+  height: 400px;
+  margin: 80px auto 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #fff;
+  box-shadow: 1px 2px 3px 0 rgba(0, 0, 0, .10);
+  display: none;
 }
 
 .form-header {
