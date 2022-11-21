@@ -152,7 +152,7 @@ function clearBasket() {
 function renderProducts() {
   const sortOptions = sortSelector.value;
 
-  let sortedProducts = [...products]; 
+  let sortedProducts = products; 
 
   if (sortOptions === 'priceHigh') {
     sortedProducts = sortedProducts.sort(byPriceRev)
