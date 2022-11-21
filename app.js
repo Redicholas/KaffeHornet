@@ -153,24 +153,22 @@ function renderBasket() {
           </div>
         </div>
 	    `;
-      if (productAmount < 10) {
-        discountMessage.innerHTML = '';
-        shippingPrice = 25 + totalPrice * 0.1;
-      } else if (productAmount < 15) {
-        totalPrice *= 0.9;
-        totalPriceDisplay.innerHTML = Math.round(totalPrice);
-        discountMessage.innerHTML = '10% Rabatt!';
-      } else {
-        shippingPrice = 0;
-        discountMessage.innerHTML = 'Gratis frakt!';
-      }
     }
   }
-  // if (productAmount >= 10) {
-  //   totalPrice *= 0.9;
-  //   totalPriceDisplay.innerHTML = Math.round(totalPrice);
-  //   discountMessage.innerHTML = '10% Rabatt!';
-  // }
+  if (productAmount < 10) {
+    discountMessage.innerHTML = '';
+    shippingPrice = 25 + totalPrice * 0.1;
+  } else if (productAmount < 15) {
+    totalPrice *= 0.9;
+    totalPriceDisplay.innerHTML = Math.round(totalPrice);
+    shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
+    discountMessage.innerHTML = '10% Rabatt!';
+  } else {
+    shippingPrice = 0;
+    totalPriceDisplay.innerHTML = Math.round(totalPrice);
+    shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
+    discountMessage.innerHTML = 'Gratis frakt!';
+  }
 
   const addBtn = document.querySelectorAll('.button-add');
   addBtn.forEach(btn => {
