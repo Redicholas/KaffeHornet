@@ -105,10 +105,18 @@ const products = [
 const productGrid = document.querySelector('#product-grid');
 const basketGrid = document.querySelector('#basket-grid');
 const sortSelector = document.querySelector('#sort-options');
+const totalPriceDisplay = document.querySelector('#totalPriceDisplay');
 
 function renderBasket() {
   basketGrid.innerHTML = '';
+  let totalPricePerProduct = 0;
+  let totalPrice = 0;
+
   for (let i = 0; i < products.length; i += 1) {
+    totalPricePerProduct = products[i].price * products[i].amount;
+    totalPrice += totalPricePerProduct;
+    totalPriceDisplay.innerHTML = totalPrice;
+
     if (products[i].amount > 0) {
       basketGrid.innerHTML += `
         <div class="item">
@@ -152,32 +160,32 @@ function clearBasket() {
 function renderProducts() {
   const sortOptions = sortSelector.value;
 
-  let sortedProducts = [...products]; 
+  let sortedProducts = products;
 
   if (sortOptions === 'priceHigh') {
-    sortedProducts = sortedProducts.sort(byPriceRev)
-  }  
+    sortedProducts = sortedProducts.sort(byPriceRev);
+  }
 
   if (sortOptions === 'priceLow') {
-    sortedProducts = sortedProducts.sort(byPrice)
+    sortedProducts = sortedProducts.sort(byPrice);
   }
 
   if (sortOptions === 'nameAtoZ') {
-    sortedProducts = sortedProducts.sort(byName)
+    sortedProducts = sortedProducts.sort(byName);
   }
 
   if (sortOptions === 'nameZtoA') {
-    sortedProducts = sortedProducts.sort(byNameRev)
+    sortedProducts = sortedProducts.sort(byNameRev);
   }
 
   if (sortOptions === 'category') {
-    sortedProducts = sortedProducts.sort(byCategory)
-  }  
+    sortedProducts = sortedProducts.sort(byCategory);
+  }
 
   if (sortOptions === 'rating') {
-    sortedProducts = sortedProducts.sort(byRating)
-  }  
-  
+    sortedProducts = sortedProducts.sort(byRating);
+  }
+
   productGrid.innerHTML = '';
 
   for (let i = 0; i < sortedProducts.length; i++) {
@@ -233,11 +241,9 @@ renderProducts();
 function byPriceRev(a, b) {
   if (a.price > b.price) {
     return -1;
-  }
-  else if (b.price > a.price) {
+  } else if (b.price > a.price) {
     return 1;
-  }
-  else {
+  } else {
     return 0;
   }
 }
@@ -245,11 +251,9 @@ function byPriceRev(a, b) {
 function byPrice(a, b) {
   if (a.price > b.price) {
     return 1;
-  }
-  else if (b.price > a.price) {
+  } else if (b.price > a.price) {
     return -1;
-  }
-  else {
+  } else {
     return 0;
   }
 }
@@ -257,11 +261,9 @@ function byPrice(a, b) {
 function byName(a, b) {
   if (a.name > b.name) {
     return 1;
-  }
-  else if (b.name > a.name) {
+  } else if (b.name > a.name) {
     return -1;
-  }
-  else {
+  } else {
     return 0;
   }
 }
@@ -269,11 +271,9 @@ function byName(a, b) {
 function byNameRev(a, b) {
   if (a.name > b.name) {
     return -1;
-  }
-  else if (b.name > a.name) {
+  } else if (b.name > a.name) {
     return 1;
-  }
-  else {
+  } else {
     return 0;
   }
 }
@@ -281,11 +281,9 @@ function byNameRev(a, b) {
 function byCategory(a, b) {
   if (a.category > b.category) {
     return 1;
-  }
-  else if (b.category > a.category) {
+  } else if (b.category > a.category) {
     return -1;
-  }
-  else {
+  } else {
     return 0;
   }
 }
@@ -293,11 +291,9 @@ function byCategory(a, b) {
 function byRating(a, b) {
   if (a.rating > b.rating) {
     return 1;
-  }
-  else if (b.rating > a.rating) {
+  } else if (b.rating > a.rating) {
     return -1;
-  }
-  else {
+  } else {
     return 0;
   }
 }
