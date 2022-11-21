@@ -26,7 +26,7 @@
       <h1>Tack för att du handlade eller nåt</h1>
       <p>Nån bild</p>
       <p>Förväntad leveranstid och sånt</p>
-      <button id="closePopup">Ok</button>
+      <button id="closePopup" onclick="togglePopup()">Ok</button>
     </section>
 
     <section class="products" id="products">
@@ -79,6 +79,7 @@
         <button onclick="clearBasket()">Rensa varukorgen</button>
         <p>Totalbelopp: <span id="totalPriceDisplay"></span>kr</p>
       </div>
+      <button class="buy-btn" id="buyBtn" onclick="togglePopup()">Köp</button>
     </section>
 
     <!-- Beställningsuppgifter -->

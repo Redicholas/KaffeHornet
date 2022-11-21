@@ -108,7 +108,9 @@ const sortSelector = document.querySelector('#sort-options');
 const totalPriceDisplay = document.querySelector('#totalPriceDisplay');
 const popup = document.querySelector('#popup');
 const closePopupBtn = document.querySelector('#closePopup');
+const buyBtn = document.querySelector('#buyBtn');
 
+buyBtn.addEventListener('click', togglePopup);
 closePopupBtn.addEventListener('click', togglePopup);
 
 function renderBasket() {
@@ -241,10 +243,11 @@ function remove() {
 }
 
 function togglePopup() {
-  if (popup.style.display === none) {
-    popup.style.display = flex;
+  console.log('click');
+  if (popup.style.display === 'none') {
+    popup.style.display = 'flex';
   } else {
-    popup.style.display = none;
+    popup.style.display = 'none';
   }
 }
 
