@@ -182,16 +182,18 @@ renderProducts()
 
 /* Fomulärsdelen  
 
-[] Beställningsknappen ska inte vara klickbar 
-[] Kunden väljer betalsätt 
-[] Om kunden väljer faktura
+[x] Beställningsknappen ska inte vara klickbar 
+[x] Kunden väljer betalsätt 
+[x] Om kunden väljer faktura
     Visas ett formulär med personnummer.
       Kortforumuläret döljs 
-[] Om kunden väljer kort 
+[x] Om kunden väljer kort 
     Visas ett formulär med kortuppgifter 
     fakturaformuläret döljs
 [] kontrollera att alla fält är korrekt ifyllda 
 [] aktivera beställnings-knappen */
+
+
 
 let nameError = document.getElementById("name-error");
 let lastNameError = document.getElementById("lastname-error");
@@ -200,11 +202,13 @@ let zipError = document.getElementById("zip-error");
 let cityError = document.getElementById("city-error");
 let phoneError = document.getElementById("phone-error");
 let emailError = document.getElementById("email-error");
+let personalNrError = document.getElementById('personalNumber-Error')
+
 
 function validateName() {
   let name = document.getElementById("fname").value;
-
-  if (name.length == -1) {
+  
+  if (name.length === 0) {
     nameError.innerHTML = "*";
     return false;
   }
@@ -215,7 +219,7 @@ function validateName() {
 function validateLastName() {
   let lastName = document.getElementById("lname").value;
 
-  if (lastName.length == -1) {
+  if (lastName.length === 0) {
     lastNameError.innerHTML = "*";
     return false;
   }
@@ -226,7 +230,7 @@ function validateLastName() {
 function validateAdress() {
   let adress = document.getElementById("adress").value;
 
-  if (adress.length == -1) {
+  if (adress.length === 0) {
     adressError.innerHTML = "*";
     return false;
   }
@@ -237,7 +241,7 @@ function validateAdress() {
 function validateZip() {
   let zipCode = document.getElementById("zip").value;
 
-  if (zipCode.length == -1) {
+  if (zipCode.length === 0) {
     zipError.innerHTML = "*";
     return false;
   }
@@ -248,7 +252,7 @@ function validateZip() {
 function validateCity() {
   let city = document.getElementById("city").value;
 
-  if (city.length == -1) {
+  if (city.length === 0) {
     cityError.innerHTML = "*";
     return false;
   }
@@ -259,13 +263,13 @@ function validateCity() {
 function validatePhone() {
   let phone = document.getElementById("phone").value;
 
-  if (phone.length == -1) {
+  if (phone.length === 0) {
     phoneError.innerHTML = "*";
     return false;
   }
 
   if (!phone.match(/^[0-9]{10}$/)) {
-    phoneError.innerHTML = "Endast siffror";
+    phoneError.innerHTML = "var god fyll i ett giltligt mobilnr";
     return false;
   }
 
@@ -276,7 +280,7 @@ function validatePhone() {
 function validateEmail() {
   let email = document.getElementById("email").value;
 
-  if (email.length == -1) {
+  if (email.length === 0) {
     emailError.innerHTML = "*";
     return false;
   }
@@ -287,6 +291,24 @@ function validateEmail() {
   }
   emailError.innerHTML = '<i class="fa-solid fa-check"></i>';
   return true;
+}
+
+
+function validatePersonalNumber() {
+  let personalNr = document.getElementById('personalNumber').value;
+
+  if (personalNr.length === 0) {
+    personalNrError.innerHTML = "*";
+    return false;
+  }
+
+  if (!personalNr.match(/^[0-9]{6}\-[0-9]{4}$/)) {
+    personalNrError.innerHTML = "ej giltligt personnr";
+    return false;
+  }
+
+  personalNrError.innerHTML = '<i class="fa-solid fa-check"></i>';
+  return true; 
 }
 
 
