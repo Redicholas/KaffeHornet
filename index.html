@@ -77,7 +77,14 @@
       </div>
       <div class="basket-bottom">
         <button onclick="clearBasket()">Rensa varukorgen</button>
-        <p>Totalbelopp: <span id="totalPriceDisplay"></span>kr</p>
+        <div class="price-display">
+          <p>Belopp: <span id="productPriceDisplay"></span>kr</p>
+          <p>Frakt: <span id="shippingPriceDisplay"></span>kr</p>
+          <p>Totalt: <span id="totalPriceDisplay"></span>kr</p>
+        </div>
+      </div>
+      <div class="message">
+        <p id="discountMessage"></p>
       </div>
       <button class="buy-btn" id="buyBtn" onclick="togglePopup()">Köp</button>
     </section>

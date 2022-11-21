@@ -118,6 +118,8 @@ section {
       img {
         height: 100%;
         width: 100%;
+        object-fit: cover;
+        object-position: 0 -40px;
       }
     }
   }
@@ -151,6 +153,13 @@ section {
   .basket-bottom {
     display: flex;
     justify-content: space-between;
+  }
+
+  .message {
+    color: $col-accent-dark;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 1rem;
   }
 
   .buy-btn {
