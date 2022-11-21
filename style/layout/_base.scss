@@ -58,6 +58,22 @@ section {
   }
 }
 
+.popup {
+  width: 60vw;
+  height: 30vh;
+  border: 1px solid black;
+  border-radius: 1rem;
+  background: $col-light;
+  box-shadow: 0 0 10px black;
+  position: fixed;
+  top: 20vh;
+  left: 20vw;
+  z-index: 10;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .products {
   .product-grid {
     margin-top: 1rem;

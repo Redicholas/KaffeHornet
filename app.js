@@ -106,6 +106,10 @@ const productGrid = document.querySelector('#product-grid');
 const basketGrid = document.querySelector('#basket-grid');
 const sortSelector = document.querySelector('#sort-options');
 const totalPriceDisplay = document.querySelector('#totalPriceDisplay');
+const popup = document.querySelector('#popup');
+const closePopupBtn = document.querySelector('#closePopup');
+
+closePopupBtn.addEventListener('click', togglePopup);
 
 function renderBasket() {
   basketGrid.innerHTML = '';
@@ -233,6 +237,14 @@ function remove() {
   if (products[this.dataset.id].amount > 0) {
     products[this.dataset.id].amount -= 1;
     renderProducts();
+  }
+}
+
+function togglePopup() {
+  if (popup.style.display === none) {
+    popup.style.display = flex;
+  } else {
+    popup.style.display = none;
   }
 }
 
