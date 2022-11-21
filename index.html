@@ -25,15 +25,43 @@
     <section class="products" id="products">
       <h2>Våra Produkter</h2>
       <label for="sort">Sortera efter:</label>
-      <select name="sort">
-        <option value="rising">Pris: Stigande</option>
-        <option value="falling">Pris: Fallande</option>
-        <option value="name">Namn</option>
+      <select id='sort-options' name="sort-options" onChange=renderProducts()>
+        <option>---</option>
+        <option value="priceHigh">Pris: Högt till lågt</option>
+        <option value="priceLow" >Pris: Lågt till högt</option>
+        <option value="nameAtoZ">Namn A-Ö</option>
+        <option value="nameZtoA">Namn Ö-A</option>
+        <option value="category">Kategori</option>
+        <option value="rating">Omdöme</option>
       </select>
       <div class="product-grid" id="product-grid">
         <!-- Produkter renderas från JavaScripten -->
       </div>
     </section>
+
+    <div id="rating3stars">
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+    </div>
+
+    <div id="rating4stars">
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star"></span>
+    </div>
+
+    <div id="rating5stars">
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+    </div>
 
     <section class="basket">
       <h2>Varukorgen</h2>
