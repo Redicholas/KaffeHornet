@@ -3,7 +3,7 @@ const products = [
   {
     name: 'Sibaristica',
     img: ['img/produkt-1-kaffepasar.jpg', 'img/produkt-1-kaffepasar-mirror.jpg'],
-    imgAlt: '',
+    imgAlt: ['Två påsar med kaffebönor', 'Spegelvänd bild på två påsar med kaffebönor'],
     desc: 'Bönor från Guatemala och Colombia',
     price: 129,
     amount: 0,
@@ -13,7 +13,7 @@ const products = [
   {
     name: 'Blue Magic',
     img: ['img/produkt-2-andrakaffapasar.jpg', 'img/produkt-2-andrakaffapasar-mirror.jpg'],
-    imgAlt: '',
+    imgAlt: ['Kaffebönor i påse med blå etikett', 'Spegelvänd bild på kaffebönor i påse med blå etikett'],
     desc: 'Espressobönor',
     price: 119,
     amount: 0,
@@ -23,7 +23,7 @@ const products = [
   {
     name: 'Specialty Beans',
     img: ['img/produkt-3-merkaffe.jpg', 'img/produkt-3-merkaffe-mirror.jpg'],
-    imgAlt: '',
+    imgAlt: ['En arm som håller upp en påse kaffebönor', 'Spegelvänd bild på en arm som håller upp en påse kaffebönor'],
     desc: '"Speciella" bönor från Ethiopien',
     price: 129,
     amount: 0,
@@ -33,7 +33,7 @@ const products = [
   {
     name: 'Rustik',
     img: ['img/produkt-4-kopp.jpg', 'img/produkt-4-kopp-mirror.jpg'],
-    imgAlt: '',
+    imgAlt: ['En svart kaffekopp på ett träbord', 'Spegelvänd bild på en svart kaffekopp på ett träbord'],
     desc: 'Svart kopp i keramik',
     price: 49,
     amount: 0,
@@ -43,7 +43,10 @@ const products = [
   {
     name: 'Grön',
     img: ['img/produkt-5-kopp2.jpg', 'img/produkt-5-kopp2-mirror.jpg'],
-    imgAlt: '',
+    imgAlt: [
+      'Grön kaffekopp med latteart, på ett vitt bort med kaffebönor strödda runt om',
+      'Spegelvänd bild på grön kaffekopp med latteart, på ett vitt bort med kaffebönor strödda runt om',
+    ],
     desc: 'Kopp i poppande grön färg',
     price: 39,
     amount: 0,
@@ -53,7 +56,10 @@ const products = [
   {
     name: 'V60',
     img: ['img/produkt-6-v60.jpg', 'img/produkt-6-v60-mirror.jpg'],
-    imgAlt: '',
+    imgAlt: [
+      'V60 bryggare med kaffe som brygger i ett café',
+      'Spegelvänd bild på V60 bryggare med kaffe som brygger i ett café',
+    ],
     desc: 'V60 bryggaren som tilltalar din inre hipster',
     price: 599,
     amount: 0,
@@ -63,7 +69,7 @@ const products = [
   {
     name: 'Aeropress',
     img: ['img/produkt-7-aeropress.jpg', 'img/produkt-7-aeropress-mirror.jpg'],
-    imgAlt: '',
+    imgAlt: ['En aeropress på en stubbe utomhus', 'Spegelvänd bild på en aeropress på en stubbe utomhus'],
     desc: 'För dig som vill kunna göra kaffe var som helst!',
     price: 499,
     amount: 0,
@@ -73,7 +79,7 @@ const products = [
   {
     name: 'Fancy',
     img: ['img/produkt-8-kopp3.jpg', 'img/produkt-8-kopp3-mirror.jpg'],
-    imgAlt: '',
+    imgAlt: ['Liten kaffekopp med guld detaljer', 'Spegelvänd bild på liten kaffekopp med guld detaljer'],
     desc: 'För ditt finbesök',
     price: 49,
     amount: 0,
@@ -83,7 +89,10 @@ const products = [
   {
     name: 'Franskpress',
     img: ['img/produkt-9-franskpress.jpg', 'img/produkt-9-franskpress-mirror.jpg'],
-    imgAlt: '',
+    imgAlt: [
+      'En franskpress med kaffe och en kaffekopp brevid',
+      'Spegelvänd bild på en franskpress med kaffe och en kaffekopp brevid',
+    ],
     desc: 'Den klassiska Franskpressen går alltid hem',
     price: 199,
     amount: 0,
@@ -93,7 +102,10 @@ const products = [
   {
     name: 'Orange',
     img: ['img/produkt-10-kopp4.jpg', 'img/produkt-10-kopp4-mirror.jpg'],
-    imgAlt: '',
+    imgAlt: [
+      'Hand som håller en stor orange kopp med rykande kaffe',
+      'Spegelvänd bild på en hand som håller en stor orange kopp med rykande kaffe',
+    ],
     desc: 'En större kopp för dig med ett större beroende',
     price: 39,
     amount: 0,
@@ -235,7 +247,7 @@ function renderProducts() {
                     src="${sortedProducts[i].img[0]}"
                     height="100"
                     width="100"
-                    alt="${sortedProducts[i].imgAlt}"
+                    alt="${sortedProducts[i].imgAlt[0]}"
                 />
             </div>
             <div class="product-info">
