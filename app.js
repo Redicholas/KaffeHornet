@@ -195,120 +195,177 @@ renderProducts()
 
 
 
-let nameError = document.getElementById("name-error");
-let lastNameError = document.getElementById("lastname-error");
-let adressError = document.getElementById("adress-error");
-let zipError = document.getElementById("zip-error");
-let cityError = document.getElementById("city-error");
-let phoneError = document.getElementById("phone-error");
-let emailError = document.getElementById("email-error");
-let personalNrError = document.getElementById('personalNumber-Error')
+const nameError = document.getElementById("name-error");
+const lastNameError = document.getElementById("lastname-error");
+const adressError = document.getElementById("adress-error");
+const zipError = document.getElementById("zip-error");
+const cityError = document.getElementById("city-error");
+const phoneError = document.getElementById("phone-error");
+const emailError = document.getElementById("email-error");
+const personalNrError = document.getElementById('personalNumber-Error');
+const cardNrError = document.getElementById('cardNrError');
+const cvvError = document.getElementById('cvvError');
 
+const firstNameField = document.querySelector('#fname');
+const lastNameField = document.querySelector('#lname');
+const adressField = document.querySelector('#adress');
+const zipCodeField = document.querySelector('#zip');
+const cityField = document.querySelector('#city');
+const phoneField = document.querySelector('#phone');
+const emailField = document.querySelector('#email');
+const personalNrField = document.querySelector('#personalNumber');
+const cardNrField = document.querySelector('#cardNr');
+const cvvField = document.querySelector('#cvv');
+const orderBtn = document.getElementById('buy-button')
+
+let fNameIsOk = false;
+let lNameIsOk = false;
+let adressIsOk = false;
+let zipCodeIsOk = false;
+let cityIsOk = false;
+let phoneIsOk = false;
+let emailIsOk = false;
+let personalNrIsOk = false;
+let cardNrIsOk = false;
+let cvvIsOk = false;
+
+function validateCardNr() {
+  if(cardNrField.value.length === 0) {
+    cardNrIsOk = false;
+    cardNrError.innerHTML ="*"
+  }
+  if(cardNrField.value.length < 16 || cardNrField.value.length > 16) {
+    cardNrIsOk = false;
+    cardNrError.innerHTML ="16 siffror tack"
+  } else {
+  cardNrError.innerHTML = '<i class="fa-solid fa-check"></i>';
+  cardNrIsOk = true;
+  }
+  activateOrderButton();
+}
+
+function validateCvv() {
+  if(cvvField.value.length === 0) {
+    cvvIsOk = false;
+    cvvError.innerHTML = "*"
+  }
+  if(cvvField.value.length < 3 || cvvField.value.length > 3) {
+    cvvIsOk = false;
+    cvvError.innerHTML = "3 siffror tack"
+  } else {
+    cvvIsOk = true;
+    cvvError.innerHTML = '<i class="fa-solid fa-check"></i>';
+  }
+  activateOrderButton();
+}
 
 function validateName() {
-  let name = document.getElementById("fname").value;
-  
-  if (name.length === 0) {
+  if (firstNameField.value.length === 0) {
+    fNameIsOk = false;
     nameError.innerHTML = "*";
-    return false;
-  }
+  } else {
+  fNameIsOk = true;
   nameError.innerHTML = '<i class="fa-solid fa-check"></i>';
-  return true;
+  }
+  activateOrderButton();
 }
 
 function validateLastName() {
-  let lastName = document.getElementById("lname").value;
-
-  if (lastName.length === 0) {
+  if (lastNameField.value.length === 0) {
+    lNameIsOk = false;
     lastNameError.innerHTML = "*";
-    return false;
+  } else {
+    lNameIsOk = true;
+    lastNameError.innerHTML = '<i class="fa-solid fa-check"></i>';
   }
-  lastNameError.innerHTML = '<i class="fa-solid fa-check"></i>';
-  return true;
+  activateOrderButton();
 }
 
 function validateAdress() {
-  let adress = document.getElementById("adress").value;
-
-  if (adress.length === 0) {
+  if (adressField.value.length === 0) {
+    adressIsOk = false;
     adressError.innerHTML = "*";
-    return false;
+  } else {
+    adressIsOk = true;
+    adressError.innerHTML = '<i class="fa-solid fa-check"></i>';
   }
-  adressError.innerHTML = '<i class="fa-solid fa-check"></i>';
-  return true;
+  activateOrderButton();
 }
 
 function validateZip() {
-  let zipCode = document.getElementById("zip").value;
-
-  if (zipCode.length === 0) {
+  if (zipCodeField.value.length === 0) {
+    zipCodeIsOk = false;
     zipError.innerHTML = "*";
-    return false;
+  } else {
+    zipCodeIsOk = true;
+    zipError.innerHTML = '<i class="fa-solid fa-check"></i>';
   }
-  zipError.innerHTML = '<i class="fa-solid fa-check"></i>';
-  return true;
+  activateOrderButton();
 }
 
 function validateCity() {
-  let city = document.getElementById("city").value;
-
-  if (city.length === 0) {
+  if (cityField.value.length === 0) {
+    cityIsOk = false;
     cityError.innerHTML = "*";
-    return false;
+  } else {
+    cityIsOk = true;
+    cityError.innerHTML = '<i class="fa-solid fa-check"></i>';
   }
-  cityError.innerHTML = '<i class="fa-solid fa-check"></i>';
-  return true;
+  activateOrderButton();
 }
 
 function validatePhone() {
-  let phone = document.getElementById("phone").value;
-
-  if (phone.length === 0) {
+  if (phoneField.value.length === 0) {
+    phoneIsOk = false;
     phoneError.innerHTML = "*";
-    return false;
   }
-
-  if (!phone.match(/^[0-9]{10}$/)) {
+  if (!phoneField.value.match(/^[0-9]{10}$/)) {
+    phoneIsOk = false;
     phoneError.innerHTML = "var god fyll i ett giltligt mobilnr";
-    return false;
+  }  else {
+    phoneIsOk = true;
+    phoneError.innerHTML = '<i class="fa-solid fa-check"></i>';
   }
-
-  phoneError.innerHTML = '<i class="fa-solid fa-check"></i>';
-  return true;
+  activateOrderButton();
 }
 
 function validateEmail() {
-  let email = document.getElementById("email").value;
-
-  if (email.length === 0) {
+  if (emailField.value.length === 0) {
+    emailIsOk = false;
     emailError.innerHTML = "*";
-    return false;
   }
-
-  if (!email.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
+  if (!emailField.value.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
+    emailIsOk = false;
     emailError.innerHTML = "Ogiltlig mejl";
-    return false;
+  } else {
+    emailIsOk = true;
+    emailError.innerHTML = '<i class="fa-solid fa-check"></i>';
   }
-  emailError.innerHTML = '<i class="fa-solid fa-check"></i>';
-  return true;
+  activateOrderButton();
+}
+
+function validatePersonalNumber() {
+  if (personalNrField.value.length === 0) {
+    personalNrIsOk = false;
+    personalNrError.innerHTML = "*";
+  }
+  if (!personalNrField.value.match(/^(\d{6}|\d{8})[-|(\s)]{0,1}\d{4}$/)) {
+    personalNrIsOk = false;
+    personalNrError.innerHTML = "10 siffror tack";
+  } else {
+    personalNrIsOk = true;
+    personalNrError.innerHTML = '<i class="fa-solid fa-check"></i>'; 
+  }
+  activateOrderButton();
 }
 
 
-function validatePersonalNumber() {
-  let personalNr = document.getElementById('personalNumber').value;
-
-  if (personalNr.length === 0) {
-    personalNrError.innerHTML = "*";
-    return false;
+function activateOrderButton(){
+  if (fNameIsOk && lNameIsOk && adressIsOk && zipCodeIsOk && cityIsOk && phoneIsOk && emailIsOk && ((personalNrIsOk) || (cardNrIsOk && cvvIsOk))){
+      orderBtn.removeAttribute('disabled');    
+  } else {
+      orderBtn.setAttribute('disabled', ''); 
   }
-
-  if (!personalNr.match(/^[0-9]{6}\-[0-9]{4}$/)) {
-    personalNrError.innerHTML = "ej giltligt personnr";
-    return false;
-  }
-
-  personalNrError.innerHTML = '<i class="fa-solid fa-check"></i>';
-  return true; 
 }
 
 

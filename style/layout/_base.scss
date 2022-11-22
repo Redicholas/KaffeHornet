@@ -172,9 +172,20 @@ section {
   }
 }
 
-#form span {
+#form span, #invoice span, #creditCard span {
     color: red;
     font-size: 1.5rem;
+}
+
+#cvvError {
+  position: relative;
+  left: -160px;
+  top: -60px;
+}
+
+#cardNrError {
+  position: relative;
+  top: 30px;
 }
 
 .fa-solid {
@@ -390,6 +401,7 @@ section {
   margin-top: 50px;
 }
 
+
 #buy-button, #eraseBtn{
   margin: 60px 40px 10px 40px;
   padding: 20px 100px;
@@ -410,5 +422,4 @@ section {
   display: flex;
   flex-direction: column;
 }
-
 

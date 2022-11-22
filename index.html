@@ -139,7 +139,7 @@
                                 och slutföra ditt köp</p>
                         </div>
                         <label>Personnummer:<br><span id="personalNumber-Error"></span>
-                          <input id="personalNumber" type="number" pattern="[0-9]{6}-[0-9]{4}" placeholder="YYMMDD-XXXX" onfocusout="validatePersonalNumber()">
+                          <input id="personalNumber" type="text" pattern="[0-9]{6}-[0-9]{4}" placeholder="YYMMDD-XXXX" onfocusout="validatePersonalNumber()">
                         </label>
                         <button type="submit" class="invoice-btn" disabled>Bekräfta</button>
                     </div>
@@ -149,11 +149,11 @@
             <div class="form-header">
               <h4 class="title">Betalkortsinformation</h4>
             </div>
-
             <div class="payment-body">
               <!-- Betalkortsnummer -->
               <div class="card-number">
-                <input type="number" placeholder="Betalkortsnummer" required>
+                <span id="cardNrError"></span>
+                <input id="cardNr" type="number" placeholder="Betalkortsnummer" required onfocusout="validateCardNr()">
               </div>
               <!-- Utgångsdatum för kortet -->
               <div class="date-field">
@@ -191,12 +191,14 @@
               <!-- Cvv  -->
               <div class="card-verification">
                 <div class="cvv-input">
-                  <input id="cvv" type="number" placeholder="CVV" required>
+                  <input id="cvv" type="number" placeholder="CVV" required onfocusout="validateCvv()">
                 </div>
                 <div class="cvv-details">
                   <p>3 sista siffrorna<br />på kortets baksida</p>
+                  <span id="cvvError"></span>
                 </div>
               </div>
+            
 
               <!-- Knappen Använd kort -->
               <button type="submit" class="card-btn">Använd kort</button>
