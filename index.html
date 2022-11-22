@@ -22,10 +22,11 @@
       <a href="#products">Kaffesugen?</a>
     </div>
 
-    <section class="popup">
+    <section class="popup" id="popup">
       <h1>Tack för att du handlade eller nåt</h1>
       <p>Nån bild</p>
       <p>Förväntad leveranstid och sånt</p>
+      <button id="closePopup">Ok</button>
     </section>
 
     <section class="products" id="products">
@@ -74,14 +75,26 @@
       <div id="basket-grid">
         <!-- Produkter renderas från JavaScripten -->
       </div>
+      <p class="discount-info">
+        Köp 10 varor eller mer och få 10% rabatt! <br />
+        Eller mer än 15 varor och få gratis frakt!
+      </p>
       <div class="basket-bottom">
         <button onclick="clearBasket()">Rensa varukorgen</button>
-        <p>Totalbelopp: <span id="totalPriceDisplay"></span>kr</p>
+        <div class="price-display">
+          <p>Belopp: <span id="productPriceDisplay"></span>kr</p>
+          <p>Frakt: <span id="shippingPriceDisplay"></span>kr</p>
+          <p>Totalt: <span id="totalPriceDisplay"></span>kr</p>
+        </div>
       </div>
+      <div class="message">
+        <p id="discountMessage"></p>
+      </div>
+      <a href="#customerInfo"><button class="buy-btn">Köp</button></a>
     </section>
 
     <!-- Beställningsuppgifter -->
-    <section class="customer-info">
+    <section class="customer-info" id="customerInfo">
       <h3>Dina uppgifter</h3>
       <div class="contact-form">
         <form id="form">
@@ -231,7 +244,7 @@
               </button>
             </div>
           </form>
-          <button class="buy-button">Beställ</button>
+          <button class="buy-button" id="buyBtn">Beställ</button>
         </div>
       </div>
     </section>

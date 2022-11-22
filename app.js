@@ -105,17 +105,35 @@ const products = [
 const productGrid = document.querySelector('#product-grid');
 const basketGrid = document.querySelector('#basket-grid');
 const sortSelector = document.querySelector('#sort-options');
+
+const productPriceDisplay = document.querySelector('#productPriceDisplay');
+const shippingPriceDisplay = document.querySelector('#shippingPriceDisplay');
 const totalPriceDisplay = document.querySelector('#totalPriceDisplay');
+const discountMessage = document.querySelector('#discountMessage');
+
+const popup = document.querySelector('#popup');
+const closePopupBtn = document.querySelector('#closePopup');
+const buyBtn = document.querySelector('#buyBtn');
+
+buyBtn.addEventListener('click', togglePopup);
+closePopupBtn.addEventListener('click', togglePopup);
 
 function renderBasket() {
   basketGrid.innerHTML = '';
+
+  let productAmount = 0;
+  let shippingPrice = 25;
   let totalPricePerProduct = 0;
   let totalPrice = 0;
 
   for (let i = 0; i < products.length; i += 1) {
     totalPricePerProduct = products[i].price * products[i].amount;
     totalPrice += totalPricePerProduct;
-    totalPriceDisplay.innerHTML = totalPrice;
+    productAmount += products[i].amount;
+
+    productPriceDisplay.innerHTML = Math.round(totalPrice);
+    shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
+    totalPriceDisplay.innerHTML = Math.round(totalPrice + shippingPrice);
 
     if (products[i].amount > 0) {
       basketGrid.innerHTML += `
@@ -134,9 +152,24 @@ function renderBasket() {
             </div>
           </div>
         </div>
-	  `;
+	    `;
     }
   }
+  if (productAmount < 10) {
+    discountMessage.innerHTML = '';
+    shippingPrice = 25 + totalPrice * 0.1;
+  } else if (productAmount < 15) {
+    totalPrice *= 0.9;
+    totalPriceDisplay.innerHTML = Math.round(totalPrice);
+    shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
+    discountMessage.innerHTML = '10% Rabatt!';
+  } else {
+    shippingPrice = 0;
+    totalPriceDisplay.innerHTML = Math.round(totalPrice);
+    shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
+    discountMessage.innerHTML = 'Gratis frakt!';
+  }
+
   const addBtn = document.querySelectorAll('.button-add');
   addBtn.forEach(btn => {
     btn.addEventListener('click', add);
@@ -233,6 +266,14 @@ function remove() {
   if (products[this.dataset.id].amount > 0) {
     products[this.dataset.id].amount -= 1;
     renderProducts();
+  }
+}
+
+function togglePopup() {
+  if (popup.style.display === 'none') {
+    popup.style.display = 'flex';
+  } else {
+    popup.style.display = 'none';
   }
 }
 
