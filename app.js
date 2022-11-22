@@ -155,9 +155,15 @@ function renderBasket() {
 	    `;
     }
   }
-  if (productAmount < 10) {
+  if (productAmount === 0) {
+    shippingPrice = 0;
+    shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
+    totalPriceDisplay.innerHTML = Math.round(totalPrice);
+  } else if (productAmount < 10) {
     discountMessage.innerHTML = '';
     shippingPrice = 25 + totalPrice * 0.1;
+    shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
+    totalPriceDisplay.innerHTML = Math.round(totalPrice);
   } else if (productAmount < 15) {
     totalPrice *= 0.9;
     totalPriceDisplay.innerHTML = Math.round(totalPrice);
