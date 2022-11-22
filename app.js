@@ -127,8 +127,8 @@ const popup = document.querySelector('#popup');
 const closePopupBtn = document.querySelector('#closePopup');
 const buyBtn = document.querySelector('#buyBtn');
 
-buyBtn.addEventListener('click', togglePopup);
-closePopupBtn.addEventListener('click', togglePopup);
+buyBtn.addEventListener('click', placeOrder);
+closePopupBtn.addEventListener('click', placeOrder);
 
 function renderBasket() {
   basketGrid.innerHTML = '';
@@ -284,11 +284,12 @@ function remove() {
   }
 }
 
-function togglePopup() {
+function placeOrder() {
   if (popup.classList.contains('hidden')) {
     popup.classList.remove('hidden');
     getDeliveryTime();
     productConfirmation();
+    // ToDo: Nollställ beställning och formulär
   } else {
     popup.classList.add('hidden');
   }
