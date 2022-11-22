@@ -130,10 +130,6 @@ const buyBtn = document.querySelector('#buyBtn');
 buyBtn.addEventListener('click', togglePopup);
 closePopupBtn.addEventListener('click', togglePopup);
 
-// function renderBasketProducts() {
-
-// }
-
 function renderBasket() {
   basketGrid.innerHTML = '';
 
@@ -292,32 +288,47 @@ function togglePopup() {
   if (popup.style.display === 'none') {
     popup.style.display = 'flex';
     getDeliveryTime();
-    orderConfirmation();
+    productConfirmation();
   } else {
     popup.style.display = 'none';
   }
 }
 
-// function orderConfirmation() {
-//   orderConfirmationDisplay = document.querySelector('#orderConfirmation');
-//   orderConfirmationDisplay.innerHTML =
-//   for ();
-// }
+function productConfirmation() {
+  const orderConfirmation = document.querySelector('#orderConfirmation');
+  for (let i = 0; i < products.length; i += 1) {
+    if (products[i].amount > 0) {
+      orderConfirmation.innerHTML += `
+        <div class="product-confirmation-display">
+          <h4>${products[i].name}</h4>
+          <p>${products[i].amount}st *</p>
+          <p>${products[i].price}kr</p>
+        </div>
+        `;
+    }
+  }
+  orderConfirmation.innerHTML += `
+    <div class="product-confirmation-display-price">
+      <p>Frakt: ${shippingPriceDisplay.textContent.valueOf()}kr</p>
+      <p>Totalt: ${totalPriceDisplay.textContent.valueOf()}kr</p>
+    </div>
+    `;
+}
 
 function getDeliveryTime() {
-  const deliverTimeDisplay = document.querySelector('#deliveryTimeDisplay');
+  const deliveryTimeDisplay = document.querySelector('#deliveryTimeDisplay');
   const now = new Date();
   const today = now.getDay();
   const hourOfDay = now.getHours();
 
   if (hourOfDay >= 11 && hourOfDay < 15) {
-    deliverTimeDisplay.innerHTML = 'Din leverans beräknas vara framme ca. kl 15';
+    deliveryTimeDisplay.innerHTML = 'Din leverans beräknas vara framme ca. kl 15';
   } else if (hourOfDay > 22 && hourOfDay < 6) {
-    deliverTimeDisplay.innerHTML = 'Leveranstid beräknas till ca. 45 minuter';
+    deliveryTimeDisplay.innerHTML = 'Leveranstid beräknas till ca. 45 minuter';
   } else if (today === 6 || today === 0) {
-    deliverTimeDisplay.innerHTML = 'Leveranstid beräknas till ca. 1,5 timmar';
+    deliveryTimeDisplay.innerHTML = 'Leveranstid beräknas till ca. 1,5 timmar';
   } else {
-    deliverTimeDisplay.innerHTML = 'Leveranstid beräknas till ca. 20 minuter';
+    deliveryTimeDisplay.innerHTML = 'Leveranstid beräknas till ca. 20 minuter';
   }
 }
 
