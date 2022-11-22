@@ -64,7 +64,7 @@ section {
 
 .popup {
   width: 60vw;
-  height: 50vh;
+  min-height: 50vh;
   border: 1px solid black;
   border-radius: 1rem;
   background: $col-light;
@@ -83,6 +83,16 @@ section {
     color: $col-light;
     border-radius: 0.5rem;
     border: none;
+  }
+
+  .product-confirmation-display {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .product-confirmation-display-price {
+    margin-top: 1rem;
   }
 }
 
