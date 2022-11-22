@@ -77,6 +77,16 @@ section {
   flex-direction: column;
   justify-content: space-between;
 
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  span {
+    font-size: 3rem;
+    text-align: center;
+    margin: 0;
+  }
+
   button {
     background: $col-dark-brown;
     border: 1px solid $col-beige;
@@ -89,6 +99,7 @@ section {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    border-bottom: 1px solid b
   }
 
   .product-confirmation-display-price {

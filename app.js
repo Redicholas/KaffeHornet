@@ -150,7 +150,7 @@ function renderBasket() {
     if (products[i].amount > 0) {
       basketGrid.innerHTML += `
         <div class="item">
-          <img src="${products[i].img[0]}" height="100" width="100" alt="${products[i].imgAlt}" />
+          <img src="${products[i].img[0]}" height="100" width="100" alt="${products[i].imgAlt[0]}" />
           <div class="item-content">
             <div class="item-info">
               <h3>${products[i].name}</h3>
@@ -236,7 +236,7 @@ function renderProducts() {
 
   productGrid.innerHTML = '';
 
-  for (let i = 0; i < sortedProducts.length; i++) {
+  for (let i = 0; i < sortedProducts.length; i += 1) {
     productGrid.innerHTML += `
         <div class="product-card" data-id="${i}">
             <div class="image">
