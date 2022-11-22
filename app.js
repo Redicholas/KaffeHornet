@@ -130,6 +130,10 @@ const buyBtn = document.querySelector('#buyBtn');
 buyBtn.addEventListener('click', togglePopup);
 closePopupBtn.addEventListener('click', togglePopup);
 
+// function renderBasketProducts() {
+
+// }
+
 function renderBasket() {
   basketGrid.innerHTML = '';
 
@@ -167,25 +171,22 @@ function renderBasket() {
 	    `;
     }
   }
-  if (productAmount === 0) {
-    shippingPrice = 0;
-    shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
-    totalPriceDisplay.innerHTML = Math.round(totalPrice);
-  } else if (productAmount < 10) {
+  if (productAmount < 10) {
     discountMessage.innerHTML = '';
     shippingPrice = 25 + totalPrice * 0.1;
     shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
-    totalPriceDisplay.innerHTML = Math.round(totalPrice);
   } else if (productAmount < 15) {
+    shippingPrice = 25 + totalPrice * 0.1;
     totalPrice *= 0.9;
     totalPriceDisplay.innerHTML = Math.round(totalPrice);
     shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
     discountMessage.innerHTML = '10% Rabatt!';
   } else {
     shippingPrice = 0;
+    totalPrice *= 0.9;
     totalPriceDisplay.innerHTML = Math.round(totalPrice);
     shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
-    discountMessage.innerHTML = 'Gratis frakt!';
+    discountMessage.innerHTML = '10% Rabatt och gratis frakt!';
   }
 
   const addBtn = document.querySelectorAll('.button-add');
@@ -290,12 +291,35 @@ function remove() {
 function togglePopup() {
   if (popup.style.display === 'none') {
     popup.style.display = 'flex';
+    getDeliveryTime();
+    orderConfirmation();
   } else {
     popup.style.display = 'none';
   }
 }
 
-renderProducts();
+// function orderConfirmation() {
+//   orderConfirmationDisplay = document.querySelector('#orderConfirmation');
+//   orderConfirmationDisplay.innerHTML =
+//   for ();
+// }
+
+function getDeliveryTime() {
+  const deliverTimeDisplay = document.querySelector('#deliveryTimeDisplay');
+  const now = new Date();
+  const today = now.getDay();
+  const hourOfDay = now.getHours();
+
+  if (hourOfDay >= 11 && hourOfDay < 15) {
+    deliverTimeDisplay.innerHTML = 'Din leverans beräknas vara framme ca. kl 15';
+  } else if (hourOfDay > 22 && hourOfDay < 6) {
+    deliverTimeDisplay.innerHTML = 'Leveranstid beräknas till ca. 45 minuter';
+  } else if (today === 6 || today === 0) {
+    deliverTimeDisplay.innerHTML = 'Leveranstid beräknas till ca. 1,5 timmar';
+  } else {
+    deliverTimeDisplay.innerHTML = 'Leveranstid beräknas till ca. 20 minuter';
+  }
+}
 
 function byPriceRev(a, b) {
   if (a.price > b.price) {
@@ -489,3 +513,5 @@ function handleInvoiceClick() {
     invoice.style.display = 'none';
   }
 }
+
+renderProducts();
