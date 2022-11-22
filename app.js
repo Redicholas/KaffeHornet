@@ -285,17 +285,18 @@ function remove() {
 }
 
 function togglePopup() {
-  if (popup.style.display === 'none') {
-    popup.style.display = 'flex';
+  if (popup.classList.contains('hidden')) {
+    popup.classList.remove('hidden');
     getDeliveryTime();
     productConfirmation();
   } else {
-    popup.style.display = 'none';
+    popup.classList.add('hidden');
   }
 }
 
 function productConfirmation() {
   const orderConfirmation = document.querySelector('#orderConfirmation');
+  orderConfirmation.innerHTML = '';
   for (let i = 0; i < products.length; i += 1) {
     if (products[i].amount > 0) {
       orderConfirmation.innerHTML += `

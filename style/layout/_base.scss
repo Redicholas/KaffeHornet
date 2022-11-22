@@ -73,7 +73,7 @@ section {
   top: 20vh;
   left: 20vw;
   z-index: 10;
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
 
@@ -94,6 +94,10 @@ section {
   .product-confirmation-display-price {
     margin-top: 1rem;
   }
+}
+
+.hidden {
+  display: none;
 }
 
 .products {
