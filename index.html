@@ -52,35 +52,35 @@
                 <div class="first-name">
                     <label>Förnamn:
                       <span id="name-error"></span>
-                      <input type="text" id="fname" onfocusout="validateName()">
+                      <input type="text" id="fname">
                     </label>
                 </div>
 
                 <div class="last-name">
                     <label>Efternamn:
                         <span id="lastname-error"></span>
-                        <input type="text" id="lname" onfocusout="validateLastName()"><br>
+                        <input type="text" id="lname"><br>
                     </label>
                 </div>
 
                 <div class="customer-adress">
                     <label>Adress:
                       <span id="adress-error"></span>
-                      <input type="text" id="adress" onfocusout="validateAdress()">
+                      <input type="text" id="adress">
                     </label>
                 </div>
 
                 <div class="zip">
                     <label>Postnummer:
                       <span id="zip-error"></span>
-                      <input type="number" id="zip" onfocusout="validateZip()">
+                      <input type="number" id="zip">
                     </label>
                 </div>
 
                 <div class="city">
                     <label>Postort:
                       <span id="city-error"></span>
-                      <input type="text" id="city" onfocusout="validateCity()">
+                      <input type="text" id="city">
                     </label>
                 </div>
 
@@ -94,14 +94,14 @@
                 <div class="phone">
                     <label>Mobilnr:
                       <span id="phone-error"></span>
-                      <input type="tel" id="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" onfocusout="validatePhone()">
+                      <input type="tel" id="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
                     </label>
                 </div>
 
                 <div class="customer-email">
                     <label>Email:
                       <span id="email-error"></span>
-                      <input type="email" id="email" onfocusout="validateEmail()">
+                      <input type="email" id="email">
                     </label>
                 </div>
             </form>
@@ -139,7 +139,7 @@
                                 och slutföra ditt köp</p>
                         </div>
                         <label>Personnummer:<br><span id="personalNumber-Error"></span>
-                          <input id="personalNumber" type="text" pattern="[0-9]{6}-[0-9]{4}" placeholder="YYMMDD-XXXX" onfocusout="validatePersonalNumber()">
+                          <input id="personalNumber" type="text" pattern="[0-9]{6}-[0-9]{4}" placeholder="YYMMDD-XXXX">
                         </label>
                         <button type="submit" class="invoice-btn" disabled>Bekräfta</button>
                     </div>
@@ -153,7 +153,7 @@
               <!-- Betalkortsnummer -->
               <div class="card-number">
                 <span id="cardNrError"></span>
-                <input id="cardNr" type="number" placeholder="Betalkortsnummer" required onfocusout="validateCardNr()">
+                <input id="cardNr" type="number" placeholder="Betalkortsnummer" required>
               </div>
               <!-- Utgångsdatum för kortet -->
               <div class="date-field">
@@ -191,7 +191,7 @@
               <!-- Cvv  -->
               <div class="card-verification">
                 <div class="cvv-input">
-                  <input id="cvv" type="number" placeholder="CVV" required onfocusout="validateCvv()">
+                  <input id="cvv" type="number" placeholder="CVV" required>
                 </div>
                 <div class="cvv-details">
                   <p>3 sista siffrorna<br />på kortets baksida</p>

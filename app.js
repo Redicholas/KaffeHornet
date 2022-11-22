@@ -229,6 +229,18 @@ let personalNrIsOk = false;
 let cardNrIsOk = false;
 let cvvIsOk = false;
 
+firstNameField.addEventListener('focusout', validateName);
+lastNameField.addEventListener('focusout', validateLastName);
+adressField.addEventListener('focusout', validateAdress);
+zipCodeField.addEventListener('focusout', validateZip);
+cityField.addEventListener('focusout', validateCity);
+phoneField.addEventListener('focusout', validatePhone);
+emailField.addEventListener('focusout', validateEmail);
+personalNrField.addEventListener('focusout', validatePersonalNumber);
+cardNrField.addEventListener('focusout', validateCardNr);
+cvvField.addEventListener('focusout', validateCvv);
+
+
 function validateCardNr() {
   if(cardNrField.value.length === 0) {
     cardNrIsOk = false;
