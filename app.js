@@ -180,20 +180,7 @@ function remove() {
 
 renderProducts()
 
-/* Fomulärsdelen  
-
-[x] Beställningsknappen ska inte vara klickbar 
-[x] Kunden väljer betalsätt 
-[x] Om kunden väljer faktura
-    Visas ett formulär med personnummer.
-      Kortforumuläret döljs 
-[x] Om kunden väljer kort 
-    Visas ett formulär med kortuppgifter 
-    fakturaformuläret döljs
-[] kontrollera att alla fält är korrekt ifyllda 
-[] aktivera beställnings-knappen */
-
-
+// *****************FORMULÄRVALIDERING STARTAR HÄR***************************************
 
 const nameError = document.getElementById("name-error");
 const lastNameError = document.getElementById("lastname-error");
@@ -371,6 +358,10 @@ function validatePersonalNumber() {
   activateOrderButton();
 }
 
+// ****************************VALIDERING SLUT*******************************************
+
+
+// *********FÖR AKTIVERA BESTÄLLNINGSKNAPPEN NÄR VALIDERINGSVILLKOREN ÄR UPPFYLLDA***************
 
 function activateOrderButton(){
   if (fNameIsOk && lNameIsOk && adressIsOk && zipCodeIsOk && cityIsOk && phoneIsOk && emailIsOk && ((personalNrIsOk) || (cardNrIsOk && cvvIsOk))){
@@ -387,6 +378,10 @@ document.querySelector('#paymentType_card').addEventListener('click',handleCardC
 
 const card = document.getElementById('creditCard');
 const invoice = document.getElementById('invoice');
+
+// **************AKTIVERING BESTÄLLNINGSKNAPP SLUT******************************
+
+//***********FÖR ATT DÖLJA/VISA FORMULÄREN FÖR KORT OCH FAKTURA************
 
 function handleCardClick() {
   if (document.getElementById('paymentType_card').checked) {
