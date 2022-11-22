@@ -75,6 +75,10 @@
       <div id="basket-grid">
         <!-- Produkter renderas från JavaScripten -->
       </div>
+      <p class="discount-info">
+        Köp 10 varor eller mer och få 10% rabatt! <br />
+        Eller mer än 15 varor och få gratis frakt!
+      </p>
       <div class="basket-bottom">
         <button onclick="clearBasket()">Rensa varukorgen</button>
         <div class="price-display">
@@ -86,11 +90,11 @@
       <div class="message">
         <p id="discountMessage"></p>
       </div>
-      <button class="buy-btn" id="buyBtn" onclick="togglePopup()">Köp</button>
+      <a href="#customerInfo"><button class="buy-btn">Köp</button></a>
     </section>
 
     <!-- Beställningsuppgifter -->
-    <section class="customer-info">
+    <section class="customer-info" id="customerInfo">
       <h3>Dina uppgifter</h3>
       <div class="contact-form">
         <form id="form">
@@ -240,7 +244,7 @@
               </button>
             </div>
           </form>
-          <button class="buy-button">Beställ</button>
+          <button class="buy-button" id="buyBtn">Beställ</button>
         </div>
       </div>
     </section>

@@ -270,7 +270,6 @@ function remove() {
 }
 
 function togglePopup() {
-  console.log('click');
   if (popup.style.display === 'none') {
     popup.style.display = 'flex';
   } else {
