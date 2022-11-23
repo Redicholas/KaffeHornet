@@ -1,1 +1,627 @@
-*,*::before,*::after{box-sizing:border-box}body,h1,h2,h3,h4,p,figure,blockquote,dl,dd{margin:0}ul[role=list],ol[role=list]{list-style:none}html:focus-within{scroll-behavior:smooth}body{min-height:100vh;text-rendering:optimizeSpeed;line-height:1.5}a:not([class]){-webkit-text-decoration-skip:ink;text-decoration-skip-ink:auto}img,picture{max-width:100%;display:block}input,button,textarea,select{font:inherit}@media(prefers-reduced-motion: reduce){html:focus-within{scroll-behavior:auto}*,*::before,*::after{-webkit-animation-duration:.01ms !important;animation-duration:.01ms !important;-webkit-animation-iteration-count:1 !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}html{scroll-behavior:smooth;overflow-x:hidden}body{font-family:"Urbanist",sans-serif;letter-spacing:.1rem;background:#dcbfa1;color:#3f2d21}section{padding:2rem;max-width:600px;margin:0 auto}section h2{text-align:center;margin-bottom:5rem}.landing-page{background:url("../img/rykande-gott-kaffe.png");background-size:cover;background-position:center;height:100vh;width:100vw;color:#f0e4d4}.landing-page h1{text-align:center;padding-top:5rem;font-size:3rem;font-weight:lighter}.landing-page a{padding:1rem 2rem;background:#3f2d21;border-radius:2.5rem;border:3px solid #dcbfa1;position:absolute;bottom:3rem;right:3rem;color:#f0e4d4;text-decoration:none;font-size:1.3rem}.landing-page a:hover{background:#8db4a2}.popup{width:60vw;min-height:50vh;border:1px solid #000;border-radius:1rem;background:#f0e4d4;box-shadow:0 0 10px #000;position:fixed;top:20vh;left:20vw;z-index:10;display:flex;flex-direction:column;justify-content:space-between}.popup h1{font-size:1.2rem}.popup span{font-size:3rem;text-align:center;margin:0}.popup button{background:#3f2d21;border:1px solid #dcbfa1;color:#f0e4d4;border-radius:.5rem;border:none}.popup .product-confirmation-display{display:flex;flex-direction:row;justify-content:space-between;border-bottom:1px solid b}.popup .product-confirmation-display-price{margin-top:1rem}.hidden{display:none}.products .product-grid{margin-top:1rem;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr 1fr 1fr 1fr;gap:10px 10px;place-items:center}.products .product-card{height:20rem;width:13rem;background:#f0e4d4;border-radius:1rem;overflow:hidden}.products .product-card .product-info{display:flex;flex-direction:column;justify-content:space-evenly;height:50%;padding:.5rem}.products .product-card .product-info .product-selection{display:flex;justify-content:space-between}.products .product-card .product-info .product-selection button{background:#3f2d21;border:1px solid #dcbfa1;color:#f0e4d4;border-radius:.5rem;border:none;padding:2px 10px;cursor:pointer}.products .product-card .product-info .product-selection button:hover{background:#8db4a2}.products .product-card .image{height:50%;width:100%}.products .product-card .image img{height:100%;width:100%;-o-object-fit:cover;object-fit:cover;-o-object-position:0 -40px;object-position:0 -40px}#rating3stars,#rating4stars,#rating5stars{display:none}.checked{color:orange}.basket{max-width:600px}.basket h2{text-align:center}.basket button{background:#3f2d21;border:1px solid #dcbfa1;color:#f0e4d4;border-radius:.5rem;padding:.3rem 1rem;border:none;cursor:pointer;display:flex;justify-content:center;align-items:center}.basket button:hover{background:#8db4a2}.basket .basket-bottom{display:flex;justify-content:space-between}.basket .message{color:#435046;text-align:center;font-size:1.5rem;margin-top:1rem}.basket .discount-info{margin-bottom:1rem;font-size:.9rem}.basket .buy-btn{margin-top:5rem;padding:1rem 3rem}.basket .buy-btn a{text-decoration:none;color:#f0e4d4}.basket .item{display:flex;align-items:center;width:100%;background:#f0e4d4;border-radius:.8rem;padding:.5rem;margin-bottom:1rem}.basket .item img{margin-right:1rem;border-radius:.8rem}.basket .item .item-content{display:flex;justify-content:space-between;width:100%}.basket .item .item-content .item-info{display:flex;flex-direction:column;justify-content:space-between}.basket .item .item-content .item-selection{display:flex;flex-direction:column;align-items:center;position:relative;right:0}.basket .item .item-content .item-selection button{height:2rem;width:1.5rem;border-radius:.5rem;border:none}.basket .item .item-content .item-selection p{background:#fff;width:1.5rem;margin:.2rem;text-align:center;border-radius:3px}#form span{color:red;font-size:1.5rem}.fa-solid{color:#2e8b57}.customer-info{display:flex;flex-direction:column;text-align:center;width:100vw}.customer-info h3{margin:1.25rem 0;padding:1rem}.contact-form{text-align:left;margin:auto;padding:.625rem;border:1px solid #000;max-width:50rem;min-height:25vh}.contact-form input{min-height:30px}.first-name,.last-name,.zip,.city,.portcode,.phone{display:inline-block;width:45%}.last-name,.city,.phone{float:right}.customer-info input{width:100%;padding:.313rem;margin-top:.5rem}.contact-form div{margin-top:.625}.btn-continue,.btn-cancel{background-color:#3f2d21;color:#fff;position:relative;top:20px;left:120px;padding:5px 10px}.btn-continue{margin-right:40px}.invoice{margin-bottom:50px}.payment-type{text-align:left}.payment{position:relative;left:30px;top:20px;bottom:30px;font-size:1.2rem}#paymentType_invoice{position:relative;left:-60px;height:20px;top:-25px}#paymentType_card{position:relative;left:-60px;height:20px;top:-25px}.payment-section{border:1px solid #000;min-height:30vh;margin-top:1.25rem}.invoice-details{width:80%;margin:auto}.invoice-info{margin-top:30px;font-size:1rem;font-weight:300;line-height:1.3rem;margin-bottom:30px}.credit-card,.invoice-details{width:360px;height:400px;margin:80px auto 0;border:1px solid #ddd;border-radius:6px;background-color:#fff;box-shadow:1px 2px 3px 0 rgba(0,0,0,.1);display:none}.form-header{height:60px;padding:20px 30px 0;border-bottom:1px solid #e1e8ee}.form-body{height:340px;padding:30px 30px 20px}.title{font-size:1.25rem;margin:0;color:#5e6977}.card-number input,.cvv-input input,.month select,.year select{font-size:1rem;font-weight:100;line-height:14px}.card-number,.cvv-details,.cvv-input,.month select,.year select{color:#86939e}.card-number input{width:100%;margin-bottom:20px;padding:10px;border:2px solid #e1e8ee;border-radius:6px}.month select,.year select{width:145px;margin-bottom:20px;padding:10px;border:2px solid #e1e8ee;border-radius:6px}.month select{float:left}.year select{float:right}.cvv-input input{float:left;width:145px;padding:10px;border:2px solid #e1e8ee;border-radius:6px;background:#fff}.cvv-details{font-size:.8rem;font-weight:300;line-height:16px;float:right;margin-bottom:45px}.cvv-details p{margin-top:6px}.proceed-btn,.confirm-btn{cursor:pointer;font-size:1.1rem;width:100%;padding:10px;border-color:rgba(0,0,0,0);border-radius:6px;margin-bottom:10px;background:#3f2d21}.proceed-btn a,.confirm-btn a{text-decoration:none;color:#fff}.confirm-btn{margin-top:50px}.buy-button{position:relative;top:30px;padding:10px 130px;background-color:#3f2d21;color:#fff}
+@charset "UTF-8";
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+*::before,
+*::after {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Urbanist", sans-serif;
+  letter-spacing: 0.1rem;
+  background: #dcbfa1;
+  color: #3f2d21;
+}
+
+section {
+  padding: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+section h2 {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.landing-page {
+  background: url("../img/rykande-gott-kaffe.png");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  color: #f0e4d4;
+}
+.landing-page h1 {
+  text-align: center;
+  padding-top: 5rem;
+  font-size: 3rem;
+  font-weight: lighter;
+}
+.landing-page a {
+  padding: 1rem 2rem;
+  background: #3f2d21;
+  border-radius: 2.5rem;
+  border: 3px solid #dcbfa1;
+  position: absolute;
+  bottom: 3rem;
+  right: 3rem;
+  color: #f0e4d4;
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+.landing-page a:hover {
+  background: #8db4a2;
+}
+
+.priceInput {
+  display: flex;
+}
+.priceInput p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 0px 10px;
+}
+.priceInput .priceInputMin, .priceInput .priceInputMax {
+  width: 100px;
+  text-align: center;
+}
+
+.rangeBar {
+  position: relative;
+  height: 5px;
+  border-radius: 5px;
+  background: #7e6e5f;
+  width: 235px;
+  left: 2px;
+}
+.rangeBar .rangeValue {
+  position: absolute;
+  height: 5px;
+  border-radius: 5px;
+  background: #3f2d21;
+  left: 0%;
+  right: 0%;
+}
+
+.slidecontainer {
+  position: relative;
+}
+.slidecontainer .sliderLow, .slidecontainer .sliderHigh {
+  position: absolute;
+  height: 5px;
+  width: 235px;
+  top: -8px;
+  background: none;
+  pointer-events: none;
+  -webkit-appearance: none;
+}
+.slidecontainer .sliderLow::-webkit-slider-thumb, .slidecontainer .sliderHigh::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  pointer-events: auto;
+  background: #3f2d21;
+  cursor: pointer;
+}
+
+.popup {
+  width: 60vw;
+  min-height: 50vh;
+  border: 1px solid black;
+  border-radius: 1rem;
+  background: #f0e4d4;
+  box-shadow: 0 0 10px black;
+  position: fixed;
+  top: 20vh;
+  left: 20vw;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.popup h1 {
+  font-size: 1.2rem;
+}
+.popup span {
+  font-size: 3rem;
+  text-align: center;
+  margin: 0;
+}
+.popup button {
+  background: #3f2d21;
+  border: 1px solid #dcbfa1;
+  color: #f0e4d4;
+  border-radius: 0.5rem;
+  border: none;
+}
+.popup .product-confirmation-display {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid b;
+}
+.popup .product-confirmation-display-price {
+  margin-top: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.products .product-grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px 10px;
+  place-items: center;
+}
+.products .product-card {
+  height: 20rem;
+  width: 13rem;
+  background: #f0e4d4;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.products .product-card .product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 50%;
+  padding: 0.5rem;
+}
+.products .product-card .product-info .product-selection {
+  display: flex;
+  justify-content: space-between;
+}
+.products .product-card .product-info .product-selection button {
+  background: #3f2d21;
+  border: 1px solid #dcbfa1;
+  color: #f0e4d4;
+  border-radius: 0.5rem;
+  border: none;
+  padding: 2px 10px;
+  cursor: pointer;
+}
+.products .product-card .product-info .product-selection button:hover {
+  background: #8db4a2;
+}
+.products .product-card .image {
+  height: 50%;
+  width: 100%;
+}
+.products .product-card .image img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 0 -40px;
+     object-position: 0 -40px;
+}
+
+#rating3stars,
+#rating4stars,
+#rating5stars {
+  display: none;
+}
+
+.checked {
+  color: orange;
+}
+
+.basket {
+  max-width: 600px;
+}
+.basket h2 {
+  text-align: center;
+}
+.basket button {
+  background: #3f2d21;
+  border: 1px solid #dcbfa1;
+  color: #f0e4d4;
+  border-radius: 0.5rem;
+  padding: 0.3rem 1rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.basket button:hover {
+  background: #8db4a2;
+}
+.basket .basket-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+.basket .message {
+  color: #435046;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+.basket .discount-info {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+.basket .buy-btn {
+  margin-top: 5rem;
+  padding: 1rem 3rem;
+}
+.basket .buy-btn a {
+  text-decoration: none;
+  color: #f0e4d4;
+}
+.basket .item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: #f0e4d4;
+  border-radius: 0.8rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+.basket .item img {
+  margin-right: 1rem;
+  border-radius: 0.8rem;
+}
+.basket .item .item-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.basket .item .item-content .item-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.basket .item .item-content .item-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  right: 0;
+}
+.basket .item .item-content .item-selection button {
+  height: 2rem;
+  width: 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+}
+.basket .item .item-content .item-selection p {
+  background: #fff;
+  width: 1.5rem;
+  margin: 0.2rem;
+  text-align: center;
+  border-radius: 3px;
+}
+
+#form span {
+  color: red;
+  font-size: 1.5rem;
+}
+
+.fa-solid {
+  color: seagreen;
+}
+
+.customer-info {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100vw;
+}
+
+.customer-info h3 {
+  margin: 1.25rem 0;
+  padding: 1rem;
+}
+
+.contact-form {
+  text-align: left;
+  margin: auto;
+  padding: 0.625rem;
+  border: 1px solid black;
+  max-width: 50rem;
+  min-height: 25vh;
+}
+
+.contact-form input {
+  min-height: 30px;
+}
+
+.first-name,
+.last-name,
+.zip,
+.city,
+.portcode,
+.phone {
+  display: inline-block;
+  width: 45%;
+}
+
+.last-name,
+.city,
+.phone {
+  float: right;
+}
+
+.customer-info input {
+  width: 100%;
+  padding: 0.313rem;
+  margin-top: 0.5rem;
+}
+
+.contact-form div {
+  margin-top: 0.625;
+}
+
+/* Knapparna fortsätt och avbryt */
+.btn-continue,
+.btn-cancel {
+  background-color: #3f2d21;
+  color: #fff;
+  position: relative;
+  top: 20px;
+  left: 120px;
+  padding: 5px 10px;
+}
+
+.btn-continue {
+  margin-right: 40px;
+}
+
+/* Välja Betalsätt */
+.invoice {
+  margin-bottom: 50px;
+}
+
+.payment-type {
+  text-align: left;
+}
+
+.payment {
+  position: relative;
+  left: 30px;
+  top: 20px;
+  bottom: 30px;
+  font-size: 1.2rem;
+}
+
+#paymentType_invoice {
+  position: relative;
+  left: -60px;
+  height: 20px;
+  top: -25px;
+}
+
+#paymentType_card {
+  position: relative;
+  left: -60px;
+  height: 20px;
+  top: -25px;
+}
+
+.payment-section {
+  border: 1px solid black;
+  min-height: 30vh;
+  margin-top: 1.25rem;
+}
+
+/* Formulär personnr faktura */
+.invoice-details {
+  width: 80%;
+  margin: auto;
+}
+
+.invoice-info {
+  margin-top: 30px;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.3rem;
+  margin-bottom: 30px;
+}
+
+/* Kort-formulär */
+.credit-card,
+.invoice-details {
+  width: 360px;
+  height: 400px;
+  margin: 80px auto 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #fff;
+  box-shadow: 1px 2px 3px 0 rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+.form-header {
+  height: 60px;
+  padding: 20px 30px 0;
+  border-bottom: 1px solid #e1e8ee;
+}
+
+.form-body {
+  height: 340px;
+  padding: 30px 30px 20px;
+}
+
+/* Title */
+.title {
+  font-size: 1.25rem;
+  margin: 0;
+  color: #5e6977;
+}
+
+/* Common */
+.card-number input,
+.cvv-input input,
+.month select,
+.year select {
+  font-size: 1rem;
+  font-weight: 100;
+  line-height: 14px;
+}
+
+.card-number,
+.cvv-details,
+.cvv-input,
+.month select,
+.year select {
+  color: #86939e;
+}
+
+/* Card Number */
+.card-number input {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 2px solid #e1e8ee;
+  border-radius: 6px;
+}
+
+/* Date Field */
+.month select,
+.year select {
+  width: 145px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 2px solid #e1e8ee;
+  border-radius: 6px;
+}
+
+.month select {
+  float: left;
+}
+
+.year select {
+  float: right;
+}
+
+/* Card Verification Field */
+.cvv-input input {
+  float: left;
+  width: 145px;
+  padding: 10px;
+  border: 2px solid #e1e8ee;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.cvv-details {
+  font-size: 0.8rem;
+  font-weight: 300;
+  line-height: 16px;
+  float: right;
+  margin-bottom: 45px;
+}
+
+.cvv-details p {
+  margin-top: 6px;
+}
+
+/* Buttons Section */
+.proceed-btn,
+.confirm-btn {
+  cursor: pointer;
+  font-size: 1.1rem;
+  width: 100%;
+  padding: 10px;
+  border-color: transparent;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  background: #3f2d21;
+}
+
+.proceed-btn a,
+.confirm-btn a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.confirm-btn {
+  margin-top: 50px;
+}
+
+.buy-button {
+  position: relative;
+  top: 30px;
+  padding: 10px 130px;
+  background-color: #3f2d21;
+  color: #fff;
+}/*# sourceMappingURL=style.css.map */

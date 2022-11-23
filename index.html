@@ -46,6 +46,20 @@
         <option value="category">Kategori</option>
         <option value="rating">Omdöme</option>
       </select>
+      <p><br>Filtrera efter pris:</p>
+      <div class="priceInput">
+          <input type="number" class="priceInputMin" value="0">
+          <p>-</p>
+          <input type="number" class="priceInputMax" value="500" max="500">
+      </div>
+      <br>
+      <div class="rangeBar">
+        <div class="rangeValue"></div>
+      </div>
+      <div class="slidecontainer">
+        <input type="range" min="0" max="500" value="0" class="sliderLow" id="lowRange">
+        <input type="range" min="0" max="500" value="500" class="sliderHigh" id="highRange">
+      </div>
       <div class="product-grid" id="product-grid">
         <!-- Produkter renderas från JavaScripten -->
       </div>

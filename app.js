@@ -207,6 +207,10 @@ function clearBasket() {
 
 function renderProducts() {
   const sortOptions = sortSelector.value;
+  const rangeInput = document.querySelectorAll('.slidecontainer input');
+  const priceInput = document.querySelectorAll('.priceInput input');
+  const rangeValue = document.querySelector(".rangeBar .rangeValue");
+  let maxPriceGap = 10;
 
   let sortedProducts = products;
 
@@ -235,6 +239,46 @@ function renderProducts() {
   }
 
   productGrid.innerHTML = '';
+
+  priceInput.forEach(input => {
+    input.addEventListener("input", e => {
+      let sliderLow = parseInt(priceInput[0].value);
+      let sliderHigh = parseInt(priceInput[1].value);
+  
+      if ((sliderHigh - sliderLow >= maxPriceGap) && sliderLow >= 0 && sliderHigh <= 500) {
+        if (e.target.className === "priceInputMin") {
+          rangeInput[0].value = sliderLow;
+          rangeValue.style.left = (sliderLow / rangeInput[0].max) * 100 + "%";
+        }
+        else {
+          rangeInput[1].value = sliderHigh;
+          rangeValue.style.right = 100 - (sliderHigh / rangeInput[1].max) * 100 + "%";
+        }
+      }
+    })
+  })
+  
+  rangeInput.forEach(input => {
+    input.addEventListener("input", e => {
+      let sliderLow = parseInt(rangeInput[0].value);
+      let sliderHigh = parseInt(rangeInput[1].value);
+  
+      if (sliderHigh - sliderLow < maxPriceGap) {
+        if (e.target.className === "sliderLow") {
+          rangeInput[0].value = sliderHigh - maxPriceGap;
+        }
+        else {
+          rangeInput[1].value = sliderLow + maxPriceGap;
+        }
+      }
+      else {
+        priceInput[0].value = sliderLow;
+        priceInput[1].value = sliderHigh;
+        rangeValue.style.left = (sliderLow / rangeInput[0].max) * 100 + "%";
+        rangeValue.style.right = 100 - (sliderHigh / rangeInput[1].max) * 100 + "%";
+      }
+    })
+  })
 
   for (let i = 0; i < sortedProducts.length; i += 1) {
     productGrid.innerHTML += `

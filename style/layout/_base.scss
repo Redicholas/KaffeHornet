@@ -62,6 +62,63 @@ section {
   }
 }
 
+.priceInput {
+  display: flex;
+
+  p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0px 10px;
+  }
+
+  .priceInputMin, .priceInputMax {
+    width: 100px;
+    text-align: center;
+  }
+}
+
+.rangeBar {
+  position: relative;
+  height: 5px;
+  border-radius: 5px;
+  background: $col-gray-brown;
+  width: 235px;
+  left: 2px;
+
+  .rangeValue {
+    position: absolute;
+    height: 5px;
+    border-radius: 5px;
+    background: $col-dark-brown;
+    left: 0%;
+    right: 0%;
+  }
+}
+
+.slidecontainer{
+  position: relative;
+
+  .sliderLow, .sliderHigh {
+    position: absolute;
+    height: 5px;
+    width: 235px;
+    top: -8px;
+    background: none;
+    pointer-events: none;
+    -webkit-appearance: none;
+  }
+
+  .sliderLow::-webkit-slider-thumb, .sliderHigh::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    pointer-events: auto;
+    background: $col-dark-brown;
+    cursor: pointer;
+  }
+}
+
 .popup {
   width: 60vw;
   min-height: 50vh;
