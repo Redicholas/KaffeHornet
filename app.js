@@ -261,7 +261,7 @@ function validateCvv() {
 function validateName() {
   if (firstNameField.value.length === 0) {
     fNameIsOk = false;
-    nameError.innerHTML = "*";
+    nameError.innerHTML = "Måste fyllas i";
   } else {
   fNameIsOk = true;
   nameError.innerHTML = '<i class="fa-solid fa-check"></i>';
@@ -272,7 +272,7 @@ function validateName() {
 function validateLastName() {
   if (lastNameField.value.length === 0) {
     lNameIsOk = false;
-    lastNameError.innerHTML = "*";
+    lastNameError.innerHTML = "Måste fyllas i";
   } else {
     lNameIsOk = true;
     lastNameError.innerHTML = '<i class="fa-solid fa-check"></i>';
@@ -283,7 +283,7 @@ function validateLastName() {
 function validateAdress() {
   if (adressField.value.length === 0) {
     adressIsOk = false;
-    adressError.innerHTML = "*";
+    adressError.innerHTML = "Måste fyllas i";
   } else {
     adressIsOk = true;
     adressError.innerHTML = '<i class="fa-solid fa-check"></i>';
@@ -294,7 +294,7 @@ function validateAdress() {
 function validateZip() {
   if (zipCodeField.value.length === 0) {
     zipCodeIsOk = false;
-    zipError.innerHTML = "*";
+    zipError.innerHTML = "Måste fyllas i";
   } else {
     zipCodeIsOk = true;
     zipError.innerHTML = '<i class="fa-solid fa-check"></i>';
@@ -305,7 +305,7 @@ function validateZip() {
 function validateCity() {
   if (cityField.value.length === 0) {
     cityIsOk = false;
-    cityError.innerHTML = "*";
+    cityError.innerHTML = "Måste fyllas i";
   } else {
     cityIsOk = true;
     cityError.innerHTML = '<i class="fa-solid fa-check"></i>';
@@ -316,7 +316,7 @@ function validateCity() {
 function validatePhone() {
   if (phoneField.value.length === 0) {
     phoneIsOk = false;
-    phoneError.innerHTML = "*";
+    phoneError.innerHTML = "Måste fyllas i";
   }
   if (!phoneField.value.match(/^[0-9]{10}$/)) {
     phoneIsOk = false;
@@ -331,7 +331,7 @@ function validatePhone() {
 function validateEmail() {
   if (emailField.value.length === 0) {
     emailIsOk = false;
-    emailError.innerHTML = "*";
+    emailError.innerHTML = "Måste fyllas i";
   }
   if (!emailField.value.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
     emailIsOk = false;
@@ -400,4 +400,28 @@ function handleInvoiceClick() {
     invoice.style.display = 'none';
   }
 }
+
+//**********RENSA FORMULÄR******************
+
+document.querySelector('#eraseBtn').addEventListener('click', resetOrder);
+
+function resetOrder() {
+  document.getElementById('form').reset();
+  document.getElementById('invoice').reset();
+  document.getElementById('creditCard').reset();
+
+  clearBasket();
+  validateCardNr();
+  validatePersonalNumber();
+  validateCvv();
+  validateName();
+  validateLastName();
+  validateAdress();
+  validateZip();
+  validateCity();
+  validatePhone();
+  validateEmail();
+}
+
+
 

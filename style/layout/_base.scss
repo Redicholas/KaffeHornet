@@ -174,7 +174,7 @@ section {
 
 #form span, #invoice span, #creditCard span {
     color: red;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 #cvvError {
@@ -218,8 +218,8 @@ section {
   padding: 0.625rem;
   border: 1px solid black;
   border-radius: 6px;
-  max-width: 50rem;
   min-height: 25vh;
+  min-width: 380px;
 }
 
 .contact-form input {
@@ -286,6 +286,7 @@ section {
   border: 1px solid black;
   border-radius: 6px;
   min-height: 30vh;
+  min-width: 380px;
   margin-top: 1.25rem;
 }
 
@@ -302,7 +303,7 @@ section {
 /* Kort-formulär */
 
 .credit-card, .invoice-details {
-    width: 380px;
+    width: 360px;
     min-height: 400px;
     margin: 80px auto 30px;
     border: 1px solid #ddd;
@@ -320,7 +321,6 @@ section {
 
 .payment-body {
   padding: 0 30px;
-  
 }
 
 /* Title */
@@ -362,8 +362,6 @@ section {
   float: right;
 }
 
-
-
 /* Buttons Section */
 .card-btn,
 .invoice-btn {
@@ -380,6 +378,7 @@ section {
 
 .card-btn {
   margin-top: 20px;
+  color: $col-light;
 }
 
 .checkBoxes {
@@ -389,37 +388,37 @@ section {
 
 #personalData, #newsLetter {
   position: relative;
-  right: -230px;
+  right: -140px;
   top: -35px;
   height: 20px;
 }
 .newsletter, .personal-data {
-  margin-left: 10px;
+  margin-left: 30px;
 }
 
 .newsletter {
   margin-top: 50px;
 }
 
-
 #buy-button, #eraseBtn{
   margin: 60px 40px 10px 40px;
   padding: 20px 100px;
   background-color: $col-dark-brown;
-  color: #fff;
-  border-radius: 10px;
-  font-size: 1.4rem;
+  color: $col-light;
+  border-radius: 0.5rem;
+  font-size: 1.4rem;            
 }
 
 #eraseBtn {
   position: relative;
-  right: -100px;
   padding: 10px;
   width: 180px;
+  font-size: 1rem;
+  background-color: $col-accent-light;
+  color: $col-dark-brown;
 }
 
 .btn-section {
   display: flex;
   flex-direction: column;
 }
-
