@@ -122,6 +122,7 @@ const productPriceDisplay = document.querySelector('#productPriceDisplay');
 const shippingPriceDisplay = document.querySelector('#shippingPriceDisplay');
 const totalPriceDisplay = document.querySelector('#totalPriceDisplay');
 const discountMessage = document.querySelector('#discountMessage');
+const discountCode = document.querySelector('#discountCode');
 
 const popup = document.querySelector('#popup');
 const closePopupBtn = document.querySelector('#closePopup');
@@ -130,13 +131,13 @@ const buyBtn = document.querySelector('#buyBtn');
 buyBtn.addEventListener('click', placeOrder);
 closePopupBtn.addEventListener('click', placeOrder);
 
+let productAmount = 0;
+let shippingPrice = 25;
+let totalPricePerProduct = 0;
+let totalPrice = 0;
+
 function renderBasket() {
   basketGrid.innerHTML = '';
-
-  let productAmount = 0;
-  let shippingPrice = 25;
-  let totalPricePerProduct = 0;
-  let totalPrice = 0;
 
   for (let i = 0; i < products.length; i += 1) {
     totalPricePerProduct = products[i].price * products[i].amount;
@@ -193,6 +194,21 @@ function renderBasket() {
   const removeBtn = document.querySelectorAll('.button-remove');
   removeBtn.forEach(btn => {
     btn.addEventListener('click', remove);
+  });
+
+  discountCode.addEventListener('onKeyUp', () => {
+    if (discountCode.valueOf() === 'a_damn_fine_cup_of_coffee') {
+      console.log('rätt');
+      totalPrice = 0;
+      shippingPrice = 0;
+      totalPriceDisplay.innerHtml = totalPrice;
+      shippingPriceDisplay.innerHTML = shippingPrice;
+      discountMessage.innerHTML = 'Allt gratis! Du måste ha bra kontakter....';
+    } else {
+      console.log('fel');
+      discountMessage.innerHTML = 'Det där är ingen giltig rabattkod!';
+      renderProducts();
+    }
   });
 }
 
