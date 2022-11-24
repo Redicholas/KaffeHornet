@@ -30,6 +30,55 @@ section {
   }
 }
 
+.popup {
+  width: 60vw;
+  min-height: 50vh;
+  border: 1px solid black;
+  border-radius: 1rem;
+  background: $col-light;
+  box-shadow: 0 0 10px black;
+  position: fixed;
+  top: 20vh;
+  left: 20vw;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  span {
+    font-size: 3rem;
+    text-align: center;
+    margin: 0;
+  }
+
+  button {
+    background: $col-dark-brown;
+    border: 1px solid $col-beige;
+    color: $col-light;
+    border-radius: 0.5rem;
+    border: none;
+  }
+
+  .product-confirmation-display {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid b
+  }
+
+  .product-confirmation-display-price {
+    margin-top: 1rem;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
 .landing-page {
   background: url('../img/rykande-gott-kaffe.png');
   background-size: cover;
@@ -92,6 +141,13 @@ section {
           border: 1px solid $col-beige;
           color: $col-light;
           border-radius: 0.5rem;
+          border: none;
+          padding: 2px 10px;
+          cursor: pointer;
+
+          &:hover {
+            background: $col-accent-light;
+          }
         }
       }
     }
@@ -103,9 +159,21 @@ section {
       img {
         height: 100%;
         width: 100%;
+        object-fit: cover;
+        object-position: 0 -40px;
       }
     }
   }
+}
+
+#rating3stars,
+#rating4stars,
+#rating5stars {
+  display: none;
+}
+
+.checked {
+  color: orange;
 }
 
 .basket {
@@ -120,6 +188,48 @@ section {
     border: 1px solid $col-beige;
     color: $col-light;
     border-radius: 0.5rem;
+    padding: 0.3rem 1rem;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      background: $col-accent-light;
+    }
+  }
+
+  .basket-bottom {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .message {
+    color: $col-accent-dark;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .discount-info {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .discount-code {
+    width: 230px;
+    margin: 1rem;
+  }
+
+  .buy-btn {
+    margin-top: 5rem;
+    padding: 1rem 3rem;
+
+    a {
+      text-decoration: none;
+      color: $col-light;
+    }
   }
 
   .item {
@@ -129,6 +239,7 @@ section {
     background: $col-light;
     border-radius: 0.8rem;
     padding: 0.5rem;
+    margin-bottom: 1rem;
 
     img {
       margin-right: 1rem;
@@ -172,9 +283,11 @@ section {
   }
 }
 
-#form span, #invoice span, #creditCard span {
-    color: red;
-    font-size: 1rem;
+#form span,
+#invoice span,
+#creditCard span {
+  color: red;
+  font-size: 1rem;
 }
 
 #cvvError {
@@ -189,7 +302,7 @@ section {
 }
 
 .fa-solid {
-    color: seagreen;
+  color: seagreen;
 }
 
 .customer-info {
@@ -204,13 +317,14 @@ section {
   margin-bottom: 30px;
 }
 
-.first-name, .last-name {
+.first-name,
+.last-name {
   margin-top: 20px;
 }
 
 .customer-info h2 {
-    margin: 1.25rem 0;
-    padding: 1rem;
+  margin: 1.25rem 0;
+  padding: 1rem;
 }
 
 .contact-form {
@@ -245,9 +359,9 @@ section {
 }
 
 .customer-info input {
-    width: 100%;
-    padding: 0.613rem;
-    margin-top: 0.6rem;  
+  width: 100%;
+  padding: 0.613rem;
+  margin-top: 0.6rem;
 }
 
 /* Välja Betalsätt */
@@ -256,30 +370,30 @@ section {
   margin-bottom: 50px;
 }
 
-.payment-type{
-    text-align: left;  
+.payment-type {
+  text-align: left;
 }
 
-.payment{
-    position: relative;
-    left: 30px;
-    top: 20px;
-    bottom: 30px;
-    font-size: 1.2rem; 
+.payment {
+  position: relative;
+  left: 30px;
+  top: 20px;
+  bottom: 30px;
+  font-size: 1.2rem;
 }
 
 #paymentType_invoice {
-    position: relative;
-    left: -60px;
-    height: 20px;
-    top: -25px;
+  position: relative;
+  left: -60px;
+  height: 20px;
+  top: -25px;
 }
 
-#paymentType_card{
-    position: relative;
-    left: -60px;
-    height: 20px; 
-    top: -25px;  
+#paymentType_card {
+  position: relative;
+  left: -60px;
+  height: 20px;
+  top: -25px;
 }
 
 .payment-section {
@@ -302,15 +416,16 @@ section {
 
 /* Kort-formulär */
 
-.credit-card, .invoice-details {
-    width: 360px;
-    min-height: 400px;
-    margin: 80px auto 30px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    background-color: #fff;
-    box-shadow: 1px 2px 3px 0 rgba(0,0,0,.10);
-    display: none;
+.credit-card,
+.invoice-details {
+  width: 360px;
+  min-height: 400px;
+  margin: 80px auto 30px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #fff;
+  box-shadow: 1px 2px 3px 0 rgba(0, 0, 0, .10);
+  display: none;
 }
 
 .form-header {
@@ -337,15 +452,16 @@ section {
 
 /* Date Field */
 .month select,
-.year select, 
-.cvv-input input{
+.year select,
+.cvv-input input {
   width: 145px;
   margin-bottom: 20px;
   padding: 10px;
   font-weight: 300;
 }
 
-.month select, .cvv-input input {
+.month select,
+.cvv-input input {
   float: left;
 }
 
@@ -386,13 +502,16 @@ section {
   flex-direction: column;
 }
 
-#personalData, #newsLetter {
+#personalData,
+#newsLetter {
   position: relative;
   right: -140px;
   top: -35px;
   height: 20px;
 }
-.newsletter, .personal-data {
+
+.newsletter,
+.personal-data {
   margin-left: 30px;
 }
 
@@ -400,13 +519,14 @@ section {
   margin-top: 50px;
 }
 
-#buy-button, #eraseBtn{
+#buy-button,
+#eraseBtn {
   margin: 60px 40px 10px 40px;
   padding: 20px 100px;
   background-color: $col-accent-light;
   color: $col-dark-brown;
   border-radius: 0.5rem;
-  font-size: 1.4rem;            
+  font-size: 1.4rem;
 }
 
 #eraseBtn {
