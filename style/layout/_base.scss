@@ -219,7 +219,7 @@ section {
   border: 1px solid black;
   border-radius: 6px;
   min-height: 25vh;
-  min-width: 380px;
+  width: 90vw;
 }
 
 .contact-form input {
@@ -286,7 +286,7 @@ section {
   border: 1px solid black;
   border-radius: 6px;
   min-height: 30vh;
-  min-width: 380px;
+  width: 90vw;
   margin-top: 1.25rem;
 }
 
@@ -403,8 +403,8 @@ section {
 #buy-button, #eraseBtn{
   margin: 60px 40px 10px 40px;
   padding: 20px 100px;
-  background-color: $col-dark-brown;
-  color: $col-light;
+  background-color: $col-accent-light;
+  color: $col-dark-brown;
   border-radius: 0.5rem;
   font-size: 1.4rem;            
 }

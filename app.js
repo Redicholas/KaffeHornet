@@ -204,6 +204,7 @@ const personalNrField = document.querySelector('#personalNumber');
 const cardNrField = document.querySelector('#cardNr');
 const cvvField = document.querySelector('#cvv');
 const orderBtn = document.getElementById('buy-button')
+const personalData = document.getElementById('personalData')
 
 let fNameIsOk = false;
 let lNameIsOk = false;
@@ -215,7 +216,9 @@ let emailIsOk = false;
 let personalNrIsOk = false;
 let cardNrIsOk = false;
 let cvvIsOk = false;
+let gdprIsOk = false;
 
+personalData.addEventListener('click', gdprCheck);
 firstNameField.addEventListener('focusout', validateName);
 lastNameField.addEventListener('focusout', validateLastName);
 adressField.addEventListener('focusout', validateAdress);
@@ -358,13 +361,18 @@ function validatePersonalNumber() {
   activateOrderButton();
 }
 
+function gdprCheck(){
+  gdprIsOk = personalData.checked;
+  activateOrderButton();
+}
+
 // ****************************VALIDERING SLUT*******************************************
 
 
 // *********FÖR AKTIVERA BESTÄLLNINGSKNAPPEN NÄR VALIDERINGSVILLKOREN ÄR UPPFYLLDA***************
 
 function activateOrderButton(){
-  if (fNameIsOk && lNameIsOk && adressIsOk && zipCodeIsOk && cityIsOk && phoneIsOk && emailIsOk && ((personalNrIsOk) || (cardNrIsOk && cvvIsOk))){
+  if (fNameIsOk && gdprIsOk && lNameIsOk && adressIsOk && zipCodeIsOk && cityIsOk && phoneIsOk && emailIsOk && ((personalNrIsOk) || (cardNrIsOk && cvvIsOk))){
       orderBtn.removeAttribute('disabled');    
   } else {
       orderBtn.setAttribute('disabled', ''); 
