@@ -129,10 +129,10 @@ const popup = document.querySelector('#popup');
 const closePopupBtn = document.querySelector('#closePopup');
 const buyBtn = document.querySelector('#buyBtn');
 
-let productAmount = 0;
-let shippingPrice = 25;
-let totalPricePerProduct = 0;
-let totalPrice = 0;
+let productAmount;
+let shippingPrice;
+let totalPricePerProduct;
+let totalPrice;
 
 function renderBasket() {
   basketGrid.innerHTML = '';
