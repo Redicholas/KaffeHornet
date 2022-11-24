@@ -422,3 +422,21 @@ function resetOrder() {
   validatePhone();
   validateEmail();
 }
+
+// Återstället formulären efter 15 min. 
+
+let timerID = null;
+let timeoutDuration = 900000; // 15 minuter
+
+window.addEventListener('keydown', function(e) {
+    if(timerID !== null) {
+        clearTimeout(timerID);
+        timerID = null;
+    }
+    
+    timerID = setTimeout(function() {
+        // Clear all the fields here
+        resetOrder();
+        alert('Pga inaktivitet återställdes formulären')
+    }, timeoutDuration);
+}, false);
