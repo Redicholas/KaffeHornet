@@ -80,6 +80,22 @@
       <div id="basket-grid">
         <!-- Produkter renderas från JavaScripten -->
       </div>
+      <p class="discount-info">
+        Köp 10 varor eller mer och få 10% rabatt! <br />
+        Eller mer än 15 varor och få gratis frakt!
+      </p>
+      <div class="basket-bottom">
+        <button onclick="clearBasket()">Rensa varukorgen</button>
+        <div class="price-display">
+          <p>Belopp: <span id="productPriceDisplay"></span>kr</p>
+          <p>Frakt: <span id="shippingPriceDisplay"></span>kr</p>
+          <p>Totalt: <span id="totalPriceDisplay"></span>kr</p>
+        </div>
+      </div>
+      <div class="message">
+        <p id="discountMessage"></p>
+      </div>
+      <a href="#customerInfo"><button class="buy-btn">Köp</button></a>
     </section>
 
     <!-- Beställningsuppgifter -->
@@ -164,24 +180,6 @@
                     </form>
 
                     <!-- ****** Kort-formulär ****** -->
-
-      <div class="payment-section">
-        <h3>Betalsätt</h3>
-        <hr />
-        <div class="payment-type">
-          <div class="payment-choice">
-            <form class="invoice">
-              <label for="paymentType_invoice" class="payment">
-                Faktura: <input type="radio" id="paymentType_invoice" name="payment-option" />
-              </label>
-              <br />
-              <hr />
-              <label for="paymentType_card" class="payment">
-                Kort: <input type="radio" id="paymentType_card" name="payment-option" />
-              </label>
-            </form>
-
-            <!-- ****** Kort-formulär ****** -->
           </div>
           
                 <!--Formulär med personnr för faktura-->
