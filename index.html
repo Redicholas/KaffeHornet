@@ -193,7 +193,7 @@
 
             <!-- ****** Kort-formulär ****** -->
           </div>
-
+          
           <!--Formulär med personnr för faktura-->
           <form class="invoice-details" id="invoice">
             <div class="payment-body">
@@ -211,11 +211,26 @@
             </div>
           </form>
 
-          <form class="credit-card" id="creditCard">
+          <!--Formulär med personnr för faktura-->
+          <form class="invoice-details" id="id-ett">
+            <div class="form-body">
+              <div class="form-header">
+                <h4 class="title">Verifiera din identitet</h4>
+              </div>
+              <div class="invoice-info">
+                <p>Ange dina uppgifter för att verifiera din identitet och slutföra ditt köp</p>
+              </div>
+              <label for="">Personnummer:</label><br />
+              <input type="number" pattern="[0-9]{6}-[0-9]{4}" placeholder="YYMMDD-XXXX" />
+              <button type="submit" class="confirm-btn"><a href="#">Bekräfta</a></button>
+            </div>
+          </form>
+          <form class="credit-card" id="id-tva">
             <div class="form-header">
               <h4 class="title">Betalkortsinformation</h4>
             </div>
-            <div class="payment-body">
+
+            <div class="form-body">
               <!-- Betalkortsnummer -->
               <div class="card-number">
                 <span id="cardNrError"></span>
@@ -261,12 +276,13 @@
                 </div>
                 <div class="cvv-details">
                   <p>3 sista siffrorna<br />på kortets baksida</p>
-                  <span id="cvvError"></span>
                 </div>
               </div>
 
               <!-- Knappen Använd kort -->
-              <button type="submit" class="card-btn">Använd kort</button>
+              <button type="submit" class="proceed-btn">
+                <a href="#">Använd kort</a>
+              </button>
             </div>
           </form>
           <div class="checkBoxes">

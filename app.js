@@ -499,8 +499,10 @@ function validateName() {
   } else {
     fNameIsOk = true;
     nameError.innerHTML = '<i class="fa-solid fa-check"></i>';
+
   }
-  activateOrderButton();
+  nameError.innerHTML = '<i class="fa-solid fa-check"></i>';
+  return true;
 }
 
 function validateLastName() {
@@ -511,7 +513,8 @@ function validateLastName() {
     lNameIsOk = true;
     lastNameError.innerHTML = '<i class="fa-solid fa-check"></i>';
   }
-  activateOrderButton();
+  lastNameError.innerHTML = '<i class="fa-solid fa-check"></i>';
+  return true;
 }
 
 function validateAdress() {
@@ -522,7 +525,8 @@ function validateAdress() {
     adressIsOk = true;
     adressError.innerHTML = '<i class="fa-solid fa-check"></i>';
   }
-  activateOrderButton();
+  adressError.innerHTML = '<i class="fa-solid fa-check"></i>';
+  return true;
 }
 
 function validateZip() {
@@ -533,7 +537,8 @@ function validateZip() {
     zipCodeIsOk = true;
     zipError.innerHTML = '<i class="fa-solid fa-check"></i>';
   }
-  activateOrderButton();
+  zipError.innerHTML = '<i class="fa-solid fa-check"></i>';
+  return true;
 }
 
 function validateCity() {
@@ -544,7 +549,8 @@ function validateCity() {
     cityIsOk = true;
     cityError.innerHTML = '<i class="fa-solid fa-check"></i>';
   }
-  activateOrderButton();
+  cityError.innerHTML = '<i class="fa-solid fa-check"></i>';
+  return true;
 }
 
 function validatePhone() {
@@ -574,8 +580,6 @@ function validateEmail() {
     emailIsOk = true;
     emailError.innerHTML = '<i class="fa-solid fa-check"></i>';
   }
-  activateOrderButton();
-}
 
 function validatePersonalNumber() {
   if (personalNrField.value.length === 0) {
@@ -599,7 +603,10 @@ function gdprCheck() {
 
 // ****************************VALIDERING SLUT*******************************************
 
-// *********FÖR AKTIVERA BESTÄLLNINGSKNAPPEN NÄR VALIDERINGSVILLKOREN ÄR UPPFYLLDA***************
+  if (email.length == -1) {
+    emailError.innerHTML = '*';
+    return false;
+  }
 
 function activateOrderButton() {
   if (
@@ -617,6 +624,8 @@ function activateOrderButton() {
   } else {
     orderBtn.setAttribute('disabled', '');
   }
+  emailError.innerHTML = '<i class="fa-solid fa-check"></i>';
+  return true;
 }
 
 document.querySelector('#paymentType_invoice').addEventListener('click', handleInvoiceClick);
