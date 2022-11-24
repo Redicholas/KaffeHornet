@@ -1,4 +1,3 @@
-/* eslint-disable no-use-before-define */
 const products = [
   {
     name: 'Sibaristica',
@@ -122,21 +121,25 @@ const productPriceDisplay = document.querySelector('#productPriceDisplay');
 const shippingPriceDisplay = document.querySelector('#shippingPriceDisplay');
 const totalPriceDisplay = document.querySelector('#totalPriceDisplay');
 const discountMessage = document.querySelector('#discountMessage');
+const discountCode = document.querySelector('#discountCode');
+const checkDiscountBtn = document.querySelector('#checkDiscountBtn');
 
 const popup = document.querySelector('#popup');
 const closePopupBtn = document.querySelector('#closePopup');
 const buyBtn = document.querySelector('#buyBtn');
 
-buyBtn.addEventListener('click', placeOrder);
-closePopupBtn.addEventListener('click', placeOrder);
+let productAmount;
+let shippingPrice;
+let totalPricePerProduct;
+let totalPrice;
 
 function renderBasket() {
   basketGrid.innerHTML = '';
 
-  let productAmount = 0;
-  let shippingPrice = 25;
-  let totalPricePerProduct = 0;
-  let totalPrice = 0;
+  productAmount = 0;
+  shippingPrice = 25;
+  totalPricePerProduct = 0;
+  totalPrice = 0;
 
   for (let i = 0; i < products.length; i += 1) {
     totalPricePerProduct = products[i].price * products[i].amount;
@@ -145,7 +148,7 @@ function renderBasket() {
 
     productPriceDisplay.innerHTML = Math.round(totalPrice);
     shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
-    totalPriceDisplay.innerHTML = Math.round(totalPrice + shippingPrice);
+    totalPriceDisplay.innerHTML = totalPrice + shippingPrice;
 
     if (products[i].amount > 0) {
       basketGrid.innerHTML += `
@@ -168,19 +171,20 @@ function renderBasket() {
     }
   }
   if (productAmount < 10) {
-    discountMessage.innerHTML = '';
     shippingPrice = 25 + totalPrice * 0.1;
+    totalPriceDisplay.innerHTML = Math.round(totalPrice + shippingPrice);
     shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
+    discountMessage.innerHTML = '';
   } else if (productAmount < 15) {
     shippingPrice = 25 + totalPrice * 0.1;
     totalPrice *= 0.9;
-    totalPriceDisplay.innerHTML = Math.round(totalPrice);
+    totalPriceDisplay.innerHTML = Math.round(totalPrice + shippingPrice);
     shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
     discountMessage.innerHTML = '10% Rabatt!';
   } else {
     shippingPrice = 0;
     totalPrice *= 0.9;
-    totalPriceDisplay.innerHTML = Math.round(totalPrice);
+    totalPriceDisplay.innerHTML = Math.round(totalPrice + shippingPrice);
     shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
     discountMessage.innerHTML = '10% Rabatt och gratis frakt!';
   }
@@ -193,6 +197,20 @@ function renderBasket() {
   removeBtn.forEach(btn => {
     btn.addEventListener('click', remove);
   });
+}
+
+function checkDiscountCode() {
+  if (discountCode.value === 'a_damn_fine_cup_of_coffee') {
+    totalPricePerProduct = 0;
+    totalPrice = 0;
+    shippingPrice = 0;
+    productPriceDisplay.innerHTML = totalPricePerProduct;
+    totalPriceDisplay.innerHTML = totalPrice;
+    shippingPriceDisplay.innerHTML = shippingPrice;
+    discountMessage.innerHTML = 'Allt gratis! Du måste ha bra kontakter....';
+  } else {
+    discountMessage.innerHTML = 'Det där är ingen giltig rabattkod!';
+  }
 }
 
 // eslint-disable-next-line no-unused-vars
@@ -394,110 +412,217 @@ function byRating(a, b) {
   }
 }
 
-/* Fomulärsdelen  
+// *****************FORMULÄRVALIDERING STARTAR HÄR***************************************
 
-[] Beställningsknappen ska inte vara klickbar 
-[] Kunden väljer betalsätt 
-[] Om kunden väljer faktura
-    Visas ett formulär med personnummer.
-      Kortforumuläret döljs 
-[] Om kunden väljer kort 
-    Visas ett formulär med kortuppgifter 
-    fakturaformuläret döljs
-[] kontrollera att alla fält är korrekt ifyllda 
-[] aktivera beställnings-knappen */
+const nameError = document.getElementById('name-error');
+const lastNameError = document.getElementById('lastname-error');
+const adressError = document.getElementById('adress-error');
+const zipError = document.getElementById('zip-error');
+const cityError = document.getElementById('city-error');
+const phoneError = document.getElementById('phone-error');
+const emailError = document.getElementById('email-error');
+const personalNrError = document.getElementById('personalNumber-Error');
+const cardNrError = document.getElementById('cardNrError');
+const cvvError = document.getElementById('cvvError');
 
-let nameError = document.getElementById('name-error');
-let lastNameError = document.getElementById('lastname-error');
-let adressError = document.getElementById('adress-error');
-let zipError = document.getElementById('zip-error');
-let cityError = document.getElementById('city-error');
-let phoneError = document.getElementById('phone-error');
-let emailError = document.getElementById('email-error');
+const firstNameField = document.querySelector('#fname');
+const lastNameField = document.querySelector('#lname');
+const adressField = document.querySelector('#adress');
+const zipCodeField = document.querySelector('#zip');
+const cityField = document.querySelector('#city');
+const phoneField = document.querySelector('#phone');
+const emailField = document.querySelector('#email');
+const personalNrField = document.querySelector('#personalNumber');
+const cardNrField = document.querySelector('#cardNr');
+const cvvField = document.querySelector('#cvv');
+const orderBtn = document.getElementById('buy-button');
+const personalData = document.getElementById('personalData');
+
+let fNameIsOk = false;
+let lNameIsOk = false;
+let adressIsOk = false;
+let zipCodeIsOk = false;
+let cityIsOk = false;
+let phoneIsOk = false;
+let emailIsOk = false;
+let personalNrIsOk = false;
+let cardNrIsOk = false;
+let cvvIsOk = false;
+let gdprIsOk = false;
+
+personalData.addEventListener('click', gdprCheck);
+firstNameField.addEventListener('focusout', validateName);
+lastNameField.addEventListener('focusout', validateLastName);
+adressField.addEventListener('focusout', validateAdress);
+zipCodeField.addEventListener('focusout', validateZip);
+cityField.addEventListener('focusout', validateCity);
+phoneField.addEventListener('focusout', validatePhone);
+emailField.addEventListener('focusout', validateEmail);
+personalNrField.addEventListener('focusout', validatePersonalNumber);
+cardNrField.addEventListener('focusout', validateCardNr);
+cvvField.addEventListener('focusout', validateCvv);
+
+function validateCardNr() {
+  if (cardNrField.value.length === 0) {
+    cardNrIsOk = false;
+    cardNrError.innerHTML = '*';
+  }
+  if (cardNrField.value.length < 16 || cardNrField.value.length > 16) {
+    cardNrIsOk = false;
+    cardNrError.innerHTML = '16 siffror tack';
+  } else {
+    cardNrError.innerHTML = '<i class="fa-solid fa-check"></i>';
+    cardNrIsOk = true;
+  }
+  activateOrderButton();
+}
+
+function validateCvv() {
+  if (cvvField.value.length === 0) {
+    cvvIsOk = false;
+    cvvError.innerHTML = '*';
+  }
+  if (cvvField.value.length < 3 || cvvField.value.length > 3) {
+    cvvIsOk = false;
+    cvvError.innerHTML = '3 siffror tack';
+  } else {
+    cvvIsOk = true;
+    cvvError.innerHTML = '<i class="fa-solid fa-check"></i>';
+  }
+  activateOrderButton();
+}
 
 function validateName() {
-  let name = document.getElementById('fname').value;
+  if (firstNameField.value.length === 0) {
+    fNameIsOk = false;
+    nameError.innerHTML = 'Måste fyllas i';
+  } else {
+    fNameIsOk = true;
+    nameError.innerHTML = '<i class="fa-solid fa-check"></i>';
 
-  if (name.length == -1) {
-    nameError.innerHTML = '*';
-    return false;
   }
   nameError.innerHTML = '<i class="fa-solid fa-check"></i>';
   return true;
 }
 
 function validateLastName() {
-  let lastName = document.getElementById('lname').value;
-
-  if (lastName.length == -1) {
-    lastNameError.innerHTML = '*';
-    return false;
+  if (lastNameField.value.length === 0) {
+    lNameIsOk = false;
+    lastNameError.innerHTML = 'Måste fyllas i';
+  } else {
+    lNameIsOk = true;
+    lastNameError.innerHTML = '<i class="fa-solid fa-check"></i>';
   }
   lastNameError.innerHTML = '<i class="fa-solid fa-check"></i>';
   return true;
 }
 
 function validateAdress() {
-  let adress = document.getElementById('adress').value;
-
-  if (adress.length == -1) {
-    adressError.innerHTML = '*';
-    return false;
+  if (adressField.value.length === 0) {
+    adressIsOk = false;
+    adressError.innerHTML = 'Måste fyllas i';
+  } else {
+    adressIsOk = true;
+    adressError.innerHTML = '<i class="fa-solid fa-check"></i>';
   }
   adressError.innerHTML = '<i class="fa-solid fa-check"></i>';
   return true;
 }
 
 function validateZip() {
-  let zipCode = document.getElementById('zip').value;
-
-  if (zipCode.length == -1) {
-    zipError.innerHTML = '*';
-    return false;
+  if (zipCodeField.value.length === 0) {
+    zipCodeIsOk = false;
+    zipError.innerHTML = 'Måste fyllas i';
+  } else {
+    zipCodeIsOk = true;
+    zipError.innerHTML = '<i class="fa-solid fa-check"></i>';
   }
   zipError.innerHTML = '<i class="fa-solid fa-check"></i>';
   return true;
 }
 
 function validateCity() {
-  let city = document.getElementById('city').value;
-
-  if (city.length == -1) {
-    cityError.innerHTML = '*';
-    return false;
+  if (cityField.value.length === 0) {
+    cityIsOk = false;
+    cityError.innerHTML = 'Måste fyllas i';
+  } else {
+    cityIsOk = true;
+    cityError.innerHTML = '<i class="fa-solid fa-check"></i>';
   }
   cityError.innerHTML = '<i class="fa-solid fa-check"></i>';
   return true;
 }
 
 function validatePhone() {
-  let phone = document.getElementById('phone').value;
-
-  if (phone.length == -1) {
-    phoneError.innerHTML = '*';
-    return false;
+  if (phoneField.value.length === 0) {
+    phoneIsOk = false;
+    phoneError.innerHTML = 'Måste fyllas i';
   }
-
-  if (!phone.match(/^[0-9]{10}$/)) {
-    phoneError.innerHTML = 'Endast siffror';
-    return false;
+  if (!phoneField.value.match(/^[0-9]{10}$/)) {
+    phoneIsOk = false;
+    phoneError.innerHTML = 'var god fyll i ett giltligt mobilnr';
+  } else {
+    phoneIsOk = true;
+    phoneError.innerHTML = '<i class="fa-solid fa-check"></i>';
   }
-
-  phoneError.innerHTML = '<i class="fa-solid fa-check"></i>';
-  return true;
+  activateOrderButton();
 }
 
 function validateEmail() {
-  let email = document.getElementById('email').value;
+  if (emailField.value.length === 0) {
+    emailIsOk = false;
+    emailError.innerHTML = 'Måste fyllas i';
+  }
+  if (!emailField.value.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
+    emailIsOk = false;
+    emailError.innerHTML = 'Ogiltlig mejl';
+  } else {
+    emailIsOk = true;
+    emailError.innerHTML = '<i class="fa-solid fa-check"></i>';
+  }
+
+function validatePersonalNumber() {
+  if (personalNrField.value.length === 0) {
+    personalNrIsOk = false;
+    personalNrError.innerHTML = '*';
+  }
+  if (!personalNrField.value.match(/^(\d{6}|\d{8})[-|(\s)]{0,1}\d{4}$/)) {
+    personalNrIsOk = false;
+    personalNrError.innerHTML = '10 siffror tack';
+  } else {
+    personalNrIsOk = true;
+    personalNrError.innerHTML = '<i class="fa-solid fa-check"></i>';
+  }
+  activateOrderButton();
+}
+
+function gdprCheck() {
+  gdprIsOk = personalData.checked;
+  activateOrderButton();
+}
+
+// ****************************VALIDERING SLUT*******************************************
 
   if (email.length == -1) {
     emailError.innerHTML = '*';
     return false;
   }
 
-  if (!email.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
-    emailError.innerHTML = 'Ogiltlig mejl';
-    return false;
+function activateOrderButton() {
+  if (
+    fNameIsOk &&
+    gdprIsOk &&
+    lNameIsOk &&
+    adressIsOk &&
+    zipCodeIsOk &&
+    cityIsOk &&
+    phoneIsOk &&
+    emailIsOk &&
+    (personalNrIsOk || (cardNrIsOk && cvvIsOk))
+  ) {
+    orderBtn.removeAttribute('disabled');
+  } else {
+    orderBtn.setAttribute('disabled', '');
   }
   emailError.innerHTML = '<i class="fa-solid fa-check"></i>';
   return true;
@@ -506,8 +631,12 @@ function validateEmail() {
 document.querySelector('#paymentType_invoice').addEventListener('click', handleInvoiceClick);
 document.querySelector('#paymentType_card').addEventListener('click', handleCardClick);
 
-const card = document.getElementById('id-tva');
-const invoice = document.getElementById('id-ett');
+const card = document.getElementById('creditCard');
+const invoice = document.getElementById('invoice');
+
+// **************AKTIVERING BESTÄLLNINGSKNAPP SLUT******************************
+
+//***********FÖR ATT DÖLJA/VISA FORMULÄREN FÖR KORT OCH FAKTURA************
 
 function handleCardClick() {
   if (document.getElementById('paymentType_card').checked) {
@@ -527,4 +656,51 @@ function handleInvoiceClick() {
   }
 }
 
+//**********RENSA FORMULÄR******************
+
+document.querySelector('#eraseBtn').addEventListener('click', resetOrder);
+
+function resetOrder() {
+  document.getElementById('form').reset();
+  document.getElementById('invoice').reset();
+  document.getElementById('creditCard').reset();
+
+  clearBasket();
+  validateCardNr();
+  validatePersonalNumber();
+  validateCvv();
+  validateName();
+  validateLastName();
+  validateAdress();
+  validateZip();
+  validateCity();
+  validatePhone();
+  validateEmail();
+}
+
+// Återstället formulären efter 15 min.
+
+let timerID = null;
+let timeoutDuration = 900000; // 15 minuter
+
+window.addEventListener(
+  'keydown',
+  function (e) {
+    if (timerID !== null) {
+      clearTimeout(timerID);
+      timerID = null;
+    }
+
+    timerID = setTimeout(function () {
+      // Clear all the fields here
+      resetOrder();
+      alert('Pga inaktivitet rensas din beställning');
+    }, timeoutDuration);
+  },
+  false
+);
+
 renderProducts();
+checkDiscountBtn.addEventListener('click', checkDiscountCode);
+buyBtn.addEventListener('click', placeOrder);
+closePopupBtn.addEventListener('click', placeOrder);

@@ -29,39 +29,6 @@ section {
   }
 }
 
-.landing-page {
-  background: url('../img/rykande-gott-kaffe.png');
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  width: 100vw;
-  color: $col-light;
-
-  h1 {
-    text-align: center;
-    padding-top: 5rem;
-    font-size: 3rem;
-    font-weight: lighter;
-  }
-
-  a {
-    padding: 1rem 2rem;
-    background: $col-dark-brown;
-    border-radius: 2.5rem;
-    border: 3px solid $col-beige;
-    position: absolute;
-    bottom: 3rem;
-    right: 3rem;
-    color: $col-light;
-    text-decoration: none;
-    font-size: 1.3rem;
-
-    &:hover {
-      background: $col-accent-light;
-    }
-  }
-}
-
 .popup {
   width: 60vw;
   min-height: 50vh;
@@ -111,6 +78,35 @@ section {
   display: none;
 }
 
+.landing-page {
+  background: url('../img/rykande-gott-kaffe.png');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  color: $col-light;
+
+  h1 {
+    text-align: center;
+    padding-top: 5rem;
+    font-size: 3rem;
+    font-weight: lighter;
+  }
+
+  a {
+    padding: 1rem 2rem;
+    background: $col-dark-brown;
+    border-radius: 2.5rem;
+    border: 3px solid $col-beige;
+    position: absolute;
+    bottom: 3rem;
+    right: 3rem;
+    color: $col-light;
+    text-decoration: none;
+    font-size: 1.3rem;
+  }
+}
+
 .products {
   .product-grid {
     margin-top: 1rem;
@@ -152,7 +148,6 @@ section {
             background: $col-accent-light;
           }
         }
-
       }
     }
 
@@ -221,6 +216,11 @@ section {
     font-size: 0.9rem;
   }
 
+  .discount-code {
+    width: 230px;
+    margin: 1rem;
+  }
+
   .buy-btn {
     margin-top: 5rem;
     padding: 1rem 3rem;
@@ -282,9 +282,22 @@ section {
   }
 }
 
-#form span {
+#form span,
+#invoice span,
+#creditCard span {
   color: red;
-  font-size: 1.5rem;
+  font-size: 1rem;
+}
+
+#cvvError {
+  position: relative;
+  left: -160px;
+  top: -60px;
+}
+
+#cardNrError {
+  position: relative;
+  top: 30px;
 }
 
 .fa-solid {
@@ -298,7 +311,16 @@ section {
   width: 100vw;
 }
 
-.customer-info h3 {
+.customer-email {
+  margin-bottom: 30px;
+}
+
+.first-name,
+.last-name {
+  margin-top: 20px;
+}
+
+.customer-info h2 {
   margin: 1.25rem 0;
   padding: 1rem;
 }
@@ -310,6 +332,7 @@ section {
   border: 1px solid black;
   max-width: 50rem;
   min-height: 25vh;
+  width: 90vw;
 }
 
 .contact-form input {
@@ -334,28 +357,8 @@ section {
 
 .customer-info input {
   width: 100%;
-  padding: 0.313rem;
-  margin-top: 0.5rem;
-}
-
-.contact-form div {
-  margin-top: 0.625;
-}
-
-/* Knapparna fortsätt och avbryt */
-
-.btn-continue,
-.btn-cancel {
-  background-color: $col-dark-brown;
-  color: #fff;
-  position: relative;
-  top: 20px;
-  left: 120px;
-  padding: 5px 10px;
-}
-
-.btn-continue {
-  margin-right: 40px;
+  padding: 0.613rem;
+  margin-top: 0.6rem;
 }
 
 /* Välja Betalsätt */
@@ -394,6 +397,7 @@ section {
 .payment-section {
   border: 1px solid black;
   min-height: 30vh;
+  width: 90vw;
   margin-top: 1.25rem;
 }
 
@@ -417,8 +421,8 @@ section {
 .credit-card,
 .invoice-details {
   width: 360px;
-  height: 400px;
-  margin: 80px auto 0;
+  min-height: 400px;
+  margin: 80px auto 30px;
   border: 1px solid #ddd;
   border-radius: 6px;
   background-color: #fff;
@@ -473,7 +477,8 @@ section {
 
 /* Date Field */
 .month select,
-.year select {
+.year select,
+.cvv-input input {
   width: 145px;
   margin-bottom: 20px;
   padding: 10px;
@@ -481,7 +486,8 @@ section {
   border-radius: 6px;
 }
 
-.month select {
+.month select,
+.cvv-input input {
   float: left;
 }
 
@@ -530,14 +536,48 @@ section {
   color: #fff;
 }
 
-.confirm-btn {
+.checkBoxes {
+  display: flex;
+  flex-direction: column;
+}
+
+#personalData,
+#newsLetter {
+  position: relative;
+  right: -140px;
+  top: -35px;
+  height: 20px;
+}
+
+.newsletter,
+.personal-data {
+  margin-left: 30px;
+}
+
+.newsletter {
   margin-top: 50px;
 }
 
-.buy-button {
+#buy-button,
+#eraseBtn {
+  margin: 60px 40px 10px 40px;
+  padding: 20px 100px;
+  background-color: $col-accent-light;
+  color: $col-dark-brown;
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+}
+
+#eraseBtn {
   position: relative;
-  top: 30px;
-  padding: 10px 130px;
-  background-color: $col-dark-brown;
-  color: #fff;
+  padding: 10px;
+  width: 180px;
+  font-size: 1rem;
+  background-color: $col-accent-light;
+  color: $col-dark-brown;
+}
+
+.btn-section {
+  display: flex;
+  flex-direction: column;
 }
