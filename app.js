@@ -499,7 +499,6 @@ function validateName() {
   } else {
     fNameIsOk = true;
     nameError.innerHTML = '<i class="fa-solid fa-check"></i>';
-
   }
   nameError.innerHTML = '<i class="fa-solid fa-check"></i>';
   return true;
@@ -580,6 +579,7 @@ function validateEmail() {
     emailIsOk = true;
     emailError.innerHTML = '<i class="fa-solid fa-check"></i>';
   }
+}
 
 function validatePersonalNumber() {
   if (personalNrField.value.length === 0) {
@@ -602,11 +602,6 @@ function gdprCheck() {
 }
 
 // ****************************VALIDERING SLUT*******************************************
-
-  if (email.length == -1) {
-    emailError.innerHTML = '*';
-    return false;
-  }
 
 function activateOrderButton() {
   if (
