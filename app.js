@@ -500,8 +500,7 @@ function validateName() {
     fNameIsOk = true;
     nameError.innerHTML = '<i class="fa-solid fa-check"></i>';
   }
-  nameError.innerHTML = '<i class="fa-solid fa-check"></i>';
-  return true;
+  activateOrderButton();
 }
 
 function validateLastName() {
@@ -512,8 +511,7 @@ function validateLastName() {
     lNameIsOk = true;
     lastNameError.innerHTML = '<i class="fa-solid fa-check"></i>';
   }
-  lastNameError.innerHTML = '<i class="fa-solid fa-check"></i>';
-  return true;
+  activateOrderButton();
 }
 
 function validateAdress() {
@@ -524,8 +522,7 @@ function validateAdress() {
     adressIsOk = true;
     adressError.innerHTML = '<i class="fa-solid fa-check"></i>';
   }
-  adressError.innerHTML = '<i class="fa-solid fa-check"></i>';
-  return true;
+  activateOrderButton();
 }
 
 function validateZip() {
@@ -536,8 +533,7 @@ function validateZip() {
     zipCodeIsOk = true;
     zipError.innerHTML = '<i class="fa-solid fa-check"></i>';
   }
-  zipError.innerHTML = '<i class="fa-solid fa-check"></i>';
-  return true;
+  activateOrderButton();
 }
 
 function validateCity() {
@@ -548,8 +544,7 @@ function validateCity() {
     cityIsOk = true;
     cityError.innerHTML = '<i class="fa-solid fa-check"></i>';
   }
-  cityError.innerHTML = '<i class="fa-solid fa-check"></i>';
-  return true;
+  activateOrderButton();
 }
 
 function validatePhone() {
@@ -579,6 +574,7 @@ function validateEmail() {
     emailIsOk = true;
     emailError.innerHTML = '<i class="fa-solid fa-check"></i>';
   }
+  activateOrderButton();
 }
 
 function validatePersonalNumber() {
@@ -613,14 +609,11 @@ function activateOrderButton() {
     cityIsOk &&
     phoneIsOk &&
     emailIsOk &&
-    (personalNrIsOk || (cardNrIsOk && cvvIsOk))
-  ) {
+    ((personalNrIsOk || (cardNrIsOk && cvvIsOk)))){
     orderBtn.removeAttribute('disabled');
-  } else {
+  }else {
     orderBtn.setAttribute('disabled', '');
   }
-  emailError.innerHTML = '<i class="fa-solid fa-check"></i>';
-  return true;
 }
 
 document.querySelector('#paymentType_invoice').addEventListener('click', handleInvoiceClick);
