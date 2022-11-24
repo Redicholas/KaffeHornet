@@ -437,6 +437,6 @@ window.addEventListener('keydown', function(e) {
     timerID = setTimeout(function() {
         // Clear all the fields here
         resetOrder();
-        alert('Pga inaktivitet återställdes formulären')
+        alert('Pga inaktivitet rensas din beställning')
     }, timeoutDuration);
 }, false);
