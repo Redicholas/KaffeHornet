@@ -2,112 +2,179 @@
 const products = [
   {
     img: ['img/produkt-1-kaffepasar.jpg', 'img/produkt-1-kaffepasar-mirror.jpg'],
-    imgAlt: '',
-    name: 'Sibaristica',
+    imgAlt: ['Två påsar med kaffebönor', 'Spegelvänd bild på två påsar med kaffebönor'],
     desc: 'Bönor från Guatemala och Colombia',
     price: 129,
     amount: 0,
+    category: 'Bönor',
+    rating: rating4stars.innerHTML,
   },
   {
     img: ['img/produkt-2-andrakaffapasar.jpg', 'img/produkt-2-andrakaffapasar-mirror.jpg'],
-    imgAlt: '',
-    name: 'Blue Magic',
+    imgAlt: ['Kaffebönor i påse med blå etikett', 'Spegelvänd bild på kaffebönor i påse med blå etikett'],
     desc: 'Espressobönor',
     price: 119,
     amount: 0,
+    category: 'Bönor',
+    rating: rating4stars.innerHTML,
   },
   {
     img: ['img/produkt-3-merkaffe.jpg', 'img/produkt-3-merkaffe-mirror.jpg'],
-    imgAlt: '',
-    name: 'Specialty Beans',
+    imgAlt: ['En arm som håller upp en påse kaffebönor', 'Spegelvänd bild på en arm som håller upp en påse kaffebönor'],
     desc: '"Speciella" bönor från Ethiopien',
     price: 129,
     amount: 0,
+    category: 'Bönor',
+    rating: rating4stars.innerHTML,
   },
   {
     img: ['img/produkt-4-kopp.jpg', 'img/produkt-4-kopp-mirror.jpg'],
-    imgAlt: '',
-    name: 'Rustik',
+    imgAlt: ['En svart kaffekopp på ett träbord', 'Spegelvänd bild på en svart kaffekopp på ett träbord'],
     desc: 'Svart kopp i keramik',
     price: 49,
     amount: 0,
+    category: 'Koppar',
+    rating: rating3stars.innerHTML,
   },
   {
     img: ['img/produkt-5-kopp2.jpg', 'img/produkt-5-kopp2-mirror.jpg'],
-    imgAlt: '',
-    name: 'Grön',
+    imgAlt: [
+      'Grön kaffekopp med latteart, på ett vitt bort med kaffebönor strödda runt om',
+      'Spegelvänd bild på grön kaffekopp med latteart, på ett vitt bort med kaffebönor strödda runt om',
+    ],
     desc: 'Kopp i poppande grön färg',
     price: 39,
     amount: 0,
+    category: 'Koppar',
+    rating: rating5stars.innerHTML,
   },
   {
     img: ['img/produkt-6-v60.jpg', 'img/produkt-6-v60-mirror.jpg'],
-    imgAlt: '',
-    name: 'V60',
+    imgAlt: [
+      'V60 bryggare med kaffe som brygger i ett café',
+      'Spegelvänd bild på V60 bryggare med kaffe som brygger i ett café',
+    ],
     desc: 'V60 bryggaren som tilltalar din inre hipster',
     price: 599,
     amount: 0,
+    category: 'Bryggare',
+    rating: rating4stars.innerHTML,
   },
   {
     img: ['img/produkt-7-aeropress.jpg', 'img/produkt-7-aeropress-mirror.jpg'],
-    imgAlt: '',
-    name: 'Aeropress',
+    imgAlt: ['En aeropress på en stubbe utomhus', 'Spegelvänd bild på en aeropress på en stubbe utomhus'],
     desc: 'För dig som vill kunna göra kaffe var som helst!',
     price: 499,
     amount: 0,
+    category: 'Bryggare',
+    rating: rating3stars.innerHTML,
   },
   {
     img: ['img/produkt-8-kopp3.jpg', 'img/produkt-8-kopp3-mirror.jpg'],
-    imgAlt: '',
-    name: 'Fancy',
+    imgAlt: ['Liten kaffekopp med guld detaljer', 'Spegelvänd bild på liten kaffekopp med guld detaljer'],
     desc: 'För ditt finbesök',
     price: 49,
     amount: 0,
+    category: 'Koppar',
+    rating: rating4stars.innerHTML,
   },
   {
     img: ['img/produkt-9-franskpress.jpg', 'img/produkt-9-franskpress-mirror.jpg'],
-    imgAlt: '',
-    name: 'Franskpress',
+    imgAlt: [
+      'En franskpress med kaffe och en kaffekopp brevid',
+      'Spegelvänd bild på en franskpress med kaffe och en kaffekopp brevid',
+    ],
     desc: 'Den klassiska Franskpressen går alltid hem',
     price: 199,
     amount: 0,
+    category: 'Bryggare',
+    rating: rating5stars.innerHTML,
   },
   {
     img: ['img/produkt-10-kopp4.jpg', 'img/produkt-10-kopp4-mirror.jpg'],
-    imgAlt: '',
-    name: 'Orange',
+    imgAlt: [
+      'Hand som håller en stor orange kopp med rykande kaffe',
+      'Spegelvänd bild på en hand som håller en stor orange kopp med rykande kaffe',
+    ],
     desc: 'En större kopp för dig med ett större beroende',
     price: 39,
     amount: 0,
+    category: 'Koppar',
+    rating: rating3stars.innerHTML,
   },
 ];
 
 const productGrid = document.querySelector('#product-grid');
 const basketGrid = document.querySelector('#basket-grid');
+const sortSelector = document.querySelector('#sort-options');
+
+const productPriceDisplay = document.querySelector('#productPriceDisplay');
+const shippingPriceDisplay = document.querySelector('#shippingPriceDisplay');
+const totalPriceDisplay = document.querySelector('#totalPriceDisplay');
+const discountMessage = document.querySelector('#discountMessage');
+
+const popup = document.querySelector('#popup');
+const closePopupBtn = document.querySelector('#closePopup');
+const buyBtn = document.querySelector('#buyBtn');
+
+buyBtn.addEventListener('click', placeOrder);
+closePopupBtn.addEventListener('click', placeOrder);
 
 function renderBasket() {
   basketGrid.innerHTML = '';
+
+  let productAmount = 0;
+  let shippingPrice = 25;
+  let totalPricePerProduct = 0;
+  let totalPrice = 0;
+
   for (let i = 0; i < products.length; i += 1) {
+    totalPricePerProduct = products[i].price * products[i].amount;
+    totalPrice += totalPricePerProduct;
+    productAmount += products[i].amount;
+
+    productPriceDisplay.innerHTML = Math.round(totalPrice);
+    shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
+    totalPriceDisplay.innerHTML = Math.round(totalPrice + shippingPrice);
+
     if (products[i].amount > 0) {
       basketGrid.innerHTML += `
-	    <div class="item">
-        <img src="${products[i].img[0]}" height="100" width="100" alt="${products[i].imgAlt}" />
-        <div class="item-content">
-          <div class="item-info">
-            <h3>${products[i].name}</h3>
-            <p>${products[i].desc}</p>
-            <p>${products[i].price * products[i].amount}kr</p>
-          </div>
-          <div class="item-selection">
-            <button class="button-add" data-id="${i}">+</button>
-            <p>${products[i].amount}</p>
-            <button class="button-remove" data-id="${i}">-</button>
+        <div class="item">
+          <img src="${products[i].img[0]}" height="100" width="100" alt="${products[i].imgAlt[0]}" />
+          <div class="item-content">
+            <div class="item-info">
+              <h3>${products[i].name}</h3>
+              <p>${products[i].desc}</p>
+              <p>${products[i].price * products[i].amount}kr</p>
+            </div>
+            <div class="item-selection">
+              <button class="button-add" data-id="${i}">+</button>
+              <p>${products[i].amount}</p>
+              <button class="button-remove" data-id="${i}">-</button>
+            </div>
           </div>
         </div>
-      </div>
-	  `;
+	    `;
     }
   }
+  if (productAmount < 10) {
+    discountMessage.innerHTML = '';
+    shippingPrice = 25 + totalPrice * 0.1;
+    shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
+  } else if (productAmount < 15) {
+    shippingPrice = 25 + totalPrice * 0.1;
+    totalPrice *= 0.9;
+    totalPriceDisplay.innerHTML = Math.round(totalPrice);
+    shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
+    discountMessage.innerHTML = '10% Rabatt!';
+  } else {
+    shippingPrice = 0;
+    totalPrice *= 0.9;
+    totalPriceDisplay.innerHTML = Math.round(totalPrice);
+    shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
+    discountMessage.innerHTML = '10% Rabatt och gratis frakt!';
+  }
+
   const addBtn = document.querySelectorAll('.button-add');
   addBtn.forEach(btn => {
     btn.addEventListener('click', add);
@@ -129,26 +196,55 @@ function clearBasket() {
 }
 
 function renderProducts() {
+  const sortOptions = sortSelector.value;
+
+  let sortedProducts = products;
+
+  if (sortOptions === 'priceHigh') {
+    sortedProducts = sortedProducts.sort(byPriceRev);
+  }
+
+  if (sortOptions === 'priceLow') {
+    sortedProducts = sortedProducts.sort(byPrice);
+  }
+
+  if (sortOptions === 'nameAtoZ') {
+    sortedProducts = sortedProducts.sort(byName);
+  }
+
+  if (sortOptions === 'nameZtoA') {
+    sortedProducts = sortedProducts.sort(byNameRev);
+  }
+
+  if (sortOptions === 'category') {
+    sortedProducts = sortedProducts.sort(byCategory);
+  }
+
+  if (sortOptions === 'rating') {
+    sortedProducts = sortedProducts.sort(byRating);
+  }
+
   productGrid.innerHTML = '';
 
-  for (let i = 0; i < products.length; i += 1) {
+  for (let i = 0; i < sortedProducts.length; i += 1) {
     productGrid.innerHTML += `
         <div class="product-card" data-id="${i}">
             <div class="image">
                 <img
-                    src="${products[i].img[0]}"
+                    src="${sortedProducts[i].img[0]}"
                     height="100"
                     width="100"
-                    alt="${products[i].imgAlt}"
+                    alt="${sortedProducts[i].imgAlt[0]}"
                 />
             </div>
             <div class="product-info">
-                <h3>${products[i].name}</h3>
-                <p>${products[i].desc}</p>
+                <h3>${sortedProducts[i].name}</h3>
+                <p>${sortedProducts[i].rating}</p>
+                <p>${sortedProducts[i].desc}</p>
                     <div class="product-selection">
-                        <p>${products[i].price}kr</p>
+                        <p>${sortedProducts[i].price}kr</p>
                         <button class="button-remove" data-id="${i}">-</button>
-                        <p>${products[i].amount}</p>
+                        <p>${sortedProducts[i].amount}</p>
                         <button class="button-add" data-id="${i}">+</button>
                     </div>
             </div>
@@ -178,7 +274,115 @@ function remove() {
   }
 }
 
-renderProducts()
+function placeOrder() {
+  if (popup.classList.contains('hidden')) {
+    popup.classList.remove('hidden');
+    getDeliveryTime();
+    productConfirmation();
+    // ToDo: Nollställ beställning och formulär
+  } else {
+    popup.classList.add('hidden');
+  }
+}
+
+function productConfirmation() {
+  const orderConfirmation = document.querySelector('#orderConfirmation');
+  orderConfirmation.innerHTML = '';
+  for (let i = 0; i < products.length; i += 1) {
+    if (products[i].amount > 0) {
+      orderConfirmation.innerHTML += `
+        <div class="product-confirmation-display">
+          <h4>${products[i].name}</h4>
+          <p>${products[i].amount}st *</p>
+          <p>${products[i].price}kr</p>
+        </div>
+        `;
+    }
+  }
+  orderConfirmation.innerHTML += `
+    <div class="product-confirmation-display-price">
+      <p>Frakt: ${shippingPriceDisplay.textContent.valueOf()}kr</p>
+      <p>Totalt: ${totalPriceDisplay.textContent.valueOf()}kr</p>
+    </div>
+    `;
+}
+
+function getDeliveryTime() {
+  const deliveryTimeDisplay = document.querySelector('#deliveryTimeDisplay');
+  const now = new Date();
+  const today = now.getDay();
+  const hourOfDay = now.getHours();
+
+  if (hourOfDay >= 11 && hourOfDay < 15) {
+    deliveryTimeDisplay.innerHTML = 'Din leverans beräknas vara framme ca. kl 15';
+  } else if (hourOfDay > 22 && hourOfDay < 6) {
+    deliveryTimeDisplay.innerHTML = 'Leveranstid beräknas till ca. 45 minuter';
+  } else if (today === 6 || today === 0) {
+    deliveryTimeDisplay.innerHTML = 'Leveranstid beräknas till ca. 1,5 timmar';
+  } else {
+    deliveryTimeDisplay.innerHTML = 'Leveranstid beräknas till ca. 20 minuter';
+  }
+}
+
+function byPriceRev(a, b) {
+  if (a.price > b.price) {
+    return -1;
+  } else if (b.price > a.price) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
+function byPrice(a, b) {
+  if (a.price > b.price) {
+    return 1;
+  } else if (b.price > a.price) {
+    return -1;
+  } else {
+    return 0;
+  }
+}
+
+function byName(a, b) {
+  if (a.name > b.name) {
+    return 1;
+  } else if (b.name > a.name) {
+    return -1;
+  } else {
+    return 0;
+  }
+}
+
+function byNameRev(a, b) {
+  if (a.name > b.name) {
+    return -1;
+  } else if (b.name > a.name) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
+function byCategory(a, b) {
+  if (a.category > b.category) {
+    return 1;
+  } else if (b.category > a.category) {
+    return -1;
+  } else {
+    return 0;
+  }
+}
+
+function byRating(a, b) {
+  if (a.rating > b.rating) {
+    return 1;
+  } else if (b.rating > a.rating) {
+    return -1;
+  } else {
+    return 0;
+  }
+}
 
 // *****************FORMULÄRVALIDERING STARTAR HÄR***************************************
 
@@ -226,7 +430,6 @@ emailField.addEventListener('focusout', validateEmail);
 personalNrField.addEventListener('focusout', validatePersonalNumber);
 cardNrField.addEventListener('focusout', validateCardNr);
 cvvField.addEventListener('focusout', validateCvv);
-
 
 function validateCardNr() {
   if(cardNrField.value.length === 0) {
@@ -361,6 +564,7 @@ function validatePersonalNumber() {
 // ****************************VALIDERING SLUT*******************************************
 
 
+
 // *********FÖR AKTIVERA BESTÄLLNINGSKNAPPEN NÄR VALIDERINGSVILLKOREN ÄR UPPFYLLDA***************
 
 function activateOrderButton(){
@@ -423,5 +627,4 @@ function resetOrder() {
   validateEmail();
 }
 
-
-
+renderProducts();
