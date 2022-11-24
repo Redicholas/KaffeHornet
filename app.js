@@ -145,7 +145,7 @@ function renderBasket() {
 
     productPriceDisplay.innerHTML = Math.round(totalPrice);
     shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
-    totalPriceDisplay.innerHTML = Math.round(totalPrice + shippingPrice);
+    totalPriceDisplay.innerHTML = totalPrice + shippingPrice;
 
     if (products[i].amount > 0) {
       basketGrid.innerHTML += `
@@ -168,19 +168,20 @@ function renderBasket() {
     }
   }
   if (productAmount < 10) {
-    discountMessage.innerHTML = '';
     shippingPrice = 25 + totalPrice * 0.1;
+    totalPriceDisplay.innerHTML = Math.round(totalPrice + shippingPrice);
     shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
+    discountMessage.innerHTML = '';
   } else if (productAmount < 15) {
     shippingPrice = 25 + totalPrice * 0.1;
     totalPrice *= 0.9;
-    totalPriceDisplay.innerHTML = Math.round(totalPrice);
+    totalPriceDisplay.innerHTML = Math.round(totalPrice + shippingPrice);
     shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
     discountMessage.innerHTML = '10% Rabatt!';
   } else {
     shippingPrice = 0;
     totalPrice *= 0.9;
-    totalPriceDisplay.innerHTML = Math.round(totalPrice);
+    totalPriceDisplay.innerHTML = Math.round(totalPrice + shippingPrice);
     shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
     discountMessage.innerHTML = '10% Rabatt och gratis frakt!';
   }
