@@ -80,82 +80,90 @@
       <div id="basket-grid">
         <!-- Produkter renderas från JavaScripten -->
       </div>
-      <p class="discount-info">
-        Köp 10 varor eller mer och få 10% rabatt! <br />
-        Eller mer än 15 varor och få gratis frakt!
-      </p>
-      <div class="basket-bottom">
-        <button onclick="clearBasket()">Rensa varukorgen</button>
-        <div class="price-display">
-          <p>Belopp: <span id="productPriceDisplay"></span>kr</p>
-          <p>Frakt: <span id="shippingPriceDisplay"></span>kr</p>
-          <p>Totalt: <span id="totalPriceDisplay"></span>kr</p>
-        </div>
-      </div>
-      <div class="message">
-        <p id="discountMessage"></p>
-      </div>
-      <a href="#customerInfo"><button class="buy-btn">Köp</button></a>
     </section>
 
     <!-- Beställningsuppgifter -->
-    <section class="customer-info" id="customerInfo">
-      <h3>Dina uppgifter</h3>
-      <div class="contact-form">
-        <form id="form">
-          <div class="first-name">
-            <label>Förnamn</label>
-            <span id="name-error"></span>
-            <input type="text" id="fname" onkeypress="validateName()" />
-          </div>
+    <section class="customer-info">
+        <div class="contact-form">
+            <form id="form">
+                <h2>Dina uppgifter</h2>
+                <hr>
+                <div class="first-name">
+                    <label>Förnamn:<span>*</span>
+                      <span id="name-error"></span>
+                      <input type="text" id="fname" required>
+                    </label>
+                </div>
 
-          <div class="last-name">
-            <label>Efternamn</label>
-            <span id="lastname-error"></span>
-            <input type="text" id="lname" onkeypress="validateLastName()" /><br />
-          </div>
+                <div class="last-name">
+                    <label>Efternamn:<span>*</span>
+                        <span id="lastname-error"></span>
+                        <input type="text" id="lname" required><br>
+                    </label>
+                </div>
 
-          <div class="customer-adress">
-            <label>Adress</label>
-            <span id="adress-error"></span>
-            <input type="text" id="adress" onkeypress="validateAdress()" />
-          </div>
+                <div class="customer-adress">
+                    <label>Adress:<span>*</span>
+                      <span id="adress-error"></span>
+                      <input type="text" id="adress" required>
+                    </label>
+                </div>
 
-          <div class="zip">
-            <label>Postnummer</label>
-            <span id="zip-error"></span>
-            <input type="number" id="zip" onkeypress="validateZip()" />
-          </div>
+                <div class="zip">
+                    <label>Postnummer:<span>*</span>
+                      <span id="zip-error"></span>
+                      <input type="number" id="zip" required>
+                    </label>
+                </div>
 
-          <div class="city">
-            <label>Postort</label>
-            <span id="city-error"></span>
-            <input type="text" id="city" onkeypress="validateCity()" />
-          </div>
+                <div class="city">
+                    <label>Postort:<span>*</span>
+                      <span id="city-error"></span>
+                      <input type="text" id="city" required>
+                    </label>
+                </div>
 
-          <div class="portcode">
-            <label>Portkod</label>
-            <input type="number" id="portcode" />
-          </div>
+                <div class="portcode">
+                    <label>Portkod:
+                      <span></span>
+                      <input type="number" id="portcode">
+                    </label>
+                </div>
 
-          <div class="phone">
-            <label>Mobilnr</label>
-            <span id="phone-error"></span>
-            <input type="number" id="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" onkeypress="validatePhone()" />
-          </div>
+                <div class="phone">
+                    <label>Mobilnr:<span>*</span>
+                      <span id="phone-error"></span>
+                      <input type="tel" id="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
+                    </label>
+                </div>
 
-          <div class="customer-email">
-            <label>Email </label>
-            <span id="email-error"></span>
-            <input type="email" id="email" onkeypress="validateEmail()" />
-          </div>
+                <div class="customer-email">
+                    <label>Email:<span>*</span>
+                      <span id="email-error"></span>
+                      <input type="email" id="email" required>
+                    </label>
+                </div>
+            </form>
+            
+        </div>
 
-          <button type="submit" id="btn">Submit</button>
-        </form>
+        <div class="payment-section">
+            <h2>Betalsätt</h2>
+            <hr>
+            <div class="payment-type">
+                <div class="payment-choice">
+                    <form class="invoice">
+                        <label for="paymentType_invoice" class="payment">
+                            Faktura: <input type="radio" id="paymentType_invoice" name="payment-option" checked>
+                        </label>
+                        <br>
+                        <hr>
+                        <label for="paymentType_card" class="payment">
+                            Kort: <input type="radio" id="paymentType_card" name="payment-option">
+                        </label>
+                    </form>
 
-        <button class="btn-continue">Fortsätt</button>
-        <button class="btn-cancel">Avbryt</button>
-      </div>
+                    <!-- ****** Kort-formulär ****** -->
 
       <div class="payment-section">
         <h3>Betalsätt</h3>
@@ -175,30 +183,33 @@
 
             <!-- ****** Kort-formulär ****** -->
           </div>
+          
+                <!--Formulär med personnr för faktura-->
+                <form class="invoice-details" id="invoice">
+                    <div class="payment-body">
+                        <div class="form-header">
+                            <h4 class="title">Verifiera din identitet</h4>
+                        </div>
+                        <div class="invoice-info">
+                            <p>Ange dina uppgifter för att verifiera din identitet
+                                och slutföra ditt köp</p>
+                        </div>
+                        <label>Personnummer:<span>*</span><br><span id="personalNumber-Error"></span>
+                          <input id="personalNumber" type="text" pattern="[0-9]{6}-[0-9]{4}" placeholder="YYMMDD-XXXX">
+                        </label>
+                        <button type="submit" class="invoice-btn" disabled>Bekräfta</button>
+                    </div>
+                </form>
 
-          <!--Formulär med personnr för faktura-->
-          <form class="invoice-details" id="id-ett">
-            <div class="form-body">
-              <div class="form-header">
-                <h4 class="title">Verifiera din identitet</h4>
-              </div>
-              <div class="invoice-info">
-                <p>Ange dina uppgifter för att verifiera din identitet och slutföra ditt köp</p>
-              </div>
-              <label for="">Personnummer:</label><br />
-              <input type="number" pattern="[0-9]{6}-[0-9]{4}" placeholder="YYMMDD-XXXX" />
-              <button type="submit" class="confirm-btn"><a href="#">Bekräfta</a></button>
-            </div>
-          </form>
-          <form class="credit-card" id="id-tva">
+          <form class="credit-card" id="creditCard">
             <div class="form-header">
               <h4 class="title">Betalkortsinformation</h4>
             </div>
-
-            <div class="form-body">
+            <div class="payment-body">
               <!-- Betalkortsnummer -->
               <div class="card-number">
-                <input type="number" placeholder="Betalkortsnummer" required />
+                <span id="cardNrError"></span>
+                <input id="cardNr" type="number" placeholder="Betalkortsnummer" required>
               </div>
               <!-- Utgångsdatum för kortet -->
               <div class="date-field">
@@ -236,20 +247,33 @@
               <!-- Cvv  -->
               <div class="card-verification">
                 <div class="cvv-input">
-                  <input type="number" placeholder="CVV" required />
+                  <input id="cvv" type="number" placeholder="CVV" required>
                 </div>
                 <div class="cvv-details">
                   <p>3 sista siffrorna<br />på kortets baksida</p>
+                  <span id="cvvError"></span>
                 </div>
               </div>
+            
 
               <!-- Knappen Använd kort -->
-              <button type="submit" class="proceed-btn">
-                <a href="#">Använd kort</a>
-              </button>
+              <button type="submit" class="card-btn">Använd kort</button>
             </div>
           </form>
-          <button class="buy-button" id="buyBtn">Beställ</button>
+          <div class="checkBoxes">
+            <label class="newsletter">
+              Ja tack!<br> Börja skicka nyhetsbrev till mig
+              <input type="checkbox" id="newsLetter" checked>
+            </label>
+            <label class="personal-data">
+              Jag godkänner behandling<br> av mina personuppgifter 
+              <input type="checkbox" id="personalData">
+            </label>
+          </div>
+          <div class="btn-section">
+            <button id="buy-button" disabled>Skicka beställning</button>
+            <button id="eraseBtn">Rensa Beställning</button>
+          </div>
         </div>
       </div>
     </section>
