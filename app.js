@@ -666,27 +666,18 @@ function resetOrder() {
   validateEmail();
 }
 
-// Återstället formulären efter 15 min.
+// Återställer formulären och tömmer varukorgen var 15e min och
+// ger en alert att användaren är för långsam.
 
-let timerID = null;
-let timeoutDuration = 900000; // 15 minuter
+setInterval(orderTimeOut, 900000);
 
-window.addEventListener(
-  'keydown',
-  function (e) {
-    if (timerID !== null) {
-      clearTimeout(timerID);
-      timerID = null;
-    }
+function orderTimeOut() {
+  resetOrder();
+  alert('För långsam!');
+}
 
-    timerID = setTimeout(function () {
-      // Clear all the fields here
-      resetOrder();
-      alert('Pga inaktivitet rensas din beställning');
-    }, timeoutDuration);
-  },
-  false
-);
+
+//********************************* 
 
 renderProducts();
 checkDiscountBtn.addEventListener('click', checkDiscountCode);
