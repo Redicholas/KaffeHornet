@@ -495,7 +495,7 @@ function validateCvv() {
 function validateName() {
   if (firstNameField.value.length === 0) {
     fNameIsOk = false;
-    nameError.innerHTML = 'Måste fyllas i';
+    nameError.innerHTML = 'Obligatoriskt';
   } else {
     fNameIsOk = true;
     nameError.innerHTML = '<i class="fa-solid fa-check"></i>';
@@ -506,7 +506,7 @@ function validateName() {
 function validateLastName() {
   if (lastNameField.value.length === 0) {
     lNameIsOk = false;
-    lastNameError.innerHTML = 'Måste fyllas i';
+    lastNameError.innerHTML = 'Obligatoriskt';
   } else {
     lNameIsOk = true;
     lastNameError.innerHTML = '<i class="fa-solid fa-check"></i>';
@@ -517,7 +517,7 @@ function validateLastName() {
 function validateAdress() {
   if (adressField.value.length === 0) {
     adressIsOk = false;
-    adressError.innerHTML = 'Måste fyllas i';
+    adressError.innerHTML = 'Obligatoriskt';
   } else {
     adressIsOk = true;
     adressError.innerHTML = '<i class="fa-solid fa-check"></i>';
@@ -528,7 +528,7 @@ function validateAdress() {
 function validateZip() {
   if (zipCodeField.value.length === 0) {
     zipCodeIsOk = false;
-    zipError.innerHTML = 'Måste fyllas i';
+    zipError.innerHTML = 'Obligatoriskt';
   } else {
     zipCodeIsOk = true;
     zipError.innerHTML = '<i class="fa-solid fa-check"></i>';
@@ -539,7 +539,7 @@ function validateZip() {
 function validateCity() {
   if (cityField.value.length === 0) {
     cityIsOk = false;
-    cityError.innerHTML = 'Måste fyllas i';
+    cityError.innerHTML = 'Obligatoriskt';
   } else {
     cityIsOk = true;
     cityError.innerHTML = '<i class="fa-solid fa-check"></i>';
@@ -550,7 +550,7 @@ function validateCity() {
 function validatePhone() {
   if (phoneField.value.length === 0) {
     phoneIsOk = false;
-    phoneError.innerHTML = 'Måste fyllas i';
+    phoneError.innerHTML = 'Obligatoriskt';
   }
   if (!phoneField.value.match(/^[0-9]{10}$/)) {
     phoneIsOk = false;
@@ -565,7 +565,7 @@ function validatePhone() {
 function validateEmail() {
   if (emailField.value.length === 0) {
     emailIsOk = false;
-    emailError.innerHTML = 'Måste fyllas i';
+    emailError.innerHTML = 'Obligatoriskt';
   }
   if (!emailField.value.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
     emailIsOk = false;

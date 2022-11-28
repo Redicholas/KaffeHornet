@@ -5,6 +5,7 @@ $col-gray-brown: #7e6e5f;
 $col-dark-brown: #3f2d21;
 $col-accent-dark: #435046;
 $col-accent-light: #8db4a2;
+$col-black: #212427;
 
 html {
   scroll-behavior: smooth;
@@ -43,6 +44,7 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
 
   h1 {
     font-size: 1.2rem;
@@ -309,6 +311,7 @@ section {
   flex-direction: column;
   text-align: center;
   width: 100vw;
+  color: $col-black;
 }
 
 .customer-email {
@@ -327,16 +330,17 @@ section {
 
 .contact-form {
   text-align: left;
-  margin: auto;
   padding: 0.625rem;
   border: 1px solid black;
-  max-width: 50rem;
+  border-radius: 6px;
   min-height: 25vh;
-  width: 90vw;
+  min-width: 380px;
 }
 
 .contact-form input {
-  min-height: 30px;
+  min-height: 50px;
+  border-radius: 6px;
+  border: 1px solid black;
 }
 
 .first-name,
@@ -396,17 +400,13 @@ section {
 
 .payment-section {
   border: 1px solid black;
+  border-radius: 6px;
   min-height: 30vh;
-  width: 90vw;
+  min-width: 380px;
   margin-top: 1.25rem;
 }
 
 /* Formulär personnr faktura */
-
-.invoice-details {
-  width: 80%;
-  margin: auto;
-}
 
 .invoice-info {
   margin-top: 30px;
@@ -432,47 +432,27 @@ section {
 
 .form-header {
   height: 60px;
-  padding: 20px 30px 0;
+  padding: 20px 0;
   border-bottom: 1px solid #e1e8ee;
 }
 
-.form-body {
-  height: 340px;
-  padding: 30px 30px 20px;
+.payment-body {
+  padding: 0 30px;
 }
 
 /* Title */
 .title {
   font-size: 1.25rem;
-  margin: 0;
-  color: #5e6977;
+  text-align: center;
 }
 
-/* Common */
-.card-number input,
-.cvv-input input,
-.month select,
-.year select {
-  font-size: 1rem;
-  font-weight: 100;
-  line-height: 14px;
-}
-
-.card-number,
-.cvv-details,
-.cvv-input,
-.month select,
-.year select {
-  color: #86939e;
-}
 
 /* Card Number */
 .card-number input {
   width: 100%;
-  margin-bottom: 20px;
+  margin: 40px 0 30px 0;
   padding: 10px;
-  border: 2px solid #e1e8ee;
-  border-radius: 6px;
+  
 }
 
 /* Date Field */
@@ -482,8 +462,7 @@ section {
   width: 145px;
   margin-bottom: 20px;
   padding: 10px;
-  border: 2px solid #e1e8ee;
-  border-radius: 6px;
+  font-weight: 300;
 }
 
 .month select,
@@ -496,44 +475,31 @@ section {
 }
 
 /* Card Verification Field */
-.cvv-input input {
-  float: left;
-  width: 145px;
-  padding: 10px;
-  border: 2px solid #e1e8ee;
-  border-radius: 6px;
-  background: #fff;
-}
 
 .cvv-details {
+  margin-top: 15px;
   font-size: 0.8rem;
-  font-weight: 300;
   line-height: 16px;
   float: right;
-  margin-bottom: 45px;
-}
-
-.cvv-details p {
-  margin-top: 6px;
 }
 
 /* Buttons Section */
-.proceed-btn,
-.confirm-btn {
+.card-btn,
+.invoice-btn {
   cursor: pointer;
   font-size: 1.1rem;
   width: 100%;
   padding: 10px;
+  margin: 40px 0;
   border-color: transparent;
   border-radius: 6px;
-  margin-bottom: 10px;
   background: $col-dark-brown;
+  color: white;
 }
 
-.proceed-btn a,
-.confirm-btn a {
-  text-decoration: none;
-  color: #fff;
+.card-btn {
+  margin-top: 20px;
+  color: $col-light;
 }
 
 .checkBoxes {
