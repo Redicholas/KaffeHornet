@@ -153,21 +153,7 @@ function renderBasket() {
     if (products[i].amount > 0) {
       basketGrid.innerHTML += `
         <div class="item">
-          <div class="slideshow" id="slideshow">
-            <div class"product-images">
-              <img id='imgOne' src="${products[i].img[0]}" height="100" width="100" alt="${products[i].imgAlt[0]}" />
-              <img id='imgTwo' src="${products[i].img[1]}" height="100" width="100" alt="${products[i].imgAlt[1]}" />
-            </div> 
-            <div class="controls">
-              <button class="left" id="prevImage">
-                <span class="material-symbols-outlined">chevron_left</span>
-              </button>
-              <button class="right" id="nextImage">
-                <span class="material-symbols-outlined">chevron_right</span>
-              </button>
-            </div>
-            <div class="indicator" id="indicatorDots"></div>
-          </div>
+          <img src="${products[i].img[0].url}" height="100" width="100" alt="${products[i].img[0].alt}" />
           <div class="item-content">
             <div class="item-info">
               <h3>${products[i].name}</h3>
