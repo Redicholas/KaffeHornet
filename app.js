@@ -352,6 +352,32 @@ function getDeliveryTime() {
   }
 }
 
+function christmas() {
+  const date = new Date();
+  const backgroundImage = document.getElementById("landing-page")
+  const title = document.getElementById("landing-page-title")
+
+
+  if (date.getDate() === 28 && date.getMonth() === 10) {
+    backgroundImage.style.background = "url('./img/kate-laine-9kNC6g-emEQ-unsplash (1).jpg')"
+    backgroundImage.style.backgroundSize = "cover"
+    backgroundImage.style.width = "100%"
+    backgroundImage.style.height = "100vh"
+    title.style.color = "solid $col-beige;"
+    title.style.width = "350px"
+    title.style.height = "140px"
+    title.style.position = "relative"
+    title.style.margin = "auto"
+    title.style.background = "black"
+    title.style.top = "100px"
+    title.style.paddingTop = "0"
+    title.style.borderRadius = "2.5rem"
+    title.style.border = "3px solid #dcbfa1"
+  }
+}
+
+christmas()
+
 function byPriceRev(a, b) {
   if (a.price > b.price) {
     return -1;
