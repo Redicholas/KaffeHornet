@@ -574,3 +574,27 @@ footer a:hover {
   font-weight: 500;
   font-size: 1.1rem;
 }
+
+
+
+.left, .right {
+  min-width: 35px;
+  min-height: 35px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  color: transparentize(#000000, 0.7);
+  transition: color 0.3s ease-in-out;
+  &:hover {
+    color: #000;
+  }
+  &.left {
+    left: $padding;
+  }
+  &.right {
+    right: $padding;
+  }
+}

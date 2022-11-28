@@ -155,7 +155,8 @@ function renderBasket() {
         <div class="item">
           <div class="slideshow" id="slideshow">
             <div class"product-images">
-              <img src="${products[i].img[0]}" height="100" width="100" alt="${products[i].imgAlt[0]}" />
+              <img id='imgOne' src="${products[i].img[0]}" height="100" width="100" alt="${products[i].imgAlt[0]}" />
+              <img id='imgTwo' src="${products[i].img[1]}" height="100" width="100" alt="${products[i].imgAlt[1]}" />
             </div> 
             <div class="controls">
               <button class="left" id="prevImage">
