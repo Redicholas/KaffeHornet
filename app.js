@@ -153,7 +153,20 @@ function renderBasket() {
     if (products[i].amount > 0) {
       basketGrid.innerHTML += `
         <div class="item">
-          <img src="${products[i].img[0]}" height="100" width="100" alt="${products[i].imgAlt[0]}" />
+          <div class="slideshow" id="slideshow">
+            <div class"product-images">
+              <img src="${products[i].img[0]}" height="100" width="100" alt="${products[i].imgAlt[0]}" />
+            </div> 
+            <div class="controls">
+              <button class="left" id="prevImage">
+                <span class="material-symbols-outlined">chevron_left</span>
+              </button>
+              <button class="right" id="nextImage">
+                <span class="material-symbols-outlined">chevron_right</span>
+              </button>
+            </div>
+            <div class="indicator" id="indicatorDots"></div>
+          </div>
           <div class="item-content">
             <div class="item-info">
               <h3>${products[i].name}</h3>
@@ -624,7 +637,7 @@ const invoice = document.getElementById('invoice');
 
 // **************AKTIVERING BESTÄLLNINGSKNAPP SLUT******************************
 
-//***********FÖR ATT DÖLJA/VISA FORMULÄREN FÖR KORT OCH FAKTURA************
+// ***********FÖR ATT DÖLJA/VISA FORMULÄREN FÖR KORT OCH FAKTURA************
 
 function handleCardClick() {
   if (document.getElementById('paymentType_card').checked) {
@@ -644,7 +657,7 @@ function handleInvoiceClick() {
   }
 }
 
-//**********RENSA FORMULÄR******************
+// **********RENSA FORMULÄR******************
 
 document.querySelector('#eraseBtn').addEventListener('click', resetOrder);
 
@@ -677,9 +690,11 @@ function orderTimeOut() {
 }
 
 
-//********************************* 
+// ********************************* 
+
 
 renderProducts();
 checkDiscountBtn.addEventListener('click', checkDiscountCode);
 buyBtn.addEventListener('click', placeOrder);
 closePopupBtn.addEventListener('click', placeOrder);
+

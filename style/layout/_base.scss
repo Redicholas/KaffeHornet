@@ -179,6 +179,9 @@ section {
 
 .basket {
   max-width: 600px;
+  background-color: $col-light;
+  border: 1px solid $col-dark-brown;
+  border-radius: 6px;
 
   h2 {
     text-align: center;
@@ -308,10 +311,11 @@ section {
 
 .customer-info {
   display: flex;
+  margin-top: 1.25rem;
   flex-direction: column;
-  text-align: center;
-  width: 100vw;
   color: $col-black;
+  max-width: 600px;
+  padding: 0;
 }
 
 .customer-email {
@@ -331,10 +335,11 @@ section {
 .contact-form {
   text-align: left;
   padding: 0.625rem;
-  border: 1px solid black;
+  border: 1px solid $col-dark-brown;
   border-radius: 6px;
   min-height: 25vh;
-  min-width: 380px;
+  width: 100%;
+  background-color: $col-light;
 }
 
 .contact-form input {
@@ -383,27 +388,20 @@ section {
   font-size: 1.2rem;
 }
 
-#paymentType_invoice {
+#paymentType_invoice, #paymentType_card {
   position: relative;
   left: -60px;
   height: 20px;
   top: -25px;
 }
-
-#paymentType_card {
-  position: relative;
-  left: -60px;
-  height: 20px;
-  top: -25px;
-}
-
 
 .payment-section {
-  border: 1px solid black;
+  border: 1px solid $col-dark-brown;
   border-radius: 6px;
   min-height: 30vh;
-  min-width: 380px;
+  width: 100%;
   margin-top: 1.25rem;
+  background-color: $col-light;
 }
 
 /* Formulär personnr faktura */
@@ -425,7 +423,7 @@ section {
   margin: 80px auto 30px;
   border: 1px solid #ddd;
   border-radius: 6px;
-  background-color: #fff;
+  background-color: $col-white;
   box-shadow: 1px 2px 3px 0 rgba(0, 0, 0, .10);
   display: none;
 }
@@ -546,4 +544,33 @@ section {
 .btn-section {
   display: flex;
   flex-direction: column;
+}
+
+footer {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: $col-black;
+  color: $col-light;
+}
+
+footer a {
+  color: $col-accent-light;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+#logoimg {
+  width: 220px;
+  height: 220px;
+}
+
+.contact {
+  padding-top: 80px;
+  font-weight: 500;
+  font-size: 1.1rem;
 }
