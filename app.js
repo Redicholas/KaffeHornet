@@ -1,8 +1,16 @@
 const products = [
   {
     name: 'Sibaristica',
-    img: ['img/produkt-1-kaffepasar.jpg', 'img/produkt-1-kaffepasar-mirror.jpg'],
-    imgAlt: ['Två påsar med kaffebönor', 'Spegelvänd bild på två påsar med kaffebönor'],
+    img: [
+      {
+        url: 'img/produkt-1-kaffepasar.jpg',
+        alt: 'Två påsar med kaffebönor',
+      },
+      {
+        url: 'img/produkt-1-kaffepasar-mirror.jpg',
+        alt: 'Spegelvänd bild på två påsar med kaffebönor',
+      },
+    ],
     desc: 'Bönor från Guatemala och Colombia',
     price: 129,
     amount: 0,
@@ -11,8 +19,16 @@ const products = [
   },
   {
     name: 'Blue Magic',
-    img: ['img/produkt-2-andrakaffapasar.jpg', 'img/produkt-2-andrakaffapasar-mirror.jpg'],
-    imgAlt: ['Kaffebönor i påse med blå etikett', 'Spegelvänd bild på kaffebönor i påse med blå etikett'],
+    img: [
+      {
+        url: 'img/produkt-2-andrakaffapasar.jpg',
+        alt: 'Kaffebönor i påse med blå etikett',
+      },
+      {
+        url: 'img/produkt-2-andrakaffapasar-mirror.jpg',
+        alt: 'Spegelvänd bild på kaffebönor i påse med blå etikett',
+      },
+    ],
     desc: 'Espressobönor',
     price: 119,
     amount: 0,
@@ -21,8 +37,16 @@ const products = [
   },
   {
     name: 'Specialty Beans',
-    img: ['img/produkt-3-merkaffe.jpg', 'img/produkt-3-merkaffe-mirror.jpg'],
-    imgAlt: ['En arm som håller upp en påse kaffebönor', 'Spegelvänd bild på en arm som håller upp en påse kaffebönor'],
+    img: [
+      {
+        url: 'img/produkt-3-merkaffe.jpg',
+        alt: 'En arm som håller upp en påse kaffebönor',
+      },
+      {
+        url: 'img/produkt-3-merkaffe-mirror.jpg',
+        alt: 'Spegelvänd bild på en arm som håller upp en påse kaffebönor',
+      },
+    ],
     desc: '"Speciella" bönor från Ethiopien',
     price: 129,
     amount: 0,
@@ -31,8 +55,16 @@ const products = [
   },
   {
     name: 'Rustik',
-    img: ['img/produkt-4-kopp.jpg', 'img/produkt-4-kopp-mirror.jpg'],
-    imgAlt: ['En svart kaffekopp på ett träbord', 'Spegelvänd bild på en svart kaffekopp på ett träbord'],
+    img: [
+      {
+        url: 'img/produkt-4-kopp.jpg',
+        alt: 'En svart kaffekopp på ett träbord',
+      },
+      {
+        url: 'img/produkt-4-kopp-mirror.jpg',
+        alt: 'Spegelvänd bild på en svart kaffekopp på ett träbord',
+      },
+    ],
     desc: 'Svart kopp i keramik',
     price: 49,
     amount: 0,
@@ -41,10 +73,15 @@ const products = [
   },
   {
     name: 'Grön',
-    img: ['img/produkt-5-kopp2.jpg', 'img/produkt-5-kopp2-mirror.jpg'],
-    imgAlt: [
-      'Grön kaffekopp med latteart, på ett vitt bort med kaffebönor strödda runt om',
-      'Spegelvänd bild på grön kaffekopp med latteart, på ett vitt bort med kaffebönor strödda runt om',
+    img: [
+      {
+        url: 'img/produkt-5-kopp2.jpg',
+        alt: 'Grön kaffekopp med latteart, på ett vitt bort med kaffebönor strödda runt om',
+      },
+      {
+        url: 'img/produkt-5-kopp2-mirror.jpg',
+        alt: 'Spegelvänd bild på grön kaffekopp med latteart, på ett vitt bort med kaffebönor strödda runt om',
+      },
     ],
     desc: 'Kopp i poppande grön färg',
     price: 39,
@@ -54,10 +91,15 @@ const products = [
   },
   {
     name: 'V60',
-    img: ['img/produkt-6-v60.jpg', 'img/produkt-6-v60-mirror.jpg'],
-    imgAlt: [
-      'V60 bryggare med kaffe som brygger i ett café',
-      'Spegelvänd bild på V60 bryggare med kaffe som brygger i ett café',
+    img: [
+      {
+        url: 'img/produkt-6-v60.jpg',
+        alt: 'V60 bryggare med kaffe som brygger i ett café',
+      },
+      {
+        url: 'img/produkt-6-v60-mirror.jpg',
+        alt: 'Spegelvänd bild på V60 bryggare med kaffe som brygger i ett café',
+      },
     ],
     desc: 'V60 bryggaren som tilltalar din inre hipster',
     price: 599,
@@ -67,8 +109,16 @@ const products = [
   },
   {
     name: 'Aeropress',
-    img: ['img/produkt-7-aeropress.jpg', 'img/produkt-7-aeropress-mirror.jpg'],
-    imgAlt: ['En aeropress på en stubbe utomhus', 'Spegelvänd bild på en aeropress på en stubbe utomhus'],
+    img: [
+      {
+        url: 'img/produkt-7-aeropress.jpg',
+        alt: 'En aeropress på en stubbe utomhus',
+      },
+      {
+        url: 'img/produkt-7-aeropress-mirror.jpg',
+        alt: 'Spegelvänd bild på en aeropress på en stubbe utomhus',
+      },
+    ],
     desc: 'För dig som vill kunna göra kaffe var som helst!',
     price: 499,
     amount: 0,
@@ -77,8 +127,16 @@ const products = [
   },
   {
     name: 'Fancy',
-    img: ['img/produkt-8-kopp3.jpg', 'img/produkt-8-kopp3-mirror.jpg'],
-    imgAlt: ['Liten kaffekopp med guld detaljer', 'Spegelvänd bild på liten kaffekopp med guld detaljer'],
+    img: [
+      {
+        url: 'img/produkt-8-kopp3.jpg',
+        alt: 'Liten kaffekopp med gulddetaljer',
+      },
+      {
+        url: 'img/produkt-8-kopp3-mirror.jpg',
+        alt: 'Spegelvänd bild på liten kaffekopp med gulddetaljer',
+      },
+    ],
     desc: 'För ditt finbesök',
     price: 49,
     amount: 0,
@@ -87,10 +145,15 @@ const products = [
   },
   {
     name: 'Franskpress',
-    img: ['img/produkt-9-franskpress.jpg', 'img/produkt-9-franskpress-mirror.jpg'],
-    imgAlt: [
-      'En franskpress med kaffe och en kaffekopp brevid',
-      'Spegelvänd bild på en franskpress med kaffe och en kaffekopp brevid',
+    img: [
+      {
+        url: 'img/produkt-9-franskpress.jpg',
+        alt: 'En franskpress med kaffe och en kaffekopp brevid',
+      },
+      {
+        url: 'img/produkt-9-franskpress-mirror.jpg',
+        alt: 'Spegelvänd bild på en franskpress med kaffe och en kaffekopp brevid',
+      },
     ],
     desc: 'Den klassiska Franskpressen går alltid hem',
     price: 199,
@@ -100,10 +163,15 @@ const products = [
   },
   {
     name: 'Orange',
-    img: ['img/produkt-10-kopp4.jpg', 'img/produkt-10-kopp4-mirror.jpg'],
-    imgAlt: [
-      'Hand som håller en stor orange kopp med rykande kaffe',
-      'Spegelvänd bild på en hand som håller en stor orange kopp med rykande kaffe',
+    img: [
+      {
+        url: 'img/produkt-10-kopp4.jpg',
+        alt: 'Hand som håller en stor orange kopp med rykande kaffe',
+      },
+      {
+        url: 'img/produkt-10-kopp4-mirror.jpg',
+        alt: 'Spegelvänd bild på en hand som håller en stor orange kopp med rykande kaffe',
+      },
     ],
     desc: 'En större kopp för dig med ett större beroende',
     price: 39,
@@ -153,7 +221,7 @@ function renderBasket() {
     if (products[i].amount > 0) {
       basketGrid.innerHTML += `
         <div class="item">
-          <img src="${products[i].img[0]}" height="100" width="100" alt="${products[i].imgAlt[0]}" />
+          <img src="${products[i].img[0].url}" height="100" width="100" alt="${products[i].img[0].alt}" />
           <div class="item-content">
             <div class="item-info">
               <h3>${products[i].name}</h3>
@@ -259,10 +327,10 @@ function renderProducts() {
         <div class="product-card" data-id="${i}">
             <div class="image">
                 <img
-                    src="${sortedProducts[i].img[0]}"
+                    src="${products[i].img[0].url}"
                     height="100"
                     width="100"
-                    alt="${sortedProducts[i].imgAlt[0]}"
+                    alt="${products[i].img[0].alt}"
                 />
             </div>
             <div class="product-info">
@@ -354,29 +422,28 @@ function getDeliveryTime() {
 
 function christmas() {
   const date = new Date();
-  const backgroundImage = document.getElementById("landing-page")
-  const title = document.getElementById("landing-page-title")
-
+  const backgroundImage = document.getElementById('landing-page');
+  const title = document.getElementById('landing-page-title');
 
   if (date.getDate() === 28 && date.getMonth() === 10) {
-    backgroundImage.style.background = "url('./img/kate-laine-9kNC6g-emEQ-unsplash (1).jpg')"
-    backgroundImage.style.backgroundSize = "cover"
-    backgroundImage.style.width = "100%"
-    backgroundImage.style.height = "100vh"
-    title.style.color = "solid $col-beige;"
-    title.style.width = "350px"
-    title.style.height = "140px"
-    title.style.position = "relative"
-    title.style.margin = "auto"
-    title.style.background = "black"
-    title.style.top = "100px"
-    title.style.paddingTop = "0"
-    title.style.borderRadius = "2.5rem"
-    title.style.border = "3px solid #dcbfa1"
+    backgroundImage.style.background = "url('./img/kate-laine-9kNC6g-emEQ-unsplash (1).jpg')";
+    backgroundImage.style.backgroundSize = 'cover';
+    backgroundImage.style.width = '100%';
+    backgroundImage.style.height = '100vh';
+    title.style.color = 'solid $col-beige;';
+    title.style.width = '350px';
+    title.style.height = '140px';
+    title.style.position = 'relative';
+    title.style.margin = 'auto';
+    title.style.background = 'black';
+    title.style.top = '100px';
+    title.style.paddingTop = '0';
+    title.style.borderRadius = '2.5rem';
+    title.style.border = '3px solid #dcbfa1';
   }
 }
 
-christmas()
+christmas();
 
 function byPriceRev(a, b) {
   if (a.price > b.price) {
@@ -635,9 +702,10 @@ function activateOrderButton() {
     cityIsOk &&
     phoneIsOk &&
     emailIsOk &&
-    ((personalNrIsOk || (cardNrIsOk && cvvIsOk)))){
+    (personalNrIsOk || (cardNrIsOk && cvvIsOk))
+  ) {
     orderBtn.removeAttribute('disabled');
-  }else {
+  } else {
     orderBtn.setAttribute('disabled', '');
   }
 }
@@ -702,8 +770,7 @@ function orderTimeOut() {
   alert('För långsam!');
 }
 
-
-//********************************* 
+//*********************************
 
 renderProducts();
 checkDiscountBtn.addEventListener('click', checkDiscountCode);
