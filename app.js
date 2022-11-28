@@ -126,7 +126,7 @@ const checkDiscountBtn = document.querySelector('#checkDiscountBtn');
 
 const popup = document.querySelector('#popup');
 const closePopupBtn = document.querySelector('#closePopup');
-const buyBtn = document.querySelector('#buyBtn');
+const buyBtn = document.querySelector('#buy-button');
 
 let productAmount;
 let shippingPrice;
