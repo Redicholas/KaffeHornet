@@ -184,6 +184,8 @@ const products = [
 const productGrid = document.querySelector('#product-grid');
 const basketGrid = document.querySelector('#basket-grid');
 const sortSelector = document.querySelector('#sort-options');
+const priceRangeSlider = document.querySelector('#priceRange');
+const rangeValueDisplay = document.querySelector('#rangeValueDisplay');
 
 const productPriceDisplay = document.querySelector('#productPriceDisplay');
 const shippingPriceDisplay = document.querySelector('#shippingPriceDisplay');
@@ -200,6 +202,20 @@ let productAmount;
 let shippingPrice;
 let totalPricePerProduct;
 let totalPrice;
+
+let filteredProducts = [...products];
+let filteredProductsInPriceRange = [...products];
+
+function changePriceRange() {
+  const currentPrice = priceRangeSlider.value;
+  rangeValueDisplay.innerHTML = currentPrice;
+
+  filteredProductsInPriceRange = filteredProducts.filter(product => product.price <= currentPrice);
+  console.log(filteredProductsInPriceRange);
+  renderProducts();
+}
+
+priceRangeSlider.addEventListener('input', changePriceRange);
 
 function renderBasket() {
   basketGrid.innerHTML = '';
