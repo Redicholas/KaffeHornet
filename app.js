@@ -718,7 +718,7 @@ const invoice = document.getElementById('invoice');
 
 // **************AKTIVERING BESTÄLLNINGSKNAPP SLUT******************************
 
-//***********FÖR ATT DÖLJA/VISA FORMULÄREN FÖR KORT OCH FAKTURA************
+// ***********FÖR ATT DÖLJA/VISA FORMULÄREN FÖR KORT OCH FAKTURA************
 
 function handleCardClick() {
   if (document.getElementById('paymentType_card').checked) {
@@ -738,7 +738,7 @@ function handleInvoiceClick() {
   }
 }
 
-//**********RENSA FORMULÄR******************
+// **********RENSA FORMULÄR******************
 
 document.querySelector('#eraseBtn').addEventListener('click', resetOrder);
 

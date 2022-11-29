@@ -20,13 +20,9 @@ body {
 }
 
 section {
-  padding: 2rem;
-  max-width: 600px;
-  margin: 0 auto;
-
   h2 {
     text-align: center;
-    margin-bottom: 5rem;
+    margin: 3rem 0;
   }
 }
 
@@ -39,6 +35,7 @@ section {
   box-shadow: 0 0 10px black;
   position: fixed;
   top: 20vh;
+  padding: 20px;
   left: 20vw;
   z-index: 10;
   display: flex;
@@ -68,7 +65,7 @@ section {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border-bottom: 1px solid b
+    border-bottom: 1px solid black;
   }
 
   .product-confirmation-display-price {
@@ -96,13 +93,13 @@ section {
   }
 
   a {
-    padding: 1rem 2rem;
+    padding: 1rem 1.7rem;
     background: $col-dark-brown;
     border-radius: 2.5rem;
-    border: 3px solid $col-beige;
+    border: 2px solid $col-beige;
     position: absolute;
-    bottom: 3rem;
-    right: 3rem;
+    bottom: 10px;
+    right: 10px;
     color: $col-light;
     text-decoration: none;
     font-size: 1.3rem;
@@ -111,6 +108,7 @@ section {
 
 .products {
   .product-grid {
+    margin: 0;
     margin-top: 1rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -121,7 +119,7 @@ section {
 
   .product-card {
     height: 20rem;
-    width: 13rem;
+    width: 12rem;
     background: $col-light;
     border-radius: 1rem;
     overflow: hidden;
@@ -178,10 +176,11 @@ section {
 }
 
 .basket {
-  max-width: 600px;
   background-color: $col-light;
   border: 1px solid $col-dark-brown;
   border-radius: 6px;
+  margin: 20px;
+  padding: 1rem;
 
   h2 {
     text-align: center;
@@ -215,29 +214,31 @@ section {
   }
 
   .price-display :nth-child(3){
-    font-size: 1.6rem;
+    font-size: 1.3rem;
   }
 
   .message {
+    position: relative;
     color: $col-accent-dark;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1rem;
     margin-top: 1rem;
+    top: 70px;
   }
 
   .discount-info {
     position: relative;
-    top: 70px;
+    top: 150px;
     font-size: 0.9rem;
   }
 
   .discount {
     position: relative;
-    bottom: -20px;
+    bottom: -80px;
   }
 
   .discount-code {
-    width: 230px;
+    width: 200px;
     margin: 0.5rem;
     padding: 0.3rem;
     border-radius: 6px;
@@ -246,9 +247,9 @@ section {
 
   .buy-btn {
     position: relative;
-    margin-top: 1rem;
-    padding: 1rem 4rem;
-    left: 350px;
+    margin-top: 1.7rem;
+    padding: 0.6rem 2rem;
+    left: 240px;
 
     a {
       text-decoration: none;
@@ -258,13 +259,13 @@ section {
 
   #checkDiscountBtn {
     position: relative;
-    left: 344px;
-    bottom: 23px;
+    left: 315px;
+    bottom: -38px;
   }
 
   #clearBasketBtn{
     position: relative;
-    padding: 1rem;
+    padding: 0.6rem;
     top: 72px;
     left: 40px;
   }
@@ -320,6 +321,10 @@ section {
   }
 }
 
+.products label {
+  margin-left: 20px;
+}
+
 #form span,
 #invoice span,
 #creditCard span {
@@ -347,8 +352,8 @@ section {
   margin-top: 1.25rem;
   flex-direction: column;
   color: $col-black;
-  max-width: 600px;
   padding: 0;
+  margin: 20px;
 }
 
 .customer-email {
@@ -363,6 +368,7 @@ section {
 .customer-info h2 {
   margin: 1.25rem 0;
   padding: 1rem;
+  color: $col-dark-brown;
 }
 
 .contact-form {
@@ -598,12 +604,12 @@ footer a:hover {
 }
 
 #logoimg {
-  width: 220px;
-  height: 220px;
+  width: 150px;
+  height: 150px;
 }
 
 .contact {
-  padding-top: 80px;
-  font-weight: 500;
-  font-size: 1.1rem;
+  padding-top: 30px;
+  font-weight: 100;
+  font-size: 1rem;
 }
