@@ -84,6 +84,7 @@
 
     <section class="basket">
       <h2>Varukorgen</h2>
+      <hr>
       <div id="basket-grid">
         <!-- Produkter renderas från JavaScripten -->
       </div>
@@ -92,7 +93,6 @@
         Eller mer än 15 varor och få gratis frakt!
       </p>
       <div class="basket-bottom">
-        <button onclick="clearBasket()">Rensa varukorgen</button>
         <div class="price-display">
           <p>Belopp: <span id="productPriceDisplay"></span>kr</p>
           <p>Frakt: <span id="shippingPriceDisplay"></span>kr</p>
@@ -102,11 +102,12 @@
       <div class="message">
         <p id="discountMessage"></p>
       </div>
-      <label>
+      <label class="discount">
         Rabattkod:
         <input type="text" id="discountCode" class="discount-code" />
       </label>
       <button id="checkDiscountBtn">Ok</button>
+      <button id="clearBasketBtn" onclick="clearBasket()">Rensa varukorgen</button>
       <a href="#customerInfo"><button class="buy-btn">Köp</button></a>
     </section>
 
