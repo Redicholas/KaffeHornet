@@ -192,6 +192,10 @@ const discountMessage = document.querySelector('#discountMessage');
 const discountCode = document.querySelector('#discountCode');
 const checkDiscountBtn = document.querySelector('#checkDiscountBtn');
 
+const miniBasket = document.querySelector('#miniBasket');
+const numberOfProductsInMiniBasket = document.querySelector('#numberOfProductsInMiniBasket');
+const totalPriceInMiniBasket = document.querySelector('#totalPriceInMiniBasket');
+
 const popup = document.querySelector('#popup');
 const closePopupBtn = document.querySelector('#closePopup');
 const buyBtn = document.querySelector('#buy-button');
@@ -265,6 +269,14 @@ function renderBasket() {
   removeBtn.forEach(btn => {
     btn.addEventListener('click', remove);
   });
+  numberOfProductsInMiniBasket.innerHTML = `${productAmount}st`;
+  totalPriceInMiniBasket.innerHTML = `${totalPrice}kr`;
+
+  if (productAmount > 0) {
+    miniBasket.classList.remove('hidden');
+  } else {
+    miniBasket.classList.add('hidden');
+  }
 }
 
 function checkDiscountCode() {
