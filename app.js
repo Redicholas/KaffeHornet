@@ -274,6 +274,8 @@ function renderBasket() {
 
   if (productAmount > 0) {
     miniBasket.classList.remove('hidden');
+  } else {
+    miniBasket.classList.add('hidden');
   }
 }
 
