@@ -228,26 +228,7 @@ function renderBasket() {
     shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
     totalPriceDisplay.innerHTML = totalPrice + shippingPrice;
 
-    if (products[i].amount > 0 && (date.getDate() === 30 && date.getMonth() === 10)) {
-      basketGrid.innerHTML += `
-        <div class="item">
-          <img src="${products[i].img[0].url}" height="100" width="100" alt="${products[i].img[0].alt}" />
-          <div class="item-content">
-            <div class="item-info">
-              <h3>${products[i].name}</h3>
-              <p>${products[i].desc}</p>
-              <p id='christmasColor'>${products[i].price * products[i].amount}kr</p>
-            </div>
-            <div class="item-selection">
-              <button class="button-add" data-id="${i}">+</button>
-              <p>${products[i].amount}</p>
-              <button class="button-remove" data-id="${i}">-</button>
-            </div>
-          </div>
-        </div>
-	    `;
-    }
-    else if (products[i].amount > 0){
+    if (products[i].amount > 0){
       basketGrid.innerHTML += `
         <div class="item">
           <img src="${products[i].img[0].url}" height="100" width="100" alt="${products[i].img[0].alt}" />
@@ -265,7 +246,6 @@ function renderBasket() {
           </div>
         </div>
 	    `;
-
     }
   }
   if (productAmount < 10) {
@@ -310,28 +290,15 @@ function renderBasket() {
     totalPriceDisplay.innerHTML = Math.round((totalPrice + shippingPrice) - 25);
   }
 
-  //Christmas color
-  if (date.getDate() === 24 && date.getMonth() === 11) {
-    productPriceDisplay.style.color = "red";
-    shippingPriceDisplay.style.color = "red";
-    totalPriceDisplay.style.color = "red";
-  }
-
   //Invoice option removed for orders > 800
   if(Math.round(totalPrice + shippingPrice) > 800){
     invoiceLabel.innerHTML = '';
     invoiceOption.style.display = "none"
     }
-  
-//Weekend price
-  if((day === 5 && hour > 15) || day === 6 || day === 0 || (day === 1 && hour < 3) || day === 3) {
-    //TO DO: Pris * 1.15
-  }
-
 }
 
 function checkDiscountCode() {
-  if (discountCode.value === 'a_damn_fine_cup_of_coffee') {
+  if (discountCode.value === 'a_damn_fine-cup_of-coffee') {
     totalPricePerProduct = 0;
     totalPrice = 0;
     shippingPrice = 0;
@@ -386,6 +353,11 @@ function renderProducts() {
   productGrid.innerHTML = '';
 
   for (let i = 0; i < sortedProducts.length; i += 1) {
+    let adjustedPrice = sortedProducts[i].price;
+      //Weekend price
+      if((day === 5 && hour > 15) || day === 6 || day === 0 || (day === 1 && hour < 3)) {
+        adjustedPrice = Math.round(adjustedPrice * 1.15);
+      }
     productGrid.innerHTML += `
         <div class="product-card" data-id="${i}">
             <div class="image">
@@ -401,7 +373,7 @@ function renderProducts() {
                 <p>${sortedProducts[i].rating}</p>
                 <p>${sortedProducts[i].desc}</p>
                     <div class="product-selection">
-                        <p>${sortedProducts[i].price}kr</p>
+                        <p>${adjustedPrice}kr</p>
                         <button class="button-remove" data-id="${i}">-</button>
                         <p>${sortedProducts[i].amount}</p>
                         <button class="button-add" data-id="${i}">+</button>
@@ -482,14 +454,14 @@ function getDeliveryTime() {
   const today = now.getDay();
   const hourOfDay = now.getHours();
 
-  if (hourOfDay >= 11 && hourOfDay < 15) {
+  if (today === 5 && hourOfDay >= 11 && hourOfDay < 13) {
     deliveryTimeDisplay.innerHTML = 'Din leverans beräknas vara framme ca. kl 15';
   } else if (hourOfDay > 22 && hourOfDay < 6) {
     deliveryTimeDisplay.innerHTML = 'Leveranstid beräknas till ca. 45 minuter';
   } else if (today === 6 || today === 0) {
     deliveryTimeDisplay.innerHTML = 'Leveranstid beräknas till ca. 1,5 timmar';
   } else {
-    deliveryTimeDisplay.innerHTML = 'Leveranstid beräknas till ca. 20 minuter';
+    deliveryTimeDisplay.innerHTML = 'Leveranstid beräknas till ca. 30 minuter';
   }
 }
 
