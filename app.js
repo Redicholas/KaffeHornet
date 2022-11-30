@@ -405,9 +405,11 @@ function renderProducts() {
                 width="100"
                 alt="${sortedProducts[i].img[1].alt}"
               />
-            <button id="prevImg-${i}" class="prevImg"> <- </button>         
-            <button id="nextImg-${i}" class="nextImg"> -> </button>
-        </div>
+              <div class="btnHolder">
+                <button id="prevImg-${i}" class="prevImg imgBtn"> < </button>         
+                <button id="nextImg-${i}" class="nextImg imgBtn"> > </button>
+              </div>
+          </div>
             <div class="product-info">
                 <h3>${sortedProducts[i].name}</h3>
                 <p>${sortedProducts[i].rating}</p>
@@ -446,7 +448,6 @@ function renderProducts() {
 }
 
 function switchImage(e) {
-  console.log(e.currentTarget.id);
   const imgIndex = e.currentTarget.id.replace('prevImg-', '').replace('nextImg-', '');
   const img1 = document.querySelector(`#img1-${imgIndex}`);
   const img2 = document.querySelector(`#img2-${imgIndex}`);

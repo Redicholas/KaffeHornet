@@ -158,6 +158,24 @@ section {
     border-radius: 1rem;
     overflow: hidden;
 
+    .image {
+      .btnHolder {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        bottom: 35px;
+
+        .imgBtn {
+          height: 35px;
+          width: 35px;
+          background: #4350467d;
+          border-radius: 100%;
+          border: none;
+        }
+      }
+    }
+
     .product-info {
       display: flex;
       flex-direction: column;
