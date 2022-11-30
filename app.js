@@ -184,6 +184,7 @@ const products = [
 const productGrid = document.querySelector('#product-grid');
 const basketGrid = document.querySelector('#basket-grid');
 const sortSelector = document.querySelector('#sort-options');
+const imgContainer = document.querySelectorAll('.imgContainer');
 
 const productPriceDisplay = document.querySelector('#productPriceDisplay');
 const shippingPriceDisplay = document.querySelector('#shippingPriceDisplay');
@@ -230,7 +231,7 @@ function renderBasket() {
             <div class="item-info">
               <h3>${products[i].name}</h3>
               <p>${products[i].desc}</p>
-              <p>${products[i].price * products[i].amount}kr</p>
+              <p class="tomten">${products[i].price * products[i].amount}kr</p>
             </div>
             <div class="item-selection">
               <button class="button-add" data-id="${i}">+</button>
@@ -293,170 +294,6 @@ function checkDiscountCode() {
   }
 }
 
-// eslint-disable-next-line no-unused-vars
-function clearBasket() {
-  basketGrid.innerHTML = '';
-
-  for (let i = 0; i < products.length; i += 1) {
-    products[i].amount = 0;
-  }
-  renderProducts();
-}
-
-function renderProducts() {
-  const sortOptions = sortSelector.value;
-
-  let sortedProducts = products;
-
-  if (sortOptions === 'priceHigh') {
-    sortedProducts = sortedProducts.sort(byPriceRev);
-  }
-
-  if (sortOptions === 'priceLow') {
-    sortedProducts = sortedProducts.sort(byPrice);
-  }
-
-  if (sortOptions === 'nameAtoZ') {
-    sortedProducts = sortedProducts.sort(byName);
-  }
-
-  if (sortOptions === 'nameZtoA') {
-    sortedProducts = sortedProducts.sort(byNameRev);
-  }
-
-  if (sortOptions === 'category') {
-    sortedProducts = sortedProducts.sort(byCategory);
-  }
-
-  if (sortOptions === 'rating') {
-    sortedProducts = sortedProducts.sort(byRating);
-  }
-
-  productGrid.innerHTML = '';
-
-  for (let i = 0; i < sortedProducts.length; i += 1) {
-    productGrid.innerHTML += `
-        <div class="product-card" data-id="${i}">
-            <div class="image">
-                <img
-                    src="${products[i].img[0].url}"
-                    height="100"
-                    width="100"
-                    alt="${products[i].img[0].alt}"
-                />
-            </div>
-            <div class="product-info">
-                <h3>${sortedProducts[i].name}</h3>
-                <p>${sortedProducts[i].rating}</p>
-                <p>${sortedProducts[i].desc}</p>
-                    <div class="product-selection">
-                        <p>${sortedProducts[i].price}kr</p>
-                        <button class="button-remove" data-id="${i}">-</button>
-                        <p>${sortedProducts[i].amount}</p>
-                        <button class="button-add" data-id="${i}">+</button>
-                    </div>
-            </div>
-        </div>
-        `;
-  }
-  const addBtn = document.querySelectorAll('.button-add');
-  addBtn.forEach(btn => {
-    btn.addEventListener('click', add);
-  });
-  const removeBtn = document.querySelectorAll('.button-remove');
-  removeBtn.forEach(btn => {
-    btn.addEventListener('click', remove);
-  });
-  renderBasket();
-}
-
-function add() {
-  products[this.dataset.id].amount += 1;
-  renderProducts();
-}
-
-function remove() {
-  if (products[this.dataset.id].amount > 0) {
-    products[this.dataset.id].amount -= 1;
-    renderProducts();
-  }
-}
-
-function placeOrder() {
-  if (popup.classList.contains('hidden')) {
-    popup.classList.remove('hidden');
-    getDeliveryTime();
-    productConfirmation();
-    // ToDo: Nollställ beställning och formulär
-  } else {
-    popup.classList.add('hidden');
-  }
-}
-
-function productConfirmation() {
-  const orderConfirmation = document.querySelector('#orderConfirmation');
-  orderConfirmation.innerHTML = '';
-  for (let i = 0; i < products.length; i += 1) {
-    if (products[i].amount > 0) {
-      orderConfirmation.innerHTML += `
-        <div class="product-confirmation-display">
-          <h4>${products[i].name}</h4>
-          <p>${products[i].amount}st *</p>
-          <p>${products[i].price}kr</p>
-        </div>
-        `;
-    }
-  }
-  orderConfirmation.innerHTML += `
-    <div class="product-confirmation-display-price">
-      <p>Frakt: ${shippingPriceDisplay.textContent.valueOf()}kr</p>
-      <p>Totalt: ${totalPriceDisplay.textContent.valueOf()}kr</p>
-    </div>
-    `;
-}
-
-function getDeliveryTime() {
-  const deliveryTimeDisplay = document.querySelector('#deliveryTimeDisplay');
-  const now = new Date();
-  const today = now.getDay();
-  const hourOfDay = now.getHours();
-
-  if (hourOfDay >= 11 && hourOfDay < 15) {
-    deliveryTimeDisplay.innerHTML = 'Din leverans beräknas vara framme ca. kl 15';
-  } else if (hourOfDay > 22 && hourOfDay < 6) {
-    deliveryTimeDisplay.innerHTML = 'Leveranstid beräknas till ca. 45 minuter';
-  } else if (today === 6 || today === 0) {
-    deliveryTimeDisplay.innerHTML = 'Leveranstid beräknas till ca. 1,5 timmar';
-  } else {
-    deliveryTimeDisplay.innerHTML = 'Leveranstid beräknas till ca. 20 minuter';
-  }
-}
-
-function christmas() {
-  const date = new Date();
-  const backgroundImage = document.getElementById('landing-page');
-  const title = document.getElementById('landing-page-title');
-
-  if (date.getDate() === 28 && date.getMonth() === 10) {
-    backgroundImage.style.background = "url('./img/kate-laine-9kNC6g-emEQ-unsplash (1).jpg')";
-    backgroundImage.style.backgroundSize = 'cover';
-    backgroundImage.style.width = '100%';
-    backgroundImage.style.height = '100vh';
-    title.style.color = 'solid $col-beige;';
-    title.style.width = '350px';
-    title.style.height = '140px';
-    title.style.position = 'relative';
-    title.style.margin = 'auto';
-    title.style.background = 'black';
-    title.style.top = '100px';
-    title.style.paddingTop = '0';
-    title.style.borderRadius = '2.5rem';
-    title.style.border = '3px solid #dcbfa1';
-  }
-}
-
-christmas();
-
 function byPriceRev(a, b) {
   if (a.price > b.price) {
     return -1;
@@ -516,6 +353,210 @@ function byRating(a, b) {
     return 0;
   }
 }
+
+function renderProducts() {
+  const sortOptions = sortSelector.value;
+
+  let sortedProducts = products;
+
+  if (sortOptions === 'priceHigh') {
+    sortedProducts = sortedProducts.sort(byPriceRev);
+  }
+
+  if (sortOptions === 'priceLow') {
+    sortedProducts = sortedProducts.sort(byPrice);
+  }
+
+  if (sortOptions === 'nameAtoZ') {
+    sortedProducts = sortedProducts.sort(byName);
+  }
+
+  if (sortOptions === 'nameZtoA') {
+    sortedProducts = sortedProducts.sort(byNameRev);
+  }
+
+  if (sortOptions === 'category') {
+    sortedProducts = sortedProducts.sort(byCategory);
+  }
+
+  if (sortOptions === 'rating') {
+    sortedProducts = sortedProducts.sort(byRating);
+  }
+
+  productGrid.innerHTML = '';
+
+  for (let i = 0; i < sortedProducts.length; i += 1) {
+    productGrid.innerHTML += `
+        <div class="product-card" data-id="${i}">
+            <div class="image">  
+              <img
+                class=""
+                id="img1-${i}"
+                src="${sortedProducts[i].img[0].url}"
+                height="100"
+                width="100"
+                alt="${sortedProducts[i].img[0].alt}"
+              />
+              <img
+                class="hidden"
+                id="img2-${i}"
+                src="${sortedProducts[i].img[1].url}"
+                height="100"
+                width="100"
+                alt="${sortedProducts[i].img[1].alt}"
+              />
+            <button id="prevImg-${i}" class="prevImg"> <- </button>         
+            <button id="nextImg-${i}" class="nextImg"> -> </button>
+        </div>
+            <div class="product-info">
+                <h3>${sortedProducts[i].name}</h3>
+                <p>${sortedProducts[i].rating}</p>
+                <p>${sortedProducts[i].desc}</p>
+                    <div class="product-selection">
+                        <p class="tomten">${sortedProducts[i].price}kr</p>
+                        <button class="button-remove" data-id="${i}">-</button>
+                        <p>${sortedProducts[i].amount}</p>
+                        <button class="button-add" data-id="${i}">+</button>
+                    </div>
+            </div>
+        </div>
+        `;
+  }
+
+  const addBtn = document.querySelectorAll('.button-add');
+  addBtn.forEach(btn => {
+    btn.addEventListener('click', add);
+  });
+  const removeBtn = document.querySelectorAll('.button-remove');
+  removeBtn.forEach(btn => {
+    btn.addEventListener('click', remove);
+  });
+
+  const prevBtns = document.querySelectorAll('.prevImg');
+  const nextBtns = document.querySelectorAll('.nextImg');
+
+  prevBtns.forEach(btn => {
+    btn.addEventListener('click', switchImage);
+  });
+  nextBtns.forEach(btn => {
+    btn.addEventListener('click', switchImage);
+  });
+
+  renderBasket();
+}
+
+function switchImage(e) {
+  console.log(e.currentTarget.id);
+  const imgIndex = e.currentTarget.id.replace('prevImg-', '').replace('nextImg-', '');
+  const img1 = document.querySelector(`#img1-${imgIndex}`);
+  const img2 = document.querySelector(`#img2-${imgIndex}`);
+
+  if (img1.classList.contains('hidden')) {
+    img1.classList.remove('hidden');
+    img2.classList.add('hidden');
+  } else {
+    img1.classList.add('hidden');
+    img2.classList.remove('hidden');
+  }
+}
+
+function add() {
+  products[this.dataset.id].amount += 1;
+  renderProducts();
+}
+
+function remove() {
+  if (products[this.dataset.id].amount > 0) {
+    products[this.dataset.id].amount -= 1;
+    renderProducts();
+  }
+}
+
+function clearBasket() {
+  basketGrid.innerHTML = '';
+
+  for (let i = 0; i < products.length; i += 1) {
+    products[i].amount = 0;
+  }
+  renderProducts();
+}
+
+function productConfirmation() {
+  const orderConfirmation = document.querySelector('#orderConfirmation');
+  orderConfirmation.innerHTML = '';
+  for (let i = 0; i < products.length; i += 1) {
+    if (products[i].amount > 0) {
+      orderConfirmation.innerHTML += `
+        <div class="product-confirmation-display">
+          <h4>${products[i].name}</h4>
+          <p>${products[i].amount}st *</p>
+          <p>${products[i].price}kr</p>
+        </div>
+        `;
+    }
+  }
+  orderConfirmation.innerHTML += `
+    <div class="product-confirmation-display-price">
+      <p>Frakt: ${shippingPriceDisplay.textContent.valueOf()}kr</p>
+      <p>Totalt: ${totalPriceDisplay.textContent.valueOf()}kr</p>
+    </div>
+    `;
+}
+
+function getDeliveryTime() {
+  const deliveryTimeDisplay = document.querySelector('#deliveryTimeDisplay');
+  const now = new Date();
+  const today = now.getDay();
+  const hourOfDay = now.getHours();
+
+  if (hourOfDay >= 11 && hourOfDay < 15) {
+    deliveryTimeDisplay.innerHTML = 'Din leverans beräknas vara framme ca. kl 15';
+  } else if (hourOfDay > 22 && hourOfDay < 6) {
+    deliveryTimeDisplay.innerHTML = 'Leveranstid beräknas till ca. 45 minuter';
+  } else if (today === 6 || today === 0) {
+    deliveryTimeDisplay.innerHTML = 'Leveranstid beräknas till ca. 1,5 timmar';
+  } else {
+    deliveryTimeDisplay.innerHTML = 'Leveranstid beräknas till ca. 20 minuter';
+  }
+}
+
+function placeOrder() {
+  if (popup.classList.contains('hidden')) {
+    popup.classList.remove('hidden');
+    getDeliveryTime();
+    productConfirmation();
+    // ToDo: Nollställ beställning och formulär
+  } else {
+    popup.classList.add('hidden');
+  }
+}
+
+function christmas() {
+  const date = new Date();
+  const backgroundImage = document.getElementById('landing-page');
+  const title = document.getElementById('landing-page-title');
+
+  if (date.getDate() === 24 && date.getMonth() === 11) {
+    document.body.classList.add('xmas');
+
+    backgroundImage.style.background = "url('./img/kate-laine-9kNC6g-emEQ-unsplash (1).jpg')";
+    backgroundImage.style.backgroundSize = 'cover';
+    backgroundImage.style.width = '100%';
+    backgroundImage.style.height = '100vh';
+    title.style.color = 'solid $col-beige;';
+    title.style.width = '350px';
+    title.style.height = '140px';
+    title.style.position = 'relative';
+    title.style.margin = 'auto';
+    title.style.background = 'black';
+    title.style.top = '100px';
+    title.style.paddingTop = '0';
+    title.style.borderRadius = '2.5rem';
+    title.style.border = '3px solid #dcbfa1';
+  }
+}
+
+christmas();
 
 // *****************FORMULÄRVALIDERING STARTAR HÄR***************************************
 
@@ -788,3 +829,26 @@ renderProducts();
 checkDiscountBtn.addEventListener('click', checkDiscountCode);
 buyBtn.addEventListener('click', placeOrder);
 closePopupBtn.addEventListener('click', placeOrder);
+
+// products.forEach((product, index) => {
+//   imgContainer.innerHTML = `
+//   <img
+//     class=""
+//     id="img1-${index}"
+//     src="${product.img[0].url}"
+//     height="100"
+//     width="100"
+//     alt="${product.img[0].alt}"
+//   />
+//   <img
+//     class="hidden"
+//     id="img2-${index}"
+//     src="${product.img[1].url}"
+//     height="100"
+//     width="100"
+//     alt="${product.img[1].alt}"
+//   />
+//   <button id="nextImg-${index}" class="nextImg"> -> </button>
+//   <button id="prevImg-${index}" class="prevImg"> <- </button>
+//   `;
+// });

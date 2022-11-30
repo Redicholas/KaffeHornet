@@ -19,6 +19,10 @@ body {
   color: $col-dark-brown;
 }
 
+body.xmas .tomten {
+  color: red;
+}
+
 section {
   padding: 2rem;
   max-width: 600px;
