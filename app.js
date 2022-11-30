@@ -188,13 +188,23 @@ const sortSelector = document.querySelector('#sort-options');
 const productPriceDisplay = document.querySelector('#productPriceDisplay');
 const shippingPriceDisplay = document.querySelector('#shippingPriceDisplay');
 const totalPriceDisplay = document.querySelector('#totalPriceDisplay');
+const specialDiscount = document.querySelector("#specialDiscount");
 const discountMessage = document.querySelector('#discountMessage');
 const discountCode = document.querySelector('#discountCode');
 const checkDiscountBtn = document.querySelector('#checkDiscountBtn');
+const invoiceLabel = document.querySelector('#invoiceLabel');
+const invoiceOption = document.querySelector('#paymentType_invoice');
 
 const popup = document.querySelector('#popup');
 const closePopupBtn = document.querySelector('#closePopup');
 const buyBtn = document.querySelector('#buy-button');
+
+const date = new Date();
+const hour = date.getHours();
+const startDate = new Date(date.getFullYear(), 0, 1);
+const days = Math.floor((date - startDate) / (24 * 60 * 60 * 1000));
+const weekNumber = Math.ceil(days / 7);
+const day = date.getDay();
 
 let productAmount;
 let shippingPrice;
@@ -218,7 +228,7 @@ function renderBasket() {
     shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
     totalPriceDisplay.innerHTML = totalPrice + shippingPrice;
 
-    if (products[i].amount > 0) {
+    if (products[i].amount > 0 && (date.getDate() === 30 && date.getMonth() === 10)) {
       basketGrid.innerHTML += `
         <div class="item">
           <img src="${products[i].img[0].url}" height="100" width="100" alt="${products[i].img[0].alt}" />
@@ -226,7 +236,7 @@ function renderBasket() {
             <div class="item-info">
               <h3>${products[i].name}</h3>
               <p>${products[i].desc}</p>
-              <p>${products[i].price * products[i].amount}kr</p>
+              <p id='christmasColor'>${products[i].price * products[i].amount}kr</p>
             </div>
             <div class="item-selection">
               <button class="button-add" data-id="${i}">+</button>
@@ -236,6 +246,26 @@ function renderBasket() {
           </div>
         </div>
 	    `;
+    }
+    else if (products[i].amount > 0){
+      basketGrid.innerHTML += `
+        <div class="item">
+          <img src="${products[i].img[0].url}" height="100" width="100" alt="${products[i].img[0].alt}" />
+          <div class="item-content">
+            <div class="item-info">
+              <h3>${products[i].name}</h3>
+              <p>${products[i].desc}</p>
+              <p'>${products[i].price * products[i].amount}kr</p>
+            </div>
+            <div class="item-selection">
+              <button class="button-add" data-id="${i}">+</button>
+              <p>${products[i].amount}</p>
+              <button class="button-remove" data-id="${i}">-</button>
+            </div>
+          </div>
+        </div>
+	    `;
+
     }
   }
   if (productAmount < 10) {
@@ -265,6 +295,39 @@ function renderBasket() {
   removeBtn.forEach(btn => {
     btn.addEventListener('click', remove);
   });
+
+  //Monday discount
+  if(day === 1 && hour < 10) {
+    specialDiscount.innerHTML += 'Måndagsrabatt: 10 % på hela beställningen';
+    productPriceDisplay.innerHTML = Math.round(totalPrice * 0.9);
+    shippingPriceDisplay.innerHTML = Math.round(shippingPrice * 0.9);
+    totalPriceDisplay.innerHTML = Math.round((totalPrice + shippingPrice) * 0.9);
+  }
+
+  //Biweekly tuesday discount
+  if(weekNumber % 2 === 0 && date.getDay() === 2 && totalPrice > 25) {
+    specialDiscount.innerHTML = 'Lägg din beställning idag och få 25 kr rabatt (gäller endast vid beställningar över 25 kr)!';
+    totalPriceDisplay.innerHTML = Math.round((totalPrice + shippingPrice) - 25);
+  }
+
+  //Christmas color
+  if (date.getDate() === 24 && date.getMonth() === 11) {
+    productPriceDisplay.style.color = "red";
+    shippingPriceDisplay.style.color = "red";
+    totalPriceDisplay.style.color = "red";
+  }
+
+  //Invoice option removed for orders > 800
+  if(Math.round(totalPrice + shippingPrice) > 800){
+    invoiceLabel.innerHTML = '';
+    invoiceOption.style.display = "none"
+    }
+  
+//Weekend price
+  if((day === 5 && hour > 15) || day === 6 || day === 0 || (day === 1 && hour < 3) || day === 3) {
+    //TO DO: Pris * 1.15
+  }
+
 }
 
 function checkDiscountCode() {
@@ -402,6 +465,16 @@ function productConfirmation() {
     </div>
     `;
 }
+
+function lucia() {
+  const date = new Date();
+
+  if(date.getDate() === 13 && date.getMonth() === 11) {
+    specialDiscount.innerHTML += 'Glad lucia! Vi på Kaffe Hörnan bjuder idag på en gratis luciakaffe vid varje beställning!'
+  }
+}
+
+lucia()
 
 function getDeliveryTime() {
   const deliveryTimeDisplay = document.querySelector('#deliveryTimeDisplay');

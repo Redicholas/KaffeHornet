@@ -84,6 +84,7 @@
         Köp 10 varor eller mer och få 10% rabatt! <br />
         Eller mer än 15 varor och få gratis frakt!
       </p>
+      <p id="specialDiscount"></p>
       <div class="basket-bottom">
         <button onclick="clearBasket()">Rensa varukorgen</button>
         <div class="price-display">
@@ -173,7 +174,7 @@
         <div class="payment-type">
           <div class="payment-choice">
             <form class="invoice">
-              <label for="paymentType_invoice" class="payment">
+              <label id="invoiceLabel" for="paymentType_invoice" class="payment">
                 Faktura: <input type="radio" id="paymentType_invoice" name="payment-option" checked>
               </label>
               <br>

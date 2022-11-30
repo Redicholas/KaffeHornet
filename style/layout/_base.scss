@@ -213,7 +213,7 @@ section {
     margin-top: 1rem;
   }
 
-  .discount-info {
+  .discount-info, #specialDiscount {
     margin-bottom: 1rem;
     font-size: 0.9rem;
   }
@@ -223,6 +223,10 @@ section {
     margin: 1rem;
   }
 
+  #christmasColor {
+    color: red;
+  }
+  
   .buy-btn {
     margin-top: 5rem;
     padding: 1rem 3rem;
