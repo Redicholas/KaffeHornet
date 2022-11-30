@@ -184,7 +184,6 @@ const products = [
 const productGrid = document.querySelector('#product-grid');
 const basketGrid = document.querySelector('#basket-grid');
 const sortSelector = document.querySelector('#sort-options');
-const imgContainer = document.querySelectorAll('.imgContainer');
 
 const productPriceDisplay = document.querySelector('#productPriceDisplay');
 const shippingPriceDisplay = document.querySelector('#shippingPriceDisplay');
@@ -448,6 +447,7 @@ function renderProducts() {
 }
 
 function switchImage(e) {
+  console.log(e.currentTarget);
   const imgIndex = e.currentTarget.id.replace('prevImg-', '').replace('nextImg-', '');
   const img1 = document.querySelector(`#img1-${imgIndex}`);
   const img2 = document.querySelector(`#img2-${imgIndex}`);
