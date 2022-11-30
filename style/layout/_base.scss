@@ -64,7 +64,7 @@ section {
   .product-confirmation-display {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     border-bottom: 1px solid black;
   }
 
@@ -108,17 +108,16 @@ section {
 
 .products {
   .product-grid {
-    margin: 0;
-    margin-top: 1rem;
+    padding: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    gap: 10px 10px;
+    gap: 25px 10px;
     place-items: center;
   }
 
   .product-card {
-    height: 20rem;
+    height: 22rem;
     width: 12rem;
     background: $col-light;
     border-radius: 1rem;
@@ -127,7 +126,7 @@ section {
     .product-info {
       display: flex;
       flex-direction: column;
-      justify-content: space-evenly;
+      justify-content: space-between;
       height: 50%;
       padding: 0.5rem;
 
@@ -205,16 +204,16 @@ section {
   }
 
   .basket-bottom {
-    position: relative;
-    top: 10px;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
+    /*
     display: flex;
-    justify-content: flex-end
+    justify-content: flex-end*/
     
   }
 
   .price-display :nth-child(3){
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    text-decoration: underline;
   }
 
   .message {
@@ -222,24 +221,25 @@ section {
     color: $col-accent-dark;
     text-align: center;
     font-size: 1rem;
-    margin-top: 1rem;
-    top: 70px;
   }
 
   .discount-info {
     position: relative;
-    top: 150px;
     font-size: 0.9rem;
+    bottom: 10px;
+    padding: 20px 5px;
+    border: 1px solid black;
+   
   }
 
   .discount {
     position: relative;
-    bottom: -80px;
+    display: flex;
+    flex-direction: column;
   }
 
   .discount-code {
-    width: 200px;
-    margin: 0.5rem;
+    margin-right: 0.5rem;
     padding: 0.3rem;
     border-radius: 6px;
     border: 1px solid black;
@@ -247,9 +247,7 @@ section {
 
   .buy-btn {
     position: relative;
-    margin-top: 1.7rem;
     padding: 0.6rem 2rem;
-    left: 240px;
 
     a {
       text-decoration: none;
@@ -259,15 +257,14 @@ section {
 
   #checkDiscountBtn {
     position: relative;
-    left: 315px;
-    bottom: -38px;
+    height: 40px;
+    margin-top: 20px;
   }
 
   #clearBasketBtn{
     position: relative;
     padding: 0.6rem;
-    top: 72px;
-    left: 40px;
+
   }
 
   .item {
@@ -319,6 +316,26 @@ section {
       }
     }
   }
+}
+
+.discount-input {
+  display: flex;
+  left: 2rem;
+  margin-bottom: 20px;
+}
+
+.discount-div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10px 0;
+  padding: 20px;
+}
+
+.basket-btn {
+  display: flex;
+  justify-content: space-around;
 }
 
 .products label {

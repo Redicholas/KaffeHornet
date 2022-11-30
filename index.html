@@ -88,27 +88,34 @@
       <div id="basket-grid">
         <!-- Produkter renderas från JavaScripten -->
       </div>
+      <hr>
+      <div class="message">
+        <p id="discountMessage"></p>
+      </div>
+      <div class="discount-div">
+        <div class="discount-input">
+          <label class="discount">
+            Rabattkod:
+            <input type="text" id="discountCode" class="discount-code" />
+          </label>
+          <button id="checkDiscountBtn">Ok</button>
+        </div>
+        <div class="basket-bottom">
+          <div class="price-display">
+            <p>Belopp: <span id="productPriceDisplay"></span>kr</p>
+            <p>Frakt: <span id="shippingPriceDisplay"></span>kr</p>
+            <p>Totalt: <span id="totalPriceDisplay"></span>kr</p>
+          </div>
+        </div>
+      </div>
       <p class="discount-info">
         Köp 10 varor eller mer och få 10% rabatt! <br />
         Eller mer än 15 varor och få gratis frakt!
       </p>
-      <div class="basket-bottom">
-        <div class="price-display">
-          <p>Belopp: <span id="productPriceDisplay"></span>kr</p>
-          <p>Frakt: <span id="shippingPriceDisplay"></span>kr</p>
-          <p>Totalt: <span id="totalPriceDisplay"></span>kr</p>
-        </div>
+      <div class="basket-btn">
+        <button id="clearBasketBtn" onclick="clearBasket()">Rensa varukorgen</button>
+        <a href="#customerInfo"><button class="buy-btn">Köp</button></a>
       </div>
-      <div class="message">
-        <p id="discountMessage"></p>
-      </div>
-      <label class="discount">
-        Rabattkod:
-        <input type="text" id="discountCode" class="discount-code" />
-      </label>
-      <button id="checkDiscountBtn">Ok</button>
-      <button id="clearBasketBtn" onclick="clearBasket()">Rensa varukorgen</button>
-      <a href="#customerInfo"><button class="buy-btn">Köp</button></a>
     </section>
 
     <!-- Beställningsuppgifter -->
