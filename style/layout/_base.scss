@@ -153,6 +153,7 @@ section {
     background: $col-light;
     border-radius: 1rem;
     overflow: hidden;
+    border: 1px solid black;
 
     .image {
       .btnHolder {
@@ -234,6 +235,10 @@ section {
   border-radius: 6px;
   margin: 20px;
   padding: 1rem;
+
+  img {
+    border: 1px solid black;
+  }
 
   h2 {
     text-align: center;
