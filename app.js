@@ -585,6 +585,8 @@ const cvvField = document.querySelector('#cvv');
 const orderBtn = document.getElementById('buy-button');
 const personalData = document.getElementById('personalData');
 
+const formMsg = 'Obligatoriskt';
+
 let fNameIsOk = false;
 let lNameIsOk = false;
 let adressIsOk = false;
@@ -642,7 +644,7 @@ function validateCvv() {
 function validateName() {
   if (firstNameField.value.length === 0) {
     fNameIsOk = false;
-    nameError.innerHTML = 'Obligatoriskt';
+    nameError.innerHTML = formMsg;
   } else {
     fNameIsOk = true;
     nameError.innerHTML = '<i class="fa-solid fa-check"></i>';
@@ -653,7 +655,7 @@ function validateName() {
 function validateLastName() {
   if (lastNameField.value.length === 0) {
     lNameIsOk = false;
-    lastNameError.innerHTML = 'Obligatoriskt';
+    lastNameError.innerHTML = formMsg;
   } else {
     lNameIsOk = true;
     lastNameError.innerHTML = '<i class="fa-solid fa-check"></i>';
@@ -664,7 +666,7 @@ function validateLastName() {
 function validateAdress() {
   if (adressField.value.length === 0) {
     adressIsOk = false;
-    adressError.innerHTML = 'Obligatoriskt';
+    adressError.innerHTML = formMsg;
   } else {
     adressIsOk = true;
     adressError.innerHTML = '<i class="fa-solid fa-check"></i>';
@@ -675,7 +677,7 @@ function validateAdress() {
 function validateZip() {
   if (zipCodeField.value.length === 0) {
     zipCodeIsOk = false;
-    zipError.innerHTML = 'Obligatoriskt';
+    zipError.innerHTML = formMsg;
   } else {
     zipCodeIsOk = true;
     zipError.innerHTML = '<i class="fa-solid fa-check"></i>';
@@ -686,7 +688,7 @@ function validateZip() {
 function validateCity() {
   if (cityField.value.length === 0) {
     cityIsOk = false;
-    cityError.innerHTML = 'Obligatoriskt';
+    cityError.innerHTML = formMsg;
   } else {
     cityIsOk = true;
     cityError.innerHTML = '<i class="fa-solid fa-check"></i>';
@@ -697,7 +699,7 @@ function validateCity() {
 function validatePhone() {
   if (phoneField.value.length === 0) {
     phoneIsOk = false;
-    phoneError.innerHTML = 'Obligatoriskt';
+    phoneError.innerHTML = formMsg;
   }
   if (!phoneField.value.match(/^[0-9]{10}$/)) {
     phoneIsOk = false;
@@ -712,7 +714,7 @@ function validatePhone() {
 function validateEmail() {
   if (emailField.value.length === 0) {
     emailIsOk = false;
-    emailError.innerHTML = 'Obligatoriskt';
+    emailError.innerHTML = formMsg;
   }
   if (!emailField.value.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
     emailIsOk = false;
@@ -772,7 +774,7 @@ const invoice = document.getElementById('invoice');
 
 // **************AKTIVERING BESTÄLLNINGSKNAPP SLUT******************************
 
-//***********FÖR ATT DÖLJA/VISA FORMULÄREN FÖR KORT OCH FAKTURA************
+// ***********FÖR ATT DÖLJA/VISA FORMULÄREN FÖR KORT OCH FAKTURA************
 
 function handleCardClick() {
   if (document.getElementById('paymentType_card').checked) {
@@ -792,7 +794,7 @@ function handleInvoiceClick() {
   }
 }
 
-//**********RENSA FORMULÄR******************
+// **********RENSA FORMULÄR******************
 
 document.querySelector('#eraseBtn').addEventListener('click', resetOrder);
 
@@ -820,11 +822,21 @@ function resetOrder() {
 setInterval(orderTimeOut, 900000);
 
 function orderTimeOut() {
-  resetOrder();
-  alert('För långsam!');
-}
 
-//*********************************
+  if (firstNameField.value.length > 0 || 
+    lastNameField.value.length > 0|| 
+    adressField.value.length > 0 || 
+    zipCodeField.value.length > 0 || 
+    emailField.value.length > 0 || 
+    phoneField.value.length > 0 || 
+    cityField.value.length > 0 || 
+    personalNrField.value.length > 0 || 
+    cardNrField.value.length > 0|| 
+    cvvField.value.length > 0){
+    resetOrder();
+    alert('För långsam!');
+  }
+}
 
 renderProducts();
 checkDiscountBtn.addEventListener('click', checkDiscountCode);
