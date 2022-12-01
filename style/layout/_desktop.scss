@@ -28,6 +28,12 @@ $col-black: #212427;
     height: 35rem;
     width: 20rem;
 
+    .image {
+      .btnHolder {
+        bottom: 150px;
+      }
+    }
+
     .product-info {
       padding: 1rem;
       font-size: 1.3rem;
@@ -49,7 +55,7 @@ $col-black: #212427;
     font-size: 1.3rem;
   }
 
-  .price-display :nth-child(3){
+  .price-display :nth-child(3) {
     font-size: 2.2rem;
   }
 
@@ -71,9 +77,9 @@ $col-black: #212427;
 
   .item {
     padding: 2rem 6rem;
+
     .item-content {
-      .item-selection {
-      }
+      .item-selection {}
     }
   }
 }
@@ -90,32 +96,32 @@ $col-black: #212427;
 }
 
 .customer-info {
-    flex-direction: row;
-    margin: 2rem 7rem 0;
+  flex-direction: row;
+  margin: 2rem 7rem 0;
 }
 
 .contact-form {
-    margin-right: 15px;
-    max-height: 850px;
-  }
+  margin-right: 15px;
+  max-height: 850px;
+}
 
 .payment-section {
-    margin-top: 0;
-    margin-left: 15px;
+  margin-top: 0;
+  margin-left: 15px;
 }
 
 .credit-card,
 .invoice-details {
-    width: 460px;
-    height: auto;
+  width: 460px;
+  height: auto;
 }
 
 #logoimg {
-    width: 260px;
-    height: 260px;
-  }
-  
-  .contact {
-    padding-top: 80px;
-    font-size: 1.3rem;
-  }
+  width: 260px;
+  height: 260px;
+}
+
+.contact {
+  padding-top: 80px;
+  font-size: 1.3rem;
+}

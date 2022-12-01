@@ -161,7 +161,7 @@ section {
         justify-content: space-between;
         margin: 0 0.3rem;
         position: relative;
-        bottom: 95px;
+        bottom: 110px;
 
         .imgBtn {
           height: 25px;
@@ -262,10 +262,10 @@ section {
     /*
     display: flex;
     justify-content: flex-end*/
-    
+
   }
 
-  .price-display :nth-child(3){
+  .price-display :nth-child(3) {
     font-size: 1.2rem;
     text-decoration: underline;
   }
@@ -283,7 +283,7 @@ section {
     bottom: 10px;
     padding: 20px 5px;
     border: 1px solid black;
-   
+
   }
 
   .discount {
@@ -315,7 +315,7 @@ section {
     margin-top: 20px;
   }
 
-  #clearBasketBtn{
+  #clearBasketBtn {
     position: relative;
     padding: 0.6rem;
 
@@ -498,7 +498,8 @@ section {
   font-size: 1.2rem;
 }
 
-#paymentType_invoice, #paymentType_card {
+#paymentType_invoice,
+#paymentType_card {
   position: relative;
   left: -60px;
   height: 20px;
