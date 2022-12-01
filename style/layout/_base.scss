@@ -139,7 +139,7 @@ section {
 
 .products {
   .product-grid {
-    padding: 20px;
+    margin-top: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
@@ -148,8 +148,8 @@ section {
   }
 
   .product-card {
-    height: 22rem;
-    width: 12rem;
+    height: 21rem;
+    width: 11rem;
     background: $col-light;
     border-radius: 1rem;
     overflow: hidden;
@@ -233,7 +233,7 @@ section {
   background-color: $col-light;
   border: 1px solid $col-dark-brown;
   border-radius: 6px;
-  margin: 20px;
+  margin: 10px;
   padding: 1rem;
 
   img {
@@ -285,7 +285,7 @@ section {
   .discount-info {
     position: relative;
     font-size: 0.9rem;
-    bottom: 10px;
+    margin-bottom: 40px;
     padding: 20px 5px;
     border: 1px solid black;
 
@@ -429,7 +429,7 @@ section {
   flex-direction: column;
   color: $col-black;
   padding: 0;
-  margin: 20px;
+  margin: 10px;
 }
 
 .customer-email {
@@ -496,19 +496,16 @@ section {
 }
 
 .payment {
-  position: relative;
-  left: 30px;
-  top: 20px;
-  bottom: 30px;
+  margin-left: 20px;
   font-size: 1.2rem;
 }
 
 #paymentType_invoice,
 #paymentType_card {
   position: relative;
-  left: -60px;
+  left: -35px;
   height: 20px;
-  top: -25px;
+  top: -33px;
 }
 
 .payment-section {
@@ -624,19 +621,23 @@ section {
 #personalData,
 #newsLetter {
   position: relative;
-  right: -140px;
-  top: -35px;
-  height: 20px;
+  display: inline;
+  height: 1.5rem;
+  width: 10%;
+  margin-left: 50px;
 }
+
+
 
 .newsletter,
 .personal-data {
-  margin-left: 30px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
 }
 
-.newsletter {
-  margin-top: 50px;
-}
+
+
 
 #buy-button,
 #eraseBtn {

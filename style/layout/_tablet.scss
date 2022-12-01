@@ -26,15 +26,13 @@ $col-black: #212427;
 
 .products {
   .product-grid {
-    width: 100%;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    gap: 30px 30px;
+    margin: 3rem;
+    
   }
 
   .product-card {
-    height: 20rem;
-    width: 14rem;
+    height: 21rem;
+    width: 15rem;
 
     .image {
       .btnHolder {
@@ -46,6 +44,7 @@ $col-black: #212427;
 
 
 .basket {
+    margin: 3rem;
 
   .basket-bottom {
     position: relative;
@@ -117,6 +116,10 @@ $col-black: #212427;
   }
 }
 
+.customer-info {
+    margin: 3rem;
+  }
+
 .discount-input {
   padding: 1rem;
 }
@@ -149,6 +152,12 @@ h2 {
   width: 460px;
   height: auto;
 }
+
+.newsletter,
+.personal-data {
+  font-size: 1.2rem;
+}
+
 
 #logoimg {
   width: 200px;

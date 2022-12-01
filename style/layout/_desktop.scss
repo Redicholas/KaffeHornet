@@ -21,6 +21,10 @@ $col-black: #212427;
 
 .products {
   .product-grid {
+    padding: 3rem;
+    margin-top: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     gap: 60px 10px;
   }
 
