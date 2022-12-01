@@ -214,13 +214,18 @@ function renderBasket() {
   totalPrice = 0;
 
   for (let i = 0; i < products.length; i += 1) {
-    totalPricePerProduct = products[i].price * products[i].amount;
-    totalPrice += totalPricePerProduct;
-    productAmount += products[i].amount;
-
     productPriceDisplay.innerHTML = Math.round(totalPrice);
     shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
     totalPriceDisplay.innerHTML = totalPrice + shippingPrice;
+
+    totalPricePerProduct = products[i].price * products[i].amount;
+    productAmount += products[i].amount;
+
+    if (products[i].amount >= 10) {
+      totalPricePerProduct *= 0.9;
+      totalPriceDisplay.innerHTML = Math.round(totalPrice + shippingPrice);
+    }
+    totalPrice += totalPricePerProduct;
 
     if (products[i].amount > 0) {
       basketGrid.innerHTML += `
@@ -230,7 +235,7 @@ function renderBasket() {
             <div class="item-info">
               <h3>${products[i].name}</h3>
               <p>${products[i].desc}</p>
-              <p class="tomten">${products[i].price * products[i].amount}kr</p>
+              <p class="tomten">${Math.round(totalPricePerProduct)}kr</p>
             </div>
             <div class="item-selection">
               <button class="button-add" data-id="${i}">+</button>
@@ -242,23 +247,17 @@ function renderBasket() {
 	    `;
     }
   }
-  if (productAmount < 10) {
+  if (productAmount > 0) {
     shippingPrice = 25 + totalPrice * 0.1;
     totalPriceDisplay.innerHTML = Math.round(totalPrice + shippingPrice);
     shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
     discountMessage.innerHTML = '';
-  } else if (productAmount < 15) {
-    shippingPrice = 25 + totalPrice * 0.1;
-    totalPrice *= 0.9;
-    totalPriceDisplay.innerHTML = Math.round(totalPrice + shippingPrice);
-    shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
-    discountMessage.innerHTML = '10% Rabatt!';
-  } else {
+  }
+  if (productAmount >= 15) {
     shippingPrice = 0;
-    totalPrice *= 0.9;
     totalPriceDisplay.innerHTML = Math.round(totalPrice + shippingPrice);
     shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
-    discountMessage.innerHTML = '10% Rabatt och gratis frakt!';
+    discountMessage.innerHTML = 'Gratis frakt!';
   }
 
   const addBtn = document.querySelectorAll('.button-add');
@@ -270,7 +269,7 @@ function renderBasket() {
     btn.addEventListener('click', remove);
   });
   numberOfProductsInMiniBasket.innerHTML = `${productAmount}st`;
-  totalPriceInMiniBasket.innerHTML = `${totalPrice}kr`;
+  totalPriceInMiniBasket.innerHTML = `${Math.round(totalPrice)}kr`;
 
   if (productAmount > 0) {
     miniBasket.classList.remove('hidden');
