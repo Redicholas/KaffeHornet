@@ -191,6 +191,9 @@ const totalPriceDisplay = document.querySelector('#totalPriceDisplay');
 const discountMessage = document.querySelector('#discountMessage');
 const discountCode = document.querySelector('#discountCode');
 const checkDiscountBtn = document.querySelector('#checkDiscountBtn');
+const invoiceLabel = document.querySelector('#invoiceLabel');
+const invoiceOption = document.querySelector('#paymentType_invoice');
+const paymentSection = document.querySelector('#payment-section')
 
 const miniBasket = document.querySelector('#miniBasket');
 const numberOfProductsInMiniBasket = document.querySelector('#numberOfProductsInMiniBasket');
@@ -199,6 +202,14 @@ const totalPriceInMiniBasket = document.querySelector('#totalPriceInMiniBasket')
 const popup = document.querySelector('#popup');
 const closePopupBtn = document.querySelector('#closePopup');
 const buyBtn = document.querySelector('#buy-button');
+
+const date = new Date();
+const startDate = new Date(date.getFullYear(), 0, 1);
+const day = date.getDay();
+const days = Math.floor((date - startDate) / (24 * 60 * 60 * 1000));
+const hour = date.getHours();
+const month = date.getMonth();
+const weekNumber = Math.ceil(days / 7);
 
 let productAmount;
 let shippingPrice;
@@ -256,8 +267,16 @@ function renderBasket() {
     shippingPrice = 0;
     totalPriceDisplay.innerHTML = Math.round(totalPrice + shippingPrice);
     shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
-    discountMessage.innerHTML = 'Gratis frakt!';
+    discountMessage.innerHTML += 'Gratis frakt!' + '<br />';
   }
+
+//Lucia
+function lucia() {
+  if(date.getDate() === 13 && month === 11) {
+    discountMessage.innerHTML += 'Glad lucia! Vi på Kaffe Hörnan bjuder idag på en gratis luciakaffe vid varje beställning!' + '<br />';
+  }
+}
+lucia()
 
   const addBtn = document.querySelectorAll('.button-add');
   addBtn.forEach(btn => {
@@ -275,17 +294,40 @@ function renderBasket() {
   } else {
     miniBasket.classList.add('hidden');
   }
+  
+  //Monday discount
+  if(day === 1 && hour < 10) {
+    discountMessage.innerHTML += 'Måndagsrabatt: 10 % på hela beställningen' + '<br />';
+    productPriceDisplay.innerHTML = Math.round(totalPrice * 0.9);
+    shippingPriceDisplay.innerHTML = Math.round(shippingPrice * 0.9);
+    totalPriceDisplay.innerHTML = Math.round((totalPrice + shippingPrice) * 0.9);
+  }
+  
+  //Biweekly tuesday discount
+  if(weekNumber % 2 === 0 && date.getDay() === 2 && totalPrice > 25) {
+    discountMessage.innerHTML += 'Lägg din beställning idag och få 25 kr rabatt (gäller endast vid beställningar över 25 kr)!' + '<br />';
+    totalPriceDisplay.innerHTML = Math.round((totalPrice + shippingPrice) - 25);
+  }
+  
+  //Invoice option removed for orders > 800
+  if (Math.round(totalPrice + shippingPrice) > 800) {
+    invoiceLabel.innerHTML = '';
+    invoiceOption.style.display = "none";
+  }
+/*   else {
+    paymentSection.style.display = "block"
+  } */
 }
 
 function checkDiscountCode() {
-  if (discountCode.value === 'a_damn_fine_cup_of_coffee') {
+  if (discountCode.value === 'a_damn_fine-cup_of-coffee') {
     totalPricePerProduct = 0;
     totalPrice = 0;
     shippingPrice = 0;
     productPriceDisplay.innerHTML = totalPricePerProduct;
     totalPriceDisplay.innerHTML = totalPrice;
     shippingPriceDisplay.innerHTML = shippingPrice;
-    discountMessage.innerHTML = 'Allt gratis! Du måste ha bra kontakter....';
+    discountMessage.innerHTML = 'Allt gratis! Du måste ha bra kontakter...';
   } else {
     discountMessage.innerHTML = 'Det där är ingen giltig rabattkod!';
   }
@@ -383,6 +425,13 @@ function renderProducts() {
   productGrid.innerHTML = '';
 
   for (let i = 0; i < sortedProducts.length; i += 1) {
+    let adjustedPrice = sortedProducts[i].price;
+
+    //Weekend price
+    if((day === 5 && hour > 15) || day === 6 || day === 0 || (day === 1 && hour < 3)) {
+      adjustedPrice = Math.round(adjustedPrice * 1.15);
+    }
+
     productGrid.innerHTML += `
         <div class="product-card" data-id="${i}">
             <div class="image">  
@@ -412,7 +461,7 @@ function renderProducts() {
                 <p>${sortedProducts[i].rating}</p>
                 <p>${sortedProducts[i].desc}</p>
                     <div class="product-selection">
-                        <p class="grinch">${sortedProducts[i].price}kr</p>
+                        <p class="grinch">${adjustedPrice}kr</p>
                         <button class="button-remove" data-id="${i}">-</button>
                         <p>${sortedProducts[i].amount}</p>
                         <button class="button-add" data-id="${i}">+</button>
@@ -503,18 +552,15 @@ function productConfirmation() {
 
 function getDeliveryTime() {
   const deliveryTimeDisplay = document.querySelector('#deliveryTimeDisplay');
-  const now = new Date();
-  const today = now.getDay();
-  const hourOfDay = now.getHours();
 
-  if (hourOfDay >= 11 && hourOfDay < 15) {
+  if (day === 5 && hour >= 11 && hour < 13) {
     deliveryTimeDisplay.innerHTML = 'Din leverans beräknas vara framme ca. kl 15';
-  } else if (hourOfDay > 22 && hourOfDay < 6) {
+  } else if (hour >= 22 || hour < 6) {
     deliveryTimeDisplay.innerHTML = 'Leveranstid beräknas till ca. 45 minuter';
-  } else if (today === 6 || today === 0) {
+  } else if (day === 6 || day === 0) {
     deliveryTimeDisplay.innerHTML = 'Leveranstid beräknas till ca. 1,5 timmar';
   } else {
-    deliveryTimeDisplay.innerHTML = 'Leveranstid beräknas till ca. 20 minuter';
+    deliveryTimeDisplay.innerHTML = 'Leveranstid beräknas till ca. 30 minuter';
   }
 }
 
@@ -529,12 +575,12 @@ function placeOrder() {
   }
 }
 
+//Christmas background
 function christmas() {
-  const date = new Date();
   const backgroundImage = document.getElementById('landing-page');
   const title = document.getElementById('landing-page-title');
 
-  if (date.getDate() === 24 && date.getMonth() === 11) {
+  if (date.getDate() === 24 && month === 11) {
     document.body.classList.add('xmas');
 
     backgroundImage.style.background = "url('./img/kate-laine-9kNC6g-emEQ-unsplash (1).jpg')";
@@ -542,8 +588,8 @@ function christmas() {
     backgroundImage.style.width = '100%';
     backgroundImage.style.height = '100vh';
     title.style.color = 'solid $col-beige;';
-    title.style.width = '350px';
-    title.style.height = '140px';
+    title.style.width = '80vw';
+    title.style.height = '30wh';
     title.style.position = 'relative';
     title.style.margin = 'auto';
     title.style.background = 'black';
@@ -551,6 +597,9 @@ function christmas() {
     title.style.paddingTop = '0';
     title.style.borderRadius = '2.5rem';
     title.style.border = '3px solid #dcbfa1';
+    productPriceDisplay.style.color = "red";
+    shippingPriceDisplay.style.color = "red";
+    totalPriceDisplay.style.color = "red";
   }
 }
 
