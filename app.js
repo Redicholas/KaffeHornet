@@ -1,7 +1,7 @@
 const products = [
   {
     name: 'Sibaristica',
-    img: [
+    imgs: [
       {
         url: 'img/produkt-1-kaffepasar.jpg',
         alt: 'Två påsar med kaffebönor',
@@ -19,7 +19,7 @@ const products = [
   },
   {
     name: 'Blue Magic',
-    img: [
+    imgs: [
       {
         url: 'img/produkt-2-andrakaffapasar.jpg',
         alt: 'Kaffebönor i påse med blå etikett',
@@ -37,7 +37,7 @@ const products = [
   },
   {
     name: 'Specialty Beans',
-    img: [
+    imgs: [
       {
         url: 'img/produkt-3-merkaffe.jpg',
         alt: 'En arm som håller upp en påse kaffebönor',
@@ -55,7 +55,7 @@ const products = [
   },
   {
     name: 'Rustik',
-    img: [
+    imgs: [
       {
         url: 'img/produkt-4-kopp.jpg',
         alt: 'En svart kaffekopp på ett träbord',
@@ -73,7 +73,7 @@ const products = [
   },
   {
     name: 'Grön',
-    img: [
+    imgs: [
       {
         url: 'img/produkt-5-kopp2.jpg',
         alt: 'Grön kaffekopp med latteart, på ett vitt bort med kaffebönor strödda runt om',
@@ -91,7 +91,7 @@ const products = [
   },
   {
     name: 'V60',
-    img: [
+    imgs: [
       {
         url: 'img/produkt-6-v60.jpg',
         alt: 'V60 bryggare med kaffe som brygger i ett café',
@@ -109,7 +109,7 @@ const products = [
   },
   {
     name: 'Aeropress',
-    img: [
+    imgs: [
       {
         url: 'img/produkt-7-aeropress.jpg',
         alt: 'En aeropress på en stubbe utomhus',
@@ -127,7 +127,7 @@ const products = [
   },
   {
     name: 'Fancy',
-    img: [
+    imgs: [
       {
         url: 'img/produkt-8-kopp3.jpg',
         alt: 'Liten kaffekopp med gulddetaljer',
@@ -145,7 +145,7 @@ const products = [
   },
   {
     name: 'Franskpress',
-    img: [
+    imgs: [
       {
         url: 'img/produkt-9-franskpress.jpg',
         alt: 'En franskpress med kaffe och en kaffekopp brevid',
@@ -163,7 +163,7 @@ const products = [
   },
   {
     name: 'Orange',
-    img: [
+    imgs: [
       {
         url: 'img/produkt-10-kopp4.jpg',
         alt: 'Hand som håller en stor orange kopp med rykande kaffe',
@@ -225,7 +225,7 @@ function renderBasket() {
     if (products[i].amount > 0) {
       basketGrid.innerHTML += `
         <div class="item">
-          <img src="${products[i].img[0].url}" height="100" width="100" alt="${products[i].img[0].alt}" />
+          <img src="${products[i].imgs[0].url}" height="100" width="100" alt="${products[i].imgs[0].alt}" />
           <div class="item-content">
             <div class="item-info">
               <h3>${products[i].name}</h3>
@@ -391,18 +391,18 @@ function renderProducts() {
               <img
                 class=""
                 id="img1-${i}"
-                src="${sortedProducts[i].img[0].url}"
+                src="${sortedProducts[i].imgs[0].url}"
                 height="100"
                 width="100"
-                alt="${sortedProducts[i].img[0].alt}"
+                alt="${sortedProducts[i].imgs[0].alt}"
               />
               <img
                 class="hidden"
                 id="img2-${i}"
-                src="${sortedProducts[i].img[1].url}"
+                src="${sortedProducts[i].imgs[1].url}"
                 height="100"
                 width="100"
-                alt="${sortedProducts[i].img[1].alt}"
+                alt="${sortedProducts[i].imgs[1].alt}"
               />
               <div class="btnHolder">
                 <button id="prevImg-${i}" class="prevImg imgBtn"> <i class="fa-solid fa-chevron-left"></i> </button>         
@@ -447,7 +447,6 @@ function renderProducts() {
 }
 
 function switchImage(e) {
-  console.log(e.currentTarget);
   const imgIndex = e.currentTarget.id.replace('prevImg-', '').replace('nextImg-', '');
   const img1 = document.querySelector(`#img1-${imgIndex}`);
   const img2 = document.querySelector(`#img2-${imgIndex}`);
@@ -822,17 +821,18 @@ function resetOrder() {
 setInterval(orderTimeOut, 900000);
 
 function orderTimeOut() {
-
-  if (firstNameField.value.length > 0 || 
-    lastNameField.value.length > 0|| 
-    adressField.value.length > 0 || 
-    zipCodeField.value.length > 0 || 
-    emailField.value.length > 0 || 
-    phoneField.value.length > 0 || 
-    cityField.value.length > 0 || 
-    personalNrField.value.length > 0 || 
-    cardNrField.value.length > 0|| 
-    cvvField.value.length > 0){
+  if (
+    firstNameField.value.length > 0 ||
+    lastNameField.value.length > 0 ||
+    adressField.value.length > 0 ||
+    zipCodeField.value.length > 0 ||
+    emailField.value.length > 0 ||
+    phoneField.value.length > 0 ||
+    cityField.value.length > 0 ||
+    personalNrField.value.length > 0 ||
+    cardNrField.value.length > 0 ||
+    cvvField.value.length > 0
+  ) {
     resetOrder();
     alert('För långsam!');
   }
@@ -842,26 +842,3 @@ renderProducts();
 checkDiscountBtn.addEventListener('click', checkDiscountCode);
 buyBtn.addEventListener('click', placeOrder);
 closePopupBtn.addEventListener('click', placeOrder);
-
-// products.forEach((product, index) => {
-//   imgContainer.innerHTML = `
-//   <img
-//     class=""
-//     id="img1-${index}"
-//     src="${product.img[0].url}"
-//     height="100"
-//     width="100"
-//     alt="${product.img[0].alt}"
-//   />
-//   <img
-//     class="hidden"
-//     id="img2-${index}"
-//     src="${product.img[1].url}"
-//     height="100"
-//     width="100"
-//     alt="${product.img[1].alt}"
-//   />
-//   <button id="nextImg-${index}" class="nextImg"> -> </button>
-//   <button id="prevImg-${index}" class="prevImg"> <- </button>
-//   `;
-// });
