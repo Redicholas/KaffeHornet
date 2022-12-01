@@ -8,11 +8,12 @@ $col-accent-light: #8db4a2;
 $col-black: #212427;
 
 .landing-page {
-    background: url(/img/rykande-gott-kaffe-kaffehornan.jpg);
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    width: 100vw;
+  background: url('../img/rykande-gott-kaffe-kaffehornan.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+
   h1 {
     font-size: 5rem;
   }
@@ -34,6 +35,12 @@ $col-black: #212427;
   .product-card {
     height: 20rem;
     width: 14rem;
+
+    .image {
+      .btnHolder {
+        bottom: 95px
+      }
+    }
   }
 }
 
@@ -46,7 +53,7 @@ $col-black: #212427;
     font-size: 1.2rem;
   }
 
-  .price-display :nth-child(3){
+  .price-display :nth-child(3) {
     font-size: 1.8rem;
   }
 
@@ -54,7 +61,7 @@ $col-black: #212427;
     left: 1rem;
     font-size: 1.2rem;
     text-align: left;
-    
+
   }
 
   .discount-info {
@@ -111,44 +118,44 @@ $col-black: #212427;
 }
 
 .discount-input {
-    padding: 1rem;
-  }
+  padding: 1rem;
+}
 
-  .discount-div {
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 10px 0;
-  }
+.discount-div {
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px 0;
+}
 
 .products label {
-    font-size: 1.5rem;
-    margin-left: 40px;
+  font-size: 1.5rem;
+  margin-left: 40px;
 }
 
 .title {
-    font-size: 1.1rem;
-  }
+  font-size: 1.1rem;
+}
 
-  h2 {
-    font-size: 2rem;
-  }
+h2 {
+  font-size: 2rem;
+}
 
 .contact-form input {
-    min-height: 60px;
+  min-height: 60px;
 }
 
 .credit-card,
 .invoice-details {
-    width: 460px;
-    height: auto;
+  width: 460px;
+  height: auto;
 }
 
 #logoimg {
-    width: 200px;
-    height: 200px;
-  }
-  
-  .contact {
-    padding-top: 60px;
-    font-size: 1.1rem;
-  }
+  width: 200px;
+  height: 200px;
+}
+
+.contact {
+  padding-top: 60px;
+  font-size: 1.1rem;
+}
