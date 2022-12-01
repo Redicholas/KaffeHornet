@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="">
+    <meta name="author" content="Tittie, Nicholas, Liza">
     <meta name="robots" content="index, follow">
     <meta name="description" content="kaffeshop">
     <meta name="keywords" content="kaffeshop, kaffemuggar, kaffemaskiner, kaffebönor, rustik">
-    <meta property="og:title" content="Kaffehörnet kaffeshop">
+    <meta property="og:title" content="Kaffehörnet">
     <meta property="og:type" content="webshop">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -40,6 +40,12 @@
       <span class="material-symbols-outlined"> local_shipping </span>
       <button id="closePopup">Ok</button>
     </section>
+
+    <aside class="mini-basket hidden" id="miniBasket">
+      <span class="material-symbols-outlined"> shopping_cart </span>
+      <span id="numberOfProductsInMiniBasket"></span>
+      <span id="totalPriceInMiniBasket"></span>
+    </aside>
 
     <section class="products" id="products">
       <h2>Våra Produkter</h2>
@@ -182,6 +188,8 @@
         </form>
       </div>
 
+      <!-- ************ Val av betalsätt ************* -->
+
       <div class="payment-section">
         <h2>Betalsätt</h2>
         <hr>
@@ -197,8 +205,6 @@
                 Kort: <input type="radio" id="paymentType_card" name="payment-option">
               </label>
             </form>
-
-            <!-- ****** Kort-formulär ****** -->
           </div>
           
           <!--Formulär med personnr för faktura-->
@@ -216,6 +222,8 @@
               <button type="submit" class="invoice-btn" disabled>Bekräfta</button>
             </div>
           </form>
+
+          <!-- ******************* Formulär för kort *******************-->
 
           <form class="credit-card" id="creditCard">
             <div class="form-header">
@@ -247,15 +255,15 @@
                 </div>
                 <div class="year">
                   <select name="Year">
-                    <option value="2016">2019</option>
-                    <option value="2017">2020</option>
-                    <option value="2018">2021</option>
-                    <option value="2019">2022</option>
-                    <option value="2020">2023</option>
-                    <option value="2021">2024</option>
-                    <option value="2022">2025</option>
-                    <option value="2023">2026</option>
-                    <option value="2024">2027</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                    <option value="2027">2027</option>
                   </select>
                 </div>
               </div>
@@ -275,6 +283,8 @@
               <button type="submit" class="card-btn">Använd kort</button>
             </div>
           </form>
+
+          <!-- Checkboxar för GDPR och nyhetsbrev -->
           <div class="checkBoxes">
             <label class="newsletter">
               Ja tack!<br>
@@ -287,6 +297,8 @@
               <input type="checkbox" id="personalData" />
             </label>
           </div>
+
+          <!-- Knapparna för att rensa beställning och slutföra beställning -->
           <div class="btn-section">
             <button id="buy-button" disabled>Skicka beställning</button>
             <button id="eraseBtn">Rensa Beställning</button>
@@ -294,6 +306,7 @@
         </div>
       </div>
     </section>
+    
     <footer>
       <div class="logo">
         <img id='logoimg' src="img/logo.png" alt="" width="250" height="250">
