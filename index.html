@@ -25,8 +25,8 @@
   </head>
 
   <body>
-    <div class="landing-page">
-      <h1>
+    <div class="landing-page" id="landing-page">
+      <h1 id="landing-page-title">
         Välkommen till <br />
         KaffeHörnet
       </h1>
@@ -131,56 +131,64 @@
           <h2>Dina uppgifter</h2>
           <hr />
           <div class="first-name">
-            <label>Förnamn:<span>*</span>
+            <label
+              >Förnamn:<span>*</span>
               <span id="name-error"></span>
-              <input type="text" id="fname" required>
+              <input type="text" id="fname" required />
             </label>
           </div>
 
           <div class="last-name">
-            <label>Efternamn:<span>*</span>
+            <label
+              >Efternamn:<span>*</span>
               <span id="lastname-error"></span>
-              <input type="text" id="lname" required><br>
+              <input type="text" id="lname" required /><br />
             </label>
           </div>
 
           <div class="customer-adress">
-            <label>Adress:<span>*</span>
+            <label
+              >Adress:<span>*</span>
               <span id="adress-error"></span>
-              <input type="text" id="adress" required>
+              <input type="text" id="adress" required />
             </label>
           </div>
 
           <div class="zip">
-            <label>Postnummer:<span>*</span>
+            <label
+              >Postnummer:<span>*</span>
               <span id="zip-error"></span>
-              <input type="number" id="zip" required>
+              <input type="number" id="zip" required />
             </label>
           </div>
 
           <div class="city">
-            <label>Postort:<span>*</span>
+            <label
+              >Postort:<span>*</span>
               <span id="city-error"></span>
-              <input type="text" id="city" required>
+              <input type="text" id="city" required />
             </label>
           </div>
 
           <div class="portcode">
-            <label>Portkod:
+            <label
+              >Portkod:
               <span></span>
-              <input type="number" id="portcode">
+              <input type="number" id="portcode" />
             </label>
           </div>
 
           <div class="phone">
-            <label>Mobilnr:<span>*</span>
+            <label
+              >Mobilnr:<span>*</span>
               <span id="phone-error"></span>
-              <input type="tel" id="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
+              <input type="tel" id="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required />
             </label>
           </div>
 
           <div class="customer-email">
-            <label>Email:<span>*</span>
+            <label
+              >Email:<span>*</span>
               <span id="email-error"></span>
               <input type="email" id="email" required />
             </label>
@@ -192,21 +200,21 @@
 
       <div class="payment-section">
         <h2>Betalsätt</h2>
-        <hr>
+        <hr />
         <div class="payment-type">
           <div class="payment-choice">
             <form class="invoice">
               <label for="paymentType_invoice" class="payment">
-                Faktura: <input type="radio" id="paymentType_invoice" name="payment-option" checked>
+                Faktura: <input type="radio" id="paymentType_invoice" name="payment-option" checked />
               </label>
-              <br>
-              <hr>
+              <br />
+              <hr />
               <label for="paymentType_card" class="payment">
-                Kort: <input type="radio" id="paymentType_card" name="payment-option">
+                Kort: <input type="radio" id="paymentType_card" name="payment-option" />
               </label>
             </form>
           </div>
-          
+
           <!--Formulär med personnr för faktura-->
           <form class="invoice-details" id="invoice">
             <div class="payment-body">
@@ -216,7 +224,8 @@
               <div class="invoice-info">
                 <p>Ange dina uppgifter för att verifiera din identitet och slutföra ditt köp</p>
               </div>
-              <label>Personnummer:<span>*</span><br><span id="personalNumber-Error"></span>
+              <label
+                >Personnummer:<span>*</span><br /><span id="personalNumber-Error"></span>
                 <input id="personalNumber" type="number" pattern="[0-9]{6}-[0-9]{4}" placeholder="YYMMDDXXXX" />
               </label>
               <button type="submit" class="invoice-btn" disabled>Bekräfta</button>
@@ -233,7 +242,7 @@
               <!-- Betalkortsnummer -->
               <div class="card-number">
                 <span id="cardNrError"></span>
-                <input id="cardNr" type="number" placeholder="Betalkortsnummer" required>
+                <input id="cardNr" type="number" placeholder="Betalkortsnummer" required />
               </div>
               <!-- Utgångsdatum för kortet -->
               <div class="date-field">
@@ -271,10 +280,10 @@
               <!-- Cvv  -->
               <div class="card-verification">
                 <div class="cvv-input">
-                  <input id="cvv" type="number" placeholder="CVV" required>
+                  <input id="cvv" type="number" placeholder="CVV" required />
                 </div>
                 <div class="cvv-details">
-                  <p>3 sista siffrorna<br>på kortets baksida</p>
+                  <p>3 sista siffrorna<br />på kortets baksida</p>
                   <span id="cvvError"></span>
                 </div>
               </div>
@@ -287,7 +296,7 @@
           <!-- Checkboxar för GDPR och nyhetsbrev -->
           <div class="checkBoxes">
             <label class="newsletter">
-              Ja tack!<br>
+              Ja tack!<br />
               Börja skicka nyhetsbrev till mig
               <input type="checkbox" id="newsLetter" checked />
             </label>

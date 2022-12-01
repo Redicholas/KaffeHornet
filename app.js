@@ -796,9 +796,6 @@ function orderTimeOut() {
   }
 }
 
-
-// *********************************
-
 renderProducts();
 checkDiscountBtn.addEventListener('click', checkDiscountCode);
 buyBtn.addEventListener('click', placeOrder);
