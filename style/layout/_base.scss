@@ -20,13 +20,9 @@ body {
 }
 
 section {
-  padding: 2rem;
-  max-width: 600px;
-  margin: 0 auto;
-
   h2 {
     text-align: center;
-    margin-bottom: 5rem;
+    margin: 3rem 0;
   }
 }
 
@@ -39,6 +35,7 @@ section {
   box-shadow: 0 0 10px black;
   position: fixed;
   top: 20vh;
+  padding: 20px;
   left: 20vw;
   z-index: 10;
   display: flex;
@@ -67,15 +64,14 @@ section {
   .product-confirmation-display {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    border-bottom: 1px solid b
+    justify-content: space-around;
+    border-bottom: 1px solid black;
   }
 
   .product-confirmation-display-price {
     margin-top: 1rem;
   }
 }
-
 
 .mini-basket {
   height: 75px;
@@ -124,13 +120,13 @@ section {
   }
 
   a {
-    padding: 1rem 2rem;
+    padding: 1rem 1.7rem;
     background: $col-dark-brown;
     border-radius: 2.5rem;
-    border: 3px solid $col-beige;
+    border: 2px solid $col-beige;
     position: absolute;
-    bottom: 3rem;
-    right: 3rem;
+    bottom: 10px;
+    right: 10px;
     color: $col-light;
     text-decoration: none;
     font-size: 1.3rem;
@@ -139,17 +135,17 @@ section {
 
 .products {
   .product-grid {
-    margin-top: 1rem;
+    padding: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    gap: 10px 10px;
+    gap: 25px 10px;
     place-items: center;
   }
 
   .product-card {
-    height: 20rem;
-    width: 13rem;
+    height: 22rem;
+    width: 12rem;
     background: $col-light;
     border-radius: 1rem;
     overflow: hidden;
@@ -157,7 +153,7 @@ section {
     .product-info {
       display: flex;
       flex-direction: column;
-      justify-content: space-evenly;
+      justify-content: space-between;
       height: 50%;
       padding: 0.5rem;
 
@@ -206,10 +202,15 @@ section {
 }
 
 .basket {
-  max-width: 600px;
+  background-color: $col-light;
+  border: 1px solid $col-dark-brown;
+  border-radius: 6px;
+  margin: 20px;
+  padding: 1rem;
 
   h2 {
     text-align: center;
+    margin-bottom: 2.2rem;
   }
 
   button {
@@ -230,35 +231,67 @@ section {
   }
 
   .basket-bottom {
+    font-size: 0.9rem;
+    /*
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end*/
+    
+  }
+
+  .price-display :nth-child(3){
+    font-size: 1.2rem;
+    text-decoration: underline;
   }
 
   .message {
+    position: relative;
     color: $col-accent-dark;
     text-align: center;
-    font-size: 1.5rem;
-    margin-top: 1rem;
+    font-size: 1rem;
   }
 
   .discount-info {
-    margin-bottom: 1rem;
+    position: relative;
     font-size: 0.9rem;
+    bottom: 10px;
+    padding: 20px 5px;
+    border: 1px solid black;
+   
+  }
+
+  .discount {
+    position: relative;
+    display: flex;
+    flex-direction: column;
   }
 
   .discount-code {
-    width: 230px;
-    margin: 1rem;
+    margin-right: 0.5rem;
+    padding: 0.3rem;
+    border-radius: 6px;
+    border: 1px solid black;
   }
 
   .buy-btn {
-    margin-top: 5rem;
-    padding: 1rem 3rem;
+    position: relative;
+    padding: 0.6rem 2rem;
 
     a {
       text-decoration: none;
       color: $col-light;
     }
+  }
+
+  #checkDiscountBtn {
+    position: relative;
+    height: 40px;
+    margin-top: 20px;
+  }
+
+  #clearBasketBtn{
+    position: relative;
+    padding: 0.6rem;
+
   }
 
   .item {
@@ -312,6 +345,30 @@ section {
   }
 }
 
+.discount-input {
+  display: flex;
+  left: 2rem;
+  margin-bottom: 20px;
+}
+
+.discount-div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10px 0;
+  padding: 20px;
+}
+
+.basket-btn {
+  display: flex;
+  justify-content: space-around;
+}
+
+.products label {
+  margin-left: 20px;
+}
+
 #form span,
 #invoice span,
 #creditCard span {
@@ -336,10 +393,11 @@ section {
 
 .customer-info {
   display: flex;
+  margin-top: 1.25rem;
   flex-direction: column;
-  text-align: center;
-  width: 100vw;
   color: $col-black;
+  padding: 0;
+  margin: 20px;
 }
 
 .customer-email {
@@ -354,15 +412,17 @@ section {
 .customer-info h2 {
   margin: 1.25rem 0;
   padding: 1rem;
+  color: $col-dark-brown;
 }
 
 .contact-form {
   text-align: left;
   padding: 0.625rem;
-  border: 1px solid black;
+  border: 1px solid $col-dark-brown;
   border-radius: 6px;
   min-height: 25vh;
-  min-width: 380px;
+  width: 100%;
+  background-color: $col-light;
 }
 
 .contact-form input {
@@ -411,27 +471,20 @@ section {
   font-size: 1.2rem;
 }
 
-#paymentType_invoice {
+#paymentType_invoice, #paymentType_card {
   position: relative;
   left: -60px;
   height: 20px;
   top: -25px;
 }
-
-#paymentType_card {
-  position: relative;
-  left: -60px;
-  height: 20px;
-  top: -25px;
-}
-
 
 .payment-section {
-  border: 1px solid black;
+  border: 1px solid $col-dark-brown;
   border-radius: 6px;
   min-height: 30vh;
-  min-width: 380px;
+  width: 100%;
   margin-top: 1.25rem;
+  background-color: $col-light;
 }
 
 /* Formulär personnr faktura */
@@ -453,7 +506,7 @@ section {
   margin: 80px auto 30px;
   border: 1px solid #ddd;
   border-radius: 6px;
-  background-color: #fff;
+  background-color: $col-white;
   box-shadow: 1px 2px 3px 0 rgba(0, 0, 0, .10);
   display: none;
 }
@@ -574,4 +627,33 @@ section {
 .btn-section {
   display: flex;
   flex-direction: column;
+}
+
+footer {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: $col-black;
+  color: $col-light;
+}
+
+footer a {
+  color: $col-accent-light;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+#logoimg {
+  width: 150px;
+  height: 150px;
+}
+
+.contact {
+  padding-top: 30px;
+  font-weight: 100;
+  font-size: 1rem;
 }

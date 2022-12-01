@@ -1,4 +1,17 @@
 @import 'modern-css-reset';
-@import 'layout/base';
-@import 'layout/tablet';
-@import 'layout/desktop';
+
+
+/* styling för mobil */
+@media screen and (min-width: 340px) {
+    @import 'layout/base';
+}
+
+/*styling för tablet*/
+@media screen and (min-width: 650px) {
+    @import 'layout/tablet';
+}
+
+/*styling för desktop*/
+@media screen and (min-width: 1024px) {
+    @import 'layout/desktop';
+}
