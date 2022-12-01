@@ -214,10 +214,6 @@ function renderBasket() {
   totalPrice = 0;
 
   for (let i = 0; i < products.length; i += 1) {
-    productPriceDisplay.innerHTML = Math.round(totalPrice);
-    shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
-    totalPriceDisplay.innerHTML = totalPrice + shippingPrice;
-
     totalPricePerProduct = products[i].price * products[i].amount;
     productAmount += products[i].amount;
 
@@ -226,6 +222,9 @@ function renderBasket() {
       totalPriceDisplay.innerHTML = Math.round(totalPrice + shippingPrice);
     }
     totalPrice += totalPricePerProduct;
+    productPriceDisplay.innerHTML = Math.round(totalPrice);
+    shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
+    totalPriceDisplay.innerHTML = totalPrice + shippingPrice;
 
     if (products[i].amount > 0) {
       basketGrid.innerHTML += `
