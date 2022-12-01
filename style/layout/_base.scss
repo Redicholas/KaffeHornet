@@ -160,18 +160,23 @@ section {
 
     .image {
       .btnHolder {
-        width: 100%;
+        width: 95%;
         display: flex;
         justify-content: space-between;
+        margin: 0 0.3rem;
         position: relative;
-        bottom: 35px;
+        bottom: 95px;
 
         .imgBtn {
-          height: 35px;
-          width: 35px;
-          background: #4350467d;
+          height: 25px;
+          width: 25px;
           border-radius: 100%;
           border: none;
+          background: #3f2d2193;
+
+          i {
+            color: $col-light;
+          }
         }
       }
     }

@@ -405,8 +405,8 @@ function renderProducts() {
                 alt="${sortedProducts[i].img[1].alt}"
               />
               <div class="btnHolder">
-                <button id="prevImg-${i}" class="prevImg imgBtn"> < </button>         
-                <button id="nextImg-${i}" class="nextImg imgBtn"> > </button>
+                <button id="prevImg-${i}" class="prevImg imgBtn"> <i class="fa-solid fa-chevron-left"></i> </button>         
+                <button id="nextImg-${i}" class="nextImg imgBtn"> <i class="fa-solid fa-chevron-right"></i> </button>
               </div>
           </div>
             <div class="product-info">
