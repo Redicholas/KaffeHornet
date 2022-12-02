@@ -35,7 +35,9 @@ GitHub för versionshantering</p>
 
 <hr>
 <h2> Lighthouserapporter </h2>
+<p>För mobil</p>
 <img src="screenshots/lighthouse-mobil.png">
+<p>För dator</p>
 <img src="screenshots/lighthouse-dator.png">
 
 
