@@ -25,3 +25,15 @@ GitHub för versionshantering</p>
 <img src="screenshots/Screenshot 2022-12-02 at 15.15.02.png">
 
 <hr>
+
+<h2> Valideringsrapporter </h2>
+<p>Här fick vi en massa info-meddelande om att vi inte behöver / i självstängande taggar. Något vi behöver skriva in i ES-lint</p>
+<img src="screenshots/validering-html.png">
+<img src="screenshots/validering-css.png">
+
+<hr>
+<h2> Lighthouserapporter </h2>
+<img src="screenshots/lighthouse-mobil.png">
+<img src="screenshots/lighthouse-dator.png">
+
+
