@@ -163,7 +163,7 @@ const products = [
         alt: 'Spegelvänd bild på en franskpress med kaffe och en kaffekopp brevid',
       },
     ],
-    desc: 'Den klassiska Franskpressen går alltid hem',
+    desc: 'En franskpress går alltid hem',
     price: 199,
     amount: 0,
     category: 'Bryggare',
@@ -203,7 +203,7 @@ const discountCode = document.querySelector('#discountCode');
 const checkDiscountBtn = document.querySelector('#checkDiscountBtn');
 const invoiceLabel = document.querySelector('#invoiceLabel');
 const invoiceOption = document.querySelector('#paymentType_invoice');
-const paymentSection = document.querySelector('#payment-section')
+const paymentSection = document.querySelector('#payment-section');
 
 const miniBasket = document.querySelector('#miniBasket');
 const numberOfProductsInMiniBasket = document.querySelector('#numberOfProductsInMiniBasket');
@@ -280,13 +280,14 @@ function renderBasket() {
     discountMessage.innerHTML += 'Gratis frakt!' + '<br />';
   }
 
-//Lucia
-function lucia() {
-  if(date.getDate() === 13 && month === 11) {
-    discountMessage.innerHTML += 'Glad lucia! Vi på Kaffe Hörnan bjuder idag på en gratis luciakaffe vid varje beställning!' + '<br />';
+  //Lucia
+  function lucia() {
+    if (date.getDate() === 13 && month === 11) {
+      discountMessage.innerHTML +=
+        'Glad lucia! Vi på Kaffe Hörnan bjuder idag på en gratis luciakaffe vid varje beställning!' + '<br />';
+    }
   }
-}
-lucia()
+  lucia();
 
   const addBtn = document.querySelectorAll('.button-add');
   addBtn.forEach(btn => {
@@ -304,27 +305,28 @@ lucia()
   } else {
     miniBasket.classList.add('hidden');
   }
-  
+
   //Monday discount
-  if(day === 1 && hour < 10) {
+  if (day === 1 && hour < 10) {
     discountMessage.innerHTML += 'Måndagsrabatt: 10 % på hela beställningen' + '<br />';
     productPriceDisplay.innerHTML = Math.round(totalPrice * 0.9);
     shippingPriceDisplay.innerHTML = Math.round(shippingPrice * 0.9);
     totalPriceDisplay.innerHTML = Math.round((totalPrice + shippingPrice) * 0.9);
   }
-  
+
   //Biweekly tuesday discount
-  if(weekNumber % 2 === 0 && date.getDay() === 2 && totalPrice > 25) {
-    discountMessage.innerHTML += 'Lägg din beställning idag och få 25 kr rabatt (gäller endast vid beställningar över 25 kr)!' + '<br />';
-    totalPriceDisplay.innerHTML = Math.round((totalPrice + shippingPrice) - 25);
+  if (weekNumber % 2 === 0 && date.getDay() === 2 && totalPrice > 25) {
+    discountMessage.innerHTML +=
+      'Lägg din beställning idag och få 25 kr rabatt (gäller endast vid beställningar över 25 kr)!' + '<br />';
+    totalPriceDisplay.innerHTML = Math.round(totalPrice + shippingPrice - 25);
   }
-  
+
   //Invoice option removed for orders > 800
   if (Math.round(totalPrice + shippingPrice) > 800) {
     invoiceLabel.innerHTML = '';
-    invoiceOption.style.display = "none";
+    invoiceOption.style.display = 'none';
   }
-/*   else {
+  /*   else {
     paymentSection.style.display = "block"
   } */
 }
@@ -442,7 +444,7 @@ function renderProducts() {
     let adjustedPrice = sortedProducts[i].price;
 
     //Weekend price
-    if((day === 5 && hour > 15) || day === 6 || day === 0 || (day === 1 && hour < 3)) {
+    if ((day === 5 && hour > 15) || day === 6 || day === 0 || (day === 1 && hour < 3)) {
       adjustedPrice = Math.round(adjustedPrice * 1.15);
     }
 
@@ -466,8 +468,12 @@ function renderProducts() {
                 alt="${sortedProducts[i].imgs[1].alt}"
               />
               <div class="btnHolder">
-              <button aria-label="next image" id="prevImg-${sortedProducts[i].productID-1}" class="prevImg imgBtn"> <i class="fa-solid fa-chevron-left"></i> </button>         
-              <button aria-label="previous image" id="nextImg-${sortedProducts[i].productID-1}" class="nextImg imgBtn"> <i class="fa-solid fa-chevron-right"></i> </button>
+              <button aria-label="next image" id="prevImg-${
+                sortedProducts[i].productID - 1
+              }" class="prevImg imgBtn"> <i class="fa-solid fa-chevron-left"></i> </button>         
+              <button aria-label="previous image" id="nextImg-${
+                sortedProducts[i].productID - 1
+              }" class="nextImg imgBtn"> <i class="fa-solid fa-chevron-right"></i> </button>
               </div>
           </div>
             <div class="product-info">
@@ -476,9 +482,9 @@ function renderProducts() {
                 <p>${sortedProducts[i].desc}</p>
                     <div class="product-selection">
                         <p class="grinch">${adjustedPrice}kr</p>
-                        <button class="button-remove" data-id="${sortedProducts[i].productID-1}">-</button>
+                        <button class="button-remove" data-id="${sortedProducts[i].productID - 1}">-</button>
                         <p>${sortedProducts[i].amount}</p>
-                        <button class="button-add" data-id="${sortedProducts[i].productID-1}">+</button>
+                        <button class="button-add" data-id="${sortedProducts[i].productID - 1}">+</button>
                     </div>
             </div>
         </div>
@@ -507,8 +513,8 @@ function renderProducts() {
   renderBasket();
 }
 
-const priceRangeSlider = document.querySelector("#priceRange");
-const currentRangeValue = document.querySelector("#currentRangeValue");
+const priceRangeSlider = document.querySelector('#priceRange');
+const currentRangeValue = document.querySelector('#currentRangeValue');
 
 let sortedProducts = products;
 let filteredProductsInPriceRange = [...products];
@@ -518,7 +524,7 @@ function changePriceRange() {
   currentRangeValue.innerHTML = currentPrice;
 
   filteredProductsInPriceRange = sortedProducts.filter(products => products.price <= currentPrice);
-  console.log(filteredProductsInPriceRange)
+  console.log(filteredProductsInPriceRange);
   renderProducts();
 }
 
@@ -628,9 +634,9 @@ function christmas() {
     title.style.paddingTop = '0';
     title.style.borderRadius = '2.5rem';
     title.style.border = '3px solid #dcbfa1';
-    productPriceDisplay.style.color = "red";
-    shippingPriceDisplay.style.color = "red";
-    totalPriceDisplay.style.color = "red";
+    productPriceDisplay.style.color = 'red';
+    shippingPriceDisplay.style.color = 'red';
+    totalPriceDisplay.style.color = 'red';
   }
 }
 
@@ -731,7 +737,6 @@ function validateName() {
     fNameIsOk = false;
     nameError.innerHTML = formMsg;
     nameError.removeAttribute('hidden', '');
-
   } else {
     fNameIsOk = true;
     nameError.innerHTML = '<i class="fa-solid fa-check"></i>';
@@ -925,19 +930,19 @@ function resetOrder() {
   validateEmail();
 
   nameError.setAttribute('hidden', '');
-  lastNameError.setAttribute('hidden', ''); 
-  adressError.setAttribute('hidden', ''); 
-  zipError.setAttribute('hidden', ''); 
+  lastNameError.setAttribute('hidden', '');
+  adressError.setAttribute('hidden', '');
+  zipError.setAttribute('hidden', '');
   cityError.setAttribute('hidden', '');
   phoneError.setAttribute('hidden', '');
   emailError.setAttribute('hidden', '');
   personalNrError.setAttribute('hidden', '');
-  cardNrError.setAttribute('hidden', ''); 
-  cvvError.setAttribute('hidden', ''); 
+  cardNrError.setAttribute('hidden', '');
+  cvvError.setAttribute('hidden', '');
 }
 // ***********************************************************************
-//    Reset the forms and empty the basket after 15 min and gives the 
-//    user a alertmsg 
+//    Reset the forms and empty the basket after 15 min and gives the
+//    user a alertmsg
 // ***********************************************************************
 
 setInterval(orderTimeOut, 900000);
