@@ -569,7 +569,7 @@ function placeOrder() {
     popup.classList.remove('hidden');
     getDeliveryTime();
     productConfirmation();
-    // ToDo: Nollställ beställning och formulär
+    resetOrder();
   } else {
     popup.classList.add('hidden');
   }
@@ -663,12 +663,15 @@ function validateCardNr() {
   if (cardNrField.value.length === 0) {
     cardNrIsOk = false;
     cardNrError.innerHTML = '*';
+    cardNrError.removeAttribute('hidden', '');
   }
   if (cardNrField.value.length < 16 || cardNrField.value.length > 16) {
     cardNrIsOk = false;
     cardNrError.innerHTML = '16 siffror tack';
+    cardNrError.removeAttribute('hidden', '');
   } else {
     cardNrError.innerHTML = '<i class="fa-solid fa-check"></i>';
+    cardNrError.removeAttribute('hidden', '');
     cardNrIsOk = true;
   }
   activateOrderButton();
@@ -678,13 +681,16 @@ function validateCvv() {
   if (cvvField.value.length === 0) {
     cvvIsOk = false;
     cvvError.innerHTML = '*';
+    cvvError.removeAttribute('hidden', '');
   }
   if (cvvField.value.length < 3 || cvvField.value.length > 3) {
     cvvIsOk = false;
     cvvError.innerHTML = '3 siffror tack';
+    cvvError.removeAttribute('hidden', '');
   } else {
     cvvIsOk = true;
     cvvError.innerHTML = '<i class="fa-solid fa-check"></i>';
+    cvvError.removeAttribute('hidden', '');
   }
   activateOrderButton();
 }
@@ -693,9 +699,12 @@ function validateName() {
   if (firstNameField.value.length === 0) {
     fNameIsOk = false;
     nameError.innerHTML = formMsg;
+    nameError.removeAttribute('hidden', '');
+
   } else {
     fNameIsOk = true;
     nameError.innerHTML = '<i class="fa-solid fa-check"></i>';
+    nameError.removeAttribute('hidden', '');
   }
   activateOrderButton();
 }
@@ -704,9 +713,11 @@ function validateLastName() {
   if (lastNameField.value.length === 0) {
     lNameIsOk = false;
     lastNameError.innerHTML = formMsg;
+    lastNameError.removeAttribute('hidden', '');
   } else {
     lNameIsOk = true;
     lastNameError.innerHTML = '<i class="fa-solid fa-check"></i>';
+    lastNameError.removeAttribute('hidden', '');
   }
   activateOrderButton();
 }
@@ -715,9 +726,11 @@ function validateAdress() {
   if (adressField.value.length === 0) {
     adressIsOk = false;
     adressError.innerHTML = formMsg;
+    adressError.removeAttribute('hidden', '');
   } else {
     adressIsOk = true;
     adressError.innerHTML = '<i class="fa-solid fa-check"></i>';
+    adressError.removeAttribute('hidden', '');
   }
   activateOrderButton();
 }
@@ -726,9 +739,11 @@ function validateZip() {
   if (zipCodeField.value.length === 0) {
     zipCodeIsOk = false;
     zipError.innerHTML = formMsg;
+    zipError.removeAttribute('hidden', '');
   } else {
     zipCodeIsOk = true;
     zipError.innerHTML = '<i class="fa-solid fa-check"></i>';
+    zipError.removeAttribute('hidden', '');
   }
   activateOrderButton();
 }
@@ -737,9 +752,11 @@ function validateCity() {
   if (cityField.value.length === 0) {
     cityIsOk = false;
     cityError.innerHTML = formMsg;
+    cityError.removeAttribute('hidden', '');
   } else {
     cityIsOk = true;
     cityError.innerHTML = '<i class="fa-solid fa-check"></i>';
+    cityError.removeAttribute('hidden', '');
   }
   activateOrderButton();
 }
@@ -748,13 +765,16 @@ function validatePhone() {
   if (phoneField.value.length === 0) {
     phoneIsOk = false;
     phoneError.innerHTML = formMsg;
+    phoneError.removeAttribute('hidden', '');
   }
   if (!phoneField.value.match(/^[0-9]{10}$/)) {
     phoneIsOk = false;
     phoneError.innerHTML = 'var god fyll i ett giltligt mobilnr';
+    phoneError.removeAttribute('hidden', '');
   } else {
     phoneIsOk = true;
     phoneError.innerHTML = '<i class="fa-solid fa-check"></i>';
+    phoneError.removeAttribute('hidden', '');
   }
   activateOrderButton();
 }
@@ -763,13 +783,16 @@ function validateEmail() {
   if (emailField.value.length === 0) {
     emailIsOk = false;
     emailError.innerHTML = formMsg;
+    emailError.removeAttribute('hidden', '');
   }
   if (!emailField.value.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
     emailIsOk = false;
     emailError.innerHTML = 'Ogiltlig mejl';
+    emailError.removeAttribute('hidden', '');
   } else {
     emailIsOk = true;
     emailError.innerHTML = '<i class="fa-solid fa-check"></i>';
+    emailError.removeAttribute('hidden', '');
   }
   activateOrderButton();
 }
@@ -778,13 +801,16 @@ function validatePersonalNumber() {
   if (personalNrField.value.length === 0) {
     personalNrIsOk = false;
     personalNrError.innerHTML = '*';
+    personalNrError.removeAttribute('hidden', '');
   }
   if (!personalNrField.value.match(/^(\d{6}|\d{8})[-|(\s)]{0,1}\d{4}$/)) {
     personalNrIsOk = false;
     personalNrError.innerHTML = '10 siffror tack';
+    personalNrError.removeAttribute('hidden', '');
   } else {
     personalNrIsOk = true;
     personalNrError.innerHTML = '<i class="fa-solid fa-check"></i>';
+    personalNrError.removeAttribute('hidden', '');
   }
   activateOrderButton();
 }
@@ -866,6 +892,17 @@ function resetOrder() {
   validateCity();
   validatePhone();
   validateEmail();
+
+  nameError.setAttribute('hidden', '');
+  lastNameError.setAttribute('hidden', ''); 
+  adressError.setAttribute('hidden', ''); 
+  zipError.setAttribute('hidden', ''); 
+  cityError.setAttribute('hidden', '');
+  phoneError.setAttribute('hidden', '');
+  emailError.setAttribute('hidden', '');
+  personalNrError.setAttribute('hidden', '');
+  cardNrError.setAttribute('hidden', ''); 
+  cvvError.setAttribute('hidden', ''); 
 }
 // ***********************************************************************
 //    Reset the forms and empty the basket after 15 min and gives the 

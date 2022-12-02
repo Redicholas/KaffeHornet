@@ -133,7 +133,7 @@
           <div class="first-name">
             <label
               >Förnamn:<span>*</span>
-              <span id="name-error"></span>
+              <span id="name-error" hidden></span>
               <input type="text" id="fname" required />
             </label>
           </div>
@@ -141,7 +141,7 @@
           <div class="last-name">
             <label
               >Efternamn:<span>*</span>
-              <span id="lastname-error"></span>
+              <span id="lastname-error" hidden></span>
               <input type="text" id="lname" required /><br />
             </label>
           </div>
@@ -149,7 +149,7 @@
           <div class="customer-adress">
             <label
               >Adress:<span>*</span>
-              <span id="adress-error"></span>
+              <span id="adress-error" hidden></span>
               <input type="text" id="adress" required />
             </label>
           </div>
@@ -157,7 +157,7 @@
           <div class="zip">
             <label
               >Postnummer:<span>*</span>
-              <span id="zip-error"></span>
+              <span id="zip-error" hidden></span>
               <input type="number" id="zip" required />
             </label>
           </div>
@@ -165,7 +165,7 @@
           <div class="city">
             <label
               >Postort:<span>*</span>
-              <span id="city-error"></span>
+              <span id="city-error" hidden></span>
               <input type="text" id="city" required />
             </label>
           </div>
@@ -181,7 +181,7 @@
           <div class="phone">
             <label
               >Mobilnr:<span>*</span>
-              <span id="phone-error"></span>
+              <span id="phone-error" hidden></span>
               <input type="tel" id="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required />
             </label>
           </div>
@@ -189,7 +189,7 @@
           <div class="customer-email">
             <label
               >Email:<span>*</span>
-              <span id="email-error"></span>
+              <span id="email-error" hidden></span>
               <input type="email" id="email" required />
             </label>
           </div>
@@ -225,7 +225,7 @@
                 <p>Ange dina uppgifter för att verifiera din identitet och slutföra ditt köp</p>
               </div>
               <label
-                >Personnummer:<span>*</span><br /><span id="personalNumber-Error"></span>
+                >Personnummer:<span>*</span><br /><span id="personalNumber-Error" hidden></span>
                 <input id="personalNumber" type="number" pattern="[0-9]{6}-[0-9]{4}" placeholder="YYMMDDXXXX" />
               </label>
               <button type="submit" class="invoice-btn" disabled>Bekräfta</button>
@@ -241,7 +241,7 @@
             <div class="payment-body">
               <!-- Credit card number -->
               <div class="card-number">
-                <span id="cardNrError"></span>
+                <span id="cardNrError" hidden></span>
                 <input id="cardNr" type="number" placeholder="Betalkortsnummer" required />
               </div>
               <!-- Exp date for card -->
@@ -284,7 +284,7 @@
                 </div>
                 <div class="cvv-details">
                   <p>3 sista siffrorna<br />på kortets baksida</p>
-                  <span id="cvvError"></span>
+                  <span id="cvvError" hidden></span>
                 </div>
               </div>
               <button type="submit" class="card-btn">Använd kort</button>
