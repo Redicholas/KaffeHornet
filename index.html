@@ -25,7 +25,7 @@
   </head>
 
   <body>
-    <button id="darkThemeBtn">
+    <button id="darkThemeBtn" aria-label="switch to dark mode">
       <i class="fa-solid fa-circle-half-stroke"></i>
     </button>
     <div class="landing-page" id="landing-page">
@@ -52,7 +52,7 @@
 
     <section class="products" id="products">
       <h2>Våra Produkter</h2>
-      <label for="sort">Sortera efter:</label>
+      <label for="sort-options">Sortera efter:</label>
       <select id="sort-options" name="sort-options" onChange="renderProducts()">
         <option value="standard">---</option>
         <option value="priceHigh">Pris: Högt till lågt</option>
@@ -65,14 +65,14 @@
       <br><br>
       <label>
         <span>Filtrera efter pris:</span><br>
-        <div class="sliderContainer">
+        <span class="sliderContainer">
           <span class="flex">
             <span>0 kr</span>
             <input type="range" min="0" max="700" value="700" id="priceRange" class="priceRange" step="10" />
             <span>700 kr</span>
           </span> <br>
           <span id="currentRangeValue">700</span> kr
-        </div>
+        </span>
       </label>
       <div class="product-grid" id="product-grid">
         <!-- Produkter renderas från JavaScripten -->
@@ -135,7 +135,7 @@
       </p>
       <div class="basket-btn">
         <button id="clearBasketBtn" onclick="clearBasket()">Rensa varukorgen</button>
-        <a href="#customerInfo"><button class="buy-btn">Köp</button></a>
+        <button class="buy-btn" disabled>Köp</button>
       </div>
     </section>
 
@@ -241,7 +241,7 @@
               </div>
               <label
                 >Personnummer:<span>*</span><br /><span id="personalNumber-Error" hidden></span>
-                <input id="personalNumber" type="number" pattern="[0-9]{6}-[0-9]{4}" placeholder="YYMMDDXXXX" />
+                <input id="personalNumber" type="text" pattern="[0-9]{6}-[0-9]{4}" placeholder="YYMMDDXXXX" />
               </label>
               <button type="submit" class="invoice-btn" disabled>Bekräfta</button>
             </div>
