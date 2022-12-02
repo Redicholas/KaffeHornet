@@ -8,7 +8,6 @@ $col-accent-light: #8db4a2;
 $col-black: #212427;
 
 .landing-page {
-
   h1 {
     padding-top: 5rem;
     font-size: 6rem;
@@ -19,18 +18,23 @@ $col-black: #212427;
   }
 }
 
+section {
+  max-width: 1000px;
+}
+
 .products {
   .product-grid {
-    padding: 3rem;
+    width: 1000px;
     margin-top: 20px;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
-    gap: 60px 10px;
+    gap: 20px 20px;
   }
 
   .product-card {
     height: 35rem;
-    width: 20rem;
+    width: 100%;
+    max-width: 30rem;
 
     .image {
       .btnHolder {
@@ -54,7 +58,7 @@ $col-black: #212427;
   Styling basket section
 *********************************** */
 .basket {
-  margin: 2rem 7rem 0;
+  margin: 2rem auto;
 
   .basket-bottom {
     font-size: 1.3rem;
@@ -70,6 +74,10 @@ $col-black: #212427;
     margin: 30px 0 30px 120px;
   }
 
+  .discount-input {
+    padding: 0;
+  }
+
   .discount-info {
     margin: 30px 100px;
     padding: 40px;
@@ -78,6 +86,11 @@ $col-black: #212427;
 
   .discount-code {
     padding: 0.4rem;
+  }
+
+  .basket-btn {
+    width: 770px;
+    margin: 0 auto;
   }
 
   .item {
@@ -102,7 +115,7 @@ $col-black: #212427;
 
 .customer-info {
   flex-direction: row;
-  margin: 2rem 7rem 0;
+  margin: 2rem auto;
 }
 
 .contact-form {

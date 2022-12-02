@@ -24,10 +24,14 @@ $col-black: #212427;
   }
 }
 
+section {
+  max-width: 600px;
+  margin: 1rem auto;
+}
+
 .products {
   .product-grid {
-    margin: 3rem;
-    
+    gap: 20px 100px;
   }
 
   .product-card {
@@ -46,7 +50,6 @@ $col-black: #212427;
    The basket section
 *********************************** */
 .basket {
-    margin: 3rem;
 
   .basket-bottom {
     position: relative;
@@ -117,31 +120,27 @@ $col-black: #212427;
     }
   }
 }
+
 /* ***********************************
    The discount-input 
 *********************************** */
 .discount-input {
-    padding: 1rem;
-  }
-  
-  .discount-div {
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 10px 0;
-  }
-  
+  padding: 1rem;
+}
+
+.discount-div {
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
 
 /* ***********************************
    The form with payment options
 *********************************** */
 
-.customer-info {
-    margin: 3rem;
-  }
-
 .products label {
   font-size: 1.5rem;
-  margin-left: 40px;
 }
 
 .title {

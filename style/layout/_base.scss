@@ -24,6 +24,9 @@ body.xmas .grinch {
 }
 
 section {
+
+  margin: 1rem 1rem;
+
   h2 {
     text-align: center;
     margin: 3rem 0;
@@ -144,7 +147,7 @@ section {
 
 .sliderContainer {
   margin-left: 40px;
-  width: 275px;
+  width: 30rem;
 }
 
 .priceRange {
@@ -173,17 +176,20 @@ section {
 
 .products {
   .product-grid {
-    margin-top: 20px;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    gap: 25px 10px;
+    gap: 10px 10px;
     place-items: center;
+    width: 100%;
+    margin: 0 auto;
   }
 
   .product-card {
     height: 21rem;
-    width: 11rem;
+    width: 100%;
+    max-width: 15rem;
     background: $col-light;
     border-radius: 1rem;
     overflow: hidden;
@@ -267,7 +273,6 @@ section {
   background-color: $col-light;
   border: 1px solid $col-dark-brown;
   border-radius: 6px;
-  margin: 10px;
   padding: 1rem;
 
   img {
@@ -413,7 +418,6 @@ section {
 
 .discount-input {
   display: flex;
-  left: 2rem;
   margin-bottom: 20px;
 }
 
@@ -422,25 +426,17 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 10px 0;
-  padding: 20px;
 }
 
 .basket-btn {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
-/* ***********************************
-   styling for the filtering
-*********************************** */
-.products label {
-  margin-left: 20px;
-}
 
 /* ***********************************
    Styling for error- and successmessage
-*********************************** */ 
+*********************************** */
 
 #form span,
 #invoice span,
@@ -474,7 +470,6 @@ section {
   flex-direction: column;
   color: $col-black;
   padding: 0;
-  margin: 10px;
 }
 
 .customer-email {
