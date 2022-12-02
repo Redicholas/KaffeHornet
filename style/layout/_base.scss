@@ -5,6 +5,7 @@ $col-gray-brown: #7e6e5f;
 $col-dark-brown: #3f2d21;
 $col-accent-dark: #435046;
 $col-accent-light: #8db4a2;
+$col-black: #212427;
 
 html {
   scroll-behavior: smooth;
@@ -18,15 +19,101 @@ body {
   color: $col-dark-brown;
 }
 
+body.xmas .grinch {
+  color: red;
+}
+
 section {
-  padding: 2rem;
-  max-width: 600px;
-  margin: 0 auto;
+
+  margin: 1rem 1rem;
 
   h2 {
     text-align: center;
-    margin-bottom: 5rem;
+    margin: 3rem 0;
   }
+}
+
+/* ***********************************
+   The popup with info when order is 
+   complete
+*********************************** */
+
+.popup {
+  width: 60vw;
+  min-height: 50vh;
+  border: 1px solid black;
+  border-radius: 1rem;
+  background: $col-light;
+  box-shadow: 0 0 10px black;
+  position: fixed;
+  top: 20vh;
+  padding: 20px;
+  left: 20vw;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  span {
+    font-size: 3rem;
+    text-align: center;
+    margin: 0;
+  }
+
+  button {
+    background: $col-dark-brown;
+    border: 1px solid $col-beige;
+    color: $col-light;
+    border-radius: 0.5rem;
+    border: none;
+  }
+
+  .product-confirmation-display {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-bottom: 1px solid black;
+  }
+
+  .product-confirmation-display-price {
+    margin-top: 1rem;
+  }
+}
+
+.mini-basket {
+  height: 75px;
+  width: 75px;
+  border-radius: 100%;
+  border: 1px solid $col-accent-dark;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  z-index: 15;
+
+  span {
+    z-index: 15;
+  }
+}
+
+#miniBasket .material-symbols-outlined {
+  position: fixed;
+  font-size: 3rem;
+  color: $col-light;
+  z-index: 10;
+}
+
+.hidden {
+  display: none;
 }
 
 .landing-page {
@@ -45,40 +132,97 @@ section {
   }
 
   a {
-    padding: 1rem 2rem;
+    padding: 1rem 1.7rem;
     background: $col-dark-brown;
     border-radius: 2.5rem;
-    border: 3px solid $col-beige;
+    border: 2px solid $col-beige;
     position: absolute;
-    bottom: 3rem;
-    right: 3rem;
+    bottom: 10px;
+    right: 10px;
     color: $col-light;
     text-decoration: none;
     font-size: 1.3rem;
   }
 }
 
+.sliderContainer {
+  margin-left: 40px;
+  width: 30rem;
+}
+
+.priceRange {
+  -webkit-appearance: none;
+  color: white;
+  background-color: $col-gray-brown;
+  height: 5px;
+  border-radius: 5px;
+  position: relative;
+  top: -5px;
+}
+
+.priceRange::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  pointer-events: auto;
+  background: $col-dark-brown;
+  cursor: pointer;
+}
+
+#currentRangeValue {
+  margin-left: 90px;
+}
+
 .products {
   .product-grid {
-    margin-top: 1rem;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     gap: 10px 10px;
     place-items: center;
+    width: 100%;
+    margin: 0 auto;
   }
 
   .product-card {
-    height: 20rem;
-    width: 13rem;
+    height: 25rem;
+    width: 100%;
+    max-width: 15rem;
     background: $col-light;
     border-radius: 1rem;
     overflow: hidden;
+    border: 1px solid black;
+    color: $col-dark-brown;
+
+    .image {
+      .btnHolder {
+        width: 95%;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 0.3rem;
+        position: relative;
+        bottom: 110px;
+
+        .imgBtn {
+          height: 25px;
+          width: 25px;
+          border-radius: 100%;
+          border: none;
+          background: #3f2d2193;
+
+          i {
+            color: $col-light;
+          }
+        }
+      }
+    }
 
     .product-info {
       display: flex;
       flex-direction: column;
-      justify-content: space-evenly;
+      justify-content: space-between;
       height: 50%;
       padding: 0.5rem;
 
@@ -91,6 +235,13 @@ section {
           border: 1px solid $col-beige;
           color: $col-light;
           border-radius: 0.5rem;
+          border: none;
+          padding: 2px 10px;
+          cursor: pointer;
+
+          &:hover {
+            background: $col-accent-light;
+          }
         }
       }
     }
@@ -102,16 +253,37 @@ section {
       img {
         height: 100%;
         width: 100%;
+        object-fit: cover;
+        object-position: 0 -40px;
       }
     }
   }
 }
 
+#rating3stars,
+#rating4stars,
+#rating5stars {
+  display: none;
+}
+
+.checked {
+  color: orange;
+}
+
 .basket {
-  max-width: 600px;
+  background-color: $col-light;
+  border: 1px solid $col-dark-brown;
+  color: $col-dark-brown;
+  border-radius: 6px;
+  padding: 1rem;
+
+  img {
+    border: 1px solid black;
+  }
 
   h2 {
     text-align: center;
+    margin-bottom: 2.2rem;
   }
 
   button {
@@ -119,6 +291,76 @@ section {
     border: 1px solid $col-beige;
     color: $col-light;
     border-radius: 0.5rem;
+    padding: 0.3rem 1rem;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      background: $col-accent-light;
+    }
+  }
+
+  .basket-bottom {
+    font-size: 0.9rem;
+  }
+
+  .price-display :nth-child(3) {
+    font-size: 1.2rem;
+    text-decoration: underline;
+  }
+
+  .message {
+    position: relative;
+    color: $col-accent-dark;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .discount-info {
+    position: relative;
+    font-size: 0.9rem;
+    margin-bottom: 40px;
+    padding: 20px 5px;
+    border: 1px solid black;
+
+  }
+
+  .discount {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .discount-code {
+    margin-right: 0.5rem;
+    padding: 0.3rem;
+    border-radius: 6px;
+    border: 1px solid black;
+  }
+
+  .buy-btn {
+    position: relative;
+    padding: 0.6rem 2rem;
+
+    a {
+      text-decoration: none;
+      color: $col-light;
+    }
+  }
+
+  #checkDiscountBtn {
+    position: relative;
+    height: 40px;
+    margin-top: 20px;
+  }
+
+  #clearBasketBtn {
+    position: relative;
+    padding: 0.6rem;
+
   }
 
   .item {
@@ -128,6 +370,7 @@ section {
     background: $col-light;
     border-radius: 0.8rem;
     padding: 0.5rem;
+    margin-bottom: 1rem;
 
     img {
       margin-right: 1rem;
@@ -171,28 +414,95 @@ section {
   }
 }
 
-.customer-info {
+/* ***********************************
+   Styling for the discount-input
+*********************************** */
+
+.discount-input {
   display: flex;
-  flex-direction: column;
-  text-align: center;
-  width: 100vw;
+  margin-bottom: 20px;
 }
 
-.customer-info h3 {
+.discount-div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.basket-btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+/* ***********************************
+   Styling for error- and successmessage
+*********************************** */
+
+#form span,
+#invoice span,
+#creditCard span {
+  color: red;
+  font-size: 1rem;
+}
+
+#cvvError {
+  position: relative;
+  left: -160px;
+  top: -60px;
+}
+
+#cardNrError {
+  position: relative;
+  top: 30px;
+}
+
+.fa-solid {
+  color: seagreen;
+}
+
+/* ***********************************
+   The form with customer info
+*********************************** */
+
+.customer-info {
+  display: flex;
+  margin-top: 1.25rem;
+  flex-direction: column;
+  color: $col-black;
+  padding: 0;
+}
+
+.customer-email {
+  margin-bottom: 30px;
+}
+
+.first-name,
+.last-name {
+  margin-top: 20px;
+}
+
+.customer-info h2 {
   margin: 1.25rem 0;
+  padding: 1rem;
+  color: $col-dark-brown;
 }
 
 .contact-form {
   text-align: left;
-  margin: auto;
   padding: 0.625rem;
-  border: 1px solid black;
-  max-width: 50rem;
+  border: 1px solid $col-dark-brown;
+  border-radius: 6px;
   min-height: 25vh;
+  width: 100%;
+  background-color: $col-light;
 }
 
 .contact-form input {
-  min-height: 30px;
+  min-height: 50px;
+  border-radius: 6px;
+  border: 1px solid black;
 }
 
 .first-name,
@@ -213,30 +523,13 @@ section {
 
 .customer-info input {
   width: 100%;
-  padding: 0.313rem;
+  padding: 0.613rem;
+  margin-top: 0.6rem;
 }
 
-.contact-form div {
-  margin-top: 0.625;
-}
-
-/* Knapparna fortsätt och avbryt */
-
-.btn-continue,
-.btn-cancel {
-  background-color: $col-dark-brown;
-  color: #fff;
-  position: relative;
-  top: 20px;
-  left: 120px;
-  padding: 5px 10px;
-}
-
-.btn-continue {
-  margin-right: 40px;
-}
-
-/* Välja Betalsätt */
+/* ***********************************
+   The form with payment options
+*********************************** */
 
 .invoice {
   margin-bottom: 50px;
@@ -247,37 +540,30 @@ section {
 }
 
 .payment {
-  position: relative;
-  left: 30px;
+  margin-left: 20px;
   font-size: 1.2rem;
 }
 
-#paymentType_invoice {
-  position: relative;
-  left: -60px;
-  top: 30px;
-  height: 20px;
-}
-
+#paymentType_invoice,
 #paymentType_card {
   position: relative;
-  left: -60px;
-  top: 30px;
+  left: -35px;
   height: 20px;
+  top: -33px;
 }
 
 .payment-section {
-  border: 1px solid black;
+  border: 1px solid $col-dark-brown;
+  border-radius: 6px;
   min-height: 30vh;
+  width: 100%;
   margin-top: 1.25rem;
+  background-color: $col-light;
 }
 
-/* Formulär personnr faktura */
-
-.invoice-details {
-  width: 80%;
-  margin: auto;
-}
+/* ***********************************
+   The forms for invoice and card
+*********************************** */
 
 .invoice-info {
   margin-top: 30px;
@@ -287,131 +573,192 @@ section {
   margin-bottom: 30px;
 }
 
-/* Kort-formulär */
-
 .credit-card,
 .invoice-details {
   width: 360px;
-  height: 400px;
-  margin: 80px auto 0;
+  min-height: 400px;
+  margin: 80px auto 30px;
   border: 1px solid #ddd;
   border-radius: 6px;
-  background-color: #fff;
-  box-shadow: 1px 2px 3px 0 rgba(0, 0, 0, 0.1);
+  background-color: $col-white;
+  box-shadow: 1px 2px 3px 0 rgba(0, 0, 0, .10);
+  display: none;
 }
 
 .form-header {
   height: 60px;
-  padding: 20px 30px 0;
+  padding: 20px 0;
   border-bottom: 1px solid #e1e8ee;
 }
 
-.form-body {
-  height: 340px;
-  padding: 30px 30px 20px;
+.payment-body {
+  padding: 0 30px;
 }
 
-/* Title */
 .title {
   font-size: 1.25rem;
-  margin: 0;
-  color: #5e6977;
+  text-align: center;
 }
 
-/* Common */
-.card-number input,
-.cvv-input input,
-.month select,
-.year select {
-  font-size: 1rem;
-  font-weight: 100;
-  line-height: 14px;
-}
-
-.card-number,
-.cvv-details,
-.cvv-input,
-.month select,
-.year select {
-  color: #86939e;
-}
-
-/* Card Number */
 .card-number input {
   width: 100%;
-  margin-bottom: 20px;
+  margin: 40px 0 30px 0;
   padding: 10px;
-  border: 2px solid #e1e8ee;
-  border-radius: 6px;
 }
 
-/* Date Field */
 .month select,
-.year select {
+.year select,
+.cvv-input input {
   width: 145px;
   margin-bottom: 20px;
   padding: 10px;
-  border: 2px solid #e1e8ee;
-  border-radius: 6px;
+  font-weight: 300;
 }
 
-.month select {
+.month select,
+.cvv-input input {
   float: left;
 }
 
 .year select {
   float: right;
-}
-
-/* Card Verification Field */
-.cvv-input input {
-  float: left;
-  width: 145px;
-  padding: 10px;
-  border: 2px solid #e1e8ee;
-  border-radius: 6px;
-  background: #fff;
 }
 
 .cvv-details {
+  margin-top: 15px;
   font-size: 0.8rem;
-  font-weight: 300;
   line-height: 16px;
   float: right;
-  margin-bottom: 45px;
 }
 
-.cvv-details p {
-  margin-top: 6px;
-}
-
-/* Buttons Section */
-.proceed-btn,
-.confirm-btn {
+/* ***********************************
+   The buttons for card and invoice
+*********************************** */
+.card-btn,
+.invoice-btn {
   cursor: pointer;
   font-size: 1.1rem;
   width: 100%;
   padding: 10px;
+  margin: 40px 0;
   border-color: transparent;
   border-radius: 6px;
-  margin-bottom: 10px;
   background: $col-dark-brown;
+  color: white;
 }
 
-.proceed-btn a,
-.confirm-btn a {
-  text-decoration: none;
-  color: #fff;
+.card-btn {
+  margin-top: 20px;
+  color: $col-light;
 }
 
-.confirm-btn {
-  margin-top: 50px;
+/* ***********************************
+  Styling for newletter and GDPR
+*********************************** */
+
+.checkBoxes {
+  display: flex;
+  flex-direction: column;
 }
 
-.buy-button {
+#personalData,
+#newsLetter {
   position: relative;
-  top: 30px;
-  padding: 10px 130px;
-  background-color: $col-dark-brown;
-  color: #fff;
+  display: inline;
+  height: 1.5rem;
+  width: 10%;
+  margin-left: 50px;
+}
+
+.newsletter,
+.personal-data {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+/* ***********************************
+   The buttons on the end of the page
+   for order and reset order
+*********************************** */
+#buy-button,
+#eraseBtn {
+  margin: 60px 40px 10px 40px;
+  padding: 20px 100px;
+  background-color: $col-accent-light;
+  color: $col-dark-brown;
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+}
+
+#eraseBtn {
+  position: relative;
+  padding: 10px;
+  width: 180px;
+  font-size: 1rem;
+  background-color: $col-accent-light;
+  color: $col-dark-brown;
+}
+
+.btn-section {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ***********************************
+   Styling for footer
+*********************************** */
+
+footer {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: $col-black;
+  color: $col-light;
+}
+
+footer a {
+  color: $col-accent-light;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+#logoimg {
+  width: 150px;
+  height: 150px;
+}
+
+.contact {
+  padding-top: 30px;
+  font-weight: 100;
+  font-size: 1rem;
+}
+
+/************* Dark mode styling**********
+****************************************** */
+
+.dark-mode {
+  background-color: $col-black;
+  color: $col-beige;
+}
+
+
+#darkThemeBtn{
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  width: 45px;
+  height: 45px;
+  z-index: 10;
+  top: 10px;
+  right: 10px;
+}
+
+.fa-circle-half-stroke {
+  font-size: 1.5rem;
+  color: #dcbfa1;
 }

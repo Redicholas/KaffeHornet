@@ -4,137 +4,262 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Tittie, Nicholas, Liza" />
+    <meta name="robots" content="index, follow" />
+    <meta name="description" content="kaffeshop" />
+    <meta name="keywords" content="kaffeshop, kaffemuggar, kaffemaskiner, kaffebönor, rustik" />
+    <meta property="og:title" content="Kaffehörnet" />
+    <meta property="og:type" content="webshop" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;300;500&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/6e63925041.js" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
     <link rel="stylesheet" href="style/style.css" />
-    <title>Kaffe Hörnet</title>
+
+    <title>KaffeHörnet</title>
   </head>
 
   <body>
-    <div class="landing-page">
-      <h1>
+    <button id="darkThemeBtn" aria-label="switch to dark mode">
+      <i class="fa-solid fa-circle-half-stroke"></i>
+    </button>
+    <div class="landing-page" id="landing-page">
+      <h1 id="landing-page-title">
         Välkommen till <br />
-        Kaffe Hörnet
+        KaffeHörnet
       </h1>
       <a href="#products">Kaffesugen?</a>
     </div>
 
+    <section class="popup hidden" id="popup">
+      <h1>Tack för att du handlade hos oss på KaffeHörnet!</h1>
+      <div id="orderConfirmation"></div>
+      <p id="deliveryTimeDisplay">Förväntad leveranstid och sånt</p>
+      <span class="material-symbols-outlined"> local_shipping </span>
+      <button id="closePopup">Ok</button>
+    </section>
+
+    <aside class="mini-basket hidden" id="miniBasket">
+      <span class="material-symbols-outlined"> shopping_cart </span>
+      <span id="numberOfProductsInMiniBasket"></span>
+      <span id="totalPriceInMiniBasket" class="tomten"></span>
+    </aside>
+
     <section class="products" id="products">
       <h2>Våra Produkter</h2>
-      <label for="sort">Sortera efter:</label>
-      <select name="sort">
-        <option value="rising">Pris: Stigande</option>
-        <option value="falling">Pris: Fallande</option>
-        <option value="name">Namn</option>
+      <label for="sort-options">Sortera efter:</label>
+      <select id="sort-options" name="sort-options" onChange="renderProducts()">
+        <option value="standard">---</option>
+        <option value="priceHigh">Pris: Högt till lågt</option>
+        <option value="priceLow">Pris: Lågt till högt</option>
+        <option value="nameAtoZ">Namn A-Ö</option>
+        <option value="nameZtoA">Namn Ö-A</option>
+        <option value="category">Kategori</option>
+        <option value="rating">Omdöme</option>
       </select>
+      <br><br>
+      <label>
+        <span>Filtrera efter pris:</span><br>
+        <span class="sliderContainer">
+          <span class="flex">
+            <span>0 kr</span>
+            <input type="range" min="0" max="700" value="700" id="priceRange" class="priceRange" step="10" />
+            <span>700 kr</span>
+          </span> <br>
+          <span id="currentRangeValue">700</span> kr
+        </span>
+      </label>
       <div class="product-grid" id="product-grid">
         <!-- Produkter renderas från JavaScripten -->
       </div>
     </section>
 
+    <div id="rating3stars">
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+    </div>
+
+    <div id="rating4stars">
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star"></span>
+    </div>
+
+    <div id="rating5stars">
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+    </div>
+
     <section class="basket">
       <h2>Varukorgen</h2>
+      <hr />
       <div id="basket-grid">
         <!-- Produkter renderas från JavaScripten -->
       </div>
-      <button onclick="clearBasket()">Rensa varukorgen</button>
+      <hr />
+      <div class="message">
+        <p id="discountMessage"></p>
+      </div>
+      <div class="discount-div">
+        <div class="discount-input">
+          <label class="discount">
+            Rabattkod:
+            <input type="text" id="discountCode" class="discount-code" />
+          </label>
+          <button id="checkDiscountBtn">Ok</button>
+        </div>
+        <div class="basket-bottom">
+          <div class="price-display">
+            <p>Belopp: <span id="productPriceDisplay"></span>kr</p>
+            <p>Frakt: <span id="shippingPriceDisplay"></span>kr</p>
+            <p>Totalt: <span id="totalPriceDisplay"></span>kr</p>
+          </div>
+        </div>
+      </div>
+      <p class="discount-info">
+        Köp minst 10 varor av en sort och få 10% rabatt på den sorten. <br />
+        Köp minst 15 varor och få gratis frakt!
+      </p>
+      <div class="basket-btn">
+        <button id="clearBasketBtn" onclick="clearBasket()">Rensa varukorgen</button>
+        <button class="buy-btn" disabled>Köp</button>
+      </div>
     </section>
 
-    <!-- Beställningsuppgifter -->
-    <section class="customer-info">
-      <h3>Dina uppgifter</h3>
+    <!-- Customer info inputs -->
+    <section class="customer-info" id="customerInfo">
       <div class="contact-form">
-        <form id="form" name="form" method="post" action="">
+        <form id="form">
+          <h2>Dina uppgifter</h2>
+          <hr />
           <div class="first-name">
-            <label for="fname">Förnamn:</label><br />
-            <input type="text" name="fname" required />
+            <label
+              >Förnamn:<span>*</span>
+              <span id="name-error" hidden></span>
+              <input type="text" id="fname" required />
+            </label>
           </div>
+
           <div class="last-name">
-            <label for="lname"> Efternamn:</label><br />
-            <input type="text" name="lname" required /><br />
+            <label
+              >Efternamn:<span>*</span>
+              <span id="lastname-error" hidden></span>
+              <input type="text" id="lname" required /><br />
+            </label>
           </div>
 
           <div class="customer-adress">
-            <label for="adress"> Adress:</label><br />
-            <input type="text" name="adress" required />
+            <label
+              >Adress:<span>*</span>
+              <span id="adress-error" hidden></span>
+              <input type="text" id="adress" required />
+            </label>
           </div>
 
           <div class="zip">
-            <label for="zip"> Postnummer:</label><br />
-            <input type="number" name="zip" required />
+            <label
+              >Postnummer:<span>*</span>
+              <span id="zip-error" hidden></span>
+              <input type="number" id="zip" required />
+            </label>
           </div>
 
           <div class="city">
-            <label for="city"> Postort:</label><br />
-            <input type="text" name="city" required />
+            <label
+              >Postort:<span>*</span>
+              <span id="city-error" hidden></span>
+              <input type="text" id="city" required />
+            </label>
           </div>
 
           <div class="portcode">
-            <label for="portcode"> Portkod:</label><br />
-            <input type="number" name="portcode" />
+            <label
+              >Portkod:
+              <span></span>
+              <input type="number" id="portcode" />
+            </label>
           </div>
 
           <div class="phone">
-            <label for="phone"> Mobilnr:</label><br />
-            <input type="number" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required />
+            <label
+              >Mobilnr:<span>*</span>
+              <span id="phone-error" hidden></span>
+              <input type="tel" id="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required />
+            </label>
           </div>
 
           <div class="customer-email">
-            <label for="email"> Email:</label><br />
-            <input type="email" name="email" required />
+            <label
+              >Email:<span>*</span>
+              <span id="email-error" hidden></span>
+              <input type="email" id="email" required />
+            </label>
           </div>
         </form>
-        <button class="btn-continue">Fortsätt</button>
-        <button class="btn-cancel">Avbryt</button>
       </div>
 
+      <!-- ************ Payment options ************* -->
+
       <div class="payment-section">
-        <h3>Betalsätt</h3>
+        <h2>Betalsätt</h2>
         <hr />
         <div class="payment-type">
           <div class="payment-choice">
             <form class="invoice">
-              <input type="radio" id="paymentType_invoice" name="payment-option" value="invoiceLetter" />
-              <label for="paymentType_invoice" class="payment">Faktura</label>
-              <br />
+              <label id="invoiceLabel" for="paymentType_invoice" class="payment">
+                Faktura: <input type="radio" id="paymentType_invoice" name="payment-option" checked />
+              </label>
               <br />
               <hr />
-              <input type="radio" id="paymentType_card" name="payment-option" value="card" />
-              <label for="paymentType_card" class="payment">Kort</label>
+              <label for="paymentType_card" class="payment">
+                Kort: <input type="radio" id="paymentType_card" name="payment-option" />
+              </label>
             </form>
-
-            <!-- ****** Kort-formulär ****** -->
           </div>
 
-          <!--Formulär med personnr för faktura-->
-          <form class="invoice-details">
-            <div class="form-body">
+          <!--Form for invoice option-->
+          <form class="invoice-details" id="invoice">
+            <div class="payment-body">
               <div class="form-header">
                 <h4 class="title">Verifiera din identitet</h4>
               </div>
               <div class="invoice-info">
                 <p>Ange dina uppgifter för att verifiera din identitet och slutföra ditt köp</p>
               </div>
-              <label for="">Personnummer:</label><br />
-              <input type="number" pattern="[0-9]{6}-[0-9]{4}" placeholder="YYMMDD-XXXX" />
-              <button type="submit" class="confirm-btn">
-                <a href="#">Bekräfta</a>
-              </button>
+              <label
+                >Personnummer:<span>*</span><br /><span id="personalNumber-Error" hidden></span>
+                <input id="personalNumber" type="text" pattern="[0-9]{6}-[0-9]{4}" placeholder="YYMMDDXXXX" />
+              </label>
+              <button type="submit" class="invoice-btn" disabled>Bekräfta</button>
             </div>
           </form>
 
-          <form class="credit-card">
+          <!-- ******************* Form for card option *******************-->
+
+          <form class="credit-card" id="creditCard">
             <div class="form-header">
               <h4 class="title">Betalkortsinformation</h4>
             </div>
-
-            <div class="form-body">
-              <!-- Betalkortsnummer -->
+            <div class="payment-body">
+              <!-- Credit card number -->
               <div class="card-number">
-                <input type="number" placeholder="Betalkortsnummer" required />
+                <span id="cardNrError" hidden></span>
+                <input id="cardNr" type="number" placeholder="Betalkortsnummer" required />
               </div>
-              <!-- Utgångsdatum för kortet -->
+              <!-- Exp date for card -->
               <div class="date-field">
                 <div class="month">
                   <select name="Month">
@@ -154,15 +279,15 @@
                 </div>
                 <div class="year">
                   <select name="Year">
-                    <option value="2016">2019</option>
-                    <option value="2017">2020</option>
-                    <option value="2018">2021</option>
-                    <option value="2019">2022</option>
-                    <option value="2020">2023</option>
-                    <option value="2021">2024</option>
-                    <option value="2022">2025</option>
-                    <option value="2023">2026</option>
-                    <option value="2024">2027</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                    <option value="2027">2027</option>
                   </select>
                 </div>
               </div>
@@ -170,23 +295,52 @@
               <!-- Cvv  -->
               <div class="card-verification">
                 <div class="cvv-input">
-                  <input type="number" placeholder="CVV" required />
+                  <input id="cvv" type="number" placeholder="CVV" required />
                 </div>
                 <div class="cvv-details">
                   <p>3 sista siffrorna<br />på kortets baksida</p>
+                  <span id="cvvError" hidden></span>
                 </div>
               </div>
-
-              <!-- Knappen Använd kort -->
-              <button type="submit" class="proceed-btn">
-                <a href="#">Använd kort</a>
-              </button>
+              <button type="submit" class="card-btn" disabled>Använd kort</button>
             </div>
           </form>
-          <button class="buy-button">Beställ</button>
+
+          <!-- Checkboxes for GDPR och newsletter -->
+          <div class="checkBoxes">
+            <label class="newsletter">
+              Ja tack!
+              Börja skicka<br> nyhetsbrev till mig
+              <input type="checkbox" id="newsLetter" checked />
+            </label>
+            <label class="personal-data">
+              Jag godkänner behandling<br />
+              av mina personuppgifter
+              <input type="checkbox" id="personalData" />
+            </label>
+          </div>
+
+          <!-- Buttons to complete order and reset order -->
+          <div class="btn-section">
+            <button id="buy-button" disabled>Skicka beställning</button>
+            <button id="eraseBtn">Rensa Beställning</button>
+          </div>
         </div>
       </div>
     </section>
+
+    <footer>
+      <div class="logo">
+        <img id="logoimg" src="img/logo.png" alt="The branch logo with a coffeecup and the text kaffehörnet " width="250" height="250" />
+      </div>
+      <div class="contact">
+        <address>
+          Adress: Lilla Torg 1, Malmö<br />
+          Telefon: 040-18 44 01<br />
+          E-post: <a href="mailto:kaffehornet@gmail.com">kaffehornet@gmail.com</a>
+        </address>
+      </div>
+    </footer>
     <script src="app.js"></script>
   </body>
 </html>

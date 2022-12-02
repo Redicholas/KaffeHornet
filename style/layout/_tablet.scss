@@ -1,0 +1,184 @@
+$col-white: #fff;
+$col-light: #f0e4d4;
+$col-beige: #dcbfa1;
+$col-gray-brown: #7e6e5f;
+$col-dark-brown: #3f2d21;
+$col-accent-dark: #435046;
+$col-accent-light: #8db4a2;
+$col-black: #212427;
+
+.landing-page {
+  background: url('../img/rykande-gott-kaffe-kaffehornan.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+
+  h1 {
+    font-size: 5rem;
+  }
+
+  a {
+    bottom: 40px;
+    right: 80px;
+  }
+}
+
+section {
+  max-width: 600px;
+  margin: 1rem auto;
+}
+
+.products {
+  .product-grid {
+    gap: 20px 100px;
+  }
+
+  .product-card {
+    height: 21rem;
+    width: 15rem;
+
+    .image {
+      .btnHolder {
+        bottom: 95px
+      }
+    }
+  }
+}
+
+/* ***********************************
+   The basket section
+*********************************** */
+.basket {
+
+  .basket-bottom {
+    position: relative;
+    top: 20px;
+    font-size: 1.2rem;
+  }
+
+  .price-display :nth-child(3) {
+    font-size: 1.8rem;
+  }
+
+  .message {
+    left: 1rem;
+    font-size: 1.2rem;
+    text-align: left;
+
+  }
+
+  .discount-info {
+    font-size: 1.3rem;
+  }
+
+  .discount {
+    font-size: 1.8rem;
+  }
+
+  #checkDiscountBtn {
+    height: 50px;
+    margin-top: 45px;
+  }
+
+  .discount-code {
+    width: 20rem;
+    margin-right: .5rem;
+    padding: 0.3rem;
+  }
+
+  .buy-btn {
+    padding: 1.2rem 4rem;
+  }
+
+  .item {
+    img {
+      width: 150px;
+      height: 150px;
+    }
+
+    .item-content {
+      .item-info {
+        font-size: 1.2rem;
+      }
+
+      .item-selection {
+        padding-right: 10px;
+
+        button {
+          height: 2.5rem;
+          width: 3rem;
+          margin: 0.5rem;
+        }
+
+        p {
+          width: 3rem;
+          font-size: 1.4rem;
+          margin: 0.2rem;
+        }
+      }
+    }
+  }
+}
+
+/* ***********************************
+   The discount-input 
+*********************************** */
+.discount-input {
+  padding: 1rem;
+}
+
+.discount-div {
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+
+/* ***********************************
+   The form with payment options
+*********************************** */
+
+.products label {
+  font-size: 1.5rem;
+}
+
+.title {
+  font-size: 1.1rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+.contact-form input {
+  min-height: 60px;
+}
+
+.credit-card,
+.invoice-details {
+  width: 460px;
+  height: auto;
+}
+
+/* ***********************************
+    Styling for newletter and GDPR
+*********************************** */
+.newsletter,
+.personal-data {
+  font-size: 1.2rem;
+}
+
+/* ***********************************
+    Styling for footer
+*********************************** */
+
+#logoimg {
+  width: 200px;
+  height: 200px;
+}
+
+.contact {
+  padding-top: 60px;
+  font-size: 1.1rem;
+}
