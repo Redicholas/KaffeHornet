@@ -155,7 +155,7 @@ const products = [
         alt: 'Spegelvänd bild på en franskpress med kaffe och en kaffekopp brevid',
       },
     ],
-    desc: 'Den klassiska Franskpressen går alltid hem',
+    desc: 'En Franskpressen går alltid hem',
     price: 199,
     amount: 0,
     category: 'Bryggare',
@@ -193,7 +193,7 @@ const discountCode = document.querySelector('#discountCode');
 const checkDiscountBtn = document.querySelector('#checkDiscountBtn');
 const invoiceLabel = document.querySelector('#invoiceLabel');
 const invoiceOption = document.querySelector('#paymentType_invoice');
-const paymentSection = document.querySelector('#payment-section')
+const paymentSection = document.querySelector('#payment-section');
 
 const miniBasket = document.querySelector('#miniBasket');
 const numberOfProductsInMiniBasket = document.querySelector('#numberOfProductsInMiniBasket');
@@ -270,13 +270,14 @@ function renderBasket() {
     discountMessage.innerHTML += 'Gratis frakt!' + '<br />';
   }
 
-//Lucia
-function lucia() {
-  if(date.getDate() === 13 && month === 11) {
-    discountMessage.innerHTML += 'Glad lucia! Vi på Kaffe Hörnan bjuder idag på en gratis luciakaffe vid varje beställning!' + '<br />';
+  //Lucia
+  function lucia() {
+    if (date.getDate() === 13 && month === 11) {
+      discountMessage.innerHTML +=
+        'Glad lucia! Vi på Kaffe Hörnan bjuder idag på en gratis luciakaffe vid varje beställning!' + '<br />';
+    }
   }
-}
-lucia()
+  lucia();
 
   const addBtn = document.querySelectorAll('.button-add');
   addBtn.forEach(btn => {
@@ -294,27 +295,28 @@ lucia()
   } else {
     miniBasket.classList.add('hidden');
   }
-  
+
   //Monday discount
-  if(day === 1 && hour < 10) {
+  if (day === 1 && hour < 10) {
     discountMessage.innerHTML += 'Måndagsrabatt: 10 % på hela beställningen' + '<br />';
     productPriceDisplay.innerHTML = Math.round(totalPrice * 0.9);
     shippingPriceDisplay.innerHTML = Math.round(shippingPrice * 0.9);
     totalPriceDisplay.innerHTML = Math.round((totalPrice + shippingPrice) * 0.9);
   }
-  
+
   //Biweekly tuesday discount
-  if(weekNumber % 2 === 0 && date.getDay() === 2 && totalPrice > 25) {
-    discountMessage.innerHTML += 'Lägg din beställning idag och få 25 kr rabatt (gäller endast vid beställningar över 25 kr)!' + '<br />';
-    totalPriceDisplay.innerHTML = Math.round((totalPrice + shippingPrice) - 25);
+  if (weekNumber % 2 === 0 && date.getDay() === 2 && totalPrice > 25) {
+    discountMessage.innerHTML +=
+      'Lägg din beställning idag och få 25 kr rabatt (gäller endast vid beställningar över 25 kr)!' + '<br />';
+    totalPriceDisplay.innerHTML = Math.round(totalPrice + shippingPrice - 25);
   }
-  
+
   //Invoice option removed for orders > 800
   if (Math.round(totalPrice + shippingPrice) > 800) {
     invoiceLabel.innerHTML = '';
-    invoiceOption.style.display = "none";
+    invoiceOption.style.display = 'none';
   }
-/*   else {
+  /*   else {
     paymentSection.style.display = "block"
   } */
 }
@@ -428,7 +430,7 @@ function renderProducts() {
     let adjustedPrice = sortedProducts[i].price;
 
     //Weekend price
-    if((day === 5 && hour > 15) || day === 6 || day === 0 || (day === 1 && hour < 3)) {
+    if ((day === 5 && hour > 15) || day === 6 || day === 0 || (day === 1 && hour < 3)) {
       adjustedPrice = Math.round(adjustedPrice * 1.15);
     }
 
@@ -597,9 +599,9 @@ function christmas() {
     title.style.paddingTop = '0';
     title.style.borderRadius = '2.5rem';
     title.style.border = '3px solid #dcbfa1';
-    productPriceDisplay.style.color = "red";
-    shippingPriceDisplay.style.color = "red";
-    totalPriceDisplay.style.color = "red";
+    productPriceDisplay.style.color = 'red';
+    shippingPriceDisplay.style.color = 'red';
+    totalPriceDisplay.style.color = 'red';
   }
 }
 
