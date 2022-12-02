@@ -4,7 +4,8 @@
 <p><strong>
 Ett projekt av Nicholas Peters, Tittie Thomasson och Liza Grapensparr
 </strong></p>
-
+<small><a href="https://medieinstitutet.github.io/fed22d-js-grundkurs-gruppuppgift-webbshop-superfantasticultratrio/">
+Länk till live-sidan </a>
 <hr>
 
 <p>Detta är ett grupparbete i kursen: JavaScript Grundkurs. 
@@ -20,6 +21,7 @@ GitHub för versionshantering</p>
 <hr>
 
 <h2> Skärmdumpar </h2>
+
 <img src="screenshots/Screenshot 2022-12-02 at 15.13.03.png">
 <img src="screenshots/Screenshot 2022-12-02 at 15.13.34.png">
 <img src="screenshots/Screenshot 2022-12-02 at 15.15.02.png">
