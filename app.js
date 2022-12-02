@@ -14,7 +14,7 @@ const products = [
     desc: 'Bönor från Guatemala och Colombia',
     price: 129,
     amount: 0,
-    category: 'Bönor',
+    category: 'Kategori: Bönor',
     rating: rating4stars.innerHTML,
     productID: 1,
   },
@@ -33,7 +33,7 @@ const products = [
     desc: 'Espressobönor',
     price: 119,
     amount: 0,
-    category: 'Bönor',
+    category: 'Kategori: Bönor',
     rating: rating4stars.innerHTML,
     productID: 2,
   },
@@ -52,7 +52,7 @@ const products = [
     desc: '"Speciella" bönor från Ethiopien',
     price: 129,
     amount: 0,
-    category: 'Bönor',
+    category: 'Kategori: Bönor',
     rating: rating4stars.innerHTML,
     productID: 3,
   },
@@ -71,7 +71,7 @@ const products = [
     desc: 'Svart kopp i keramik',
     price: 49,
     amount: 0,
-    category: 'Koppar',
+    category: 'Kategori: Koppar',
     rating: rating3stars.innerHTML,
     productID: 4,
   },
@@ -90,7 +90,7 @@ const products = [
     desc: 'Kopp i poppande grön färg',
     price: 39,
     amount: 0,
-    category: 'Koppar',
+    category: 'Kategori: Koppar',
     rating: rating5stars.innerHTML,
     productID: 5,
   },
@@ -109,7 +109,7 @@ const products = [
     desc: 'V60 bryggaren som tilltalar din inre hipster',
     price: 599,
     amount: 0,
-    category: 'Bryggare',
+    category: 'Kategori: Bryggare',
     rating: rating4stars.innerHTML,
     productID: 6,
   },
@@ -128,7 +128,7 @@ const products = [
     desc: 'För dig som vill kunna göra kaffe var som helst!',
     price: 499,
     amount: 0,
-    category: 'Bryggare',
+    category: 'Kategori: Bryggare',
     rating: rating3stars.innerHTML,
     productID: 7,
   },
@@ -147,7 +147,7 @@ const products = [
     desc: 'För ditt finbesök',
     price: 49,
     amount: 0,
-    category: 'Koppar',
+    category: 'Kategori: Koppar',
     rating: rating4stars.innerHTML,
     productID: 8,
   },
@@ -166,7 +166,7 @@ const products = [
     desc: 'En franskpress går alltid hem',
     price: 199,
     amount: 0,
-    category: 'Bryggare',
+    category: 'Kategori: Bryggare',
     rating: rating5stars.innerHTML,
     productID: 9,
   },
@@ -185,7 +185,7 @@ const products = [
     desc: 'En större kopp för dig med ett större beroende',
     price: 39,
     amount: 0,
-    category: 'Koppar',
+    category: 'Kategori: Koppar',
     rating: rating3stars.innerHTML,
     productID: 10,
   },
@@ -323,12 +323,11 @@ function renderBasket() {
 
   //Invoice option removed for orders > 800
   if (Math.round(totalPrice + shippingPrice) > 800) {
-    invoiceLabel.innerHTML = '';
-    invoiceOption.style.display = 'none';
+    document.getElementById('paymentType_invoice').disabled = true;
   }
-  /*   else {
-    paymentSection.style.display = "block"
-  } */
+  else {
+    document.getElementById('paymentType_invoice').disabled = false;
+  }
 }
 
 function checkDiscountCode() {
@@ -479,6 +478,7 @@ function renderProducts() {
             <div class="product-info">
                 <h3>${sortedProducts[i].name}</h3>
                 <p>${sortedProducts[i].rating}</p>
+                <p>${sortedProducts[i].category}</p>
                 <p>${sortedProducts[i].desc}</p>
                     <div class="product-selection">
                         <p class="grinch">${adjustedPrice}kr</p>
