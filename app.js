@@ -16,6 +16,7 @@ const products = [
     amount: 0,
     category: 'Bönor',
     rating: rating4stars.innerHTML,
+    productID: 1,
   },
   {
     name: 'Blue Magic',
@@ -34,6 +35,7 @@ const products = [
     amount: 0,
     category: 'Bönor',
     rating: rating4stars.innerHTML,
+    productID: 2,
   },
   {
     name: 'Specialty Beans',
@@ -52,6 +54,7 @@ const products = [
     amount: 0,
     category: 'Bönor',
     rating: rating4stars.innerHTML,
+    productID: 3,
   },
   {
     name: 'Rustik',
@@ -70,6 +73,7 @@ const products = [
     amount: 0,
     category: 'Koppar',
     rating: rating3stars.innerHTML,
+    productID: 4,
   },
   {
     name: 'Grön',
@@ -88,6 +92,7 @@ const products = [
     amount: 0,
     category: 'Koppar',
     rating: rating5stars.innerHTML,
+    productID: 5,
   },
   {
     name: 'V60',
@@ -106,6 +111,7 @@ const products = [
     amount: 0,
     category: 'Bryggare',
     rating: rating4stars.innerHTML,
+    productID: 6,
   },
   {
     name: 'Aeropress',
@@ -124,6 +130,7 @@ const products = [
     amount: 0,
     category: 'Bryggare',
     rating: rating3stars.innerHTML,
+    productID: 7,
   },
   {
     name: 'Fancy',
@@ -142,6 +149,7 @@ const products = [
     amount: 0,
     category: 'Koppar',
     rating: rating4stars.innerHTML,
+    productID: 8,
   },
   {
     name: 'Franskpress',
@@ -160,6 +168,7 @@ const products = [
     amount: 0,
     category: 'Bryggare',
     rating: rating5stars.innerHTML,
+    productID: 9,
   },
   {
     name: 'Orange',
@@ -178,6 +187,7 @@ const products = [
     amount: 0,
     category: 'Koppar',
     rating: rating3stars.innerHTML,
+    productID: 10,
   },
 ];
 
@@ -396,30 +406,34 @@ function byRating(a, b) {
 function renderProducts() {
   const sortOptions = sortSelector.value;
 
-  let sortedProducts = products;
+  let sortedProducts = [...products];
+
+  if (sortOptions === 'standard') {
+    sortedProducts = filteredProductsInPriceRange;
+  }
 
   if (sortOptions === 'priceHigh') {
-    sortedProducts = sortedProducts.sort(byPriceRev);
+    sortedProducts = filteredProductsInPriceRange.sort(byPriceRev);
   }
 
   if (sortOptions === 'priceLow') {
-    sortedProducts = sortedProducts.sort(byPrice);
+    sortedProducts = filteredProductsInPriceRange.sort(byPrice);
   }
 
   if (sortOptions === 'nameAtoZ') {
-    sortedProducts = sortedProducts.sort(byName);
+    sortedProducts = filteredProductsInPriceRange.sort(byName);
   }
 
   if (sortOptions === 'nameZtoA') {
-    sortedProducts = sortedProducts.sort(byNameRev);
+    sortedProducts = filteredProductsInPriceRange.sort(byNameRev);
   }
 
   if (sortOptions === 'category') {
-    sortedProducts = sortedProducts.sort(byCategory);
+    sortedProducts = filteredProductsInPriceRange.sort(byCategory);
   }
 
   if (sortOptions === 'rating') {
-    sortedProducts = sortedProducts.sort(byRating);
+    sortedProducts = filteredProductsInPriceRange.sort(byRating);
   }
 
   productGrid.innerHTML = '';
@@ -492,6 +506,23 @@ function renderProducts() {
 
   renderBasket();
 }
+
+const priceRangeSlider = document.querySelector("#priceRange");
+const currentRangeValue = document.querySelector("#currentRangeValue");
+
+let sortedProducts = products;
+let filteredProductsInPriceRange = [...products];
+
+function changePriceRange() {
+  const currentPrice = priceRangeSlider.value;
+  currentRangeValue.innerHTML = currentPrice;
+
+  filteredProductsInPriceRange = sortedProducts.filter(products => products.price <= currentPrice);
+  console.log(filteredProductsInPriceRange)
+  renderProducts();
+}
+
+priceRangeSlider.addEventListener('input', changePriceRange);
 
 function switchImage(e) {
   const imgIndex = e.currentTarget.id.replace('prevImg-', '').replace('nextImg-', '');

@@ -51,7 +51,7 @@
       <h2>Våra Produkter</h2>
       <label for="sort">Sortera efter:</label>
       <select id="sort-options" name="sort-options" onChange="renderProducts()">
-        <option>---</option>
+        <option value="standard">---</option>
         <option value="priceHigh">Pris: Högt till lågt</option>
         <option value="priceLow">Pris: Lågt till högt</option>
         <option value="nameAtoZ">Namn A-Ö</option>
@@ -59,6 +59,16 @@
         <option value="category">Kategori</option>
         <option value="rating">Omdöme</option>
       </select>
+      <br><br>
+      <label>
+        <span>Filtrera efter pris:</span><br>
+        <span class="flex">
+          <span>0 kr</span>
+          <input type="range" min="0" max="600" value="600" id="priceRange" step="10" />
+          <span>600 kr</span>
+        </span> <br>
+        <span id="currentRangeValue">600</span> kr
+      </label>
       <div class="product-grid" id="product-grid">
         <!-- Produkter renderas från JavaScripten -->
       </div>
