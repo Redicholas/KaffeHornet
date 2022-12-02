@@ -965,6 +965,20 @@ function orderTimeOut() {
   }
 }
 
+// *************************************************
+// Function to switch between dark and light theme
+// ************************************************
+
+const changeThemeBtn= document.getElementById('darkThemeBtn');
+changeThemeBtn.addEventListener('click', darkTheme);
+
+function darkTheme() {
+  let element = document.body;
+  element.classList.toggle("dark-mode");
+}
+
+// Dark theme ends 
+
 renderProducts();
 checkDiscountBtn.addEventListener('click', checkDiscountCode);
 buyBtn.addEventListener('click', placeOrder);
