@@ -60,14 +60,16 @@
         <option value="rating">Omdöme</option>
       </select>
       <br><br>
-      <label>
+      <label id="filter">
         <span>Filtrera efter pris:</span><br>
-        <span class="flex">
-          <span>0 kr</span>
-          <input type="range" min="0" max="600" value="600" id="priceRange" step="10" />
-          <span>600 kr</span>
-        </span> <br>
-        <span id="currentRangeValue">600</span> kr
+        <div class="sliderContainer">
+          <span class="flex">
+            <span>0 kr</span>
+            <input type="range" min="0" max="700" value="700" id="priceRange" class="priceRange" step="10" />
+            <span>700 kr</span>
+          </span> <br>
+          <span id="currentRangeValue">700</span> kr
+        </div>
       </label>
       <div class="product-grid" id="product-grid">
         <!-- Produkter renderas från JavaScripten -->

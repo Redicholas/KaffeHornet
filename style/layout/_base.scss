@@ -137,6 +137,35 @@ section {
   }
 }
 
+.sliderContainer {
+  margin-left: 40px;
+  width: 275px;
+}
+
+.priceRange {
+  -webkit-appearance: none;
+  color: white;
+  background-color: $col-gray-brown;
+  height: 5px;
+  border-radius: 5px;
+  position: relative;
+  top: -5px;
+}
+
+.priceRange::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  pointer-events: auto;
+  background: $col-dark-brown;
+  cursor: pointer;
+}
+
+#currentRangeValue {
+  margin-left: 90px;
+}
+
 .products {
   .product-grid {
     margin-top: 20px;

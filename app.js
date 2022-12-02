@@ -466,8 +466,8 @@ function renderProducts() {
                 alt="${sortedProducts[i].imgs[1].alt}"
               />
               <div class="btnHolder">
-                <button aria-label="next image" id="prevImg-${i}" class="prevImg imgBtn"> <i class="fa-solid fa-chevron-left"></i> </button>         
-                <button aria-label="previous image" id="nextImg-${i}" class="nextImg imgBtn"> <i class="fa-solid fa-chevron-right"></i> </button>
+                <button aria-label="next image" id="prevImg-${sortedProducts[i].productID-1}" class="prevImg imgBtn"> <i class="fa-solid fa-chevron-left"></i> </button>         
+                <button aria-label="previous image" id="nextImg-${sortedProducts[i].productID-1}" class="nextImg imgBtn"> <i class="fa-solid fa-chevron-right"></i> </button>
               </div>
           </div>
             <div class="product-info">
@@ -476,9 +476,9 @@ function renderProducts() {
                 <p>${sortedProducts[i].desc}</p>
                     <div class="product-selection">
                         <p class="grinch">${adjustedPrice}kr</p>
-                        <button class="button-remove" data-id="${i}">-</button>
+                        <button class="button-remove" data-id="${sortedProducts[i].productID-1}">-</button>
                         <p>${sortedProducts[i].amount}</p>
-                        <button class="button-add" data-id="${i}">+</button>
+                        <button class="button-add" data-id="${sortedProducts[i].productID-1}">+</button>
                     </div>
             </div>
         </div>
