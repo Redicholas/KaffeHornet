@@ -1,1 +1,937 @@
-*,*::before,*::after{box-sizing:border-box}body,h1,h2,h3,h4,p,figure,blockquote,dl,dd{margin:0}ul[role=list],ol[role=list]{list-style:none}html:focus-within{scroll-behavior:smooth}body{min-height:100vh;text-rendering:optimizeSpeed;line-height:1.5}a:not([class]){-webkit-text-decoration-skip:ink;text-decoration-skip-ink:auto}img,picture{max-width:100%;display:block}input,button,textarea,select{font:inherit}@media(prefers-reduced-motion: reduce){html:focus-within{scroll-behavior:auto}*,*::before,*::after{-webkit-animation-duration:.01ms !important;animation-duration:.01ms !important;-webkit-animation-iteration-count:1 !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}@media screen and (min-width: 340px){html{scroll-behavior:smooth;overflow-x:hidden}body{font-family:"Urbanist",sans-serif;letter-spacing:.1rem;background:#dcbfa1;color:#3f2d21}body.xmas .grinch{color:red}section h2{text-align:center;margin:3rem 0}.popup{width:60vw;min-height:50vh;border:1px solid #000;border-radius:1rem;background:#f0e4d4;box-shadow:0 0 10px #000;position:fixed;top:20vh;padding:20px;left:20vw;z-index:10;display:flex;flex-direction:column;justify-content:space-between}.popup h1{font-size:1.2rem}.popup span{font-size:3rem;text-align:center;margin:0}.popup button{background:#3f2d21;border:1px solid #dcbfa1;color:#f0e4d4;border-radius:.5rem;border:none}.popup .product-confirmation-display{display:flex;flex-direction:row;justify-content:space-around;border-bottom:1px solid #000}.popup .product-confirmation-display-price{margin-top:1rem}.mini-basket{height:75px;width:75px;border-radius:100%;border:1px solid #435046;position:fixed;top:10px;right:10px;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#fff;z-index:15}.mini-basket span{z-index:15}#miniBasket .material-symbols-outlined{position:fixed;font-size:3rem;color:#f0e4d4;z-index:10}.hidden{display:none}.landing-page{background:url("../img/rykande-gott-kaffe.png");background-size:cover;background-position:center;height:100vh;width:100vw;color:#f0e4d4}.landing-page h1{text-align:center;padding-top:5rem;font-size:3rem;font-weight:lighter}.landing-page a{padding:1rem 1.7rem;background:#3f2d21;border-radius:2.5rem;border:2px solid #dcbfa1;position:absolute;bottom:10px;right:10px;color:#f0e4d4;text-decoration:none;font-size:1.3rem}.products .product-grid{margin-top:20px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr 1fr 1fr 1fr;gap:25px 10px;place-items:center}.products .product-card{height:21rem;width:11rem;background:#f0e4d4;border-radius:1rem;overflow:hidden;border:1px solid #000}.products .product-card .image .btnHolder{width:95%;display:flex;justify-content:space-between;margin:0 .3rem;position:relative;bottom:110px}.products .product-card .image .btnHolder .imgBtn{height:25px;width:25px;border-radius:100%;border:none;background:rgba(63,45,33,.5764705882)}.products .product-card .image .btnHolder .imgBtn i{color:#f0e4d4}.products .product-card .product-info{display:flex;flex-direction:column;justify-content:space-between;height:50%;padding:.5rem}.products .product-card .product-info .product-selection{display:flex;justify-content:space-between}.products .product-card .product-info .product-selection button{background:#3f2d21;border:1px solid #dcbfa1;color:#f0e4d4;border-radius:.5rem;border:none;padding:2px 10px;cursor:pointer}.products .product-card .product-info .product-selection button:hover{background:#8db4a2}.products .product-card .image{height:50%;width:100%}.products .product-card .image img{height:100%;width:100%;-o-object-fit:cover;object-fit:cover;-o-object-position:0 -40px;object-position:0 -40px}#rating3stars,#rating4stars,#rating5stars{display:none}.checked{color:orange}.basket{background-color:#f0e4d4;border:1px solid #3f2d21;border-radius:6px;margin:10px;padding:1rem}.basket img{border:1px solid #000}.basket h2{text-align:center;margin-bottom:2.2rem}.basket button{background:#3f2d21;border:1px solid #dcbfa1;color:#f0e4d4;border-radius:.5rem;padding:.3rem 1rem;border:none;cursor:pointer;display:flex;justify-content:center;align-items:center}.basket button:hover{background:#8db4a2}.basket .basket-bottom{font-size:.9rem}.basket .price-display :nth-child(3){font-size:1.2rem;text-decoration:underline}.basket .message{position:relative;color:#435046;text-align:center;font-size:1rem}.basket .discount-info{position:relative;font-size:.9rem;margin-bottom:40px;padding:20px 5px;border:1px solid #000}.basket .discount{position:relative;display:flex;flex-direction:column}.basket .discount-code{margin-right:.5rem;padding:.3rem;border-radius:6px;border:1px solid #000}.basket .buy-btn{position:relative;padding:.6rem 2rem}.basket .buy-btn a{text-decoration:none;color:#f0e4d4}.basket #checkDiscountBtn{position:relative;height:40px;margin-top:20px}.basket #clearBasketBtn{position:relative;padding:.6rem}.basket .item{display:flex;align-items:center;width:100%;background:#f0e4d4;border-radius:.8rem;padding:.5rem;margin-bottom:1rem}.basket .item img{margin-right:1rem;border-radius:.8rem}.basket .item .item-content{display:flex;justify-content:space-between;width:100%}.basket .item .item-content .item-info{display:flex;flex-direction:column;justify-content:space-between}.basket .item .item-content .item-selection{display:flex;flex-direction:column;align-items:center;position:relative;right:0}.basket .item .item-content .item-selection button{height:2rem;width:1.5rem;border-radius:.5rem;border:none}.basket .item .item-content .item-selection p{background:#fff;width:1.5rem;margin:.2rem;text-align:center;border-radius:3px}.discount-input{display:flex;left:2rem;margin-bottom:20px}.discount-div{position:relative;display:flex;flex-direction:column;justify-content:space-between;margin:10px 0;padding:20px}.basket-btn{display:flex;justify-content:space-around}.products label{margin-left:20px}#form span,#invoice span,#creditCard span{color:red;font-size:1rem}#cvvError{position:relative;left:-160px;top:-60px}#cardNrError{position:relative;top:30px}.fa-solid{color:#2e8b57}.customer-info{display:flex;margin-top:1.25rem;flex-direction:column;color:#212427;padding:0;margin:10px}.customer-email{margin-bottom:30px}.first-name,.last-name{margin-top:20px}.customer-info h2{margin:1.25rem 0;padding:1rem;color:#3f2d21}.contact-form{text-align:left;padding:.625rem;border:1px solid #3f2d21;border-radius:6px;min-height:25vh;width:100%;background-color:#f0e4d4}.contact-form input{min-height:50px;border-radius:6px;border:1px solid #000}.first-name,.last-name,.zip,.city,.portcode,.phone{display:inline-block;width:45%}.last-name,.city,.phone{float:right}.customer-info input{width:100%;padding:.613rem;margin-top:.6rem}.invoice{margin-bottom:50px}.payment-type{text-align:left}.payment{margin-left:20px;font-size:1.2rem}#paymentType_invoice,#paymentType_card{position:relative;left:-35px;height:20px;top:-33px}.payment-section{border:1px solid #3f2d21;border-radius:6px;min-height:30vh;width:100%;margin-top:1.25rem;background-color:#f0e4d4}.invoice-info{margin-top:30px;font-size:1rem;font-weight:300;line-height:1.3rem;margin-bottom:30px}.credit-card,.invoice-details{width:360px;min-height:400px;margin:80px auto 30px;border:1px solid #ddd;border-radius:6px;background-color:#fff;box-shadow:1px 2px 3px 0 rgba(0,0,0,.1);display:none}.form-header{height:60px;padding:20px 0;border-bottom:1px solid #e1e8ee}.payment-body{padding:0 30px}.title{font-size:1.25rem;text-align:center}.card-number input{width:100%;margin:40px 0 30px 0;padding:10px}.month select,.year select,.cvv-input input{width:145px;margin-bottom:20px;padding:10px;font-weight:300}.month select,.cvv-input input{float:left}.year select{float:right}.cvv-details{margin-top:15px;font-size:.8rem;line-height:16px;float:right}.card-btn,.invoice-btn{cursor:pointer;font-size:1.1rem;width:100%;padding:10px;margin:40px 0;border-color:rgba(0,0,0,0);border-radius:6px;background:#3f2d21;color:#fff}.card-btn{margin-top:20px;color:#f0e4d4}.checkBoxes{display:flex;flex-direction:column}#personalData,#newsLetter{position:relative;display:inline;height:1.5rem;width:10%;margin-left:50px}.newsletter,.personal-data{display:flex;justify-content:space-between;margin:20px}#buy-button,#eraseBtn{margin:60px 40px 10px 40px;padding:20px 100px;background-color:#8db4a2;color:#3f2d21;border-radius:.5rem;font-size:1.4rem}#eraseBtn{position:relative;padding:10px;width:180px;font-size:1rem;background-color:#8db4a2;color:#3f2d21}.btn-section{display:flex;flex-direction:column}footer{margin-top:50px;display:flex;flex-direction:row;justify-content:space-around;background-color:#212427;color:#f0e4d4}footer a{color:#8db4a2;text-decoration:none}footer a:hover{text-decoration:underline}#logoimg{width:150px;height:150px}.contact{padding-top:30px;font-weight:100;font-size:1rem}}@media screen and (min-width: 650px){.landing-page{background:url("../img/rykande-gott-kaffe-kaffehornan.jpg");background-size:cover;background-position:center;height:100vh;width:100vw}.landing-page h1{font-size:5rem}.landing-page a{bottom:40px;right:80px}.products .product-grid{margin:3rem}.products .product-card{height:21rem;width:15rem}.products .product-card .image .btnHolder{bottom:95px}.basket{margin:3rem}.basket .basket-bottom{position:relative;top:20px;font-size:1.2rem}.basket .price-display :nth-child(3){font-size:1.8rem}.basket .message{left:1rem;font-size:1.2rem;text-align:left}.basket .discount-info{font-size:1.3rem}.basket .discount{font-size:1.8rem}.basket #checkDiscountBtn{height:50px;margin-top:45px}.basket .discount-code{width:20rem;margin-right:.5rem;padding:.3rem}.basket .buy-btn{padding:1.2rem 4rem}.basket .item img{width:150px;height:150px}.basket .item .item-content .item-info{font-size:1.2rem}.basket .item .item-content .item-selection{padding-right:10px}.basket .item .item-content .item-selection button{height:2.5rem;width:3rem;margin:.5rem}.basket .item .item-content .item-selection p{width:3rem;font-size:1.4rem;margin:.2rem}.discount-input{padding:1rem}.discount-div{flex-direction:row;justify-content:space-between;margin:10px 0}.customer-info{margin:3rem}.products label{font-size:1.5rem;margin-left:40px}.title{font-size:1.1rem}h2{font-size:2rem}.contact-form input{min-height:60px}.credit-card,.invoice-details{width:460px;height:auto}.newsletter,.personal-data{font-size:1.2rem}#logoimg{width:200px;height:200px}.contact{padding-top:60px;font-size:1.1rem}}@media screen and (min-width: 1024px){.landing-page h1{padding-top:5rem;font-size:6rem}.landing-page a{font-size:1.3rem}.products .product-grid{padding:3rem;margin-top:20px;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr 1fr 1fr;gap:60px 10px}.products .product-card{height:35rem;width:20rem}.products .product-card .image .btnHolder{bottom:150px}.products .product-card .product-info{padding:1rem;font-size:1.3rem}.products .product-card .product-info .product-selection{margin-top:40px}.basket{margin:2rem 7rem 0}.basket .basket-bottom{font-size:1.3rem}.basket .price-display :nth-child(3){font-size:2.2rem}.basket .message{font-size:1.2rem;text-align:left;margin:30px 0 30px 120px}.basket .discount-info{margin:30px 100px;padding:40px;border:1px solid #000}.basket .discount-code{padding:.4rem}.basket .item{padding:2rem 6rem}.discount-input{display:flex;flex-direction:row;justify-content:space-between}.discount-div{padding:10px;justify-content:space-around}.customer-info{flex-direction:row;margin:2rem 7rem 0}.contact-form{margin-right:15px;max-height:850px}.payment-section{margin-top:0;margin-left:15px}.credit-card,.invoice-details{width:460px;height:auto}#logoimg{width:260px;height:260px}.contact{padding-top:80px;font-size:1.3rem}}/*# sourceMappingURL=style.css.map */
+@charset "UTF-8";
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+*::before,
+*::after {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* styling for mobile */
+@media screen and (min-width: 340px) {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  body {
+    font-family: "Urbanist", sans-serif;
+    letter-spacing: 0.1rem;
+    background: #dcbfa1;
+    color: #3f2d21;
+  }
+  body.xmas .grinch {
+    color: red;
+  }
+  section h2 {
+    text-align: center;
+    margin: 3rem 0;
+  }
+  /* ***********************************
+     The popup with info when order is 
+     complete
+  *********************************** */
+  .popup {
+    width: 60vw;
+    min-height: 50vh;
+    border: 1px solid black;
+    border-radius: 1rem;
+    background: #f0e4d4;
+    box-shadow: 0 0 10px black;
+    position: fixed;
+    top: 20vh;
+    padding: 20px;
+    left: 20vw;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .popup h1 {
+    font-size: 1.2rem;
+  }
+  .popup span {
+    font-size: 3rem;
+    text-align: center;
+    margin: 0;
+  }
+  .popup button {
+    background: #3f2d21;
+    border: 1px solid #dcbfa1;
+    color: #f0e4d4;
+    border-radius: 0.5rem;
+    border: none;
+  }
+  .popup .product-confirmation-display {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-bottom: 1px solid black;
+  }
+  .popup .product-confirmation-display-price {
+    margin-top: 1rem;
+  }
+  .mini-basket {
+    height: 75px;
+    width: 75px;
+    border-radius: 100%;
+    border: 1px solid #435046;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    z-index: 15;
+  }
+  .mini-basket span {
+    z-index: 15;
+  }
+  #miniBasket .material-symbols-outlined {
+    position: fixed;
+    font-size: 3rem;
+    color: #f0e4d4;
+    z-index: 10;
+  }
+  .hidden {
+    display: none;
+  }
+  .landing-page {
+    background: url("../img/rykande-gott-kaffe.png");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    color: #f0e4d4;
+  }
+  .landing-page h1 {
+    text-align: center;
+    padding-top: 5rem;
+    font-size: 3rem;
+    font-weight: lighter;
+  }
+  .landing-page a {
+    padding: 1rem 1.7rem;
+    background: #3f2d21;
+    border-radius: 2.5rem;
+    border: 2px solid #dcbfa1;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: #f0e4d4;
+    text-decoration: none;
+    font-size: 1.3rem;
+  }
+  .sliderContainer {
+    margin-left: 40px;
+    width: 275px;
+  }
+  .priceRange {
+    -webkit-appearance: none;
+    color: white;
+    background-color: #7e6e5f;
+    height: 5px;
+    border-radius: 5px;
+    position: relative;
+    top: -5px;
+  }
+  .priceRange::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    pointer-events: auto;
+    background: #3f2d21;
+    cursor: pointer;
+  }
+  #currentRangeValue {
+    margin-left: 90px;
+  }
+  .products .product-grid {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    gap: 25px 10px;
+    place-items: center;
+  }
+  .products .product-card {
+    height: 21rem;
+    width: 11rem;
+    background: #f0e4d4;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid black;
+  }
+  .products .product-card .image .btnHolder {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0.3rem;
+    position: relative;
+    bottom: 110px;
+  }
+  .products .product-card .image .btnHolder .imgBtn {
+    height: 25px;
+    width: 25px;
+    border-radius: 100%;
+    border: none;
+    background: rgba(63, 45, 33, 0.5764705882);
+  }
+  .products .product-card .image .btnHolder .imgBtn i {
+    color: #f0e4d4;
+  }
+  .products .product-card .product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50%;
+    padding: 0.5rem;
+  }
+  .products .product-card .product-info .product-selection {
+    display: flex;
+    justify-content: space-between;
+  }
+  .products .product-card .product-info .product-selection button {
+    background: #3f2d21;
+    border: 1px solid #dcbfa1;
+    color: #f0e4d4;
+    border-radius: 0.5rem;
+    border: none;
+    padding: 2px 10px;
+    cursor: pointer;
+  }
+  .products .product-card .product-info .product-selection button:hover {
+    background: #8db4a2;
+  }
+  .products .product-card .image {
+    height: 50%;
+    width: 100%;
+  }
+  .products .product-card .image img {
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: 0 -40px;
+       object-position: 0 -40px;
+  }
+  #rating3stars,
+#rating4stars,
+#rating5stars {
+    display: none;
+  }
+  .checked {
+    color: orange;
+  }
+  .basket {
+    background-color: #f0e4d4;
+    border: 1px solid #3f2d21;
+    border-radius: 6px;
+    margin: 10px;
+    padding: 1rem;
+  }
+  .basket img {
+    border: 1px solid black;
+  }
+  .basket h2 {
+    text-align: center;
+    margin-bottom: 2.2rem;
+  }
+  .basket button {
+    background: #3f2d21;
+    border: 1px solid #dcbfa1;
+    color: #f0e4d4;
+    border-radius: 0.5rem;
+    padding: 0.3rem 1rem;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .basket button:hover {
+    background: #8db4a2;
+  }
+  .basket .basket-bottom {
+    font-size: 0.9rem;
+  }
+  .basket .price-display :nth-child(3) {
+    font-size: 1.2rem;
+    text-decoration: underline;
+  }
+  .basket .message {
+    position: relative;
+    color: #435046;
+    text-align: center;
+    font-size: 1rem;
+  }
+  .basket .discount-info {
+    position: relative;
+    font-size: 0.9rem;
+    margin-bottom: 40px;
+    padding: 20px 5px;
+    border: 1px solid black;
+  }
+  .basket .discount {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .basket .discount-code {
+    margin-right: 0.5rem;
+    padding: 0.3rem;
+    border-radius: 6px;
+    border: 1px solid black;
+  }
+  .basket .buy-btn {
+    position: relative;
+    padding: 0.6rem 2rem;
+  }
+  .basket .buy-btn a {
+    text-decoration: none;
+    color: #f0e4d4;
+  }
+  .basket #checkDiscountBtn {
+    position: relative;
+    height: 40px;
+    margin-top: 20px;
+  }
+  .basket #clearBasketBtn {
+    position: relative;
+    padding: 0.6rem;
+  }
+  .basket .item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: #f0e4d4;
+    border-radius: 0.8rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .basket .item img {
+    margin-right: 1rem;
+    border-radius: 0.8rem;
+  }
+  .basket .item .item-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .basket .item .item-content .item-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .basket .item .item-content .item-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    right: 0;
+  }
+  .basket .item .item-content .item-selection button {
+    height: 2rem;
+    width: 1.5rem;
+    border-radius: 0.5rem;
+    border: none;
+  }
+  .basket .item .item-content .item-selection p {
+    background: #fff;
+    width: 1.5rem;
+    margin: 0.2rem;
+    text-align: center;
+    border-radius: 3px;
+  }
+  /* ***********************************
+     Styling for the discount-input
+  *********************************** */
+  .discount-input {
+    display: flex;
+    left: 2rem;
+    margin-bottom: 20px;
+  }
+  .discount-div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding: 20px;
+  }
+  .basket-btn {
+    display: flex;
+    justify-content: space-around;
+  }
+  /* ***********************************
+     styling for the filtering
+  *********************************** */
+  .products label {
+    margin-left: 20px;
+  }
+  /* ***********************************
+     Styling for error- and successmessage
+  *********************************** */
+  #form span,
+#invoice span,
+#creditCard span {
+    color: red;
+    font-size: 1rem;
+  }
+  #cvvError {
+    position: relative;
+    left: -160px;
+    top: -60px;
+  }
+  #cardNrError {
+    position: relative;
+    top: 30px;
+  }
+  .fa-solid {
+    color: seagreen;
+  }
+  /* ***********************************
+     The form with customer info
+  *********************************** */
+  .customer-info {
+    display: flex;
+    margin-top: 1.25rem;
+    flex-direction: column;
+    color: #212427;
+    padding: 0;
+    margin: 10px;
+  }
+  .customer-email {
+    margin-bottom: 30px;
+  }
+  .first-name,
+.last-name {
+    margin-top: 20px;
+  }
+  .customer-info h2 {
+    margin: 1.25rem 0;
+    padding: 1rem;
+    color: #3f2d21;
+  }
+  .contact-form {
+    text-align: left;
+    padding: 0.625rem;
+    border: 1px solid #3f2d21;
+    border-radius: 6px;
+    min-height: 25vh;
+    width: 100%;
+    background-color: #f0e4d4;
+  }
+  .contact-form input {
+    min-height: 50px;
+    border-radius: 6px;
+    border: 1px solid black;
+  }
+  .first-name,
+.last-name,
+.zip,
+.city,
+.portcode,
+.phone {
+    display: inline-block;
+    width: 45%;
+  }
+  .last-name,
+.city,
+.phone {
+    float: right;
+  }
+  .customer-info input {
+    width: 100%;
+    padding: 0.613rem;
+    margin-top: 0.6rem;
+  }
+  /* ***********************************
+     The form with payment options
+  *********************************** */
+  .invoice {
+    margin-bottom: 50px;
+  }
+  .payment-type {
+    text-align: left;
+  }
+  .payment {
+    margin-left: 20px;
+    font-size: 1.2rem;
+  }
+  #paymentType_invoice,
+#paymentType_card {
+    position: relative;
+    left: -35px;
+    height: 20px;
+    top: -33px;
+  }
+  .payment-section {
+    border: 1px solid #3f2d21;
+    border-radius: 6px;
+    min-height: 30vh;
+    width: 100%;
+    margin-top: 1.25rem;
+    background-color: #f0e4d4;
+  }
+  /* ***********************************
+     The forms for invoice and card
+  *********************************** */
+  .invoice-info {
+    margin-top: 30px;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.3rem;
+    margin-bottom: 30px;
+  }
+  .credit-card,
+.invoice-details {
+    width: 360px;
+    min-height: 400px;
+    margin: 80px auto 30px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 1px 2px 3px 0 rgba(0, 0, 0, 0.1);
+    display: none;
+  }
+  .form-header {
+    height: 60px;
+    padding: 20px 0;
+    border-bottom: 1px solid #e1e8ee;
+  }
+  .payment-body {
+    padding: 0 30px;
+  }
+  .title {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+  .card-number input {
+    width: 100%;
+    margin: 40px 0 30px 0;
+    padding: 10px;
+  }
+  .month select,
+.year select,
+.cvv-input input {
+    width: 145px;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-weight: 300;
+  }
+  .month select,
+.cvv-input input {
+    float: left;
+  }
+  .year select {
+    float: right;
+  }
+  .cvv-details {
+    margin-top: 15px;
+    font-size: 0.8rem;
+    line-height: 16px;
+    float: right;
+  }
+  /* ***********************************
+     The buttons for card and invoice
+  *********************************** */
+  .card-btn,
+.invoice-btn {
+    cursor: pointer;
+    font-size: 1.1rem;
+    width: 100%;
+    padding: 10px;
+    margin: 40px 0;
+    border-color: transparent;
+    border-radius: 6px;
+    background: #3f2d21;
+    color: white;
+  }
+  .card-btn {
+    margin-top: 20px;
+    color: #f0e4d4;
+  }
+  /* ***********************************
+    Styling for newletter and GDPR
+  *********************************** */
+  .checkBoxes {
+    display: flex;
+    flex-direction: column;
+  }
+  #personalData,
+#newsLetter {
+    position: relative;
+    display: inline;
+    height: 1.5rem;
+    width: 10%;
+    margin-left: 50px;
+  }
+  .newsletter,
+.personal-data {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+  }
+  /* ***********************************
+     The buttons on the end of the page
+     for order and reset order
+  *********************************** */
+  #buy-button,
+#eraseBtn {
+    margin: 60px 40px 10px 40px;
+    padding: 20px 100px;
+    background-color: #8db4a2;
+    color: #3f2d21;
+    border-radius: 0.5rem;
+    font-size: 1.4rem;
+  }
+  #eraseBtn {
+    position: relative;
+    padding: 10px;
+    width: 180px;
+    font-size: 1rem;
+    background-color: #8db4a2;
+    color: #3f2d21;
+  }
+  .btn-section {
+    display: flex;
+    flex-direction: column;
+  }
+  /* ***********************************
+     Styling for footer
+  *********************************** */
+  footer {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #212427;
+    color: #f0e4d4;
+  }
+  footer a {
+    color: #8db4a2;
+    text-decoration: none;
+  }
+  footer a:hover {
+    text-decoration: underline;
+  }
+  #logoimg {
+    width: 150px;
+    height: 150px;
+  }
+  .contact {
+    padding-top: 30px;
+    font-weight: 100;
+    font-size: 1rem;
+  }
+}
+/*styling för tablet*/
+@media screen and (min-width: 650px) {
+  .landing-page {
+    background: url("../img/rykande-gott-kaffe-kaffehornan.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+  }
+  .landing-page h1 {
+    font-size: 5rem;
+  }
+  .landing-page a {
+    bottom: 40px;
+    right: 80px;
+  }
+  .products .product-grid {
+    margin: 3rem;
+  }
+  .products .product-card {
+    height: 21rem;
+    width: 15rem;
+  }
+  .products .product-card .image .btnHolder {
+    bottom: 95px;
+  }
+  /* ***********************************
+     The basket section
+  *********************************** */
+  .basket {
+    margin: 3rem;
+  }
+  .basket .basket-bottom {
+    position: relative;
+    top: 20px;
+    font-size: 1.2rem;
+  }
+  .basket .price-display :nth-child(3) {
+    font-size: 1.8rem;
+  }
+  .basket .message {
+    left: 1rem;
+    font-size: 1.2rem;
+    text-align: left;
+  }
+  .basket .discount-info {
+    font-size: 1.3rem;
+  }
+  .basket .discount {
+    font-size: 1.8rem;
+  }
+  .basket #checkDiscountBtn {
+    height: 50px;
+    margin-top: 45px;
+  }
+  .basket .discount-code {
+    width: 20rem;
+    margin-right: 0.5rem;
+    padding: 0.3rem;
+  }
+  .basket .buy-btn {
+    padding: 1.2rem 4rem;
+  }
+  .basket .item img {
+    width: 150px;
+    height: 150px;
+  }
+  .basket .item .item-content .item-info {
+    font-size: 1.2rem;
+  }
+  .basket .item .item-content .item-selection {
+    padding-right: 10px;
+  }
+  .basket .item .item-content .item-selection button {
+    height: 2.5rem;
+    width: 3rem;
+    margin: 0.5rem;
+  }
+  .basket .item .item-content .item-selection p {
+    width: 3rem;
+    font-size: 1.4rem;
+    margin: 0.2rem;
+  }
+  /* ***********************************
+     The discount-input 
+  *********************************** */
+  .discount-input {
+    padding: 1rem;
+  }
+  .discount-div {
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+  /* ***********************************
+     The form with payment options
+  *********************************** */
+  .customer-info {
+    margin: 3rem;
+  }
+  .products label {
+    font-size: 1.5rem;
+    margin-left: 40px;
+  }
+  .title {
+    font-size: 1.1rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  .contact-form input {
+    min-height: 60px;
+  }
+  .credit-card,
+.invoice-details {
+    width: 460px;
+    height: auto;
+  }
+  /* ***********************************
+      Styling for newletter and GDPR
+  *********************************** */
+  .newsletter,
+.personal-data {
+    font-size: 1.2rem;
+  }
+  /* ***********************************
+      Styling for footer
+  *********************************** */
+  #logoimg {
+    width: 200px;
+    height: 200px;
+  }
+  .contact {
+    padding-top: 60px;
+    font-size: 1.1rem;
+  }
+}
+/*styling för desktop*/
+@media screen and (min-width: 1024px) {
+  .landing-page h1 {
+    padding-top: 5rem;
+    font-size: 6rem;
+  }
+  .landing-page a {
+    font-size: 1.3rem;
+  }
+  .products .product-grid {
+    padding: 3rem;
+    margin-top: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 60px 10px;
+  }
+  .products .product-card {
+    height: 35rem;
+    width: 20rem;
+  }
+  .products .product-card .image .btnHolder {
+    bottom: 150px;
+  }
+  .products .product-card .product-info {
+    padding: 1rem;
+    font-size: 1.3rem;
+  }
+  .products .product-card .product-info .product-selection {
+    margin-top: 40px;
+  }
+  /* ***********************************
+    Styling basket section
+  *********************************** */
+  .basket {
+    margin: 2rem 7rem 0;
+  }
+  .basket .basket-bottom {
+    font-size: 1.3rem;
+  }
+  .basket .price-display :nth-child(3) {
+    font-size: 2.2rem;
+  }
+  .basket .message {
+    font-size: 1.2rem;
+    text-align: left;
+    margin: 30px 0 30px 120px;
+  }
+  .basket .discount-info {
+    margin: 30px 100px;
+    padding: 40px;
+    border: 1px solid black;
+  }
+  .basket .discount-code {
+    padding: 0.4rem;
+  }
+  .basket .item {
+    padding: 2rem 6rem;
+  }
+  .discount-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .discount-div {
+    padding: 10px;
+    justify-content: space-around;
+  }
+  /* ***********************************
+     Styling customer info form
+  *********************************** */
+  .customer-info {
+    flex-direction: row;
+    margin: 2rem 7rem 0;
+  }
+  .contact-form {
+    margin-right: 15px;
+    max-height: 850px;
+  }
+  /* ***********************************
+     The form with payment options
+  *********************************** */
+  .payment-section {
+    margin-top: 0;
+    margin-left: 15px;
+  }
+  .credit-card,
+.invoice-details {
+    width: 460px;
+    height: auto;
+  }
+  /* ***********************************
+     Footer
+  *********************************** */
+  #logoimg {
+    width: 260px;
+    height: 260px;
+  }
+  .contact {
+    padding-top: 80px;
+    font-size: 1.3rem;
+  }
+}/*# sourceMappingURL=style.css.map */
