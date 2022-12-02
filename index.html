@@ -124,7 +124,7 @@
       </div>
     </section>
 
-    <!-- Beställningsuppgifter -->
+    <!-- Customer info inputs -->
     <section class="customer-info" id="customerInfo">
       <div class="contact-form">
         <form id="form">
@@ -196,7 +196,7 @@
         </form>
       </div>
 
-      <!-- ************ Val av betalsätt ************* -->
+      <!-- ************ Payment options ************* -->
 
       <div class="payment-section">
         <h2>Betalsätt</h2>
@@ -215,7 +215,7 @@
             </form>
           </div>
 
-          <!--Formulär med personnr för faktura-->
+          <!--Form for invoice option-->
           <form class="invoice-details" id="invoice">
             <div class="payment-body">
               <div class="form-header">
@@ -232,19 +232,19 @@
             </div>
           </form>
 
-          <!-- ******************* Formulär för kort *******************-->
+          <!-- ******************* Form for card option *******************-->
 
           <form class="credit-card" id="creditCard">
             <div class="form-header">
               <h4 class="title">Betalkortsinformation</h4>
             </div>
             <div class="payment-body">
-              <!-- Betalkortsnummer -->
+              <!-- Credit card number -->
               <div class="card-number">
                 <span id="cardNrError"></span>
                 <input id="cardNr" type="number" placeholder="Betalkortsnummer" required />
               </div>
-              <!-- Utgångsdatum för kortet -->
+              <!-- Exp date for card -->
               <div class="date-field">
                 <div class="month">
                   <select name="Month">
@@ -287,13 +287,11 @@
                   <span id="cvvError"></span>
                 </div>
               </div>
-
-              <!-- Knappen Använd kort -->
               <button type="submit" class="card-btn">Använd kort</button>
             </div>
           </form>
 
-          <!-- Checkboxar för GDPR och nyhetsbrev -->
+          <!-- Checkboxes for GDPR och newsletter -->
           <div class="checkBoxes">
             <label class="newsletter">
               Ja tack!
@@ -307,7 +305,7 @@
             </label>
           </div>
 
-          <!-- Knapparna för att rensa beställning och slutföra beställning -->
+          <!-- Buttons to complete order and reset order -->
           <div class="btn-section">
             <button id="buy-button" disabled>Skicka beställning</button>
             <button id="eraseBtn">Rensa Beställning</button>
@@ -318,7 +316,7 @@
 
     <footer>
       <div class="logo">
-        <img id="logoimg" src="img/logo.png" alt="" width="250" height="250" />
+        <img id="logoimg" src="img/logo.png" alt="The branch logo with a coffeecup and the text kaffehörnet " width="250" height="250" />
       </div>
       <div class="contact">
         <address>

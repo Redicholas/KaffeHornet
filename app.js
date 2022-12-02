@@ -605,7 +605,9 @@ function christmas() {
 
 christmas();
 
-// *****************FORMULÄRVALIDERING STARTAR HÄR***************************************
+// ***********************************************************************
+//             Validation for all the forms
+// ***********************************************************************
 
 const nameError = document.getElementById('name-error');
 const lastNameError = document.getElementById('lastname-error');
@@ -792,7 +794,9 @@ function gdprCheck() {
   activateOrderButton();
 }
 
-// ****************************VALIDERING SLUT*******************************************
+// ***********************************************************************
+//     To activate the orderbtn when the form validation is complete
+// ***********************************************************************
 
 function activateOrderButton() {
   if (
@@ -818,9 +822,9 @@ document.querySelector('#paymentType_card').addEventListener('click', handleCard
 const card = document.getElementById('creditCard');
 const invoice = document.getElementById('invoice');
 
-// **************AKTIVERING BESTÄLLNINGSKNAPP SLUT******************************
-
-// ***********FÖR ATT DÖLJA/VISA FORMULÄREN FÖR KORT OCH FAKTURA************
+// ***********************************************************************
+//   Function to show vs hide the forms for card and invoice option
+// ***********************************************************************
 
 function handleCardClick() {
   if (document.getElementById('paymentType_card').checked) {
@@ -840,7 +844,9 @@ function handleInvoiceClick() {
   }
 }
 
-// **********RENSA FORMULÄR******************
+// ***********************************************************************
+//            Reset forms
+// ***********************************************************************
 
 document.querySelector('#eraseBtn').addEventListener('click', resetOrder);
 
@@ -861,9 +867,10 @@ function resetOrder() {
   validatePhone();
   validateEmail();
 }
-
-// Återställer formulären och tömmer varukorgen var 15e min och
-// ger en alert att användaren är för långsam.
+// ***********************************************************************
+//    Reset the forms and empty the basket after 15 min and gives the 
+//    user a alertmsg 
+// ***********************************************************************
 
 setInterval(orderTimeOut, 900000);
 

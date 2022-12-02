@@ -50,10 +50,11 @@ $col-black: #212427;
   }
 }
 
-
+/* ***********************************
+  Styling basket section
+*********************************** */
 .basket {
   margin: 2rem 7rem 0;
-
 
   .basket-bottom {
     font-size: 1.3rem;
@@ -95,6 +96,10 @@ $col-black: #212427;
   justify-content: space-around;
 }
 
+/* ***********************************
+   Styling customer info form
+*********************************** */
+
 .customer-info {
   flex-direction: row;
   margin: 2rem 7rem 0;
@@ -105,6 +110,9 @@ $col-black: #212427;
   max-height: 850px;
 }
 
+/* ***********************************
+   The form with payment options
+*********************************** */
 .payment-section {
   margin-top: 0;
   margin-left: 15px;
@@ -115,6 +123,10 @@ $col-black: #212427;
   width: 460px;
   height: auto;
 }
+
+/* ***********************************
+   Footer
+*********************************** */
 
 #logoimg {
   width: 260px;

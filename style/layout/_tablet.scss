@@ -42,7 +42,9 @@ $col-black: #212427;
   }
 }
 
-
+/* ***********************************
+   The basket section
+*********************************** */
 .basket {
     margin: 3rem;
 
@@ -115,20 +117,27 @@ $col-black: #212427;
     }
   }
 }
+/* ***********************************
+   The discount-input 
+*********************************** */
+.discount-input {
+    padding: 1rem;
+  }
+  
+  .discount-div {
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+  
+
+/* ***********************************
+   The form with payment options
+*********************************** */
 
 .customer-info {
     margin: 3rem;
   }
-
-.discount-input {
-  padding: 1rem;
-}
-
-.discount-div {
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 10px 0;
-}
 
 .products label {
   font-size: 1.5rem;
@@ -153,11 +162,17 @@ h2 {
   height: auto;
 }
 
+/* ***********************************
+    Styling for newletter and GDPR
+*********************************** */
 .newsletter,
 .personal-data {
   font-size: 1.2rem;
 }
 
+/* ***********************************
+    Styling for footer
+*********************************** */
 
 #logoimg {
   width: 200px;

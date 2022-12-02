@@ -30,6 +30,11 @@ section {
   }
 }
 
+/* ***********************************
+   The popup with info when order is 
+   complete
+*********************************** */
+
 .popup {
   width: 60vw;
   min-height: 50vh;
@@ -264,10 +269,6 @@ section {
 
   .basket-bottom {
     font-size: 0.9rem;
-    /*
-    display: flex;
-    justify-content: flex-end*/
-
   }
 
   .price-display :nth-child(3) {
@@ -377,6 +378,10 @@ section {
   }
 }
 
+/* ***********************************
+   Styling for the discount-input
+*********************************** */
+
 .discount-input {
   display: flex;
   left: 2rem;
@@ -397,9 +402,16 @@ section {
   justify-content: space-around;
 }
 
+/* ***********************************
+   styling for the filtering
+*********************************** */
 .products label {
   margin-left: 20px;
 }
+
+/* ***********************************
+   Styling for error- and successmessage
+*********************************** */ 
 
 #form span,
 #invoice span,
@@ -422,6 +434,10 @@ section {
 .fa-solid {
   color: seagreen;
 }
+
+/* ***********************************
+   The form with customer info
+*********************************** */
 
 .customer-info {
   display: flex;
@@ -485,7 +501,9 @@ section {
   margin-top: 0.6rem;
 }
 
-/* Välja Betalsätt */
+/* ***********************************
+   The form with payment options
+*********************************** */
 
 .invoice {
   margin-bottom: 50px;
@@ -517,7 +535,9 @@ section {
   background-color: $col-light;
 }
 
-/* Formulär personnr faktura */
+/* ***********************************
+   The forms for invoice and card
+*********************************** */
 
 .invoice-info {
   margin-top: 30px;
@@ -526,8 +546,6 @@ section {
   line-height: 1.3rem;
   margin-bottom: 30px;
 }
-
-/* Kort-formulär */
 
 .credit-card,
 .invoice-details {
@@ -551,22 +569,17 @@ section {
   padding: 0 30px;
 }
 
-/* Title */
 .title {
   font-size: 1.25rem;
   text-align: center;
 }
 
-
-/* Card Number */
 .card-number input {
   width: 100%;
   margin: 40px 0 30px 0;
   padding: 10px;
-
 }
 
-/* Date Field */
 .month select,
 .year select,
 .cvv-input input {
@@ -585,8 +598,6 @@ section {
   float: right;
 }
 
-/* Card Verification Field */
-
 .cvv-details {
   margin-top: 15px;
   font-size: 0.8rem;
@@ -594,7 +605,9 @@ section {
   float: right;
 }
 
-/* Buttons Section */
+/* ***********************************
+   The buttons for card and invoice
+*********************************** */
 .card-btn,
 .invoice-btn {
   cursor: pointer;
@@ -613,6 +626,10 @@ section {
   color: $col-light;
 }
 
+/* ***********************************
+  Styling for newletter and GDPR
+*********************************** */
+
 .checkBoxes {
   display: flex;
   flex-direction: column;
@@ -627,8 +644,6 @@ section {
   margin-left: 50px;
 }
 
-
-
 .newsletter,
 .personal-data {
   display: flex;
@@ -636,9 +651,10 @@ section {
   margin: 20px;
 }
 
-
-
-
+/* ***********************************
+   The buttons on the end of the page
+   for order and reset order
+*********************************** */
 #buy-button,
 #eraseBtn {
   margin: 60px 40px 10px 40px;
@@ -662,6 +678,10 @@ section {
   display: flex;
   flex-direction: column;
 }
+
+/* ***********************************
+   Styling for footer
+*********************************** */
 
 footer {
   margin-top: 50px;
