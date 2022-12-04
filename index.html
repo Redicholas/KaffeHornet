@@ -146,42 +146,47 @@
           <h2>Dina uppgifter</h2>
           <hr />
           <div class="first-name">
-            <label
-              >Förnamn:<span>*</span>
-              <span id="name-error" hidden></span>
-              <input type="text" id="fname" required />
+            <label>Förnamn:
+              <i class="fas fa-exclamation-circle failure-icon"></i>
+              <i class="far fa-check-circle success-icon"></i>
+              <span class="error"></span>
+              <input type="text" id="fname" required>
             </label>
           </div>
 
           <div class="last-name">
-            <label
-              >Efternamn:<span>*</span>
-              <span id="lastname-error" hidden></span>
-              <input type="text" id="lname" required /><br />
+            <label>Efternamn:
+              <i class="fas fa-exclamation-circle failure-icon"></i>
+              <i class="far fa-check-circle success-icon"></i>
+              <span class="error"></span>
+              <input type="text" id="lname" required><br>
             </label>
           </div>
 
           <div class="customer-adress">
-            <label
-              >Adress:<span>*</span>
-              <span id="adress-error" hidden></span>
-              <input type="text" id="adress" required />
+            <label>Adress:
+              <i class="fas fa-exclamation-circle failure-icon"></i>
+              <i class="far fa-check-circle success-icon"></i>
+              <span class="error"></span>
+              <input type="text" id="adress" required>
             </label>
           </div>
 
           <div class="zip">
-            <label
-              >Postnummer:<span>*</span>
-              <span id="zip-error" hidden></span>
-              <input type="number" id="zip" required />
+            <label>Postnummer:
+              <i class="fas fa-exclamation-circle failure-icon"></i>
+              <i class="far fa-check-circle success-icon"></i>
+              <span class="error"></span>
+              <input type="number" id="zip" required>
             </label>
           </div>
 
           <div class="city">
-            <label
-              >Postort:<span>*</span>
-              <span id="city-error" hidden></span>
-              <input type="text" id="city" required />
+            <label>Postort:
+              <i class="fas fa-exclamation-circle failure-icon"></i>
+              <i class="far fa-check-circle success-icon"></i>
+              <span class="error"></span>
+              <input type="text" id="city" required>
             </label>
           </div>
 
@@ -194,17 +199,19 @@
           </div>
 
           <div class="phone">
-            <label
-              >Mobilnr:<span>*</span>
-              <span id="phone-error" hidden></span>
-              <input type="tel" id="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required />
+            <label>Mobilnr:
+              <i class="fas fa-exclamation-circle failure-icon"></i>
+              <i class="far fa-check-circle success-icon"></i>
+              <span class="error"></span>
+              <input type="tel" id="phone" pattern="[0-9]{10}" required>
             </label>
           </div>
 
           <div class="customer-email">
-            <label
-              >Email:<span>*</span>
-              <span id="email-error" hidden></span>
+            <label>Email:
+              <i class="fas fa-exclamation-circle failure-icon"></i>
+              <i class="far fa-check-circle success-icon"></i>
+              <span class="error"></span>
               <input type="email" id="email" required />
             </label>
           </div>
