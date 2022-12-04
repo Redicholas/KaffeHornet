@@ -245,7 +245,7 @@ function renderBasket() {
   }
   
     if (products[i].amount >= 10) {
-      totalPricePerProduct *= 0.9;
+      adjustedPrice *= 0.9;
       totalPriceDisplay.innerHTML = Math.round(totalPrice + shippingPrice);
     }
     totalPrice += adjustedPrice;
