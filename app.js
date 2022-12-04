@@ -650,6 +650,8 @@ christmas();
 
 // ***********************************************************************
 //             Validation for all the forms
+//      Har påbörjat refaktorering av koden men inte blivit klart.
+//          Finns att se i branchen refaktorering 
 // ***********************************************************************
 
 const nameError = document.getElementById('name-error');
