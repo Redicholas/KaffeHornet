@@ -235,14 +235,20 @@ function renderBasket() {
   totalPrice = 0;
 
   for (let i = 0; i < products.length; i += 1) {
-    totalPricePerProduct = products[i].price * products[i].amount;
+    let adjustedPrice = totalPricePerProduct;
+    adjustedPrice = products[i].price * products[i].amount;
     productAmount += products[i].amount;
 
+      //Weekend price
+  if ((day === 5 && hour > 15) || day === 6 || day === 0 || (day === 1 && hour < 3)) {
+    adjustedPrice = Math.round(adjustedPrice * 1.15);
+  }
+  
     if (products[i].amount >= 10) {
       totalPricePerProduct *= 0.9;
       totalPriceDisplay.innerHTML = Math.round(totalPrice + shippingPrice);
     }
-    totalPrice += totalPricePerProduct;
+    totalPrice += adjustedPrice;
     productPriceDisplay.innerHTML = Math.round(totalPrice);
     shippingPriceDisplay.innerHTML = Math.round(shippingPrice);
     totalPriceDisplay.innerHTML = totalPrice + shippingPrice;
@@ -255,7 +261,7 @@ function renderBasket() {
             <div class="item-info">
               <h3>${products[i].name}</h3>
               <p>${products[i].desc}</p>
-              <p class="tomten">${Math.round(totalPricePerProduct)}kr</p>
+              <p class="tomten">${Math.round(adjustedPrice)}kr</p>
             </div>
             <div class="item-selection">
               <button class="button-add" data-id="${i}">+</button>
@@ -266,7 +272,7 @@ function renderBasket() {
         </div>
 	    `;
     }
-  }
+  }   
   if (productAmount > 0) {
     shippingPrice = 25 + totalPrice * 0.1;
     totalPriceDisplay.innerHTML = Math.round(totalPrice + shippingPrice);
